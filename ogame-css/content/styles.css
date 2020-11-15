@@ -1,0 +1,8 @@
+body{
+    /* background: black !important; */
+}
+
+/* Remove right banner */
+#banner_skyscraper{
+    display: none;
+}   
