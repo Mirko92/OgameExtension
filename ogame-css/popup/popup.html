@@ -3,16 +3,45 @@
 
 <head>
     <style>
-        button {
-            height: 30px;
-            width: 30px;
-            outline: none;
+        .popup_wrapper{
+            padding: 25px;
         }
+
+        .bot_container{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .max_bet label{
+            display: block;
+        }
+        .bot_actions{
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
     </style>
 </head>
 
 <body>
-    <button id="changeColor"></button>
+    <div class="popup_wrapper">
+        <form class="bot_container">
+            <div class="max_bet">
+                <label for="maxBetInput">Offerta massima</label>
+                <input type="number" name="maxBet" id="maxBetInput" step="1000">
+            </div>
+            <div class="bot_actions">
+                <button class="bot_actions__btn">RUN</button>
+                <button class="bot_actions__btn">STOP</button>
+            </div>
+        </form>
+    </div>
+
+    <button id="changeColor">bla bla bla togliere</button>
     <script src="popup.js"></script>
 </body>
 
