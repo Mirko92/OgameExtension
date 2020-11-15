@@ -1,8 +1,20 @@
-body{
-    /* background: black !important; */
+/* body {
+     background: black !important; 
+} */
+
+/* 
+    Nasconde alcuni elmenti della pagina
+*/
+#mmonetbar,         /* Top Banner */
+#siteHeader,        /* Top Banner */
+#banner_skyscraper  /* Right banner */ 
+{
+    display: none !important;
 }
 
-/* Remove right banner */
-#banner_skyscraper{
-    display: none;
-}   
+/* 
+    Riporta in cima il contenuto principale
+*/
+body.no-commander #pageContent {
+    top: 0px !important;
+}
