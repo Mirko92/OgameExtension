@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(function () {
 
   console.debug("Estensione installata");
 
-  currentTabId = null; 
+  currentTabId = null;
 
   /* 
     TODO: Prova storage 
@@ -12,7 +12,7 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 
   // FIXME: Cancellare 
-  chrome.tabs.onSelectionChanged.addListener(function(tabId) {
+  chrome.tabs.onSelectionChanged.addListener(function (tabId) {
     // lastTabId = tabId;
     // chrome.pageAction.show(lastTabId);
     currentTabId = tabId;
@@ -21,9 +21,19 @@ chrome.runtime.onInstalled.addListener(function () {
     // Cambia il testo dell tooltip
     // chrome.pageAction.setTitle({title: "Bubala", tabId: currentTabId});
   });
-  
 
-  
+  chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    console.debug("Tab updated", chrome);
+
+    if (/https:\/\/s\d\d\d-\D\D.ogame.gameforge.*/.test(tab.url)) {
+      console.debug("Tab is running ogame");
+      // chrome.tabs.executeScript({
+      //   code: 'document.body.style.backgroundColor="orange"'
+      // });
+    }
+
+  });
+
   /*  
     L'estensione sarà utilizzabile 
     solo in pagine che contengono 
@@ -44,3 +54,5 @@ chrome.runtime.onInstalled.addListener(function () {
 
 
 });
+
+

@@ -1,14 +1,18 @@
+"content_scripts": [
+  {
+    "matches": [
+      "https://*.ogame.gameforge.com/*"
+    ],
+    "css": [
+      "content/styles.css"
+    ],
+    "js": [
+      "content/content.js"
+    ]
+  }
+]
 
-  "content_scripts": [
-    {
-      "matches": [
-        "https://*.ogame.gameforge.com/*"
-      ],
-      "css": [
-        "content/styles.css"
-      ],
-      "scripts": [
-        "content/content.js"
-      ]
-    }
-  ],
+Per riconoscere che nella pagina è presente il menu del mercante 
+#traderOverviewcomponent
+#traderOverview
+
