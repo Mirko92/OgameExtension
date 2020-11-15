@@ -18,3 +18,11 @@
 body.no-commander #pageContent {
     top: 0px !important;
 }
+
+body.no-commander{
+    background-position: 50% -1px !important;
+}
+
+body.no-commander .contentBoxBody{
+    top: 0px !important;
+}
