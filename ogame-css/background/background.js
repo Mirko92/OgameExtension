@@ -1,25 +1,11 @@
 chrome.runtime.onInstalled.addListener(function () {
-
   console.debug("Estensione installata");
-
-  currentTabId = null;
 
   /* 
     TODO: Prova storage 
   */
   chrome.storage.sync.set({ color: '#3aa757' }, function () {
     console.log('The color is green.');
-  });
-
-  // FIXME: Cancellare 
-  chrome.tabs.onSelectionChanged.addListener(function (tabId) {
-    // lastTabId = tabId;
-    // chrome.pageAction.show(lastTabId);
-    currentTabId = tabId;
-    console.debug("Current tab ID:", currentTabId);
-
-    // Cambia il testo dell tooltip
-    // chrome.pageAction.setTitle({title: "Bubala", tabId: currentTabId});
   });
 
   chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
@@ -31,7 +17,6 @@ chrome.runtime.onInstalled.addListener(function () {
       //   code: 'document.body.style.backgroundColor="orange"'
       // });
     }
-
   });
 
   /*  
@@ -51,8 +36,6 @@ chrome.runtime.onInstalled.addListener(function () {
       ]
     }
   ]);
-
-
 });
 
 
