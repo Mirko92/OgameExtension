@@ -1,7 +1,7 @@
 console.debug("Content js is running...");
 
-function prova(){
-    console.debug("prova");
+function prova(a){
+    console.debug("prova", a );
 }
 
 var interval = null;

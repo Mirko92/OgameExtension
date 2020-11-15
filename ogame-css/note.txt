@@ -16,3 +16,17 @@ Per riconoscere che nella pagina è presente il menu del mercante
 #traderOverviewcomponent
 #traderOverview
 
+
+Esempio uso storage
+
+//popup.js
+let changeColor = document.getElementById('changeColor');
+
+chrome.storage.sync.get('color', function (data) {
+    changeColor.style.backgroundColor = data.color;
+    changeColor.setAttribute('value', data.color);
+});
+
+//popup.html
+<button id="changeColor">bla bla bla togliere</button>
+<script src="popup.js"></script>

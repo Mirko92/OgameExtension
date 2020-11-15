@@ -19,6 +19,8 @@ chrome.runtime.onInstalled.addListener(function () {
     }
   });
 
+  
+
   /*  
     L'estensione sarà utilizzabile 
     solo in pagine che contengono 
