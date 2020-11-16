@@ -9,17 +9,12 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 
   chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    console.debug("Tab updated", chrome);
-
     if (/https:\/\/s\d\d\d-\D\D.ogame.gameforge.*/.test(tab.url)) {
       console.debug("Tab is running ogame");
-      // chrome.tabs.executeScript({
-      //   code: 'document.body.style.backgroundColor="orange"'
-      // });
     }
   });
 
-  
+
 
   /*  
     L'estensione sarà utilizzabile 
@@ -30,7 +25,7 @@ chrome.runtime.onInstalled.addListener(function () {
     {
       conditions: [
         new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: { urlContains: 'ogame.gameforges' },
+          pageUrl: { urlContains: 'ogame.gameforge' },
         })
       ],
       actions: [
