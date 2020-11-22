@@ -18,7 +18,21 @@
     <div>
         <p>Choose a different background color!</p>
     </div>
+
+    <div id="app">{{prova}}</div>
 </body>
 <script src="options.js"></script>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                prova: 'ciao'
+            }
+        }
+    }).mount('#app')
+</script>
 
 </html>
