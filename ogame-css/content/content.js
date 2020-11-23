@@ -73,7 +73,7 @@ function bot(maxBet, timer) {
         maxBtnMet.click();
 
         submit();
-    }, timer || 750);
+    }, timer || 1050);
 }
 
 function stop() {
