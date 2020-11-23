@@ -1,0 +1,28 @@
+/* body {
+     background: black !important; 
+} */
+
+/* 
+    Nasconde alcuni elmenti della pagina
+*/
+#mmonetbar,         /* Top Banner */
+#siteHeader,        /* Top Banner */
+#banner_skyscraper  /* Right banner */ 
+{
+    display: none !important;
+}
+
+/* 
+    Riporta in cima il contenuto principale
+*/
+body.no-commander #pageContent {
+    top: 0px !important;
+}
+
+body.no-commander{
+    background-position: 50% -1px !important;
+}
+
+body.no-commander .contentBoxBody{
+    top: 0px !important;
+}
