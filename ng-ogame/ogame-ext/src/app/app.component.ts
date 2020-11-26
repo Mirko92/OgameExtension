@@ -16,7 +16,7 @@ export class AppComponent {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.executeScript(
         tabs[0].id,
-        { code: `bot(${this.maxBet.value})` });
+        { code: `bot(${this.maxBet})` });
     });
   }
 
