@@ -1,5 +1,13 @@
 console.debug("Content js is running...");
 
+/*
+    Aggiungo un elemento script alla pagina
+    con la speranza di sfruttarlo per farmi passare l'oggetto window
+ */
+var elt = document.createElement("script");
+elt.innerHTML = "window.foo = {bar:function(){console.log(window)}};"
+document.head.appendChild(elt);
+
 function prova(a){
     console.debug("prova", a );
 }
