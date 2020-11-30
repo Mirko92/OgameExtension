@@ -1,5 +1,23 @@
 console.debug("Content js is running...");
 
+console.debug("Current Extension ID:", chrome.runtime.id);
+
+console.debug("Stampare versione");
+
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+
+        console.log(sender.tab ?
+            "from a content script:" + sender.tab.url :
+            "from the extension");
+
+        if (request.greeting == "hello")
+            sendResponse({ farewell: "goodbye" });
+    }
+);
+
+
+
 /*
     Aggiungo un elemento script alla pagina
     con la speranza di sfruttarlo per farmi passare l'oggetto window
@@ -89,4 +107,15 @@ function stop() {
     clearInterval(interval);
 }
 
+function runInactiveEspionage() {
+    let delay = 0;
+    let step = 1000;
+    document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage')
+        .forEach(
+            x => {
+                setTimeout(() => x.click(), delay);
+                delay += step;
+            }
+        );
+}
 

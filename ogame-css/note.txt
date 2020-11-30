@@ -30,3 +30,8 @@ chrome.storage.sync.get('color', function (data) {
 //popup.html
 <button id="changeColor">bla bla bla togliere</button>
 <script src="popup.js"></script>
+
+//
+Controllare come inserire script nella pagina
+Prendere spunto da Ogame Infinity Github 
+Spiare l'intera galassia 
