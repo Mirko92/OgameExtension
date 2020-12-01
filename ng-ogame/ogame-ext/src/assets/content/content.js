@@ -22,9 +22,27 @@ chrome.runtime.onMessage.addListener(
     Aggiungo un elemento script alla pagina
     con la speranza di sfruttarlo per farmi passare l'oggetto window
  */
-var elt = document.createElement("script");
-elt.innerHTML = "window.foo = {bar:function(){console.log(window)}};"
-document.head.appendChild(elt);
+var scriptEL = document.createElement("script");
+scriptEL.innerHTML = `
+    window.mp = {
+        init:function(){
+            console.debug("Init ogame extension");
+
+            console.debug("Player name: ", player.name);
+
+            console.debug("Current page: ", currentPage);
+
+        },
+
+        message(txt, isAlert){
+            fadeBox(txt, isAlert);
+        }
+    }
+
+    window.onload = mp.init();
+`;
+
+document.head.appendChild(scriptEL);
 
 function prova(a){
     console.debug("prova", a );
