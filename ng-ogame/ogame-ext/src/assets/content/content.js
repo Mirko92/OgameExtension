@@ -34,6 +34,10 @@ scriptEL.innerHTML = `
 
         },
 
+        goToFleet(){
+            window.location = 'index.php?page=ingame&component=fleetdispatch';
+        },
+
         message(txt, isAlert){
             fadeBox(txt, isAlert);
         }

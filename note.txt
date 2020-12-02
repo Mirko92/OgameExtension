@@ -40,6 +40,18 @@ Spiare l'intera galassia
 
 "options_page": "options/options.html",
 
+
+
+sendShipsWithPopup(
+  ORDER,
+  GALAXY,
+  SYSTEM,
+  POSITION,
+  PLANET TYPE, //TODO
+  SHIP COUNT, //TODO
+);
+
+
 orderNames:
 1: "Attacco"
 2: "Attacco federale"
@@ -53,11 +65,64 @@ orderNames:
 15: "Spedizione"
 
 
-sendShipsWithPopup(
-  ORDER,
-  GALAXY,
-  SYSTEM,
-  POSITION,
-  PLANET TYPE, //TODO
-  SHIP COUNT, //TODO
-);
+
+
+MISSION_ATTACK: 1
+MISSION_COLONIZE: 7
+MISSION_DEPLOY: 4
+MISSION_DESTROY: 9
+MISSION_ESPIONAGE: 6
+MISSION_EXPEDITION: 15
+MISSION_HOLD: 5
+MISSION_MISSILEATTACK: 10
+MISSION_NONE: 0
+MISSION_RECYCLE: 8
+MISSION_TRANSPORT: 3
+MISSION_UNIONATTACK: 2
+PLANETTYPE_DEBRIS: 2
+PLANETTYPE_MOON: 3
+PLANETTYPE_PLANET: 1
+PLAYER_ID_LEGOR: 1
+PLAYER_ID_SPACE: 99999
+
+
+Ecco i tipi di nave 
+[
+  {"id":202,"name":"Cargo leggero"},
+  {"id":203,"name":"Cargo Pesante"},
+  {"id":204,"name":"Caccia Leggero"},
+  {"id":205,"name":"Caccia Pesante"},
+  {"id":206,"name":"Incrociatore"},
+  {"id":207,"name":"Nave da battaglia"},
+  {"id":208,"name":"Colonizzatrice"},
+  {"id":209,"name":"Riciclatrici"},
+  {"id":210,"name":"Sonda spia"},
+  {"id":211,"name":"Bombardiere"},
+  {"id":213,"name":"Corazzata"},
+  {"id":214,"name":"Morte Nera"},
+  {"id":215,"name":"Incrociatore da Battaglia"},
+  {"id":217,"name":"Crawler"},
+  {"id":218,"name":"Reaper"},
+  {"id":219,"name":"Pathfinder"}
+]
+
+//CHIAMATA PER INVIO FLOTTA 
+fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1", {
+  "headers": {
+    "accept": "application/json, text/javascript, */*; q=0.01",
+    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "referrer": "https://s172-it.ogame.gameforge.com/game/index.php?page=ingame&component=overview",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "mission=6&galaxy=1&system=89&position=4&type=3&shipCount=10&token=3e0f2d281f404f7ca572d646186ac3d8",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+}).then(r => console.debug(r) );
