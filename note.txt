@@ -126,3 +126,5 @@ fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1"
   "mode": "cors",
   "credentials": "include"
 }).then(r => console.debug(r) );
+
+#planetList
