@@ -35,3 +35,7 @@ chrome.storage.sync.get('color', function (data) {
 Controllare come inserire script nella pagina
 Prendere spunto da Ogame Infinity Github 
 Spiare l'intera galassia 
+
+
+
+"options_page": "options/options.html",
