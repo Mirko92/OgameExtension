@@ -39,3 +39,25 @@ Spiare l'intera galassia
 
 
 "options_page": "options/options.html",
+
+orderNames:
+1: "Attacco"
+2: "Attacco federale"
+3: "Trasporto"
+4: "Schieramento"
+5: "Stazionamento"
+6: "Spionaggio"
+7: "Colonizzazione"
+8: "Ricicla campo detriti"
+9: "Distruzione Luna"
+15: "Spedizione"
+
+
+sendShipsWithPopup(
+  ORDER,
+  GALAXY,
+  SYSTEM,
+  POSITION,
+  PLANET TYPE, //TODO
+  SHIP COUNT, //TODO
+);
