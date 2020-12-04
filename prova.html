@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prove varie</title>
+    
+    
+
+    <style>
+        h1 {
+            color: red;
+        }
+
+        .ciccio{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="prova">
+        <h1>Prova</h1>
+    </div>
+
+
+    <footer>
+        <small>File di prova</small>
+    </footer>
+
+    
+</body>
+
+<script async>
+    console.debug("Ciao");
+
+    function myButton(){
+        let m_button = document.createElement('button');
+        m_button.textContent = "P";
+        m_button.classList = ['ciccio'];
+        return m_button;
+    }
+
+    function init(){
+        const provaEl = document.getElementById("prova");
+        console.debug("ProvaEl: ", provaEl);
+
+        provaEl.appendChild(myButton());
+    }
+
+    window.onload = init();
+</script>
+</html>
