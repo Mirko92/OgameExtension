@@ -26,6 +26,18 @@ body.no-commander .contentBoxBody {
     top: 0px !important;
 }
 
+
+/* Flett button su pianeti */
+.mp_fleet_button{
+    position: absolute;
+    top: 25%;
+    right: 0;
+    transform: translateX(100%);
+    cursor: pointer;
+}
+
+
+/* TODO: migliorare layout pianeti */
 /* .smallplanet {
     display: flex;
     align-items: center;
