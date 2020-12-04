@@ -32,6 +32,16 @@ scriptEL.innerHTML = `
 
             console.debug("Current page: ", currentPage);
 
+
+            switch (currentPage) {
+                case "fleetdispatch":
+                    localStorage.setItem('mp_fleet', shipsData);
+                    break;
+            
+                default:
+                    break;
+            }
+
         },
 
         goToFleet(){
@@ -48,8 +58,10 @@ scriptEL.innerHTML = `
 
 document.head.appendChild(scriptEL);
 
-function prova(a){
-    console.debug("prova", a );
+function prova(a) {
+    console.debug("prova", a);
+
+
 }
 
 var interval = null;

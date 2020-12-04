@@ -127,4 +127,13 @@ fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1"
   "credentials": "include"
 }).then(r => console.debug(r) );
 
+
+//TODO: Da qui aggiungere su UI pulsanti necessari 
 #planetList
+
+
+
+Procedure: 
+Passare sul menu flotta di ogni pianeta/luna e memorizzare la flotta disponibile.
+Ogni volta che si apre il menu di flotta, aggiornare questa memorizzazione. 
+
