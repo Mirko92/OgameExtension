@@ -24,6 +24,7 @@ function fleetButton() {
     button.title = 'Run fleet save';
     return button;
 }
+
 addFleetsButton();
 //#endregion
 
@@ -44,7 +45,7 @@ window.mp = {
 
         switch (currentPage) {
             case "fleetdispatch":
-                // TODO: Distinct by Coords and planet type
+                // TODO: Distinct by Coords and planet type and uni 
                 localStorage.setItem('mp_fleet', shipsData);
                 break;
 
@@ -67,6 +68,8 @@ window.mp = {
 
     quickFleetSave(event){
         console.log("prova", event);
+
+        fadeBox('Ci proviamo');
     },
 
     goToFleet() {

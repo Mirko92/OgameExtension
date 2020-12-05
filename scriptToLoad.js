@@ -17,23 +17,24 @@ window.mp = {
                 break;
         }
 
-        this.addFleetsButton();
+        this.addFleetActions();
 
     },
 
-    addFleetsButton() {
-        const planets = document.querySelectorAll('#planetList > div');
+    addFleetActions(){
+        console.debug("Aggiungo azioni ai pulsanti di fleet save");
 
-        planets.forEach(p => {
-            p.appendChild(this.fleetButton());
-        });
+        const fleetButtons = document.querySelectorAll('.mp_fleet_button');
+
+        console.debug("Trovati " + fleetButtons.length + " pulsanti");
+
+        fleetButtons.forEach(btn => btn.onclick = this.quickFleetSave);
     },
 
-    fleetButton() {
-        let button = document.createElement('button');
-        button.textContent = "FS(m)";
-        button.classList = ['mp_fleet_button'];
-        return button;
+    quickFleetSave(event){
+        console.log("prova", event);
+
+        fadeBox('Ci proviamo');
     },
 
     goToFleet() {
