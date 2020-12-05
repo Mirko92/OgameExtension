@@ -1,21 +1,14 @@
+//#region START LOG
 console.debug("Content js is running...");
 
-console.debug("Current Extension ID:", chrome.runtime.id);
+console.debug("Mp Ogame extension. ID:", chrome.runtime.id);
 
-console.debug("Stampare versione");
+// FIXME: Update versione vefore release
+console.info("v.0.0.1");
 
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
+//#endregion
 
-        console.log(sender.tab ?
-            "from a content script:" + sender.tab.url :
-            "from the extension");
-
-        if (request.greeting == "hello")
-            sendResponse({ farewell: "goodbye" });
-    }
-);
-
+//#region FLEET BUTTONS
 function addFleetsButton() {
     const planets = document.querySelectorAll('#planetList > div');
 
@@ -31,13 +24,13 @@ function fleetButton() {
     button.title = 'Run fleet save';
     return button;
 }
-
 addFleetsButton();
+//#endregion
 
+//#region WepPage script
 /*
-    Aggiungo un elemento script alla pagina
-    con la speranza di sfruttarlo per farmi passare l'oggetto window
- */
+    Script to direct interaction with Ogame.js
+*/
 var scriptEL = document.createElement("script");
 scriptEL.innerHTML = `
 window.mp = {
@@ -87,20 +80,30 @@ window.mp = {
 
 window.onload = mp.init();
 `;
-
 document.head.appendChild(scriptEL);
+//#endregion
 
-function prova(a) {
-    console.debug("prova", a);
+//#region TRADER
+var interval = null;
+
+// TODO: In generale creare classe per il battitore 
+function getMaxButtons() {
+    return document.querySelectorAll(".normalResource a.max");
 }
 
-var interval = null;
+// TODO: scegliere nome migliore
+function payButton() {
+    return document.querySelectorAll("a.pay")[0];
+}
 
 /*
     - maxBet: number 
     - timer: nubmer (milliseconds)
  */
 function bot(maxBet, timer) {
+
+    console.debug("max bet", maxBet);
+    console.debug("timer", timer);
 
     var playerNameChilds = document.querySelectorAll('#playerName span');
     var playerName = playerNameChilds[playerNameChilds.length - 1].textContent.trim();
@@ -112,13 +115,13 @@ function bot(maxBet, timer) {
     console.debug("Input cry:", inputCry);
     console.debug("Input deu:", inputDeu);
 
-    var [maxBtnMet, maxBtnCry, maxBtnDeu] = document.querySelectorAll(".normalResource a.max");
+    var [maxBtnMet, maxBtnCry, maxBtnDeu] = getMaxButtons();
 
     console.debug("Max btn met:", maxBtnMet);
     console.debug("Max btn cry:", maxBtnCry);
     console.debug("Max btn deu:", maxBtnDeu);
 
-    var payBtn = document.querySelectorAll("a.pay")[0];
+    var payBtn = payButton();
     console.debug("Pay btn", payBtn);
 
     var currentBetEl = document.querySelectorAll(".detail_value.odd.currentSum")[0];
@@ -166,11 +169,20 @@ function bot(maxBet, timer) {
     }, timer || 1050);
 }
 
+function betMetal() {
+    const [maxBtnMet] = getMaxButtons();
+    maxBtnMet.click();
+    payButton().click();
+
+}
+
 function stop() {
     console.debug("STOP");
     clearInterval(interval);
 }
+//#endregion
 
+//#region GALAXY ACTIONS
 function runInactiveEspionage() {
     let delay = 0;
     let step = 1000;
@@ -182,4 +194,9 @@ function runInactiveEspionage() {
             }
         );
 }
+//#endregion
 
+// TODO: Codice da cancellare
+function prova(a) {
+    console.debug("prova", a);
+}
