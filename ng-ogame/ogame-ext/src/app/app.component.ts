@@ -12,19 +12,23 @@ export class AppComponent {
 
   maxBet: number = 5000;
 
-  runBot(){
+  private executeScript(script: string){
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.executeScript(
         tabs[0].id,
-        { code: `bot(${this.maxBet})` });
+        { code: script });
     });
   }
 
+  runBot(){
+    this.executeScript(`bot(${this.maxBet});`);
+  }
+
   stop(){
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.tabs.executeScript(
-        tabs[0].id,
-        { code: 'stop();' });
-    });
+    this.executeScript(`stop();`);
+  }
+
+  bet(){
+    this.executeScript('betMetal();');
   }
 }
