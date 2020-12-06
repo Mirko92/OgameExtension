@@ -1,3 +1,6 @@
+console.debug("#######################################");
+console.debug("Adding OnInstalled Listener");
+
 chrome.runtime.onInstalled.addListener(function () {
   console.debug("Estensione installata");
 
@@ -35,4 +38,23 @@ chrome.runtime.onInstalled.addListener(function () {
   ]);
 });
 
+
+//#region MESSAGES HANDLING
+console.debug("#######################################");
+console.debug("Adding onMessageExternal listener");
+
+chrome.runtime.onMessageExternal.addListener(
+    function (request, sender, sendResponse) {
+
+        console.log(sender.tab ?
+            "from a content script:" + sender.tab.url :
+            "from the extension");
+
+        console.debug("Request:", request);
+        
+        if (request.greeting == "hello")
+            sendResponse({ farewell: "goodbye" });
+    }
+);
+//#endregion
 

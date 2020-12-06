@@ -1,6 +1,6 @@
 {
     "name": "Ogame MP",
-    "version": "0.0.3",
+    "version": "0.0.8",
     "description": "Ogame extension",
     "manifest_version": 2,
     "icons": {
@@ -10,7 +10,7 @@
         "128": "assets/images/get_started128.png"
     },
     "background": {
-        "persistent": false,
+        "persistent": true,
         "scripts": [
             "assets/background/background.js"
         ]
@@ -28,7 +28,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://*.ogame.gameforge.com/*"
+                "https://*.ogame.gameforge.com/game/*"
             ],
             "css": [
                 "assets/content/styles.css"
@@ -38,6 +38,11 @@
             ]
         }
     ],
+    "externally_connectable": {
+        "matches": [
+            "https://*.ogame.gameforge.com/*"
+        ]
+    },
     "permissions": [
         "storage",
         "declarativeContent",
