@@ -22,11 +22,13 @@ function server() {
  * Update fleet info, collected till now. 
  */
 function getFleetInfo() {
+    console.debug("getFleetInfo()");
+    
     chrome.runtime.sendMessage(
         chrome.runtime.id,
-        { method: 'GET_FLEET_INFO' },
+        { method: "GET_FLEET_INFO", data: { uni: server() } },
         response => {
-            console.debug("Get fleet info");
+            console.debug("Get fleet info response", response);
             localStorage.setItem("mp_" + server(), JSON.stringify(response));
         }
     );

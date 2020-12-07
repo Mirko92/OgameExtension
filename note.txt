@@ -143,3 +143,12 @@ splittare alcune funzioni in più file comuni a tutti gli strati
 
 //Stampa a video tutti gli oggetti in memoria locale 
 chrome.storage.local.get(null, function callback(items) { console.log(items) });
+
+
+
+  /* 
+    TODO: Prova storage 
+  */
+  // chrome.storage.sync.set({ color: '#3aa757' }, function () {
+  //   console.log('The color is green.');
+  // });

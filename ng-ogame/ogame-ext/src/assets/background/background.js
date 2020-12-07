@@ -1,28 +1,17 @@
-console.debug("#######################################");
-console.debug("Adding OnInstalled Listener");
-
 chrome.runtime.onInstalled.addListener(function () {
-  console.debug("Estensione installata");
+  console.debug("Extension installed");
 
-  /* 
-    TODO: Prova storage 
-  */
-  chrome.storage.sync.set({ color: '#3aa757' }, function () {
-    console.log('The color is green.');
-  });
-
+  /**
+   * Check if tab is running ogame inside 
+   */
   chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (/https:\/\/s\d\d\d-\D\D.ogame.gameforge.*/.test(tab.url)) {
       console.debug("Tab is running ogame");
     }
   });
 
-
-
   /*  
-    L'estensione sarà utilizzabile 
-    solo in pagine che contengono 
-    'ogame.gameforges' nell' url
+    Enable extension for 'ogame.gameforges' host only
   */
   chrome.declarativeContent.onPageChanged.addRules([
     {
@@ -38,6 +27,9 @@ chrome.runtime.onInstalled.addListener(function () {
   ]);
 });
 
+/**
+ * Storage changes logger
+ */
 chrome.storage.onChanged.addListener(function (changes, namespace) {
   for (var key in changes) {
     var storageChange = changes[key];
@@ -53,55 +45,72 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 
 //#region MESSAGES HANDLING
 console.debug("#######################################");
-console.debug("Adding onMessageExternal listener");
+console.debug("Adding message listener");
 
-chrome.runtime.onMessageExternal.addListener(
-  function (request, sender, sendResponse) {
-    console.debug("Request:", request);
+chrome.runtime.onMessage.addListener(handleMessage);
+chrome.runtime.onMessageExternal.addListener(handleMessage);
 
-    console.debug(sender.tab ?
-      "from a content script:" + sender.tab.url :
-      "from the extension");
+function handleMessage(request, sender, sendResponse) {
+  console.debug("Request:", request);
 
-    switch (request.method) {
-      case "SAVE_FLEET_INFO":
-        console.debug("Methdod, save fleet info", request.data);
-        const { uni, planet, shipsData } = request.data;
+  console.debug(sender.tab ?
+    "from a content script:" + sender.tab.url :
+    "from the extension");
 
+  switch (request.method) {
+    case "SAVE_FLEET_INFO":
+      console.debug("Methdod, save fleet info", request.data);
+      saveFleetInfo(request.data);
+      break;
 
-        chrome.storage.local.get([uni], function (result) {
-          const value = (result[uni] || {});
-          console.debug('Value currently is ', value);
+    case "GET_FLEET_INFO":
+      console.debug("Methdod, get fleet info", request.data);
+      getFleetInfo(request.data, sendResponse);
+      break;
 
-          const { galaxy, system, position, type } = planet;
-          const coords = galaxy + "_" + system + "_" + position + "_" + type;
-
-          console.debug("Updating coords:", coords);
-
-          value[coords] = {
-            ...(value[coords] || {}),
-            shipsData
-          };
-
-          chrome.storage.local.set({ [uni]: value }, function () {
-            console.log('Value is set to ' + value);
-          });
-        });
-
-        break;
-      case "GET_FLEET_INFO":
-        console.debug("Methdod, get fleet info");
-        break;
-
-      default:
-        break;
-    }
-
-    // TODO: Esempio da Cancellare
-    if (request.greeting == "hello")
-      sendResponse({ farewell: "goodbye" });
+    default:
+      break;
   }
-);
+
+  // TODO: Esempio da Cancellare
+  if (request.greeting == "hello")
+    sendResponse({ farewell: "goodbye" });
+}
+
+function saveFleetInfo(data) {
+  const { uni, planet, shipsData } = data;
+
+
+  chrome.storage.local.get([uni], function (result) {
+    const value = (result[uni] || {});
+    console.debug('Value currently is ', value);
+
+    const { galaxy, system, position, type } = planet;
+    const coords = galaxy + "_" + system + "_" + position + "_" + type;
+
+    console.debug("Updating coords:", coords);
+
+    value[coords] = {
+      ...(value[coords] || {}),
+      shipsData
+    };
+
+    chrome.storage.local.set({ [uni]: value }, function () {
+      console.log('Value is set to ' + value);
+    });
+  });
+}
+
+function getFleetInfo(data, callback){
+  let { uni } = data;
+
+  chrome.storage.local.get([uni], function (result) {
+    const value = (result[uni] || {});
+    callback(value);
+  });
+}
+
+console.debug("#######################################");
 //#endregion
 
 
