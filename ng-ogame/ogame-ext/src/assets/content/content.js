@@ -38,8 +38,6 @@ function addFleetsButton() {
     const planets = document.querySelectorAll('#planetList > div');
 
     planets.forEach(container => {
-        console.debug("Planet container:", container);
-
         const planetCoordsText = container.querySelector('.planetlink .planet-koords').textContent;
         const regexResult = /\[(\d):(\d*):(\d*)\]/.exec(planetCoordsText);
 
@@ -200,19 +198,15 @@ window.mp = {
      * Add fleet buttons next to every planet
      */
     addFleetActions() {
-        console.debug("Aggiungo azioni ai pulsanti di fleet save");
-
         const fleetButtons = document.querySelectorAll('.mp_fleet_button');
-
-        console.debug("Trovati " + fleetButtons.length + " pulsanti");
-
         fleetButtons.forEach(btn => btn.onclick = this.quickFleetSave);
     },
 
     quickFleetSave(event) {
-        console.console.debug("prova", event);
+        const planet = this.getAttribute('data-planet');
+        const moon = this.getAttribute('data-moon');
 
-        fadeBox('Ci proviamo');
+        fadeBox('Coordinate: ' + planet + " / " +  moon);
     },
 
     /**
