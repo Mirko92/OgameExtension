@@ -44,17 +44,46 @@ console.debug("#######################################");
 console.debug("Adding onMessageExternal listener");
 
 chrome.runtime.onMessageExternal.addListener(
-    function (request, sender, sendResponse) {
+  function (request, sender, sendResponse) {
+    console.debug("Request:", request);
 
-        console.log(sender.tab ?
-            "from a content script:" + sender.tab.url :
-            "from the extension");
+    console.debug(sender.tab ?
+      "from a content script:" + sender.tab.url :
+      "from the extension");
 
-        console.debug("Request:", request);
-        
-        if (request.greeting == "hello")
-            sendResponse({ farewell: "goodbye" });
+    switch (request.method) {
+      case "SAVE_FLEET_INFO":
+        console.debug("Methdod, save fleet info", request.data);
+        break;
+      case "GET_FLEET_INFO":
+        console.debug("Methdod, get fleet info");
+        break;
+
+      default:
+        break;
     }
+
+    // TODO: Esempio da Cancellare
+    if (request.greeting == "hello")
+      sendResponse({ farewell: "goodbye" });
+  }
 );
 //#endregion
 
+
+/*
+
+  var {galaxy, system, position, type} = currentPlanet;
+  var coords = galaxy + "_" + system + "_" + position + "_" + type;
+
+  console.debug("UniData saved:", uniData);
+  console.debug("Data to save:", data);
+
+  uniData[planet] = {
+      ...(uniData[planet] || {}),
+      ...data
+  };
+
+  console.debug("After merge:", uniData);
+
+*/

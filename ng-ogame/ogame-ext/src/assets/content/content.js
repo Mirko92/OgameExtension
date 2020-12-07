@@ -1,5 +1,5 @@
-console.debug("#######################################");
 //#region START LOG
+console.debug("#######################################");
 console.debug("Content js is running...");
 console.debug("Mp Ogame extension. ID:", chrome.runtime.id);
 // FIXME: Update versione vefore release
@@ -7,7 +7,30 @@ console.info("v.0.0.8");
 console.debug("#######################################");
 //#endregion
 
-localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
+//#region UTILS
+/**
+ * Return server name 
+ * Eg: s170-it
+ */
+function server() {
+    const url = location.href;
+    return new RegExp(".*//(.*).ogame.gameforge.com.*").exec(url)[1]
+}
+//#endregion
+
+/**
+ * Update fleet info, collected till now. 
+ */
+function getFleetInfo() {
+    chrome.runtime.sendMessage(
+        chrome.runtime.id,
+        { method: 'GET_FLEET_INFO' },
+        response => {
+            console.debug("Get fleet info");
+            localStorage.setItem("mp_" + server(), JSON.stringify(response));
+        }
+    );
+}
 
 //#region FLEET BUTTONS
 function addFleetsButton() {
@@ -25,7 +48,6 @@ function fleetButton() {
     return button;
 }
 
-addFleetsButton();
 //#endregion
 
 //#region TRADER
@@ -141,6 +163,11 @@ function runInactiveEspionage() {
 }
 //#endregion
 
+
+getFleetInfo();
+addFleetsButton();
+
+
 //#region WepPage script
 /*
     Script to direct interaction with Ogame.js
@@ -148,23 +175,14 @@ function runInactiveEspionage() {
 var scriptEL = document.createElement("script");
 scriptEL.innerHTML = `
 window.mp = {
-    extensionId(){
-        return localStorage.getItem('mp_ogame_ext_id');
-    },
-    /**
-     * Return server name 
-     * Eg: s-170-it
-     */
-    server: function(){
-        const url = location.href;
-        return new RegExp(".*//(.*).ogame.gameforge.com.*").exec(url)[1]
-    },
+    server: "${server()}",
 
-
+    extensionId: "${chrome.runtime.id}",
+    
     /**
      * Add fleet buttons next to every planet
      */
-    addFleetActions(){
+    addFleetActions() {
         console.debug("Aggiungo azioni ai pulsanti di fleet save");
 
         const fleetButtons = document.querySelectorAll('.mp_fleet_button');
@@ -174,59 +192,25 @@ window.mp = {
         fleetButtons.forEach(btn => btn.onclick = this.quickFleetSave);
     },
 
+    quickFleetSave(event) {
+        console.console.debug("prova", event);
+
+        fadeBox('Ci proviamo');
+    },
+
     /**
      * Create/Update in localstorage
      * info abount available ships on planet 
      * @param {string} uni Eg: s-170.it
      * @param {string} planet Eg: 1_88_4_3
      */
-    updateFleetInfo(uni, planet, data){
-        const uniData = JSON.parse(localStorage.getItem("mp_"+uni) || "{}");
-
-        console.debug("UniData saved:", uniData);
-        console.debug("Data to save:", data);
-
-        uniData[planet] = {
-            ...(uniData[planet] || {}),
-            ...data
-        };
-
-        console.debug("After merge:", uniData);
-
-        localStorage.setItem("mp_"+uni, JSON.stringify(uniData));
-
-        chrome.runtime.sendMessage(this.extensionId(), {["mp_"+uni] :uniData});
-    },
-
-    init: function () {
-        console.debug("Init ogame extension");
-
-        console.debug("Player name: ", player.name);
-
-        console.debug("Current page: ", currentPage);
-
-
-        switch (currentPage) {
-            case "fleetdispatch":
-                var {galaxy, system, position, type} = currentPlanet;
-                var coords = galaxy + "_" + system + "_" + position + "_" + type;
-
-                this.updateFleetInfo(this.server(), coords, shipsOnPlanet);
-                break;
-
-            default:
-                break;
-        }
-
-        this.addFleetActions();
-
-    },
-
-
-    quickFleetSave(event){
-        console.log("prova", event);
-
-        fadeBox('Ci proviamo');
+    saveFleetInfo(uni, planet, shipsData) {
+        chrome.runtime.sendMessage(this.extensionId,
+            {
+                method: "SAVE_FLEET_INFO",
+                data: { uni, planet, shipsData }
+            }
+        );
     },
 
     goToFleet() {
@@ -235,6 +219,23 @@ window.mp = {
 
     message(txt, isAlert) {
         fadeBox(txt, isAlert);
+    },
+
+    init: function () {
+        console.debug("Init ogame extension");
+        console.debug("Player name: ", player.name);
+        console.debug("Current page: ", currentPage);
+
+        switch (currentPage) {
+            case "fleetdispatch":
+                this.saveFleetInfo(this.server, currentPlanet, shipsOnPlanet);
+                break;
+            default:
+                break;
+        }
+
+        this.addFleetActions();
+
     }
 }
 

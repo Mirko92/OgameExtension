@@ -134,3 +134,9 @@ fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1"
 Procedure: 
 Passare sul menu flotta di ogni pianeta/luna e memorizzare la flotta disponibile.
 Ogni volta che si apre il menu di flotta, aggiornare questa memorizzazione. 
+
+
+//TODO: Credo che sfruttando il manifest si possa organizzare meglio il codice
+splittare alcune funzioni in più file comuni a tutti gli strati 
+"mp_utils.js"  => Per le funzioni richiamate più spesso
+"constants.js" => Per raccogliere le costanti di Ogame quali, navi, tipi di pianeti ecc 
