@@ -37,15 +37,31 @@ function getFleetInfo() {
 function addFleetsButton() {
     const planets = document.querySelectorAll('#planetList > div');
 
-    planets.forEach(p => {
-        p.appendChild(fleetButton());
+    planets.forEach(container => {
+        console.debug("Planet container:", container);
+
+        const planetCoordsText = container.querySelector('.planetlink .planet-koords').textContent;
+        const regexResult = /\[(\d):(\d*):(\d*)\]/.exec(planetCoordsText);
+
+        const [g,s,p] = [1,2,3].map(index => regexResult[index]);
+        const coords = `${g}_${s}_${p}`
+
+        const planet = `${coords}_1`;
+        const moon = container.querySelector('.moonlink') ? `${coords}_3` : null;
+
+        container.appendChild(fleetButton(planet, moon));
     });
 };
 
-function fleetButton() {
+function fleetButton(planet, moon) {
     let button = document.createElement('button');
     button.classList = 'mp_fleet_button fleet_icon_forward_end';
     button.title = 'Run fleet save';
+
+    button.setAttribute('data-planet', planet);
+    if(moon){
+        button.setAttribute('data-moon', moon);
+    }
     return button;
 }
 
