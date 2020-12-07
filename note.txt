@@ -140,3 +140,6 @@ Ogni volta che si apre il menu di flotta, aggiornare questa memorizzazione.
 splittare alcune funzioni in più file comuni a tutti gli strati 
 "mp_utils.js"  => Per le funzioni richiamate più spesso
 "constants.js" => Per raccogliere le costanti di Ogame quali, navi, tipi di pianeti ecc 
+
+//Stampa a video tutti gli oggetti in memoria locale 
+chrome.storage.local.get(null, function callback(items) { console.log(items) });
