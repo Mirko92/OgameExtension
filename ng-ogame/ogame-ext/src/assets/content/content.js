@@ -23,9 +23,8 @@ function server() {
  */
 function getFleetInfo() {
     console.debug("getFleetInfo()");
-    
+
     chrome.runtime.sendMessage(
-        chrome.runtime.id,
         { method: "GET_FLEET_INFO", data: { uni: server() } },
         response => {
             console.debug("Get fleet info response", response);

@@ -65,16 +65,12 @@ function handleMessage(request, sender, sendResponse) {
 
     case "GET_FLEET_INFO":
       console.debug("Methdod, get fleet info", request.data);
-      getFleetInfo(request.data, sendResponse);
-      break;
+      getFleetInfo(request.data.uni, sendResponse);
+      return true;
 
     default:
       break;
   }
-
-  // TODO: Esempio da Cancellare
-  if (request.greeting == "hello")
-    sendResponse({ farewell: "goodbye" });
 }
 
 function saveFleetInfo(data) {
@@ -101,12 +97,9 @@ function saveFleetInfo(data) {
   });
 }
 
-function getFleetInfo(data, callback){
-  let { uni } = data;
-
+function getFleetInfo(uni, callback) {
   chrome.storage.local.get([uni], function (result) {
-    const value = (result[uni] || {});
-    callback(value);
+    callback(result[uni]);
   });
 }
 
