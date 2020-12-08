@@ -153,3 +153,90 @@ chrome.storage.local.get(null, function callback(items) { console.log(items) });
   // chrome.storage.sync.set({ color: '#3aa757' }, function () {
   //   console.log('The color is green.');
   // });
+
+
+
+  Per invio flotta controllare submitFleet3 
+
+
+
+
+  fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "referrer": "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=fleetdispatch",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "
+  token=9682fc1f30b4ca02e08299a9dcfbad28
+  &
+  am203=1
+  &galaxy=1
+  &system=299
+  &position=5
+  &type=3
+  &metal=0
+  &crystal=0
+  &deuterium=0
+  &prioMetal=1
+  &prioCrystal=2
+  &prioDeuterium=3
+  &mission=3
+  &speed=10
+  &retreatAfterDefenderRetreat=0
+  &union=0
+  &holdingtime=0",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+
+
+fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1", {
+  "headers": {
+    "accept": "application/json, text/javascript, */*; q=0.01",
+    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "referrer": "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=galaxy",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "mission=6&galaxy=1&system=300&position=6&type=1&shipCount=5&token=72caf3721a087515987fec27703ddc25",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1", {
+  "headers": {
+    "accept": "application/json, text/javascript, */*; q=0.01",
+    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "referrer": "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=overview",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "token=7cef2b20f74681f2bdad50c6d7e165d9&speed=10&mission=3&galaxy=1&system=299&position=6&type=3&metal=0&crystal=0&deuterium=0&prioMetal=1&prioCrystal=2&prioDeuterium=3&retreatAfterDefenderRetreat=0&union=0&holdingtime=0&am203=1",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
