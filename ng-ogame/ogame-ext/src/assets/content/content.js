@@ -226,6 +226,14 @@ window.mp = {
         fleetButtons.forEach(btn => btn.onclick = this.quickFleetSave);
     },
 
+    /**
+     * Add fleet button in the first step of fleetDispatcher 
+    */
+    addFleetButton(){
+        const continueButton = document.querySelector('#continueToFleet2');
+        continueButton.insertAdjacentHTML('afterend','<a class="continue fright on" href=""><span>Ciaone</span></a>')
+    },
+
     quickFleetSave(event) {
         const planet = this.getAttribute('data-planet');
         const moon = this.getAttribute('data-moon');
@@ -323,7 +331,7 @@ window.mp = {
                 break;
         }
 
-        this.addFleetActions();
+        // this.addFleetActions();
 
     }
 }
