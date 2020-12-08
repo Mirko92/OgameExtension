@@ -234,11 +234,11 @@ window.mp = {
         continueButton.insertAdjacentHTML('afterend','<a class="continue fright on" href=""><span>Ciaone</span></a>')
     },
 
-    quickFleetSave(event) {
+    getFleetParams(){
         const planet = this.getAttribute('data-planet');
         const moon = this.getAttribute('data-moon');
 
-        const missionParams = new URLSearchParams({
+        return new URLSearchParams({
             token: this.fleetToken,
             speed:10,
             mission: MP_MISSIONS.TRANSPORT,
@@ -263,7 +263,9 @@ window.mp = {
             //Ships
             am203:1,
         }).toString();
+    },
 
+    quickFleetSave(event) {
         let fleetUrl = ogameUrl+"/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1";
 
         fetch(fleetUrl, {
@@ -280,7 +282,7 @@ window.mp = {
             },
             "referrer": fleetUrl,
             "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": missionParams,
+            "body": this.getFleetParams(),
             "method": "POST",
             "mode": "cors",
             "credentials": "include"
