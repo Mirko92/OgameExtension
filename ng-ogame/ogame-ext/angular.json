@@ -150,7 +150,8 @@
               "apps/option/src/assets"
             ],
             "styles": [
-              "apps/option/src/styles.less"
+              "apps/option/src/styles.less",
+              "apps/option/src/assets/ogame.css"
             ],
             "scripts": []
           },

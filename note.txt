@@ -242,3 +242,103 @@ fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1"
 });
 
 Forse posso usare Typescript e inserirlo nella build di Angular anche per background JS 
+
+
+CURIOSITA?
+ - Selettore percentuale
+ <script>
+  $('.percentSelector').bind('click', function () {
+    var callback = $(this).attr('onpercentchange');
+    var x = eval(callback);
+    x($(this).attr("percent"));
+  });
+</script>
+
+SCRIPT IN FLEET PAGE 
+<script type="text/javascript">
+      var fleetSendingToken = "1e301ef393e7866dba1e8e27e2a8812c";
+
+      var checkTargetUrl = "https:\/\/s172-it.ogame.gameforge.com\/game\/index.php?page=ingame&component=fleetdispatch&action=checkTarget&ajax=1&asJson=1"
+      var sendFleetUrl = "https:\/\/s172-it.ogame.gameforge.com\/game\/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1"
+
+      var FLEET_DEUTERIUM_SAVE_FACTOR = 0.5;
+      var maxNumberOfPlanets = 9;
+      var shipsData = { "204": { "id": 204, "name": "Caccia Leggero", "baseFuelConsumption": 20, "baseFuelCapacity": 50, "baseCargoCapacity": 78, "fuelConsumption": 10, "baseSpeed": 12500, "speed": 30000, "cargoCapacity": 78, "fuelCapacity": 50, "number": 1, "recycleMode": 0 }, "205": { "id": 205, "name": "Caccia Pesante", "baseFuelConsumption": 75, "baseFuelCapacity": 100, "baseCargoCapacity": 155, "fuelConsumption": 37, "baseSpeed": 10000, "speed": 28000, "cargoCapacity": 155, "fuelCapacity": 100, "number": 1, "recycleMode": 0 }, "206": { "id": 206, "name": "Incrociatore", "baseFuelConsumption": 300, "baseFuelCapacity": 800, "baseCargoCapacity": 1240, "fuelConsumption": 150, "baseSpeed": 15000, "speed": 42000, "cargoCapacity": 1240, "fuelCapacity": 800, "number": 1, "recycleMode": 0 }, "207": { "id": 207, "name": "Nave da battaglia", "baseFuelConsumption": 500, "baseFuelCapacity": 1500, "baseCargoCapacity": 2325, "fuelConsumption": 250, "baseSpeed": 10000, "speed": 34000, "cargoCapacity": 2325, "fuelCapacity": 1500, "number": 1, "recycleMode": 0 }, "215": { "id": 215, "name": "Incrociatore da Battaglia", "baseFuelConsumption": 250, "baseFuelCapacity": 750, "baseCargoCapacity": 1163, "fuelConsumption": 125, "baseSpeed": 10000, "speed": 34000, "cargoCapacity": 1163, "fuelCapacity": 750, "number": 1, "recycleMode": 0 }, "211": { "id": 211, "name": "Bombardiere", "baseFuelConsumption": 700, "baseFuelCapacity": 500, "baseCargoCapacity": 775, "fuelConsumption": 350, "baseSpeed": 5000, "speed": 17000, "cargoCapacity": 775, "fuelCapacity": 500, "number": 1, "recycleMode": 0 }, "213": { "id": 213, "name": "Corazzata", "baseFuelConsumption": 1000, "baseFuelCapacity": 2000, "baseCargoCapacity": 3100, "fuelConsumption": 500, "baseSpeed": 5000, "speed": 17000, "cargoCapacity": 3100, "fuelCapacity": 2000, "number": 1, "recycleMode": 0 }, "214": { "id": 214, "name": "Morte Nera", "baseFuelConsumption": 1, "baseFuelCapacity": 1000000, "baseCargoCapacity": 1550000, "fuelConsumption": 0, "baseSpeed": 100, "speed": 340, "cargoCapacity": 1550000, "fuelCapacity": 1000000, "number": 1, "recycleMode": 0 }, "218": { "id": 218, "name": "Reaper", "baseFuelConsumption": 1100, "baseFuelCapacity": 10000, "baseCargoCapacity": 15500, "fuelConsumption": 550, "baseSpeed": 7000, "speed": 23800, "cargoCapacity": 15500, "fuelCapacity": 10000, "number": 1, "recycleMode": 2 }, "219": { "id": 219, "name": "Pathfinder", "baseFuelConsumption": 300, "baseFuelCapacity": 10000, "baseCargoCapacity": 15500, "fuelConsumption": 150, "baseSpeed": 12000, "speed": 40800, "cargoCapacity": 15500, "fuelCapacity": 10000, "number": 1, "recycleMode": 3 }, "202": { "id": 202, "name": "Cargo leggero", "baseFuelConsumption": 20, "baseFuelCapacity": 5000, "baseCargoCapacity": 7750, "fuelConsumption": 10, "baseSpeed": 10000, "speed": 28000, "cargoCapacity": 7750, "fuelCapacity": 5000, "number": 1, "recycleMode": 0 }, "203": { "id": 203, "name": "Cargo Pesante", "baseFuelConsumption": 50, "baseFuelCapacity": 25000, "baseCargoCapacity": 38750, "fuelConsumption": 25, "baseSpeed": 7500, "speed": 18000, "cargoCapacity": 38750, "fuelCapacity": 25000, "number": 1, "recycleMode": 0 }, "208": { "id": 208, "name": "Colonizzatrice", "baseFuelConsumption": 1000, "baseFuelCapacity": 7500, "baseCargoCapacity": 11625, "fuelConsumption": 500, "baseSpeed": 2500, "speed": 7000, "cargoCapacity": 11625, "fuelCapacity": 7500, "number": 1, "recycleMode": 0 }, "209": { "id": 209, "name": "Riciclatrici", "baseFuelConsumption": 300, "baseFuelCapacity": 20000, "baseCargoCapacity": 31000, "fuelConsumption": 150, "baseSpeed": 2000, "speed": 4800, "cargoCapacity": 31000, "fuelCapacity": 20000, "number": 1, "recycleMode": 0 }, "210": { "id": 210, "name": "Sonda spia", "baseFuelConsumption": 1, "baseFuelCapacity": 5, "baseCargoCapacity": 8, "fuelConsumption": 0, "baseSpeed": 100000000, "speed": 240000000, "cargoCapacity": 8, "fuelCapacity": 5, "number": 1, "recycleMode": 0 }, "217": { "id": 217, "name": "Crawler", "baseFuelConsumption": 0, "baseFuelCapacity": 0, "baseCargoCapacity": 0, "fuelConsumption": 0, "baseSpeed": 0, "speed": 0, "cargoCapacity": 0, "fuelCapacity": 0, "number": 1, "recycleMode": 0 } };
+
+      var speed = 100
+
+      var PLAYER_ID_SPACE = 99999;
+      var PLAYER_ID_LEGOR = 1;
+      var DONUT_GALAXY = 1;
+      var DONUT_SYSTEM = 1;
+      var MAX_GALAXY = 5;
+      var MAX_SYSTEM = 499;
+      var MAX_POSITION = 16;
+      var SPEEDFAKTOR_FLEET = 3;
+      var PLANETTYPE_PLANET = 1;
+      var PLANETTYPE_DEBRIS = 2;
+      var PLANETTYPE_MOON = 3;
+      var EXPEDITION_POSITION = 16;
+      var MAX_NUMBER_OF_PLANETS = 9;
+      var COLONIZATION_ENABLED = true;
+
+      var missions = { "MISSION_NONE": 0, "MISSION_ATTACK": 1, "MISSION_UNIONATTACK": 2, "MISSION_TRANSPORT": 3, "MISSION_DEPLOY": 4, "MISSION_HOLD": 5, "MISSION_ESPIONAGE": 6, "MISSION_COLONIZE": 7, "MISSION_RECYCLE": 8, "MISSION_DESTROY": 9, "MISSION_MISSILEATTACK": 10, "MISSION_EXPEDITION": 15 };
+      var orderNames = { "15": "Spedizione", "7": "Colonizzazione", "8": "Ricicla campo detriti", "3": "Trasporto", "4": "Schieramento", "6": "Spionaggio", "5": "Stazionamento", "1": "Attacco", "2": "Attacco federale", "9": "Distruzione Luna" };
+      var orderDescriptions = { "1": "Attacca la flotta e le difese del tuo avversario.", "2": "Le battaglie onorevoli possono diventare battaglie senza onore in caso dei giocatori forti entrino tramite ACS. Il punteggio totale della forza militare degli attaccanti, comparato con quello dei difensori \u00e8 decisivo.", "3": "Trasporta le tue risorse su altri pianeti.", "4": "Schiera la flotta su un altro pianeta del tuo impero.", "5": "Difendi il pianeta di un tuo amico.", "6": "Spia i mondi degli altri imperatori.", "7": "Colonizza un nuovo pianeta.", "8": "Invia le tue riciclatrici verso un campo di detriti che orbita intorno al pianeta.", "9": "Distruggi la luna del tuo nemico.", "15": "Invia le tue navi ai confini dello spazio, e vivi emozionanti avventure." };
+
+      var currentPlanet = { "galaxy": 1, "system": 88, "position": 4, "type": 3, "name": "LunaBlalla" };
+      var targetPlanet = { "galaxy": 1, "system": 88, "position": 4, "type": 3, "name": "LunaBlalla" };
+      var shipsOnPlanet = [{ "id": 202, "name": "Cargo leggero", "baseFuelConsumption": 20, "baseFuelCapacity": 5000, "baseCargoCapacity": 7750, "fuelConsumption": 86630, "baseSpeed": 10000, "speed": 28000, "cargoCapacity": 67138250, "fuelCapacity": 43315000, "number": 8663, "recycleMode": 0 }, { "id": 203, "name": "Cargo Pesante", "baseFuelConsumption": 50, "baseFuelCapacity": 25000, "baseCargoCapacity": 38750, "fuelConsumption": 39775, "baseSpeed": 7500, "speed": 18000, "cargoCapacity": 61651250, "fuelCapacity": 39775000, "number": 1591, "recycleMode": 0 }, { "id": 204, "name": "Caccia Leggero", "baseFuelConsumption": 20, "baseFuelCapacity": 50, "baseCargoCapacity": 78, "fuelConsumption": 95360, "baseSpeed": 12500, "speed": 30000, "cargoCapacity": 739040, "fuelCapacity": 476800, "number": 9536, "recycleMode": 0 }, { "id": 205, "name": "Caccia Pesante", "baseFuelConsumption": 75, "baseFuelCapacity": 100, "baseCargoCapacity": 155, "fuelConsumption": 115662, "baseSpeed": 10000, "speed": 28000, "cargoCapacity": 484530, "fuelCapacity": 312600, "number": 3126, "recycleMode": 0 }, { "id": 206, "name": "Incrociatore", "baseFuelConsumption": 300, "baseFuelCapacity": 800, "baseCargoCapacity": 1240, "fuelConsumption": 242100, "baseSpeed": 15000, "speed": 42000, "cargoCapacity": 2001360, "fuelCapacity": 1291200, "number": 1614, "recycleMode": 0 }, { "id": 207, "name": "Nave da battaglia", "baseFuelConsumption": 500, "baseFuelCapacity": 1500, "baseCargoCapacity": 2325, "fuelConsumption": 103500, "baseSpeed": 10000, "speed": 34000, "cargoCapacity": 962550, "fuelCapacity": 621000, "number": 414, "recycleMode": 0 }, { "id": 208, "name": "Colonizzatrice", "baseFuelConsumption": 1000, "baseFuelCapacity": 7500, "baseCargoCapacity": 11625, "fuelConsumption": 2500, "baseSpeed": 2500, "speed": 7000, "cargoCapacity": 58125, "fuelCapacity": 37500, "number": 5, "recycleMode": 0 }, { "id": 209, "name": "Riciclatrici", "baseFuelConsumption": 300, "baseFuelCapacity": 20000, "baseCargoCapacity": 31000, "fuelConsumption": 61050, "baseSpeed": 2000, "speed": 4800, "cargoCapacity": 12617000, "fuelCapacity": 8140000, "number": 407, "recycleMode": 0 }, { "id": 210, "name": "Sonda spia", "baseFuelConsumption": 1, "baseFuelCapacity": 5, "baseCargoCapacity": 8, "fuelConsumption": 0, "baseSpeed": 100000000, "speed": 240000000, "cargoCapacity": 215163, "fuelCapacity": 138815, "number": 27763, "recycleMode": 0 }, { "id": 211, "name": "Bombardiere", "baseFuelConsumption": 700, "baseFuelCapacity": 500, "baseCargoCapacity": 775, "fuelConsumption": 255500, "baseSpeed": 5000, "speed": 17000, "cargoCapacity": 565750, "fuelCapacity": 365000, "number": 730, "recycleMode": 0 }, { "id": 213, "name": "Corazzata", "baseFuelConsumption": 1000, "baseFuelCapacity": 2000, "baseCargoCapacity": 3100, "fuelConsumption": 182500, "baseSpeed": 5000, "speed": 17000, "cargoCapacity": 1131500, "fuelCapacity": 730000, "number": 365, "recycleMode": 0 }, { "id": 215, "name": "Incrociatore da Battaglia", "baseFuelConsumption": 250, "baseFuelCapacity": 750, "baseCargoCapacity": 1163, "fuelConsumption": 69875, "baseSpeed": 10000, "speed": 34000, "cargoCapacity": 649838, "fuelCapacity": 419250, "number": 559, "recycleMode": 0 }, { "id": 218, "name": "Reaper", "baseFuelConsumption": 1100, "baseFuelCapacity": 10000, "baseCargoCapacity": 15500, "fuelConsumption": 95700, "baseSpeed": 7000, "speed": 23800, "cargoCapacity": 2697000, "fuelCapacity": 1740000, "number": 174, "recycleMode": 2 }, { "id": 219, "name": "Pathfinder", "baseFuelConsumption": 300, "baseFuelCapacity": 10000, "baseCargoCapacity": 15500, "fuelConsumption": 193200, "baseSpeed": 12000, "speed": 40800, "cargoCapacity": 19964000, "fuelCapacity": 12880000, "number": 1288, "recycleMode": 3 }];
+      var useHalfSteps = false;
+      var shipsToSend = [];
+      var planets = [{ "galaxy": 1, "system": 88, "position": 4, "type": 3, "name": "LunaBlalla" }, { "galaxy": 1, "system": 88, "position": 4, "type": 1, "name": "Brucare" }, { "galaxy": 1, "system": 313, "position": 8, "type": 1, "name": "Dolly" }, { "galaxy": 1, "system": 313, "position": 8, "type": 3, "name": "LunaMonella" }, { "galaxy": 1, "system": 413, "position": 13, "type": 1, "name": "Beeeee" }, { "galaxy": 2, "system": 313, "position": 8, "type": 1, "name": "MontagneVerdi" }, { "galaxy": 3, "system": 88, "position": 8, "type": 1, "name": "Foraggio" }, { "galaxy": 4, "system": 88, "position": 8, "type": 1, "name": "Navajo Churro" }, { "galaxy": 5, "system": 268, "position": 13, "type": 1, "name": "Altopiano" }, { "galaxy": 2, "system": 38, "position": 1, "type": 1, "name": "Hot Sheep" }, { "galaxy": 3, "system": 224, "position": 8, "type": 1, "name": "Belare" }];
+      var standardFleets = [];
+      var unions = [];
+
+      var mission = 0;
+      var unionID = 0;
+      var speed = 10;
+
+      var missionHold = 5;
+      var missionExpedition = 15;
+
+      var holdingTime = 1;
+      var expeditionTime = 0;
+
+      var metalOnPlanet = 201239000;
+      var crystalOnPlanet = 10715189;
+      var deuteriumOnPlanet = 10723553;
+
+      var fleetCount = 5;
+      var maxFleetCount = 14;
+      var expeditionCount = 5;
+      var maxExpeditionCount = 5;
+
+      var warningsEnabled = true;
+
+      var playerId = 100444;
+      var hasAdmiral = false;
+      var hasCommander = false;
+      var isOnVacation = false;
+
+      var moveInProgress = false;
+      var planetCount = 9;
+      var explorationCount = 5;
+
+      var apiCommonData = [["coords", "1:88:4"], ["characterClassId", 3]];
+      var apiTechData = [[109, 10], [110, 11], [111, 15], [115, 14], [117, 9], [118, 8], [114, 11]];
+      var apiDefenseData = [];
+
+      var loca = { "LOCA_FLEET_TITLE_MOVEMENTS": "Ai movimenti di flotta", "LOCA_FLEET_MOVEMENT": "Movimento flotta", "LOCA_FLEET_EDIT_STANDARTFLEET": "Modifica flotte standard", "LOCA_FLEET_STANDARD": "Flotte standard", "LOCA_FLEET_HEADLINE_ONE": "Rapporto flotta I", "LOCA_FLEET_TOOLTIPP_SLOTS": "Slots flotta Usati\/Totali", "LOCA_FLEET_FLEETSLOTS": "Flotte", "LOCA_FLEET_NO_FREE_SLOTS": "Non ci sono slots flotta disponibili", "LOCA_FLEETSENDING_NO_TARGET": "Devi scegliere un obiettivo valido.", "LOCA_FLEET_TOOLTIPP_EXP_SLOTS": "Slot di spedizione Usati\/Totali", "LOCA_FLEET_EXPEDITIONS": "Spedizioni", "LOCA_ALL_NEVER": "Mai", "LOCA_FLEET_SEND_NOTAVAILABLE": "Impossibile inviare la flotta", "LOCA_FLEET_NO_SHIPS_ON_PLANET": "Non ci sono navi su questo pianeta.", "LOCA_SHIPYARD_HEADLINE_BATTLESHIPS": "Navi da guerra", "LOCA_SHIPYARD_HEADLINE_CIVILSHIPS": "Navi civili", "LOCA_FLEET_SELECT_SHIPS_ALL": "Seleziona tutte le navi", "LOCA_FLEET_SELECTION_RESET": "Resetta selezione", "LOCA_API_FLEET_DATA": "Questi dati possono essere letti da un simulatore di battaglie compatibile:", "LOCA_ALL_BUTTON_FORWARD": "Avanti", "LOCA_FLEET_NO_SELECTION": "Non \u00e8 stato selezionato nulla", "LOCA_ALL_TACTICAL_RETREAT": "Ritirata tattica", "LOCA_FLEET1_TACTICAL_RETREAT_CONSUMPTION_TOOLTIP": "Mostra il fabbisogno di deuterio per ogni ritirata.", "LOCA_FLEET_FUEL_CONSUMPTION": "Consumo carburante", "LOCA_FLEET_ERROR_OWN_VACATION": "Non puoi inviare flotte quando sei in modalit\u00e0 vacanza!", "LOCA_FLEET_FREE_MARKET_SLOTS": "Offerte", "LOCA_FLEET_TOOLTIPP_FREE_MARKET_SLOTS": "Flotte commerciali in uso\/totali", "LOCA_FLEET_HEADLINE_TWO": "Rapporto flotta II", "LOCA_FLEET_TAKEOFF_PLACE": "Lascia posizione", "LOCA_FLEET_TARGET_PLACE": "Destinazione", "LOCA_ALL_PLANET": "Pianeta", "LOCA_ALL_MOON": "luna", "LOCA_FLEET_COORDINATES": "Coordinate", "LOCA_FLEET_DISTANCE": "Distanza", "LOCA_FLEET_DEBRIS": "campo detriti", "LOCA_FLEET_SHORTLINKS": "Scorciatoie", "LOCA_FLEET_FIGHT_ASSOCIATION": "Forze di combattimento", "LOCA_FLEET_BRIEFING": "Briefing", "LOCA_FLEET_DURATION_ONEWAY": "Durata del volo (andata)", "LOCA_FLEET_SPEED": "Velocit\u00e0:", "LOCA_FLEET_SPEED_MAX_SHORT": "max.", "LOCA_FLEET_ARRIVAL": "Arrivo", "LOCA_FLEET_TIME_CLOCK": "Orologio", "LOCA_FLEET_RETURN": "Ritorno", "LOCA_FLEET_HOLD_FREE": "Stive vuote", "LOCA_ALL_BUTTON_BACK": "Indietro", "LOCA_FLEET_PLANET_UNHABITATED": "Pianeta disabitato", "LOCA_FLEET_NO_DEBIRS_FIELD": "Nessun campo detriti", "LOCA_FLEET_PLAYER_UMODE": "Giocatore in modalit\u00e0 vacanza", "LOCA_FLEET_ADMIN": "Amministratore o GO", "LOCA_ALL_NOOBSECURE": "Protezione niubbo", "LOCA_GALAXY_ERROR_STRONG": "Questo pianeta non pu\u00f2 essere attaccato poich\u00e9 il giocatore \u00e8 troppo forte!", "LOCA_FLEET_NO_MOON": "Non vi \u00e8 alcuna luna disponibile.", "LOCA_FLEET_NO_RECYCLER": "Non vi \u00e8 alcuna riciclatrice disponibile.", "LOCA_ALL_NO_EVENT": "Attualmente non ci sono eventi in corso.", "LOCA_PLANETMOVE_ERROR_ALREADY_RESERVED": "Questo pianeta \u00e8 gi\u00e0 stato riservato per un trasferimento.", "LOCA_FLEET_ERROR_TARGET_MSG": "Non possono essere inviate flotte verso questo bersaglio.", "LOCA_FLEETSENDING_NOT_ENOUGH_FOIL": "Carburante insufficiente!", "LOCA_FLEET_HEADLINE_THREE": "Rapporto flotta III", "LOCA_FLEET_TARGET_FOR_MISSION": "Seleziona la missione per la destinazione:", "LOCA_FLEET_MISSION": "Missione", "LOCA_FLEET_RESOURCE_LOAD": "Carica risorse", "LOCA_FLEET_SELECTION_NOT_AVAILABLE": "Non puoi dare inizio a questa missione.", "LOCA_FLEET_RETREAT_AFTER_DEFENDER_RETREAT_TOOLTIP": "Quando questa opzione \u00e8 attiva, anche la tua flotta si ritirer\u00e0 senza lottare nel caso in cui il tuo avversario sia fuggito.", "LOCA_FLEET_RETREAT_AFTER_DEFENDER_RETREAT": "Ritiro per fuga del difensore.", "LOCA_FLEET_TARGET": "Destinazione", "LOCA_FLEET_DURATION_FEDERATION": "Durata del volo (Formazione)", "LOCA_ALL_TIME_HOUR": "o", "LOCA_FLEET_HOLD_TIME": "Tempo di stazionamento", "LOCA_FLEET_EXPEDITION_TIME": "Durata della spedizione", "LOCA_ALL_METAL": "Metallo", "LOCA_ALL_CRYSTAL": "Cristallo", "LOCA_ALL_DEUTERIUM": "Deuterio", "LOCA_FLEET_LOAD_ROOM": "stiva", "LOCA_FLEET_CARGO_SPACE": "Stiva vuota \/ max. stiva disponibile", "LOCA_FLEET_SEND": "Invia flotta", "LOCA_ALL_NETWORK_ATTENTION": "Attenzione", "LOCA_PLANETMOVE_BREAKUP_WARNING": "Attenzione! Il termine di questa missione potrebbe superare quello del trasferimento e comportare pertanto un interruzione del trasferimento stesso. Vuoi continuare la missione?", "LOCA_ALL_YES": "S\u00ec", "LOCA_ALL_NO": "No", "LOCA_ALL_NOTICE": "Nota", "LOCA_FLEETSENDING_MAX_PLANET_WARNING": "Attenzione! Al momento non puoi colonizzare altri pianeti. Sono necessari due livelli della ricerca astrofisica per ogni nuova colonia. Vuoi ancora inviare la tua flotta?", "LOCA_ALL_PLAYER": "Giocatore", "LOCA_FLEET_RESOURCES_ALL_LOAD": "Carica tutte le risorse", "LOCA_FLEET_RESOURCES_ALL": "tutte le risorse", "LOCA_NETWORK_USERNAME": "Nome Utente", "LOCA_EVENTH_ENEMY_INFINITELY_SPACE": "spazio profondo" };
+      var locadyn = { "locaAllOutlawWarning": "Sei intenzionato ad attaccare un giocatore pi\u00f9 forte. Se lo fai, il tuo scudo verr\u00e0 interrotto per 7 giorni e gli altri giocatori potranno attaccarti senza alcuna penalit\u00e0. Sei sicuro di voler andare avanti?", "localBashWarning": "In questo universo sono ammessi 0 attacchi in 24 ore. Con questo attacco andresti oltre questo limite. Vuoi cominciarlo veramente?", "locaOfficerbonusTooltipp": "+ 2 Slot flotta grazie a Ammiraglio" };
+      var errorCodeMap = { "601": "E` avvenuto un errore...", "602": "Errore, non c`\u00e8 la luna", "603": "Errore, il giocatore non pu\u00f2 essere avvicinato poich\u00e8 \u00e8 in protezione niubbo", "604": "Questo giocatore \u00e8 troppo forte per poter essere attaccato", "605": "Errore, il giocatore \u00e8 in modalit\u00e0 vacanza.", "606": "Non puoi inviare flotte quando sei in modalit\u00e0 vacanza!", "610": "Errore, non ci sono abbastanza navi disponibili, numero massimo:", "611": "Errore, non ci sono navi disponibili", "612": "Errore, non ci sono slots di flotta liberi", "613": "Errore, non hai abbastanza deuterio", "614": "Errore, non c`\u00e8 il pianeta", "615": "Errore, non hai abbastanza spazio nella stiva", "616": "Allarme multiaccount", "617": "Amministratore o GO", "618": "Non \u00e8 possibile attaccare fino al 01.01.1970 01:00:00" };
+
+      var fleetDispatcher = null;
+
+      $(function () {
+        fleetDispatcher = new FleetDispatcher(window);
+        fleetDispatcher.init();
+
+
+      });
+    </script>
