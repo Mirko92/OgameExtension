@@ -240,3 +240,5 @@ fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1"
   "mode": "cors",
   "credentials": "include"
 });
+
+Forse posso usare Typescript e inserirlo nella build di Angular anche per background JS 
