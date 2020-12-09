@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "b-main": "ng build ogame-ext --watch",
+    "b-option": "ng build option --watch"
   },
   "private": true,
   "dependencies": {
