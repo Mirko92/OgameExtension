@@ -139,7 +139,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/option",
+            "outputPath": "dist/ogame-ext/option",
             "index": "apps/option/src/index.html",
             "main": "apps/option/src/main.ts",
             "polyfills": "apps/option/src/polyfills.ts",

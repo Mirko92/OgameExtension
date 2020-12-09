@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "b-main": "ng build ogame-ext --watch",
-    "b-option": "ng build option --watch"
+    "b-option": "ng build option --watch --base-href=./"
   },
   "private": true,
   "dependencies": {
