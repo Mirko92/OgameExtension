@@ -8,8 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "b-main": "ng build ogame-ext --watch",
-    "b-option": "ng build option --watch --base-href=./"
+    "b-main": "ng build ogame-ext",
+    "b-option": "ng build option --base-href=./",
+    "b-main-w": "ng build ogame-ext --watch",
+    "b-option-w": "ng build option --watch --base-href=./"
   },
   "private": true,
   "dependencies": {

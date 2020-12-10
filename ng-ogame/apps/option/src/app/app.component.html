@@ -10,7 +10,7 @@
       <div style="display: flex; justify-content: space-between;">
         <div style="margin-top: -27px; padding: 0 30px;">
           <div class="mp_header">
-            <h2>Navi da guerra</h2>
+            <h2>Navi</h2>
           </div>
 
           <ul id="military"
@@ -89,106 +89,72 @@
           </ul>
         </div>
 
-        <div style="margin-top: -27px; padding: 0 30px;">
+        <!-- <div style="margin-top: -27px; padding: 0 30px;">
           <div class="mp_header">
             <h2>Navi civili</h2>
           </div>
 
-          <ul id="military"
-              class="iconsUNUSED">
+          
+        </div> -->
 
-            <li class="technology fighterLight interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Caccia Leggero"
-                title="Caccia Leggero (9536)">
-
-              <span class="icon sprite sprite_small small fighterLight">
-                <span class="amount"
-                      data-value="9536"
-                      data-bonus="0">
-                  <span>9.536</span>
-                </span>
-              </span>
-              <input type="text"
-                     name="fighterLight">
-
-            </li>
-
-            <li class="technology fighterHeavy interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Caccia Pesante"
-                title="Caccia Pesante (3126)">
-
-              <span class="icon sprite sprite_small small fighterHeavy">
-
-
-                <span class="amount"
-                      data-value="3126"
-                      data-bonus="0">
-                  <span>3.126</span>
-                </span>
-              </span>
-
-              <input type="text"
-                     name="fighterHeavy">
-
-            </li>
-          </ul>
-        </div>
-
-        <div style="margin-top: -27px; padding: 0 30px;">
+        <div id="fleet2" style="margin-top: -27px; padding: 0 30px;">
           <div class="mp_header">
             <h2>Destinazione</h2>
           </div>
 
-          <td id="target"
-              class="border5px">
-            <div class="planetname"
-                 id="targetPlanetName">
-              LunaBlalla
-            </div>
-            <div class="target">
-              <a class="planet"
-                 href=""
-                 id="pbutton">
-                <span class="textlabel">Pianeta</span>
-              </a>
-              <a class="moon_selected"
-                 href=""
-                 id="mbutton">
-                <span class="textlabel">luna</span>
-              </a>
-              <a class="debris"
-                 href=""
-                 id="dbutton">
-                <span class="textlabel">campo detriti</span>
-              </a>
-              <br class="clearfloat">
-            </div>
-            <div class="coords">
-              Coordinate:
-              <br>
-              <input name="galaxy"
-                     id="galaxy"
-                     type="text"
-                     pattern="[0-9]*"
-                     class="galaxy hideNumberSpin"
-                     size="1"
-                     value="1">
-              <input name="system"
-                     id="system"
-                     type="text"
-                     pattern="[0-9]*"
-                     class="system hideNumberSpin"
-                     size="3"
-                     value="88">
-              <input name="position"
-                     id="position"
-                     type="text"
-                     pattern="[0-9]*"
-                     class="planet hideNumberSpin"
-                     size="2"
-                     value="4">
-            </div>
-          </td>
+          <div id="mission">
+
+            <td id="target"
+                class="border5px">
+  
+              <div class="planetname"
+                   id="targetPlanetName">
+                LunaBlalla
+              </div>
+  
+              <div class="target">
+                <a class="planet"
+                   href=""
+                   id="pbutton">
+                </a>
+                <a class="moon_selected"
+                   href=""
+                   id="mbutton">
+                </a>
+                <a class="debris"
+                   href=""
+                   id="dbutton">
+                </a>
+                <br class="clearfloat">
+              </div>
+  
+              <div class="coords">
+                Coordinate:
+                <br>
+                <input name="galaxy"
+                       id="galaxy"
+                       type="text"
+                       pattern="[0-9]*"
+                       class="galaxy hideNumberSpin"
+                       size="1"
+                       value="1">
+                <input name="system"
+                       id="system"
+                       type="text"
+                       pattern="[0-9]*"
+                       class="system hideNumberSpin"
+                       size="3"
+                       value="88">
+                <input name="position"
+                       id="position"
+                       type="text"
+                       pattern="[0-9]*"
+                       class="planet hideNumberSpin"
+                       size="2"
+                       value="4">
+              </div>
+            </td>
+          </div>
         </div>
       </div>
 
