@@ -235,11 +235,11 @@ window.mp = {
     },
 
     getFleetParams(){
-        const planet = this.getAttribute('data-planet');
-        const moon = this.getAttribute('data-moon');
+        // const planet = this?.getAttribute('data-planet');
+        // const moon = this?.getAttribute('data-moon');
 
         return new URLSearchParams({
-            token: this.fleetToken,
+            token: this.fleetToken(),
             speed:10,
             mission: MP_MISSIONS.TRANSPORT,
             //TO:
@@ -267,9 +267,11 @@ window.mp = {
 
     quickFleetSave(event) {
         let fleetUrl = ogameUrl+"/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1";
+        let referrer = ogameUrl+"/game/index.php?page=ingame&component=fleetdispatch"; 
 
         fetch(fleetUrl, {
             "headers": {
+                // "accept": "*/*",
                 "accept": "application/json, text/javascript, */*; q=0.01",
                 "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
                 "cache-control": "no-cache",
@@ -280,18 +282,19 @@ window.mp = {
                 "sec-fetch-site": "same-origin",
                 "x-requested-with": "XMLHttpRequest"
             },
-            "referrer": fleetUrl,
+            "referrer": referrer,
             "referrerPolicy": "strict-origin-when-cross-origin",
             "body": this.getFleetParams(),
             "method": "POST",
             "mode": "cors",
             "credentials": "include"
         }).then(x => {
-            x.json().then(body => {
-                const response = body.response;
-                fadeBox(response.message, !response.success);
-                miniFleetToken = body.newToken;
-            })
+            console.debug("Fleet save response");
+            // x.json().then(body => {
+            //     const response = body.response;
+            //     fadeBox(response.message, !response.success);
+            //     miniFleetToken = body.newToken;
+            // })
         });
     },
 

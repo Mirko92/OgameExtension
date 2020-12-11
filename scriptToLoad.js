@@ -50,8 +50,8 @@ window.mp = {
      * @param {event} event 
      */
     quickFleetSave(event) {
-        const planet = this.getAttribute('data-planet');
-        const moon = this.getAttribute('data-moon');
+        const planet = this?.getAttribute('data-planet');
+        const moon = this?.getAttribute('data-moon');
 
         const missionParams = new URLSearchParams({
             token: this.fleetToken,
