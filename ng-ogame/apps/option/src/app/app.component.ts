@@ -22,10 +22,8 @@ export class AppComponent implements OnInit {
   }
 
   initStorage() {
-    console.debug("ci provos");
-
     const promise = new Promise((resolve) => {
-      chrome.storage.local.get(null, resolve);
+      chrome.storage?.local.get(null, resolve);
     });
 
     promise.then(r => {
