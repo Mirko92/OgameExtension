@@ -1,6 +1,9 @@
+@import '../assets/ogame-theme/ogame.less';
+
 .page {
     display: flex;
-    flex-flow: column;
+    flex-flow: column;    
+    padding-top: 2rem;
 
     &-content {
         align-self: center;
@@ -21,7 +24,25 @@
 
     &__header {
         z-index: -1;
-        background-size: cover;
+        background: none !important;
+        display: flex;
+
+        .left {
+            flex: 1;
+            background-image: @ogame_header;
+        }
+
+        .center {
+            flex: 3;
+            background: @ogame_header center top no-repeat;
+            background-size: 200% 100%;
+        }
+
+        .right {
+            flex: 1;
+            background: @ogame_header right top no-repeat;
+
+        }
     }
 
     &__content {
@@ -32,8 +53,8 @@
         padding-bottom: 1rem;
     }
 
-    &__ships{
-        margin-top: -27px; 
+    &__ships {
+        margin-top: -27px;
         padding: 0 0 0 30px;
         flex: 1 0 245px;
         max-width: 400px;

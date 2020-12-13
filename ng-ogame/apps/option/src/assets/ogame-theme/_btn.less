@@ -6,7 +6,7 @@ div.btn>input[type="button"] {
 .btn:before,
 .btn:after {
     background-color: #000;
-    background-image: url("//gf3.geo.gfsrv.net/cdnea/8c3657fbb2a8808627f8a3dbedcb8c.png");
+    background-image: @ogame_btn;
     background-repeat: repeat-x;
     height: 38px;
 }
@@ -46,45 +46,6 @@ div.btn>input[type="button"] {
 a.btn {
     color: #fff;
     text-decoration: none;
-}
-
-.btn_premium {
-    background: transparent url("//gf1.geo.gfsrv.net/cdnfc/35658d707df040ae66b71215d187c1.png") no-repeat 0 0;
-    color: #fff;
-    cursor: pointer;
-    display: table-cell;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 20px;
-    padding: 0 16px 0 52px;
-    position: relative;
-    text-shadow: 0 0 1px #000;
-    height: 52px;
-    vertical-align: middle;
-    width: 204px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-a.btn_premium:active {
-    background-position: 0 -52px;
-    color: #fff;
-}
-
-.btn_premium[disabled]:active,
-.btn_premium[disabled] {
-    background-position: 0 -104px;
-    cursor: default;
-}
-
-.btn_premium.small {
-    background-position: 0 -156px;
-    font-size: 13px;
-    height: 40px;
-    padding: 0 0 0 30px;
-    width: 152px;
 }
 
 .btn_confirm {
