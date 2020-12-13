@@ -1135,7 +1135,6 @@ a:hover img.queuePic {
     background: 0;
     min-height: 150px;
     margin: 0 auto 1px auto;
-    width: 870px;
 }
 
 #fleet3 #sendfleet {
@@ -1152,7 +1151,7 @@ a:hover img.queuePic {
     position: relative
 }
 
-#buttonz .content,#fleet3 #sendfleet .content {
+#buttonz .content{
     background: url("//gf1.geo.gfsrv.net/cdn03/db530b4ddcbe680361a6f837ce0dd7.gif") repeat-y;
     margin: 0 0 20px 0;
     min-height: 115px;
@@ -1160,7 +1159,7 @@ a:hover img.queuePic {
     position: relative
 }
 
-#buttonz .footer,#fleet3 #sendfleet .footer {
+#buttonz .footer{
     background: url("//gf3.geo.gfsrv.net/cdnbe/997fd607a76c0b713e24cb7f2d41f5.png") no-repeat;
     bottom: -20px;
     height: 50px;
@@ -1305,6 +1304,9 @@ div.buildingimg {
     background: 0;
     min-height: 150px;
     margin: 0 auto 1px auto;
+}
+
+#fleet3 #sendfleet {
     width: 670px
 }
 
@@ -1322,12 +1324,15 @@ div.buildingimg {
     position: relative
 }
 
-#buttonz .content,#fleet3 #sendfleet .content {
+#buttonz .content{
     background: url("//gf1.geo.gfsrv.net/cdn03/db530b4ddcbe680361a6f837ce0dd7.gif") repeat-y;
     margin: 0 0 20px 0;
     min-height: 115px;
     padding: 10px 0 0;
     position: relative
+}
+#fleet3 .content{
+    background: none !important;
 }
 
 #buttonz .footer,#fleet3 #sendfleet .footer {
@@ -3903,7 +3908,11 @@ table.list .actions {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100%
+    height: 100%;
+    color: #6f9fc8;
+    font: 700 11px/15px Verdana,Arial,Helvetica,sans-serif;
+    vertical-align: center;
+    line-height: 18px;
 }
 
 .percentageBar .steps .step {
@@ -3925,7 +3934,7 @@ table.list .actions {
 .percentageBar .steps .step.selected {
     border: 2px solid #ff9600;
     border-radius: 3px;
-    line-height: 16px;
+    line-height: 14px;
     background-color: #000;
     color: #9c0;
     transform: scale(1.1)
