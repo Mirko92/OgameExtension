@@ -1,0 +1,56 @@
+.percentageBar {
+    position: relative;
+    height: 100%;
+    background-image: url(//gf3.geo.gfsrv.net/cdne1/d03835718066a5a592a6426736e019.png);
+    background-position: 0 -561px;
+    border-radius: 5px;
+
+    .bar{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 5px;
+        background: linear-gradient(to right, red, orange, yellow, green);
+        background-size: 100% 20px;
+        transition: width 1s;
+    }
+
+    .steps {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        color: #6f9fc8;
+        font: 700 11px/15px Verdana, Arial, Helvetica, sans-serif;
+        vertical-align: center;
+        line-height: 18px;
+
+        .step {
+            position: relative;
+            box-sizing: border-box;
+            border-right: 1px solid #4a585f;
+            text-align: center;
+            flex: none;
+            color: #fff;
+            text-shadow: 0 0 2px #000;
+            overflow: hidden;
+            width: 30px;
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            &.selected {
+                border: 2px solid #ff9600;
+                border-radius: 3px;
+                line-height: 14px;
+                background-color: #000;
+                color: #9c0;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
