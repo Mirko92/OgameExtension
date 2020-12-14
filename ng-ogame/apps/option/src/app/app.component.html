@@ -1,553 +1,552 @@
 <div class="page"
      role="main">
-  <!-- Ui Change detection -->
-  <span style="display: none;">{{timer}}</span>
 
   <div *ngFor="let uni of keysOf(storage)">
-    <h2>{{uni}}</h2>
+    <h1>{{uni}}</h1>
 
-    <ul>
-      <li *ngFor="let p of storage[uni].planets">
-        {{p.name}}
-      </li>
-    </ul>
-  </div>
-
-  <div id="buttonz"
-       class="fleet_save">
-    <div id="battleships">
-
-      <div class="header fleet_save__header">
-        <div class="left">&nbsp;</div>
-        <div class="center">&nbsp;</div>
-        <div class="right">&nbsp;</div>
+    <div id="buttonz"
+         class="fleet_save"
+         *ngFor="let p of storage[uni].planets">
+      <div class="fleet_save__title">
+        <h1>{{p.name}}</h1>
       </div>
 
-      <div class="fleet_save__content">
-
-        <div class="fleet_save__ships">
-          <div>
-            <h2>Navi</h2>
-          </div>
-
-          <ul id="military"
-              class="iconsUNUSED">
-
-            <li class="technology transporterSmall interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                aria-label="Cargo leggero"
-                title="">
-
-              <span class="icon sprite sprite_small small transporterSmall">
-
-
-                <span class="amount"
-                      data-value="8663"
-                      data-bonus="0">
-                  <span>8.663</span>
-                </span>
-              </span>
-
-              <!-- <input type="text"
-                     name="transporterSmall"> -->
-
-            </li>
-
-
-            <li class="technology transporterLarge interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                data-technology="203"
-                data-status="on"
-                data-is-spaceprovider=""
-                aria-label="Cargo Pesante"
-                title="">
-
-              <span class="icon sprite sprite_small small transporterLarge">
-
-
-                <span class="amount"
-                      data-value="1591"
-                      data-bonus="0">
-                  <span>1.591</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology colonyShip interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                data-technology="208"
-                data-status="on"
-                data-is-spaceprovider=""
-                aria-label="Colonizzatrice"
-                title="">
-
-              <span class="icon sprite sprite_small small colonyShip">
-
-
-                <span class="amount"
-                      data-value="5"
-                      data-bonus="0">
-                  <span>5</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology recycler interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                data-technology="209"
-                data-status="on"
-                data-is-spaceprovider=""
-                aria-label="Riciclatrici"
-                title="">
-
-              <span class="icon sprite sprite_small small recycler">
-
-
-                <span class="amount"
-                      data-value="407"
-                      data-bonus="0">
-                  <span>407</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology espionageProbe interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                data-technology="210"
-                data-status="on"
-                data-is-spaceprovider=""
-                aria-label="Sonda spia"
-                title="">
-
-              <span class="icon sprite sprite_small small espionageProbe">
-
-
-                <span class="amount"
-                      data-value="27763"
-                      data-bonus="0">
-                  <span>27.763</span>
-                </span>
-              </span>
-
-
-            </li>
-
-            <li class="technology fighterLight interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Caccia Leggero"
-                title="Caccia Leggero (9536)">
-
-              <span class="icon sprite sprite_small small fighterLight">
-                <span class="amount"
-                      data-value="9536"
-                      data-bonus="0">
-                  <span>9.536</span>
-                </span>
-              </span>
-
-
-            </li>
-
-            <li class="technology fighterHeavy interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Caccia Pesante"
-                title="Caccia Pesante (3126)">
-
-              <span class="icon sprite sprite_small small fighterHeavy">
-
-
-                <span class="amount"
-                      data-value="3126"
-                      data-bonus="0">
-                  <span>3.126</span>
-                </span>
-              </span>
-
-
-            </li>
-
-            <li class="technology cruiser interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Incrociatore"
-                title="Incrociatore (1614)">
-
-              <span class="icon sprite sprite_small small cruiser">
-                <span class="amount"
-                      data-value="1614"
-                      data-bonus="0">
-                  <span>1.614</span>
-                </span>
-              </span>
-
-
-            </li>
-
-            <li class="technology battleship interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                aria-label="Nave da battaglia"
-                title="">
-
-              <span class="icon sprite sprite_small small battleship">
-
-
-                <span class="amount"
-                      data-value="414"
-                      data-bonus="0">
-                  <span>414</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology interceptor interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Incrociatore da Battaglia"
-                title="Incrociatore da Battaglia (559)">
-
-              <span class="icon sprite sprite_small small interceptor">
-
-
-                <span class="amount"
-                      data-value="559"
-                      data-bonus="0">
-                  <span>559</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology bomber interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Bombardiere"
-                title="Bombardiere (730)">
-
-              <span class="icon sprite sprite_small small bomber">
-
-
-                <span class="amount"
-                      data-value="730"
-                      data-bonus="0">
-                  <span>730</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology destroyer interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Corazzata"
-                title="Corazzata (365)">
-
-              <span class="icon sprite sprite_small small destroyer">
-
-
-                <span class="amount"
-                      data-value="365"
-                      data-bonus="0">
-                  <span>365</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology deathstar interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
-                aria-label="Morte Nera"
-                title="">
-
-              <span class="icon sprite sprite_small small deathstar">
-
-
-                <span class="amount"
-                      data-value="0"
-                      data-bonus="0">
-                  <span>0</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology reaper interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Reaper"
-                title="Reaper (174)">
-
-              <span class="icon sprite sprite_small small reaper">
-
-
-                <span class="amount"
-                      data-value="174"
-                      data-bonus="0">
-                  <span>174</span>
-                </span>
-              </span>
-
-
-            </li>
-
-
-            <li class="technology explorer interactive hasDetails tooltip js_hideTipOnMobile"
-                aria-label="Pathfinder"
-                title="Pathfinder (1288)">
-
-              <span class="icon sprite sprite_small small explorer">
-
-
-                <span class="amount"
-                      data-value="1288"
-                      data-bonus="0">
-                  <span>1.288</span>
-                </span>
-              </span>
-
-
-            </li>
-          </ul>
+      <div id="battleships">
+
+        <div class="header fleet_save__header">
+          <div class="left">&nbsp;</div>
+          <div class="center">&nbsp;</div>
+          <div class="right">&nbsp;</div>
         </div>
 
-        <div style="margin-top: -27px; 
+        <div class="fleet_save__content">
+
+          <div class="fleet_save__ships">
+            <div>
+              <h2>Navi</h2>
+            </div>
+
+            <ul id="military"
+                class="iconsUNUSED">
+
+              <li class="technology transporterSmall interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  aria-label="Cargo leggero"
+                  title="">
+
+                <span class="icon sprite sprite_small small transporterSmall">
+
+
+                  <span class="amount"
+                        data-value="8663"
+                        data-bonus="0">
+                    <span>8.663</span>
+                  </span>
+                </span>
+
+                <!-- <input type="text"
+                     name="transporterSmall"> -->
+
+              </li>
+
+
+              <li class="technology transporterLarge interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  data-technology="203"
+                  data-status="on"
+                  data-is-spaceprovider=""
+                  aria-label="Cargo Pesante"
+                  title="">
+
+                <span class="icon sprite sprite_small small transporterLarge">
+
+
+                  <span class="amount"
+                        data-value="1591"
+                        data-bonus="0">
+                    <span>1.591</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology colonyShip interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  data-technology="208"
+                  data-status="on"
+                  data-is-spaceprovider=""
+                  aria-label="Colonizzatrice"
+                  title="">
+
+                <span class="icon sprite sprite_small small colonyShip">
+
+
+                  <span class="amount"
+                        data-value="5"
+                        data-bonus="0">
+                    <span>5</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology recycler interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  data-technology="209"
+                  data-status="on"
+                  data-is-spaceprovider=""
+                  aria-label="Riciclatrici"
+                  title="">
+
+                <span class="icon sprite sprite_small small recycler">
+
+
+                  <span class="amount"
+                        data-value="407"
+                        data-bonus="0">
+                    <span>407</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology espionageProbe interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  data-technology="210"
+                  data-status="on"
+                  data-is-spaceprovider=""
+                  aria-label="Sonda spia"
+                  title="">
+
+                <span class="icon sprite sprite_small small espionageProbe">
+
+
+                  <span class="amount"
+                        data-value="27763"
+                        data-bonus="0">
+                    <span>27.763</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+              <li class="technology fighterLight interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Caccia Leggero"
+                  title="Caccia Leggero (9536)">
+
+                <span class="icon sprite sprite_small small fighterLight">
+                  <span class="amount"
+                        data-value="9536"
+                        data-bonus="0">
+                    <span>9.536</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+              <li class="technology fighterHeavy interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Caccia Pesante"
+                  title="Caccia Pesante (3126)">
+
+                <span class="icon sprite sprite_small small fighterHeavy">
+
+
+                  <span class="amount"
+                        data-value="3126"
+                        data-bonus="0">
+                    <span>3.126</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+              <li class="technology cruiser interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Incrociatore"
+                  title="Incrociatore (1614)">
+
+                <span class="icon sprite sprite_small small cruiser">
+                  <span class="amount"
+                        data-value="1614"
+                        data-bonus="0">
+                    <span>1.614</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+              <li class="technology battleship interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  aria-label="Nave da battaglia"
+                  title="">
+
+                <span class="icon sprite sprite_small small battleship">
+
+
+                  <span class="amount"
+                        data-value="414"
+                        data-bonus="0">
+                    <span>414</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology interceptor interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Incrociatore da Battaglia"
+                  title="Incrociatore da Battaglia (559)">
+
+                <span class="icon sprite sprite_small small interceptor">
+
+
+                  <span class="amount"
+                        data-value="559"
+                        data-bonus="0">
+                    <span>559</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology bomber interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Bombardiere"
+                  title="Bombardiere (730)">
+
+                <span class="icon sprite sprite_small small bomber">
+
+
+                  <span class="amount"
+                        data-value="730"
+                        data-bonus="0">
+                    <span>730</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology destroyer interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Corazzata"
+                  title="Corazzata (365)">
+
+                <span class="icon sprite sprite_small small destroyer">
+
+
+                  <span class="amount"
+                        data-value="365"
+                        data-bonus="0">
+                    <span>365</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology deathstar interactive hasDetails tooltip js_hideTipOnMobile tpd-hideOnClickOutside"
+                  aria-label="Morte Nera"
+                  title="">
+
+                <span class="icon sprite sprite_small small deathstar">
+
+
+                  <span class="amount"
+                        data-value="0"
+                        data-bonus="0">
+                    <span>0</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology reaper interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Reaper"
+                  title="Reaper (174)">
+
+                <span class="icon sprite sprite_small small reaper">
+
+
+                  <span class="amount"
+                        data-value="174"
+                        data-bonus="0">
+                    <span>174</span>
+                  </span>
+                </span>
+
+
+              </li>
+
+
+              <li class="technology explorer interactive hasDetails tooltip js_hideTipOnMobile"
+                  aria-label="Pathfinder"
+                  title="Pathfinder (1288)">
+
+                <span class="icon sprite sprite_small small explorer">
+
+
+                  <span class="amount"
+                        data-value="1288"
+                        data-bonus="0">
+                    <span>1.288</span>
+                  </span>
+                </span>
+
+
+              </li>
+            </ul>
+          </div>
+
+          <div style="margin-top: -27px; 
                     padding: 0 30px; 
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;">
-          <div style="display: flex; justify-content: space-around;">
-            <!-- Destination options -->
-            <div id="fleet2">
-              <div class="mp_header">
-                <h2>Destinazione</h2>
-              </div>
+            <div style="display: flex; justify-content: space-around;">
+              <!-- Destination options -->
+              <div id="fleet2">
+                <div class="mp_header">
+                  <h2>Destinazione</h2>
+                </div>
 
-              <div id="mission">
+                <div id="mission">
 
-                <td id="target"
-                    class="border5px">
+                  <td id="target"
+                      class="border5px">
 
-                  <div class="planetname"
-                       id="targetPlanetName">
-                    LunaBlalla
-                  </div>
+                    <div class="planetname"
+                         id="targetPlanetName">
+                      LunaBlalla
+                    </div>
 
-                  <div class="target">
-                    <a class="planet"
-                       href=""
-                       id="pbutton">
-                    </a>
-                    <a class="moon_selected"
-                       href=""
-                       id="mbutton">
-                    </a>
-                    <a class="debris"
-                       href=""
-                       id="dbutton">
-                    </a>
-                    <br class="clearfloat">
-                  </div>
+                    <div class="target">
+                      <a class="planet"
+                         href=""
+                         id="pbutton">
+                      </a>
+                      <a class="moon_selected"
+                         href=""
+                         id="mbutton">
+                      </a>
+                      <a class="debris"
+                         href=""
+                         id="dbutton">
+                      </a>
+                      <br class="clearfloat">
+                    </div>
 
-                  <div class="coords">
-                    Coordinate:
-                    <br>
-                    <input name="galaxy"
-                           id="galaxy"
-                           type="text"
-                           pattern="[0-9]*"
-                           class="galaxy hideNumberSpin"
-                           size="1"
-                           value="1">
-                    <input name="system"
-                           id="system"
-                           type="text"
-                           pattern="[0-9]*"
-                           class="system hideNumberSpin"
-                           size="3"
-                           value="88">
-                    <input name="position"
-                           id="position"
-                           type="text"
-                           pattern="[0-9]*"
-                           class="planet hideNumberSpin"
-                           size="2"
-                           value="4">
-                  </div>
-                </td>
-              </div>
-            </div>
-
-            <!-- Velocity -->
-            <div id="fleet2">
-              <div>
-                <h2>Velocità</h2>
-              </div>
-
-              <div id="speedPercentage"
-                   class="percentageBar"
-                   style="float:left;width:300px;"
-                   value="10"
-                   steps="10"
-                   stepsize="10"
-                   minvalue="1"
-                   usehalfstep="false">
-                <div class="bar"
-                     style="width: 300px;"></div>
-                <div class="steps">
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="1">10</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="2">20</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="3">30</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="4">40</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="5">50</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="6">60</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="7">70</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="8">80</div>
-                  <div class="step"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="9">90</div>
-                  <div class="step selected"
-                       style="cursor: pointer"
-                       onclick=""
-                       data-step="10">100</div>
+                    <div class="coords">
+                      Coordinate:
+                      <br>
+                      <input name="galaxy"
+                             id="galaxy"
+                             type="text"
+                             pattern="[0-9]*"
+                             class="galaxy hideNumberSpin"
+                             size="1"
+                             value="1">
+                      <input name="system"
+                             id="system"
+                             type="text"
+                             pattern="[0-9]*"
+                             class="system hideNumberSpin"
+                             size="3"
+                             value="88">
+                      <input name="position"
+                             id="position"
+                             type="text"
+                             pattern="[0-9]*"
+                             class="planet hideNumberSpin"
+                             size="2"
+                             value="4">
+                    </div>
+                  </td>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Mission options -->
-          <div id="fleet3">
-            <div id="buttonz">
-              <div class="content"
-                   style="margin: 0;">
+              <!-- Velocity -->
+              <div id="fleet2">
                 <div>
-                  <h2>Seleziona la missione per la destinazione::</h2>
+                  <h2>Velocità</h2>
                 </div>
 
-                <ul id="missions">
-                  <li id="button15"
-                      class="off">
-                    <a id="missionButton15"
-                       href=""
-                       data-mission="15">
-                      <span class="textlabel">Spedizione</span>
-                    </a>
-                  </li>
-                  <li id="button7"
-                      class="off">
-                    <a id="missionButton7"
-                       href=""
-                       data-mission="7">
-                      <span class="textlabel">Colonizzazione</span>
-                    </a>
-                  </li>
-                  <li id="button8"
-                      class="off">
-                    <a id="missionButton8"
-                       href=""
-                       data-mission="8">
-                      <span class="textlabel">Ricicla campo detriti</span>
-                    </a>
-                  </li>
-                  <li id="button3"
-                      class="off">
-                    <a id="missionButton3"
-                       href=""
-                       data-mission="3">
-                      <span class="textlabel">Trasporto</span>
-                    </a>
-                  </li>
-                  <li id="button4"
-                      class="off">
-                    <a id="missionButton4"
-                       href=""
-                       data-mission="4">
-                      <span class="textlabel">Schieramento</span>
-                    </a>
-                  </li>
-                  <li id="button6"
-                      class="off">
-                    <a id="missionButton6"
-                       href=""
-                       data-mission="6">
-                      <span class="textlabel">Spionaggio</span>
-                    </a>
-                  </li>
-                  <li id="button5"
-                      class="off">
-                    <a id="missionButton5"
-                       href=""
-                       data-mission="5">
-                      <span class="textlabel">Stazionamento</span>
-                    </a>
-                  </li>
-                  <li id="button1"
-                      class="off">
-                    <a id="missionButton1"
-                       href=""
-                       data-mission="1">
-                      <span class="textlabel">Attacco</span>
-                    </a>
-                  </li>
-                  <li id="button2"
-                      class="off">
-                    <a id="missionButton2"
-                       href=""
-                       data-mission="2">
-                      <span class="textlabel">Attacco federale</span>
-                    </a>
-                  </li>
-                  <li id="button9"
-                      class="off">
-                    <a id="missionButton9"
-                       href=""
-                       data-mission="9">
-                      <span class="textlabel">Distruzione Luna</span>
-                    </a>
-                  </li>
-                </ul>
-                <div id="missionNameWrapper">
-                  Missione:
-                  <span id="missionName"
-                        class="missionName"></span>
-                  <p class="mission_description">&nbsp;</p>
+                <div id="speedPercentage"
+                     class="percentageBar"
+                     style="float:left;width:300px;"
+                     value="10"
+                     steps="10"
+                     stepsize="10"
+                     minvalue="1"
+                     usehalfstep="false">
+                  <div class="bar"
+                       style="width: 300px;"></div>
+                  <div class="steps">
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="1">10</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="2">20</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="3">30</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="4">40</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="5">50</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="6">60</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="7">70</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="8">80</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="9">90</div>
+                    <div class="step selected"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="10">100</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
+            <!-- Mission options -->
+            <div id="fleet3">
+              <div id="buttonz">
+                <div class="content"
+                     style="margin: 0;">
+                  <div>
+                    <h2>Seleziona la missione per la destinazione::</h2>
+                  </div>
+
+                  <ul id="missions">
+                    <li id="button15"
+                        class="off">
+                      <a id="missionButton15"
+                         href=""
+                         data-mission="15">
+                        <span class="textlabel">Spedizione</span>
+                      </a>
+                    </li>
+                    <li id="button7"
+                        class="off">
+                      <a id="missionButton7"
+                         href=""
+                         data-mission="7">
+                        <span class="textlabel">Colonizzazione</span>
+                      </a>
+                    </li>
+                    <li id="button8"
+                        class="off">
+                      <a id="missionButton8"
+                         href=""
+                         data-mission="8">
+                        <span class="textlabel">Ricicla campo detriti</span>
+                      </a>
+                    </li>
+                    <li id="button3"
+                        class="off">
+                      <a id="missionButton3"
+                         href=""
+                         data-mission="3">
+                        <span class="textlabel">Trasporto</span>
+                      </a>
+                    </li>
+                    <li id="button4"
+                        class="off">
+                      <a id="missionButton4"
+                         href=""
+                         data-mission="4">
+                        <span class="textlabel">Schieramento</span>
+                      </a>
+                    </li>
+                    <li id="button6"
+                        class="off">
+                      <a id="missionButton6"
+                         href=""
+                         data-mission="6">
+                        <span class="textlabel">Spionaggio</span>
+                      </a>
+                    </li>
+                    <li id="button5"
+                        class="off">
+                      <a id="missionButton5"
+                         href=""
+                         data-mission="5">
+                        <span class="textlabel">Stazionamento</span>
+                      </a>
+                    </li>
+                    <li id="button1"
+                        class="off">
+                      <a id="missionButton1"
+                         href=""
+                         data-mission="1">
+                        <span class="textlabel">Attacco</span>
+                      </a>
+                    </li>
+                    <li id="button2"
+                        class="off">
+                      <a id="missionButton2"
+                         href=""
+                         data-mission="2">
+                        <span class="textlabel">Attacco federale</span>
+                      </a>
+                    </li>
+                    <li id="button9"
+                        class="off">
+                      <a id="missionButton9"
+                         href=""
+                         data-mission="9">
+                        <span class="textlabel">Distruzione Luna</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div id="missionNameWrapper">
+                    Missione:
+                    <span id="missionName"
+                          class="missionName"></span>
+                    <p class="mission_description">&nbsp;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
 
-    <footer>
-      <div class="mp_footer"></div>
-    </footer>
+      <footer>
+        <div class="mp_footer"></div>
+      </footer>
+    </div>
   </div>
+
+
 </div>
 
 
