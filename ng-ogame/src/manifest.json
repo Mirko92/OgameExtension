@@ -49,5 +49,8 @@
         "declarativeContent",
         "activeTab",
         "tabs"
+    ],
+    "web_accessible_resources": [
+        "assets/images/ogame_icons.jpg"
     ]
 }
