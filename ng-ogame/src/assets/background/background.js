@@ -83,19 +83,20 @@ function saveFleetInfo(data) {
 
     const index = uniData?.planets?.findIndex(p => p.name === planet.name);
 
+    console.debug("Index:", index);
     const update = {
       ...planet,
       shipsData
     };
 
-    if(!index || index === -1){
+    if(index === undefined || index === null || index === -1){
       uniData.planets = [...(uniData?.planets||[]), update];
     }else{
       uniData.planets[index] = update;
     }
 
     chrome.storage.local.set({ [uni]: uniData }, function () {
-      console.log('Value is set to ' + uniData);
+      console.log("Value is set to ", uniData);
     });
   });
 }
