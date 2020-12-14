@@ -1,8 +1,9 @@
 /**
  * Rappresenzatione dello storage locale di Chrome
+ * key => Universe code -> Eg: s170-it
  */
 export class Storage{
-    ogameData: OgameData[];
+    ogameData: {[key:string]: OgameData};
 }
 
 /**
@@ -12,9 +13,14 @@ export class OgameData {
     /**
      * Eg: s170-it
      */
-    uni: string; 
+    universeCode: string; 
 
-    planets : OgamePlanet;
+    /**
+     * Eg: Rosalind, Sombrero...
+     */
+    universeName: string; 
+
+    planets : OgamePlanet[];
 
     /* TODO: Si potrebbe aggiungere "playerName" */
 }
@@ -24,7 +30,12 @@ export class OgameData {
  * Dati di un singolo pianeta
  */
 export class OgamePlanet {
-    coords: {galaxy:number; system:number; position:number; type: PlanetType};
+    name:string;
+    type: PlanetType;
+
+    galaxy:number; 
+    system:number; 
+    position:number; 
 
     shipsData: any; //TODO: Tipizzare
 }

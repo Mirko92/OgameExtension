@@ -78,21 +78,24 @@ function saveFleetInfo(data) {
 
 
   chrome.storage.local.get([uni], function (result) {
-    const value = (result[uni] || {});
-    console.debug('Value currently is ', value);
+    const uniData = (result[uni] || {});
+    console.debug('Value currently is ', uniData);
 
-    const { galaxy, system, position, type } = planet;
-    const coords = galaxy + "_" + system + "_" + position + "_" + type;
+    const index = uniData?.planets?.findIndex(p => p.name === planet.name);
 
-    console.debug("Updating coords:", coords);
-
-    value[coords] = {
-      ...(value[coords] || {}),
+    const update = {
+      ...planet,
       shipsData
     };
 
-    chrome.storage.local.set({ [uni]: value }, function () {
-      console.log('Value is set to ' + value);
+    if(!index || index === -1){
+      uniData.planets = [...(uniData?.planets||[]), update];
+    }else{
+      uniData.planets[index] = update;
+    }
+
+    chrome.storage.local.set({ [uni]: uniData }, function () {
+      console.log('Value is set to ' + uniData);
     });
   });
 }
