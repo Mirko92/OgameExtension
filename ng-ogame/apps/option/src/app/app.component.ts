@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, NgZone, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 declare const chrome;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrls: ['./app.component.less'],
 })
 export class AppComponent implements OnInit {
   title = 'option';
@@ -15,25 +16,33 @@ export class AppComponent implements OnInit {
   keysOf(arg) {
     return Object.keys(arg);
   }
-  constructor(private http: HttpClient) { }
+
+  constructor(
+    private http: HttpClient,
+    private _ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
     this.initStorage();
+    this.syncStorage();
+  }
 
-    chrome.storage.onChanged.addListener(function (changes, namespace) {
-      for (var key in changes) {
-        var storageChange = changes[key];
-
-        console.debug(
-          'Storage key "%s" in namespace "%s" changed. ' +
-          'Old value was "%s", new value is "%s".',
-          key,
-          namespace);
-
-        console.debug("Old value was ", storageChange.oldValue);
-        console.debug("New value is  ", storageChange.newValue);
-      }
+  private syncStorage(){
+    let self = this;
+    this._ngZone.runOutsideAngular(() => {
+      chrome.storage.onChanged.addListener((changes) => {
+        self._ngZone.run(() => self.storageListener(changes), self);
+      });
     });
+  }
+
+  private storageListener(changes) {
+    console.debug("Changes", changes);
+
+    for (var key in changes) {
+      this.storage[key] = changes[key]?.newValue;
+      this.storage = { ...this.storage };
+    }
   }
 
   initStorage() {
