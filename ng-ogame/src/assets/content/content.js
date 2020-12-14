@@ -180,7 +180,7 @@ function runInactiveEspionage() {
 
 
 getFleetInfo();
-addFleetsButton();
+// addFleetsButton();
 
 
 //#region WepPage script
