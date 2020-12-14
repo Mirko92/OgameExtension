@@ -10,18 +10,30 @@ declare const chrome;
 export class AppComponent implements OnInit {
   title = 'option';
 
-  storage: any = { "PROVA": "ASD" };
+  storage: any = {};
 
   keysOf(arg) {
     return Object.keys(arg);
   }
-
-  testo = "TESTO";
-
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.initStorage();
+
+    chrome.storage.onChanged.addListener(function (changes, namespace) {
+      for (var key in changes) {
+        var storageChange = changes[key];
+
+        console.debug(
+          'Storage key "%s" in namespace "%s" changed. ' +
+          'Old value was "%s", new value is "%s".',
+          key,
+          namespace);
+
+        console.debug("Old value was ", storageChange.oldValue);
+        console.debug("New value is  ", storageChange.newValue);
+      }
+    });
   }
 
   initStorage() {
@@ -33,6 +45,7 @@ export class AppComponent implements OnInit {
       });
 
       promise.then(r => {
+        console.debug("r", r);
         this.storage = r;
       });
     } else {
