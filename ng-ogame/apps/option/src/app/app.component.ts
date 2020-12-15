@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, NgZone, OnInit } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 declare const chrome;
 
 @Component({
@@ -16,36 +17,26 @@ export class AppComponent implements OnInit {
     return Object.keys(arg);
   }
 
-  constructor(
-    private http: HttpClient,
-    private _ngZone: NgZone
-  ) {}
-
-  ngOnInit(): void {
-    this.initStorage();
-    this.syncStorage();
-  }
-
   getShipById(shipsData:any, id: number){
     return shipsData?.find(s => s.id === id) || {id};
   }
 
-  private syncStorage(){
-    let self = this;
-    this._ngZone.runOutsideAngular(() => {
-      chrome.storage.onChanged.addListener((changes) => {
-        self._ngZone.run(() => self.storageListener(changes), self);
-      });
-    });
-  }
+  constructor(
+    private http: HttpClient,
+    private storageSVC: StorageService
+  ) {}
 
-  private storageListener(changes) {
-    console.debug("Changes", changes);
+  ngOnInit(): void {
+    this.storageSVC.storageChanges.subscribe(
+      (changes)=>{
+        for (var key in changes) {
+          this.storage[key] = changes[key]?.newValue;
+          this.storage = { ...this.storage };
+        }
+      }
+    )
 
-    for (var key in changes) {
-      this.storage[key] = changes[key]?.newValue;
-      this.storage = { ...this.storage };
-    }
+    this.initStorage();
   }
 
   initStorage() {

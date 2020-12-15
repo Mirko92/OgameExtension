@@ -80,12 +80,12 @@
             transparent 7px);
 }
 
-.technology[data-status="off"] .icon {
+.technology.disabled .icon {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
-.technology[data-status="off"] .icon::after {
+.technology.disabled .icon::after {
     position: absolute;
     left: 0;
     top: 0;

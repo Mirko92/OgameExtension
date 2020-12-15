@@ -25,7 +25,7 @@ export class ShipComponent implements OnInit {
   }
 
   get shipIconClass(){
-    return this.mapping[this.ship?.id]?.iconClass;
+    return `${this.mapping[this.ship?.id]?.iconClass} ${this.shipAmount > 0 ? '' : 'disabled'}`;
   }
 
   mapping = {
