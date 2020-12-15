@@ -1,0 +1,473 @@
+@import './_variables.less';
+@import './_icons.less';
+@import './_sprite.less';
+
+// Importare solo se utili
+// @import './_icon_nf.less';
+// @import './_btn.less';
+
+@import './_percentage_bar.less';
+@import './_buttonz.less';
+@import './_fleet.less';
+@import './_technology.less';
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    z-index: 1;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: #f1f1f1;
+    font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+    font-size: 12px;
+}
+
+em {
+    font-style: italic;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+:focus,
+:active {
+    outline: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+caption,
+th,
+td {
+    font-weight: normal;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+}
+
+blockquote,
+q {
+    quotes: """";
+}
+
+input[type="button"],
+input[type="submit"] {
+    border: 0;
+}
+
+.h2 {
+    color: #6f9fc8;
+    font: 700 12px/28px Verdana, Arial, Helvetica, sans-serif;
+}
+
+select,
+select option {
+    background-color: black;
+    color: #848484;
+    font-size: 11px;
+    padding: 0;
+}
+
+
+.tooltip {
+    color: #fff;
+}
+
+.dropdown,
+.dropdown * {
+    margin: 0;
+    padding: 0;
+    color: #848484;
+    font-size: 11px;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dropdown {
+    display: inline-table;
+    table-layout: fixed;
+}
+
+.dropdown li {
+    display: table;
+    height: 22px;
+    line-height: 22px;
+    width: 100%;
+}
+
+.dropdown a {
+    text-decoration: none !important;
+    padding: 0 27px 0 5px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+}
+
+/* TODO: Sono i selettori per gli accordion e select vari */
+.dropdown.currentlySelected,
+.dropdown.currentlySelected:before,
+.dropdown.currentlySelected>a {
+    background-image: @ogame_arrows;
+}
+
+.dropdown.currentlySelected {
+    background-repeat: repeat-x;
+    background-position: 0 -560px;
+    color: #fff;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.dropdown.currentlySelected:before {
+    background-color: #0d1014;
+    background-position: 0 -632px;
+    content: "";
+    position: absolute;
+    height: 24px;
+    left: 0;
+    width: 5px;
+}
+
+.dropdown.disabled:active,
+.dropdown.disabled {
+    background-position: 0 -608px;
+    color: #848484;
+}
+
+.no-touch .dropdown.currentlySelected:hover {
+    background-position: 0 -584px;
+}
+
+.no-touch .dropdown.currentlySelected:hover:before {
+    background-position: -5px -632px;
+}
+
+.dropdown.disabled:before {
+    background-position: -10px -632px;
+}
+
+.dropdown.currentlySelected>a {
+    background-position: 100% -488px;
+    background-repeat: no-repeat;
+}
+
+.no-touch .dropdown.currentlySelected>a:hover,
+.dropdown.currentlySelected>a.hover,
+.dropdown.currentlySelected.focus>a,
+.dropdown.currentlySelected>a:focus {
+    background-position: 100% -512px;
+    color: #fff;
+}
+
+.dropdown.disabled>a,
+.dropdown.disabled>a:active,
+.no-touch .dropdown.disabled>a:hover,
+.dropdown.disabled>a.hover {
+    background-position: 100% -536px;
+    color: #848484 !important;
+}
+
+.dropdownList {
+    background: #141e26;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    display: none;
+    border-radius: 0 0 3px 3px;
+    list-style: none;
+    position: absolute;
+    z-index: 1000000;
+    max-height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dropdownList>li>a {
+    border-top: 1px solid #1c2933;
+    border-bottom: 1px solid #05080a;
+    padding: 0 5px;
+}
+
+.no-touch .dropdown a:hover {
+    cursor: default;
+}
+
+.no-touch .dropdownList>li>a:hover,
+.dropdownList>li>a:focus,
+.dropdownList>li>a:active,
+.dropdownList>li>a.focus {
+    background: #223341;
+    border-top: 1px solid #36495c;
+    border-bottom: 1px solid #0d141a;
+    color: #fff;
+}
+
+#feedback .dropdown a {
+    width: 150px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"] {
+    background-color: #b3c3cb;
+    border: 1px solid #668599;
+    border-bottom-color: #d3d9de;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px 0 #454f54;
+    color: #000;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+}
+
+::-webkit-input-placeholder {
+    color: #666;
+}
+
+
+:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input.hideNumberSpin::-webkit-outer-spin-button,
+input.hideNumberSpin::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus {
+    background-color: #f0f3f5;
+    border: 1px solid #a3b6c2;
+    border-bottom-color: #fff;
+    box-shadow: inset 0 1px 3px 0 #5c6970;
+}
+
+input[type="text"][readonly],
+input[type="text"][disabled],
+input[type="email"][disabled],
+input[type="password"][disabled],
+input[type="search"][disabled] {
+    background-color: #424548;
+    border: 1px solid #44484b;
+    border-bottom-color: #575c60;
+    box-shadow: inset 0 1px 3px 0 #27292b;
+}
+
+textarea {
+    width: 310px;
+    background-color: #b3c3cb;
+    border: 1px solid #668599;
+    border-bottom-color: #d3d9de;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px 0 #454f54;
+    color: #000;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 130px;
+    padding: 5px;
+    overflow: auto;
+}
+
+textarea:focus {
+    background-color: #f0f3f5;
+    border: 1px solid #a3b6c2;
+    border-bottom-color: #fff;
+    box-shadow: inset 0 1px 3px 0 #5c6970;
+}
+
+
+.clearfloat {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0;
+}
+
+.send_all a {
+    margin: 0;
+    float: left;
+    display: block;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    background: url("//gf3.geo.gfsrv.net/cdneb/f5f81e8302aaad56c958c033677fb8.png") -374px -162px no-repeat;
+}
+
+.no-touch .send_all a:hover {
+    background-position: -374px -194px;
+}
+
+.send_none {
+    margin: 0;
+}
+
+.send_none a {
+    float: right;
+    display: block;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    background: url("//gf3.geo.gfsrv.net/cdneb/f5f81e8302aaad56c958c033677fb8.png") -406px -162px no-repeat;
+}
+
+.no-touch .send_none a:hover {
+    background-position: -406px -194px;
+}
+
+
+div.buildingimg {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.detailsClosed .toggleDetails {
+    background: url("//gf2.geo.gfsrv.net/cdn10/de1e5f629d9e47d283488eee0c0ede.gif") no-repeat;
+}
+
+.detailsOpened .toggleDetails {
+    background: url("//gf3.geo.gfsrv.net/cdnb6/577565fadab7780b0997a76d0dca9b.gif") no-repeat;
+}
+
+#eventContent .toggleDetails {
+    width: 18px;
+}
+
+
+#rechts .planet-koords {
+    top: 22px;
+}
+
+#rechts #norm .planet-koords {
+    font-size: 11px;
+    left: auto;
+    position: static;
+    top: auto;
+}
+
+span.time {
+    display: block;
+    font-weight: 700;
+    color: #ccc;
+    font-size: 11px;
+    background-color: #111000;
+    position: absolute;
+    padding: 3px 0;
+    filter: alpha(opacity=80);
+    text-align: center;
+    z-index: 2;
+}
+
+.sprite.medium span.time {
+    top: 43px;
+    left: 2px;
+    width: 96px;
+}
+
+.sprite.small span.time {
+    top: 30px;
+    left: 2px;
+    width: 77px;
+}
+
+.ui-widget-overlay {
+    background: transparent url("//gf3.geo.gfsrv.net/cdne9/e5e55ee761820a45c11bbce63a8170.png") repeat;
+    background: rgba(20, 26, 30, 0.8);
+}
+
+.fallback {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#60000000', GradientType=0);
+}
+
+.ogame_header{
+    background-image: url('data:image/gif;base64,R0lGODlhmwIcAMZUABAXHQ0PEw0QFAYJDAEAAQwSFxEYHg4RFQoMDwgLDgMEBRAWHRQeJxMcIxIaIgIDBAUJCxMeJgwPExYcIwoNEAsOERUgKBUbIhceJRQaIREWHBAWHAgKDQ4TGBAYHg0SFgYKDRAXHBUhKQ8VGwwRFQEBAQ4RFhEZIAkMDwsPExEYHwgJDBUfJxAZIA4VGgwQFA0TFxQcIxIbIggLDQECAxQfJwUICgMFBg8VGg8WGw0SFwkLDgsOEAsPEg8UGgECAggMDgQGCA8XHQ0RFQoPEwsOEg4VGw0RFg8UGQgKDAwPEgYKDBUgKRMcJAYHCRUfKBAXHgAAABQeJhAYH////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAH8ALAAAAACbAhwAAAf+gH+CglGFhoeHg4qLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6iphIishY6tsLGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8y4i7NK0dLT1NXW19jZ2tvc3d7f4OHi4+ABSgHo6erm0QECUevq5/Hy7e/05vjo5Pz9/v8AAwqclk8fu3P38M3TJ80dPHoLIQ6c6G+WolkEMmrcyFFjiRLNQoocSbKkyZMoU6pcybLkx44wOVocJAtBgZs4c+q8qYMIByhAgwodSrSo0aNIkypdyrSp06dQo0pt6mHq0KpWs2rdyrWr169ggWLVOjas2acciOjYyTYnAln+F2O9MEC3rt27BlSMkCDjid+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmDNr3sy5s2fBMiSMUIG3dN0XcFfFkgCgtevXsKG4KHKihpTbuHPr3s27t+/fwIMLH068uPHjyJMrX868ufPn0KNLn069uvXru2ucKOICCuzvryVYpMUa/HfZPVSwwM6+vfv38OPLn0+/vv37+JezUNGju/nv4tGiGivl/dcaFEakYMB6+TXo4IMQRijhhBRWaOFvLBiQghHeGdhagK2sMiAKKAAxQxQFghdCayOkAMATF8Yo44w01mjjjThS9wQAKYzQ2or/iTcDECQm8ocrRxr+MsEEMVyAooEr7rUBjDlWaeWVWGap5ZbRPbGBaAAAaZ54F8SwpJFIHoLBmhg8+Z8HObyAgwVc1mnnnXjmqaeDFuDwQg4eGCgem20aImKShSx5pgD/hSAECT4wcRsD11FanaXTYRqdps9x2pyny4GanKj2kWqcqaFShypyq566KXStyhfrqLcx4QMJQoj53TuKToBmFANeIKyTSSRg7LHIknCEFE0020Cz0EYr7bTUUvtstdhmK+212nZrrbfgRsttuN2OSy625p47bbrqQstuu/BW+66688brrL3o4vutvuLy666/TdQLML0DrwutFEeQgOzCCSQRxbBOGprkgBn+VJxBFD8ooPHGHA/RglALnAVFyGaRDJbJXqHMlcpasWyVy1LBLLJSMj9V88th3RyVzjan3BXPMxcFdMxCtTAEx0gr8EMUFl8scZqGaCC1Big6YPXVWLcwxdZcd+01AF6HLfbYZJfNNdhmp6122Wiv7bbbbb8tN9lxz2332XfnrffYde/t99Z9/w234HYHTjjbhyeuuOFit4D14w6INzXVTwOLaBRIdKB5FBUofjfjnhceuuCgj7526aabjfoUq6d+eOuu8x3757PPvTrsqtdudgVRaN4BEr8CewgMHxTPOeu6J4578rkz7/fyzocNvfPTR9919dYDnj3t23evPe/+xX8AQyKusELB+RQc7z3d6xOOffvXw7/3+/K7Tr/897eff/6m845++oigSSw6V7/XFVB5B3RfAgeXN/4t0IEHhOACY8e7WDwDFgR83gRDJ8ENIs+DIPReBzc4whBaj38VDBEjYMEDE2rPhZ4roQlluD0aws+GHsQhDNPGA1i8ohUnsAAThkjEIkKBezs0nQ5duMQkFrCJIYRiFO8GhSJakQkWOIEPGwELGjzgi2AM4w1EcEQnNtCMs5OiCGeIxtipsXtvdBsURHCDMNrxATTY4grNh4A++vGPbwkCGUEYRycWso0aRCQcFclIvc0xCFEApCQBGEAusuIAmMykJjH++RYbkHErG5DKFM4yyrCU0isbOGVXVLkVVmbFlVJJpchgyRVaCsWWrwSLLL+Cy6j08im/ZMouSRlLrojABpHcpDIPoMI9IkIA0IymNKF5gB1EYQlXzKY2rSjEbXozAn7xpji/Gc5xmrOI4HzCOc9pgXSu05zufCc51SlPbcaznkVsZznxuU2/RICf4vTnOO8J0CsStKBD1Cc9EUrEgxbUofyEqDwVytAr/uWf+OwmQ5cQhR0cYJogfQcrfhgFDhgipCA9gEmXwNKWuvSlMH0pCGJK05dCYAADqKlOd7qEm+aUp0B1qU+DGlQQDJWoPD0qUmuq1KXCtKlOZalRcRo61Z3iFAJVteoAsLpTqGZVqFT9qky9+lWyVtWsTkUrUaf6U7G+FKdbrepM3cpRDnwUpdI0hEmRJIhAAAA7');
+}

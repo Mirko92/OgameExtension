@@ -1,0 +1,57 @@
+/* body {
+     background: black !important; 
+} */
+
+.allornonewrap .firstcol.fleft{
+    display: none !important;
+}
+
+/* 
+    Nasconde alcuni elmenti della pagina
+*/
+#mmonetbar,         /* Top Banner */
+#siteHeader,        /* Top Banner */
+#banner_skyscraper  /* Right banner */ {
+    display: none !important;
+}
+
+/* 
+    Riporta in cima il contenuto principale
+*/
+body.no-commander #pageContent {
+    top: 0px !important;
+}
+
+body.no-commander {
+    background-position: 50% -1px !important;
+}
+
+body.no-commander .contentBoxBody {
+    top: 0px !important;
+}
+
+
+/* Flett button su pianeti */
+.mp_fleet_button{
+    position: absolute;
+    top: 25%;
+    right: 0;
+    transform: translateX(100%);
+    cursor: pointer;
+}
+
+
+/* TODO: migliorare layout pianeti */
+/* .smallplanet {
+    display: flex;
+    align-items: center;
+}
+.smallplanet * {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.smallplanet .moonlink{
+    margin-left: -20px;
+} */

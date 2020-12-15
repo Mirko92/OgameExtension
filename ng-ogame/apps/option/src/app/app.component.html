@@ -1,0 +1,295 @@
+<div class="page"
+     role="main">
+
+  <div *ngFor="let uni of keysOf(storage)">
+    <h1>{{uni}}</h1>
+
+    <div id="buttonz"
+         class="fleet_save"
+         *ngFor="let p of storage[uni].planets">
+      <div class="fleet_save__title">
+        <h1>{{p.name}}</h1>
+      </div>
+
+      <div id="battleships">
+
+        <div class="header fleet_save__header">
+          <div class="left">&nbsp;</div>
+          <div class="center">&nbsp;</div>
+          <div class="right">&nbsp;</div>
+        </div>
+
+        <div class="fleet_save__content">
+
+          <div class="fleet_save__ships">
+            <div>
+              <h2>Navi</h2>
+            </div>
+
+            <ul id="military"
+                class="iconsUNUSED">
+
+              <app-ship [ship]="getShipById(p.shipsData, 202)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 203)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 208)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 209)"></app-ship>
+
+              <app-ship [ship]="getShipById(p.shipsData, 210)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 204)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 205)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 206)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 207)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 215)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 211)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 213)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 214)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 218)"></app-ship>
+              <app-ship [ship]="getShipById(p.shipsData, 219)"></app-ship>
+            </ul>
+          </div>
+
+          <div style="margin-top: -27px; 
+                    padding: 0 30px; 
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;">
+            <div style="display: flex; justify-content: space-around;">
+              <!-- Destination options -->
+              <div id="fleet2">
+                <div class="mp_header">
+                  <h2>Destinazione</h2>
+                </div>
+
+                <div id="mission">
+
+                  <td id="target"
+                      class="border5px">
+
+                    <div class="planetname"
+                         id="targetPlanetName">
+                      LunaBlalla
+                    </div>
+
+                    <div class="target">
+                      <a class="planet"
+                         href=""
+                         id="pbutton">
+                      </a>
+                      <a class="moon_selected"
+                         href=""
+                         id="mbutton">
+                      </a>
+                      <a class="debris"
+                         href=""
+                         id="dbutton">
+                      </a>
+                      <br class="clearfloat">
+                    </div>
+
+                    <div class="coords">
+                      Coordinate:
+                      <br>
+                      <input name="galaxy"
+                             id="galaxy"
+                             type="text"
+                             pattern="[0-9]*"
+                             class="galaxy hideNumberSpin"
+                             size="1"
+                             value="1">
+                      <input name="system"
+                             id="system"
+                             type="text"
+                             pattern="[0-9]*"
+                             class="system hideNumberSpin"
+                             size="3"
+                             value="88">
+                      <input name="position"
+                             id="position"
+                             type="text"
+                             pattern="[0-9]*"
+                             class="planet hideNumberSpin"
+                             size="2"
+                             value="4">
+                    </div>
+                  </td>
+                </div>
+              </div>
+
+              <!-- Velocity -->
+              <div id="fleet2">
+                <div>
+                  <h2>Velocità</h2>
+                </div>
+
+                <div id="speedPercentage"
+                     class="percentageBar"
+                     style="float:left;width:300px;"
+                     value="10"
+                     steps="10"
+                     stepsize="10"
+                     minvalue="1"
+                     usehalfstep="false">
+                  <div class="bar"
+                       style="width: 300px;"></div>
+                  <div class="steps">
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="1">10</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="2">20</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="3">30</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="4">40</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="5">50</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="6">60</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="7">70</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="8">80</div>
+                    <div class="step"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="9">90</div>
+                    <div class="step selected"
+                         style="cursor: pointer"
+                         onclick=""
+                         data-step="10">100</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mission options -->
+            <div id="fleet3">
+              <div id="buttonz">
+                <div class="content"
+                     style="margin: 0;">
+                  <div>
+                    <h2>Seleziona la missione per la destinazione::</h2>
+                  </div>
+
+                  <ul id="missions">
+                    <li id="button15"
+                        class="off">
+                      <a id="missionButton15"
+                         href=""
+                         data-mission="15">
+                        <span class="textlabel">Spedizione</span>
+                      </a>
+                    </li>
+                    <li id="button7"
+                        class="off">
+                      <a id="missionButton7"
+                         href=""
+                         data-mission="7">
+                        <span class="textlabel">Colonizzazione</span>
+                      </a>
+                    </li>
+                    <li id="button8"
+                        class="off">
+                      <a id="missionButton8"
+                         href=""
+                         data-mission="8">
+                        <span class="textlabel">Ricicla campo detriti</span>
+                      </a>
+                    </li>
+                    <li id="button3"
+                        class="off">
+                      <a id="missionButton3"
+                         href=""
+                         data-mission="3">
+                        <span class="textlabel">Trasporto</span>
+                      </a>
+                    </li>
+                    <li id="button4"
+                        class="off">
+                      <a id="missionButton4"
+                         href=""
+                         data-mission="4">
+                        <span class="textlabel">Schieramento</span>
+                      </a>
+                    </li>
+                    <li id="button6"
+                        class="off">
+                      <a id="missionButton6"
+                         href=""
+                         data-mission="6">
+                        <span class="textlabel">Spionaggio</span>
+                      </a>
+                    </li>
+                    <li id="button5"
+                        class="off">
+                      <a id="missionButton5"
+                         href=""
+                         data-mission="5">
+                        <span class="textlabel">Stazionamento</span>
+                      </a>
+                    </li>
+                    <li id="button1"
+                        class="off">
+                      <a id="missionButton1"
+                         href=""
+                         data-mission="1">
+                        <span class="textlabel">Attacco</span>
+                      </a>
+                    </li>
+                    <li id="button2"
+                        class="off">
+                      <a id="missionButton2"
+                         href=""
+                         data-mission="2">
+                        <span class="textlabel">Attacco federale</span>
+                      </a>
+                    </li>
+                    <li id="button9"
+                        class="off">
+                      <a id="missionButton9"
+                         href=""
+                         data-mission="9">
+                        <span class="textlabel">Distruzione Luna</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div id="missionNameWrapper">
+                    Missione:
+                    <span id="missionName"
+                          class="missionName"></span>
+                    <p class="mission_description">&nbsp;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="mp_footer"></div>
+      </footer>
+    </div>
+  </div>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
