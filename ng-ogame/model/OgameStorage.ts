@@ -38,6 +38,8 @@ export class OgamePlanet {
     position:number; 
 
     shipsData: any; //TODO: Tipizzare
+
+    fleetMissions: any[];
 }
 
 /**

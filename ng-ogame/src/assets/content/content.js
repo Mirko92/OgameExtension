@@ -209,6 +209,10 @@ const MP_PLANET_TYPES = {
     MOON: 3
 };
 
+const MP_LOCAL_STORAGE = {
+    FLEET_TOKEN: "mp_fleet_token"
+};
+
 window.mp = {
     server: "${server()}",
 
@@ -231,7 +235,7 @@ window.mp = {
     */
     addFleetButton(){
         const continueButton = document.querySelector('#continueToFleet2');
-        continueButton.insertAdjacentHTML('afterend','<a class="continue fright on" href=""><span>Ciaone</span></a>')
+        continueButton.insertAdjacentHTML('afterend','<a class="continue fright on" href=""><span>FLEET SAVE</span></a>')
     },
 
     getFleetParams(){
@@ -328,9 +332,13 @@ window.mp = {
 
         switch (currentPage) {
             case "fleetdispatch":
+                this.addFleetButton();
+
                 // TODO: Gestione local storage in file a parte 
-                localStorage.setItem('mp_fleet_token', fleetDispatcher.fleetSendingToken);
+                localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
+
                 this.saveFleetInfo(this.server, currentPlanet, shipsOnPlanet);
+
                 break;
             default:
                 break;

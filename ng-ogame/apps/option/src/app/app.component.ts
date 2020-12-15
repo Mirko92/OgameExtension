@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef, Component, EventEmitter, NgZone, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, NgZone, OnInit } from '@angular/core';
 declare const chrome;
 
 @Component({
@@ -25,6 +24,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.initStorage();
     this.syncStorage();
+  }
+
+  getShipById(shipsData:any, id: number){
+    return shipsData?.find(s => s.id === id) || {id};
   }
 
   private syncStorage(){
