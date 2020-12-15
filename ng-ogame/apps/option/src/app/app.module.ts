@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShipComponent } from '../components/ship/ship.component';
 import { FormsModule } from '@angular/forms';
+import { FleetComponent } from '../components/fleet/fleet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShipComponent
+    ShipComponent,
+    FleetComponent
   ],
   imports: [
     BrowserModule,

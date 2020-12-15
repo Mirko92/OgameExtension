@@ -41,7 +41,7 @@ function addFleetsButton() {
         const planetCoordsText = container.querySelector('.planetlink .planet-koords').textContent;
         const regexResult = /\[(\d):(\d*):(\d*)\]/.exec(planetCoordsText);
 
-        const [g,s,p] = [1,2,3].map(index => regexResult[index]);
+        const [g, s, p] = [1, 2, 3].map(index => regexResult[index]);
         const coords = `${g}_${s}_${p}`
 
         const planet = `${coords}_1`;
@@ -57,7 +57,7 @@ function fleetButton(planet, moon) {
     button.title = 'Run fleet save';
 
     button.setAttribute('data-planet', planet);
-    if(moon){
+    if (moon) {
         button.setAttribute('data-moon', moon);
     }
     return button;
@@ -214,6 +214,7 @@ const MP_LOCAL_STORAGE = {
 };
 
 window.mp = {
+    prova: function(e){e.preventDefault(); console.debug("provaaaaaa")},
     server: "${server()}",
 
     extensionId: "${chrome.runtime.id}",
@@ -235,7 +236,14 @@ window.mp = {
     */
     addFleetButton(){
         const continueButton = document.querySelector('#continueToFleet2');
-        continueButton.insertAdjacentHTML('afterend','<a class="continue fright on" href=""><span>FLEET SAVE</span></a>')
+        continueButton.insertAdjacentHTML('afterend','<a class="continue fright on" href="" onclick="mp.runFleetSave(event)"><span>FLEET SAVE</span></a>')
+    },
+
+    runFleetSave(e){
+        e.preventDefault(); 
+
+        console.debug("basta che per oggi ho finito la voglia TODO");
+
     },
 
     getFleetParams(){
