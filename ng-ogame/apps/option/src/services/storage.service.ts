@@ -17,15 +17,16 @@ export class StorageService {
     this.syncStorage();
   }
 
+  getFullStorage():Promise<any> {
+    return new Promise((resolve) => {
+      chrome.storage?.local.get(null, resolve);
+    });
+  }
+
   initStorage() {
     // TODO: Alternale le due tramite l'environment ? 
     if (chrome.storage) {
-      // Chiamata reale fattile solo in context dell'estensione
-      const promise = new Promise((resolve) => {
-        chrome.storage?.local.get(null, resolve);
-      });
-
-      promise.then(r => {
+      this.getFullStorage().then(r => {
         console.debug("r", r);
         this.storage = r;
       });

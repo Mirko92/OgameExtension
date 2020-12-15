@@ -65,23 +65,23 @@
                   <td id="target"
                       class="border5px">
 
-                    <div class="planetname"
+                    <!-- <div class="planetname"
                          id="targetPlanetName">
                       LunaBlalla
-                    </div>
+                    </div> -->
 
                     <div class="target">
-                      <a class="planet"
-                         href=""
-                         id="pbutton">
+                      <a [class]="type === 1 ? 'planet_selected' : 'planet'"
+                         id="pbutton"
+                         (click)="type = 1">
                       </a>
-                      <a class="moon_selected"
-                         href=""
-                         id="mbutton">
+                      <a [class]="type === 3 ? 'moon_selected' : 'moon'"
+                         id="mbutton"
+                         (click)="type = 3">
                       </a>
-                      <a class="debris"
-                         href=""
-                         id="dbutton">
+                      <a [class]="type === 2 ? 'debris_selected' : 'debris'"
+                         id="dbutton"
+                         (click)="type = 2">
                       </a>
                       <br class="clearfloat">
                     </div>
@@ -95,21 +95,21 @@
                              pattern="[0-9]*"
                              class="galaxy hideNumberSpin"
                              size="1"
-                             value="1">
+                             [(ngModel)]="galaxy">
                       <input name="system"
                              id="system"
                              type="text"
                              pattern="[0-9]*"
                              class="system hideNumberSpin"
                              size="3"
-                             value="88">
+                             [(ngModel)]="system">
                       <input name="position"
                              id="position"
                              type="text"
                              pattern="[0-9]*"
                              class="planet hideNumberSpin"
                              size="2"
-                             value="4">
+                             [(ngModel)]="position">
                     </div>
                   </td>
                 </div>
@@ -123,54 +123,49 @@
 
                 <div id="speedPercentage"
                      class="percentageBar"
-                     style="float:left;width:300px;"
-                     value="10"
-                     steps="10"
-                     stepsize="10"
-                     minvalue="1"
-                     usehalfstep="false">
+                     style="float:left;width:300px;">
                   <div class="bar"
                        style="width: 300px;"></div>
                   <div class="steps">
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 10}"
+                         (click)="velocity = 10"
                          data-step="1">10</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 20}"
+                         (click)="velocity = 20"
                          data-step="2">20</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 30}"
+                         (click)="velocity = 30"
                          data-step="3">30</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 40}"
+                         (click)="velocity = 40"
                          data-step="4">40</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 50}"
+                         (click)="velocity = 50"
                          data-step="5">50</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 60}"
+                         (click)="velocity = 60"
                          data-step="6">60</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 70}"
+                         (click)="velocity = 70"
                          data-step="7">70</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 80}"
+                         (click)="velocity = 80"
                          data-step="8">80</div>
                     <div class="step"
-                         style="cursor: pointer"
-                         onclick=""
+                         [class]="{'selected': velocity === 90}"
+                         (click)="velocity = 90"
                          data-step="9">90</div>
-                    <div class="step selected"
-                         style="cursor: pointer"
-                         onclick=""
+                    <div class="step"
+                         [class]="{'selected': velocity === 100}"
+                         (click)="velocity = 100"
                          data-step="10">100</div>
                   </div>
                 </div>
@@ -188,81 +183,91 @@
 
                   <ul id="missions">
                     <li id="button15"
-                        class="off">
+                        class="on">
                       <a id="missionButton15"
-                         href=""
+                         (click)="mission = 15"
+                         [class.selected]="mission === 15"
                          data-mission="15">
                         <span class="textlabel">Spedizione</span>
                       </a>
                     </li>
                     <li id="button7"
-                        class="off">
+                        class="on">
                       <a id="missionButton7"
-                         href=""
+                         (click.prevent)="mission = 7"
+                         [class.selected]="mission === 7"
                          data-mission="7">
                         <span class="textlabel">Colonizzazione</span>
                       </a>
                     </li>
                     <li id="button8"
-                        class="off">
+                        class="on">
                       <a id="missionButton8"
-                         href=""
+                         (click)="mission = 8"
+                         [class.selected]="mission === 8"
                          data-mission="8">
                         <span class="textlabel">Ricicla campo detriti</span>
                       </a>
                     </li>
                     <li id="button3"
-                        class="off">
+                        class="on">
                       <a id="missionButton3"
-                         href=""
+                         (click)="mission = 3"
+                         [class.selected]="mission === 3"
                          data-mission="3">
                         <span class="textlabel">Trasporto</span>
                       </a>
                     </li>
                     <li id="button4"
-                        class="off">
+                        class="on">
                       <a id="missionButton4"
-                         href=""
+                         (click)="mission = 4"
+                         [class.selected]="mission === 4"
                          data-mission="4">
                         <span class="textlabel">Schieramento</span>
                       </a>
                     </li>
                     <li id="button6"
-                        class="off">
+                        class="on">
                       <a id="missionButton6"
-                         href=""
+                         (click)="mission = 6"
+                         [class.selected]="mission === 6"
                          data-mission="6">
                         <span class="textlabel">Spionaggio</span>
                       </a>
                     </li>
                     <li id="button5"
-                        class="off">
+                        class="on">
                       <a id="missionButton5"
-                         href=""
+                         (click)="mission = 5"
+                         [class.selected]="mission === 5"
                          data-mission="5">
                         <span class="textlabel">Stazionamento</span>
                       </a>
                     </li>
                     <li id="button1"
-                        class="off">
+                        class="on">
                       <a id="missionButton1"
-                         href=""
+                         (click)="mission = 1"
+                         [class.selected]="mission === 1"
                          data-mission="1">
                         <span class="textlabel">Attacco</span>
                       </a>
                     </li>
                     <li id="button2"
-                        class="off">
+                        class="on">
                       <a id="missionButton2"
-                         href=""
+                         (click)="mission = 2"
+                         [class.selected]="mission === 2"
                          data-mission="2">
                         <span class="textlabel">Attacco federale</span>
                       </a>
                     </li>
                     <li id="button9"
-                        class="off">
+                        class="on">
                       <a id="missionButton9"
-                         href=""
+                         (click)="mission = 9"
+                         [class.selected]="mission === 9"
                          data-mission="9">
                         <span class="textlabel">Distruzione Luna</span>
                       </a>
@@ -276,6 +281,10 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+              <button>SALVA</button>
             </div>
 
           </div>
