@@ -51,6 +51,7 @@
         "tabs"
     ],
     "web_accessible_resources": [
-        "assets/images/ogame_icons.jpg"
+        "assets/images/ogame_icons.jpg",
+        "assets/scripts/mp_ogame.js"
     ]
 }
