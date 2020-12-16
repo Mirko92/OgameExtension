@@ -5,16 +5,12 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './ship.component.html',
   styleUrls: ['./ship.component.less']
 })
-export class ShipComponent implements OnInit {
+export class ShipComponent {
 
   @Input()
   ship: any; 
 
   constructor() { }
-
-  ngOnInit(): void {
-    console.debug("asd", this.ship);
-  }
 
   get shipName(){
     return this.mapping[this.ship?.id];

@@ -23,26 +23,11 @@ const MP_LOCAL_STORAGE = {
 };
 
 window.mp = {
-    prova: function (e) { e.preventDefault(); console.debug("provaaaaaa") },
-
-    server: () => {
-        const url = location.href;
-        return new RegExp(".*//(.*).ogame.gameforge.com.*").exec(url)[1]
-    },
+    server: () => new RegExp(".*//(.*).ogame.gameforge.com.*").exec(location.href)[1],
 
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
 
-    fleetToken() {
-        return localStorage.getItem('mp_fleet_token');
-    },
-
-    /**
-     * Add fleet buttons next to every planet
-     */
-    addFleetActions() {
-        const fleetButtons = document.querySelectorAll('.mp_fleet_button');
-        fleetButtons.forEach(btn => btn.onclick = this.quickFleetSave);
-    },
+    fleetToken: () => localStorage.getItem('mp_fleet_token'),
 
     /**
      * Add fleet button in the first step of fleetDispatcher 
@@ -60,9 +45,6 @@ window.mp = {
     },
 
     getFleetParams() {
-        // const planet = this?.getAttribute('data-planet');
-        // const moon = this?.getAttribute('data-moon');
-
         return new URLSearchParams({
             token: this.fleetToken(),
             speed: 10,
@@ -152,7 +134,7 @@ window.mp = {
      * @param {string} planet Eg: 1_88_4_3
      */
     saveFleetInfo(uni, planet, shipsData) {
-        chrome.runtime.sendMessage(this.extensionId,
+        chrome.runtime.sendMessage(this.extensionId(),
             {
                 method: "SAVE_FLEET_INFO",
                 data: { uni, planet, shipsData }
@@ -180,7 +162,7 @@ window.mp = {
                 // TODO: Gestione local storage in file a parte 
                 localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
 
-                this.saveFleetInfo(this.server, currentPlanet, shipsOnPlanet);
+                this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
 
                 break;
             default:

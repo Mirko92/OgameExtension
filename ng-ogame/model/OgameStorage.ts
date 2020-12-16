@@ -39,7 +39,7 @@ export class OgamePlanet {
 
     shipsData: any; //TODO: Tipizzare
 
-    fleetMissions: any[];
+    fleetMission: any;
 }
 
 /**

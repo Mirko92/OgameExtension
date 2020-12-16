@@ -76,7 +76,6 @@ function handleMessage(request, sender, sendResponse) {
 function saveFleetInfo(data) {
   const { uni, planet, shipsData } = data;
 
-
   chrome.storage.local.get([uni], function (result) {
     const uniData = (result[uni] || {});
     console.debug('Value currently is ', uniData);
@@ -86,7 +85,8 @@ function saveFleetInfo(data) {
     console.debug("Index:", index);
     const update = {
       ...planet,
-      shipsData
+      shipsData,
+      fleetMission: planet.fleetMission || {}
     };
 
     if(index === undefined || index === null || index === -1){
