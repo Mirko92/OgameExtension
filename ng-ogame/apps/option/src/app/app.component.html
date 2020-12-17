@@ -104,44 +104,44 @@
                        style="width: 300px;"></div>
                   <div class="steps">
                     <div class="step"
-                         [class]="{'selected': p.velocity === 10}"
-                         (click)="p.velocity = 10"
+                         [class]="{'selected': p.fleetMission.velocity === 10}"
+                         (click)="p.fleetMission.velocity = 10"
                          data-step="1">10</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 20}"
-                         (click)="p.velocity = 20"
+                         [class]="{'selected': p.fleetMission.velocity === 20}"
+                         (click)="p.fleetMission.velocity = 20"
                          data-step="2">20</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 30}"
-                         (click)="p.velocity = 30"
+                         [class]="{'selected': p.fleetMission.velocity === 30}"
+                         (click)="p.fleetMission.velocity = 30"
                          data-step="3">30</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 40}"
-                         (click)="p.velocity = 40"
+                         [class]="{'selected': p.fleetMission.velocity === 40}"
+                         (click)="p.fleetMission.velocity = 40"
                          data-step="4">40</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 50}"
-                         (click)="p.velocity = 50"
+                         [class]="{'selected': p.fleetMission.velocity === 50}"
+                         (click)="p.fleetMission.velocity = 50"
                          data-step="5">50</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 60}"
-                         (click)="p.velocity = 60"
+                         [class]="{'selected': p.fleetMission.velocity === 60}"
+                         (click)="p.fleetMission.velocity = 60"
                          data-step="6">60</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 70}"
-                         (click)="p.velocity = 70"
+                         [class]="{'selected': p.fleetMission.velocity === 70}"
+                         (click)="p.fleetMission.velocity = 70"
                          data-step="7">70</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 80}"
-                         (click)="p.velocity = 80"
+                         [class]="{'selected': p.fleetMission.velocity === 80}"
+                         (click)="p.fleetMission.velocity = 80"
                          data-step="8">80</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 90}"
-                         (click)="p.velocity = 90"
+                         [class]="{'selected': p.fleetMission.velocity === 90}"
+                         (click)="p.fleetMission.velocity = 90"
                          data-step="9">90</div>
                     <div class="step"
-                         [class]="{'selected': p.velocity === 100}"
-                         (click)="p.velocity = 100"
+                         [class]="{'selected': p.fleetMission.velocity === 100}"
+                         (click)="p.fleetMission.velocity = 100"
                          data-step="10">100</div>
                   </div>
                 </div>
@@ -161,8 +161,8 @@
                     <li id="button15"
                         class="on">
                       <a id="missionButton15"
-                         (click)="p.mission = 15"
-                         [class.selected]="p.mission === 15"
+                         (click)="p.fleetMission.mission = 15"
+                         [class.selected]="p.fleetMission.mission === 15"
                          data-mission="15">
                         <span class="textlabel">Spedizione</span>
                       </a>
@@ -170,8 +170,8 @@
                     <li id="button7"
                         class="on">
                       <a id="missionButton7"
-                         (click.prevent)="p.mission = 7"
-                         [class.selected]="p.mission === 7"
+                         (click)="p.fleetMission.mission = 7"
+                         [class.selected]="p.fleetMission.mission === 7"
                          data-mission="7">
                         <span class="textlabel">Colonizzazione</span>
                       </a>
@@ -179,8 +179,8 @@
                     <li id="button8"
                         class="on">
                       <a id="missionButton8"
-                         (click)="p.mission = 8"
-                         [class.selected]="p.mission === 8"
+                         (click)="p.fleetMission.mission = 8"
+                         [class.selected]="p.fleetMission.mission === 8"
                          data-mission="8">
                         <span class="textlabel">Ricicla campo detriti</span>
                       </a>
@@ -188,8 +188,8 @@
                     <li id="button3"
                         class="on">
                       <a id="missionButton3"
-                         (click)="p.mission = 3"
-                         [class.selected]="p.mission === 3"
+                         (click)="p.fleetMission.mission = 3"
+                         [class.selected]="p.fleetMission.mission === 3"
                          data-mission="3">
                         <span class="textlabel">Trasporto</span>
                       </a>
@@ -197,8 +197,8 @@
                     <li id="button4"
                         class="on">
                       <a id="missionButton4"
-                         (click)="p.mission = 4"
-                         [class.selected]="p.mission === 4"
+                         (click)="p.fleetMission.mission = 4"
+                         [class.selected]="p.fleetMission.mission === 4"
                          data-mission="4">
                         <span class="textlabel">Schieramento</span>
                       </a>
@@ -206,8 +206,8 @@
                     <li id="button6"
                         class="on">
                       <a id="missionButton6"
-                         (click)="p.mission = 6"
-                         [class.selected]="p.mission === 6"
+                         (click)="p.fleetMission.mission = 6"
+                         [class.selected]="p.fleetMission.mission === 6"
                          data-mission="6">
                         <span class="textlabel">Spionaggio</span>
                       </a>
@@ -215,8 +215,8 @@
                     <li id="button5"
                         class="on">
                       <a id="missionButton5"
-                         (click)="p.mission = 5"
-                         [class.selected]="p.mission === 5"
+                         (click)="p.fleetMission.mission = 5"
+                         [class.selected]="p.fleetMission.mission === 5"
                          data-mission="5">
                         <span class="textlabel">Stazionamento</span>
                       </a>
@@ -224,8 +224,8 @@
                     <li id="button1"
                         class="on">
                       <a id="missionButton1"
-                         (click)="p.mission = 1"
-                         [class.selected]="p.mission === 1"
+                         (click)="p.fleetMission.mission = 1"
+                         [class.selected]="p.fleetMission.mission === 1"
                          data-mission="1">
                         <span class="textlabel">Attacco</span>
                       </a>
@@ -233,8 +233,8 @@
                     <li id="button2"
                         class="on">
                       <a id="missionButton2"
-                         (click)="p.mission = 2"
-                         [class.selected]="p.mission === 2"
+                         (click)="p.fleetMission.mission = 2"
+                         [class.selected]="p.fleetMission.mission === 2"
                          data-mission="2">
                         <span class="textlabel">Attacco federale</span>
                       </a>
@@ -242,8 +242,8 @@
                     <li id="button9"
                         class="on">
                       <a id="missionButton9"
-                         (click)="p.mission = 9"
-                         [class.selected]="p.mission === 9"
+                         (click)="p.fleetMission.mission = 9"
+                         [class.selected]="p.fleetMission.mission === 9"
                          data-mission="9">
                         <span class="textlabel">Distruzione Luna</span>
                       </a>

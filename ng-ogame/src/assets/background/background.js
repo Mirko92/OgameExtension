@@ -68,35 +68,54 @@ function handleMessage(request, sender, sendResponse) {
       getFleetInfo(request.data.uni, sendResponse);
       return true;
 
+    case "GET_FLEET_SAVE_DATA":
+      console.debug("Methdod, get fleet save info", request.data);
+      getFleetSave(request.data, sendResponse);
+      return true;
+
     default:
       break;
   }
 }
 
+/**
+ * Dati provenienti dal gioco 
+ * ID dell'Universo es: s170-it 
+ * Info Pianeta
+ * Dati Navi su pianeta
+ * @param {uni: string, planet: OgamePlanet, shipsData} data 
+ */
 function saveFleetInfo(data) {
   const { uni, planet, shipsData } = data;
 
   chrome.storage.local.get([uni], function (result) {
     const uniData = (result[uni] || {});
-    console.debug('Value currently is ', uniData);
+    console.debug('Current Uni Data in storage:', uniData);
 
     const index = uniData?.planets?.findIndex(p => p.name === planet.name);
-
     console.debug("Index:", index);
+
+    const planetInMemory = uniData?.planets?.[index];
+    console.debug("Planet In Memory:", planetInMemory);
+
+    const fleetMission = planet?.fleetMission || planetInMemory?.fleetMission || {};
+
     const update = {
       ...planet,
       shipsData,
-      fleetMission: planet.fleetMission || {}
+      fleetMission
     };
 
-    if(index === undefined || index === null || index === -1){
-      uniData.planets = [...(uniData?.planets||[]), update];
-    }else{
+    console.debug("Update:", update);
+
+    if (index === undefined || index === null || index === -1) {
+      uniData.planets = [...(uniData?.planets || []), update];
+    } else {
       uniData.planets[index] = update;
     }
 
     chrome.storage.local.set({ [uni]: uniData }, function () {
-      console.log("Value is set to ", uniData);
+      console.log("After update:", uniData);
     });
   });
 }
@@ -104,6 +123,18 @@ function saveFleetInfo(data) {
 function getFleetInfo(uni, callback) {
   chrome.storage.local.get([uni], function (result) {
     callback(result[uni]);
+  });
+}
+
+function getFleetSave(data, callback) {
+  const { uni, planet } = data;
+
+  chrome.storage.local.get([uni], function (result) {
+    const uniData = result[uni];
+
+    const found = uniData?.planets?.find(p => p.name === planet.name);
+
+    callback(found.fleetMission);
   });
 }
 

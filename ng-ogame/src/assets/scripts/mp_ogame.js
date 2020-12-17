@@ -40,66 +40,47 @@ window.mp = {
     runFleetSave(e) {
         e.preventDefault();
 
-        console.debug("basta che per oggi ho finito la voglia TODO");
+        chrome.runtime.sendMessage(this.extensionId(),
+            {
+                method: "GET_FLEET_SAVE_DATA",
+                data: { uni: this.server(), planet: currentPlanet }
+            },
 
-    },
+            (r) => {
+                if(!r) return;
 
-    getFleetParams() {
-        return new URLSearchParams({
-            token: this.fleetToken(),
-            speed: 10,
-            mission: MP_MISSIONS.TRANSPORT,
-            //TO:
-            galaxy: 1,
-            system: 299,
-            position: 6,
-            type: MP_PLANET_TYPES.MOON,
-            //HOLD:
-            metal: 1000,
-            crystal: 0,
-            deuterium: 0,
+                const body = new URLSearchParams({
+                    token: fleetDispatcher.fleetSendingToken,
+                    speed: r.velocity,
+                    mission: r.mission,
+                    //TO:
+                    galaxy: r.galaxy,
+                    system: r.system,
+                    position: r.position,
+                    type: r.type,
+                    //HOLD:
+                    metal: 1000,
+                    crystal: 0,
+                    deuterium: 0,
 
-            prioMetal: 1,
-            prioCrystal: 2,
-            prioDeuterium: 3,
+                    prioMetal: 1,
+                    prioCrystal: 2,
+                    prioDeuterium: 3,
 
-            retreatAfterDefenderRetreat: 0,
-            union: 0,
-            holdingtime: 0,
+                    retreatAfterDefenderRetreat: 0,
+                    union: 0,
+                    holdingtime: 0,
 
-            //Ships
-            am203: 1,
-        }).toString();
-    },
+                    //Ships
+                    ...[{}, ...shipsOnPlanet].reduce(
+                        (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
+                    )
+                }).toString();
 
-    quickFleetSave(event) {
-        const body = new URLSearchParams({
-            token: this.fleetToken(),
-            speed: 10,
-            mission: MP_MISSIONS.TRANSPORT,
-            //TO:
-            galaxy: 1,
-            system: 299,
-            position: 6,
-            type: MP_PLANET_TYPES.MOON,
-            //HOLD:
-            metal: 1000,
-            crystal: 0,
-            deuterium: 0,
+                this.sendFleet(body);
+            }
+        ).then( () => location.reload() );
 
-            prioMetal: 1,
-            prioCrystal: 2,
-            prioDeuterium: 3,
-
-            retreatAfterDefenderRetreat: 0,
-            union: 0,
-            holdingtime: 0,
-
-            //Ships
-            am203: 1,
-        }).toString();
-
-        this.sendFleet(body);
     },
 
     sendFleet(body) {
@@ -158,12 +139,9 @@ window.mp = {
         switch (currentPage) {
             case "fleetdispatch":
                 this.addFleetButton();
-
                 // TODO: Gestione local storage in file a parte 
                 localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
-
                 this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
-
                 break;
             default:
                 break;
