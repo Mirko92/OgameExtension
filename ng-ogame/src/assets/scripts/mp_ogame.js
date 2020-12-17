@@ -47,7 +47,7 @@ window.mp = {
             },
 
             (r) => {
-                if(!r) return;
+                if (!r) return;
 
                 const body = new URLSearchParams({
                     token: fleetDispatcher.fleetSendingToken,
@@ -59,9 +59,9 @@ window.mp = {
                     position: r.position,
                     type: r.type,
                     //HOLD:
-                    metal: 1000,
-                    crystal: 0,
-                    deuterium: 0,
+                    metal: resourcesBar.resources.metal,
+                    crystal: resourcesBar.resources.crystal,
+                    deuterium: resourcesBar.resources.deuterium,
 
                     prioMetal: 1,
                     prioCrystal: 2,
@@ -79,7 +79,7 @@ window.mp = {
 
                 this.sendFleet(body);
             }
-        ).then( () => location.reload() );
+        ).then(() => location.reload());
 
     },
 
