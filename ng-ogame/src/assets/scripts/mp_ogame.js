@@ -59,9 +59,9 @@ window.mp = {
                     position: r.position,
                     type: r.type,
                     //HOLD:
-                    metal: resourcesBar.resources.metal,
-                    crystal: resourcesBar.resources.crystal,
-                    deuterium: resourcesBar.resources.deuterium,
+                    metal: resourcesBar.resources.metal.amount,
+                    crystal: resourcesBar.resources.crystal.amount,
+                    deuterium: resourcesBar.resources.deuterium.amount,
 
                     prioMetal: 1,
                     prioCrystal: 2,
@@ -77,9 +77,9 @@ window.mp = {
                     )
                 }).toString();
 
-                this.sendFleet(body);
+                this.sendFleet(body).then(() => location.reload());
             }
-        ).then(() => location.reload());
+        )
 
     },
 
