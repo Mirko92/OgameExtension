@@ -1,71 +1,46 @@
-//#region START LOG
-console.debug("#######################################");
-console.debug("Content js is running...");
 console.debug("Mp Ogame extension. ID:", chrome.runtime.id);
-
 localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
-// FIXME: Update versione vefore release
-console.info("v.0.0.8");
-console.debug("#######################################");
 
+console.info("v.0.0.9");
 
+//#region WepPage script
+/*
+    Script to direct interaction with Ogame.js
+*/
+var ogameScript = document.createElement("script");
+ogameScript.src = chrome.extension.getURL("assets/scripts/mp_ogame.js");
+document.head.appendChild(ogameScript);
 //#endregion
-
-//#region UTILS
-/**
- * Return server name 
- * Eg: s170-it
- */
-function server() {
-    const url = location.href;
-    return new RegExp(".*//(.*).ogame.gameforge.com.*").exec(url)[1]
-}
-//#endregion
-
-/**
- * Update fleet info, collected till now. 
- */
-function getFleetInfo() {
-    console.debug("getFleetInfo()");
-
-    chrome.runtime.sendMessage(
-        { method: "GET_FLEET_INFO", data: { uni: server() } },
-        response => {
-            console.debug("Get fleet info response", response);
-            localStorage.setItem("mp_" + server(), JSON.stringify(response));
-        }
-    );
-}
 
 //#region FLEET BUTTONS
-function addFleetsButton() {
-    const planets = document.querySelectorAll('#planetList > div');
+// function addFleetsButton() {
+//     const planets = document.querySelectorAll('#planetList > div');
 
-    planets.forEach(container => {
-        const planetCoordsText = container.querySelector('.planetlink .planet-koords').textContent;
-        const regexResult = /\[(\d):(\d*):(\d*)\]/.exec(planetCoordsText);
+//     planets.forEach(container => {
+//         const planetCoordsText = container.querySelector('.planetlink .planet-koords').textContent;
+//         const regexResult = /\[(\d):(\d*):(\d*)\]/.exec(planetCoordsText);
 
-        const [g, s, p] = [1, 2, 3].map(index => regexResult[index]);
-        const coords = `${g}_${s}_${p}`
+//         const [g, s, p] = [1, 2, 3].map(index => regexResult[index]);
+//         const coords = `${g}_${s}_${p}`
 
-        const planet = `${coords}_1`;
-        const moon = container.querySelector('.moonlink') ? `${coords}_3` : null;
+//         const planet = `${coords}_1`;
+//         const moon = container.querySelector('.moonlink') ? `${coords}_3` : null;
 
-        container.appendChild(fleetButton(planet, moon));
-    });
-};
+//         container.appendChild(fleetButton(planet, moon));
+//     });
+// };
 
-function fleetButton(planet, moon) {
-    let button = document.createElement('button');
-    button.classList = 'mp_fleet_button fleet_icon_forward_end';
-    button.title = 'Run fleet save';
+// function fleetButton(planet, moon) {
+//     let button = document.createElement('button');
+//     button.classList = 'mp_fleet_button fleet_icon_forward_end';
+//     button.title = 'Run fleet save';
 
-    button.setAttribute('data-planet', planet);
-    if (moon) {
-        button.setAttribute('data-moon', moon);
-    }
-    return button;
-}
+//     button.setAttribute('data-planet', planet);
+//     if (moon) {
+//         button.setAttribute('data-moon', moon);
+//     }
+//     return button;
+// }
 
 //#endregion
 
@@ -183,15 +158,3 @@ function runInactiveEspionage() {
 //#endregion
 
 
-getFleetInfo();
-// addFleetsButton();
-
-
-//#region WepPage script
-/*
-    Script to direct interaction with Ogame.js
-*/
-var ogameScript = document.createElement("script");
-ogameScript.src = chrome.extension.getURL("assets/scripts/mp_ogame.js");
-document.head.appendChild(ogameScript);
-//#endregion
