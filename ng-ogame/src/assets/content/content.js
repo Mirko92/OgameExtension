@@ -1,7 +1,9 @@
-console.debug("Mp Ogame extension. ID:", chrome.runtime.id);
+console.debug("Mp Ogame extension. ID: %s - Version: ", 
+    chrome.runtime.id, 
+    chrome.runtime.getManifest().version
+);
 localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
 
-console.info("v.0.0.9");
 
 //#region WepPage script
 /*

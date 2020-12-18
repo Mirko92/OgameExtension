@@ -34,7 +34,11 @@ window.mp = {
     */
     addFleetButton() {
         const continueButton = document.querySelector('#continueToFleet2');
-        continueButton.insertAdjacentHTML('afterend', '<a class="continue fright on" href="" onclick="mp.runFleetSave(event)"><span>FLEET SAVE</span></a>')
+        continueButton?.insertAdjacentHTML('afterend', `
+            <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
+                <span>FLEET SAVE</span>
+            </a>
+        `);
     },
 
     runFleetSave(e) {
@@ -47,11 +51,11 @@ window.mp = {
             },
 
             (r) => {
-                if (!r) return;
+                if (!r || Object.keys(r)?.length === 0) (this.message("Fleet save non configurato", true));
 
                 const body = new URLSearchParams({
                     token: fleetDispatcher.fleetSendingToken,
-                    speed: r.velocity/10,
+                    speed: r.velocity / 10,
                     mission: r.mission,
                     //TO:
                     galaxy: r.galaxy,
@@ -139,16 +143,12 @@ window.mp = {
         switch (currentPage) {
             case "fleetdispatch":
                 this.addFleetButton();
-                // TODO: Gestione local storage in file a parte 
                 localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
                 this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
                 break;
             default:
                 break;
         }
-
-        // this.addFleetActions();
-
     }
 }
 
