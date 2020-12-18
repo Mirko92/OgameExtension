@@ -51,7 +51,10 @@ window.mp = {
             },
 
             (r) => {
-                if (!r || Object.keys(r)?.length === 0) (this.message("Fleet save non configurato", true));
+                if (!r || Object.keys(r)?.length === 0) {
+                    this.message("Fleet save non configurato", true);
+                    return;
+                }
 
                 const body = new URLSearchParams({
                     token: fleetDispatcher.fleetSendingToken,
