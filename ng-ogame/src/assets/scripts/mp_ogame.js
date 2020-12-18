@@ -51,7 +51,7 @@ window.mp = {
 
                 const body = new URLSearchParams({
                     token: fleetDispatcher.fleetSendingToken,
-                    speed: r.velocity,
+                    speed: r.velocity/10,
                     mission: r.mission,
                     //TO:
                     galaxy: r.galaxy,
