@@ -1,229 +1,20 @@
-Esempio uso storage
-
-//popup.js
-let changeColor = document.getElementById('changeColor');
-
-chrome.storage.sync.get('color', function (data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute('value', data.color);
-});
-
-//popup.html
-<button id="changeColor">bla bla bla togliere</button>
-<script src="popup.js"></script>
-
-//
-Controllare come inserire script nella pagina
-Prendere spunto da Ogame Infinity Github 
-Spiare l'intera galassia 
+### Lista da fare: 
+- // TODO:  Gestione local storage in file a parte 
+- // TODO:  Forse posso usare Typescript e inserirlo nella build di Angular anche per background JS 
+- // TODO:  Credo che sfruttando il manifest si possa organizzare meglio il codice
+            splittare alcune funzioni in più file comuni a tutti gli strati 
+            "mp_utils.js"  => Per le funzioni richiamate più spesso
+            "constants.js" => Per raccogliere le costanti di Ogame quali, navi, tipi di pianeti ecc 
 
 
-
-"options_page": "options/options.html",
-
-
-
-sendShipsWithPopup(
-  ORDER,
-  GALAXY,
-  SYSTEM,
-  POSITION,
-  PLANET TYPE, //TODO
-  SHIP COUNT, //TODO
-);
+### Procedure: 
+Onload: Se mi trovo in pagina flotta -> Salvo flotta, e info pianeta
 
 
-orderNames:
-1: "Attacco"
-2: "Attacco federale"
-3: "Trasporto"
-4: "Schieramento"
-5: "Stazionamento"
-6: "Spionaggio"
-7: "Colonizzazione"
-8: "Ricicla campo detriti"
-9: "Distruzione Luna"
-15: "Spedizione"
-
-
-
-
-MISSION_ATTACK: 1
-MISSION_COLONIZE: 7
-MISSION_DEPLOY: 4
-MISSION_DESTROY: 9
-MISSION_ESPIONAGE: 6
-MISSION_EXPEDITION: 15
-MISSION_HOLD: 5
-MISSION_MISSILEATTACK: 10
-MISSION_NONE: 0
-MISSION_RECYCLE: 8
-MISSION_TRANSPORT: 3
-MISSION_UNIONATTACK: 2
-
-PLANETTYPE_DEBRIS: 2
-PLANETTYPE_MOON: 3
-PLANETTYPE_PLANET: 1
-PLAYER_ID_LEGOR: 1
-PLAYER_ID_SPACE: 99999
-
-
-Ecco i tipi di nave 
-[
-  {"id":202,"name":"Cargo leggero"},
-  {"id":203,"name":"Cargo Pesante"},
-  {"id":204,"name":"Caccia Leggero"},
-  {"id":205,"name":"Caccia Pesante"},
-  {"id":206,"name":"Incrociatore"},
-  {"id":207,"name":"Nave da battaglia"},
-  {"id":208,"name":"Colonizzatrice"},
-  {"id":209,"name":"Riciclatrici"},
-  {"id":210,"name":"Sonda spia"},
-  {"id":211,"name":"Bombardiere"},
-  {"id":213,"name":"Corazzata"},
-  {"id":214,"name":"Morte Nera"},
-  {"id":215,"name":"Incrociatore da Battaglia"},
-  {"id":217,"name":"Crawler"},
-  {"id":218,"name":"Reaper"},
-  {"id":219,"name":"Pathfinder"}
-]
-
-//CHIAMATA PER INVIO FLOTTA 
-fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1", {
-  "headers": {
-    "accept": "application/json, text/javascript, */*; q=0.01",
-    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
-    "cache-control": "no-cache",
-    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-    "pragma": "no-cache",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requested-with": "XMLHttpRequest"
-  },
-  "referrer": "https://s172-it.ogame.gameforge.com/game/index.php?page=ingame&component=overview",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "mission=6&galaxy=1&system=89&position=4&type=3&shipCount=10&token=3e0f2d281f404f7ca572d646186ac3d8",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-}).then(r => console.debug(r) );
-
-
-//TODO: Da qui aggiungere su UI pulsanti necessari 
-#planetList
-
-Procedure: 
-Passare sul menu flotta di ogni pianeta/luna e memorizzare la flotta disponibile.
-Ogni volta che si apre il menu di flotta, aggiornare questa memorizzazione. 
-
-
-//TODO: Credo che sfruttando il manifest si possa organizzare meglio il codice
-splittare alcune funzioni in più file comuni a tutti gli strati 
-"mp_utils.js"  => Per le funzioni richiamate più spesso
-"constants.js" => Per raccogliere le costanti di Ogame quali, navi, tipi di pianeti ecc 
-
-//Stampa a video tutti gli oggetti in memoria locale 
+### Esempi di codice:
+- Stampa a video tutti gli oggetti in memoria locale 
 chrome.storage.local.get(null, function callback(items) { console.log(items) });
-
-
-
-  /* 
-    TODO: Prova storage 
-  */
-  // chrome.storage.sync.set({ color: '#3aa757' }, function () {
-  //   console.log('The color is green.');
-  // });
-
-
-
-  Per invio flotta controllare submitFleet3 
-
-
-
-
-  fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1", {
-  "headers": {
-    "accept": "*/*",
-    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
-    "cache-control": "no-cache",
-    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-    "pragma": "no-cache",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requested-with": "XMLHttpRequest"
-  },
-  "referrer": "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=fleetdispatch",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "
-  token=9682fc1f30b4ca02e08299a9dcfbad28
-  &
-  am203=1
-  &galaxy=1
-  &system=299
-  &position=5
-  &type=3
-  &metal=0
-  &crystal=0
-  &deuterium=0
-  &prioMetal=1
-  &prioCrystal=2
-  &prioDeuterium=3
-  &mission=3
-  &speed=10
-  &retreatAfterDefenderRetreat=0
-  &union=0
-  &holdingtime=0",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-});
-
-
-
-fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1", {
-  "headers": {
-    "accept": "application/json, text/javascript, */*; q=0.01",
-    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
-    "cache-control": "no-cache",
-    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-    "pragma": "no-cache",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requested-with": "XMLHttpRequest"
-  },
-  "referrer": "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=galaxy",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "mission=6&galaxy=1&system=300&position=6&type=1&shipCount=5&token=72caf3721a087515987fec27703ddc25",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-});
-
-fetch("https://s170-it.ogame.gameforge.com/game/index.php?page=minifleet&ajax=1", {
-  "headers": {
-    "accept": "application/json, text/javascript, */*; q=0.01",
-    "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
-    "cache-control": "no-cache",
-    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-    "pragma": "no-cache",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requested-with": "XMLHttpRequest"
-  },
-  "referrer": "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=overview",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "token=7cef2b20f74681f2bdad50c6d7e165d9&speed=10&mission=3&galaxy=1&system=299&position=6&type=3&metal=0&crystal=0&deuterium=0&prioMetal=1&prioCrystal=2&prioDeuterium=3&retreatAfterDefenderRetreat=0&union=0&holdingtime=0&am203=1",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-});
-
-Forse posso usare Typescript e inserirlo nella build di Angular anche per background JS 
-
+----
 
 CURIOSITA?
  - Selettore percentuale
@@ -235,7 +26,7 @@ CURIOSITA?
   });
 </script>
 
-SCRIPT IN FLEET PAGE 
+### SCRIPT IN FLEET PAGE 
 <script type="text/javascript">
       var fleetSendingToken = "1e301ef393e7866dba1e8e27e2a8812c";
 
@@ -325,14 +116,7 @@ SCRIPT IN FLEET PAGE
     </script>
 
 
-
-
-
-
-
-
-
-//SPEDIZIONI IN TUCANA 
+### SPEDIZIONI IN TUCANA 
 fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1", {
   "headers": {
     "accept": "*/*",
@@ -354,8 +138,5 @@ fetch("https://s172-it.ogame.gameforge.com/game/index.php?page=ingame&component=
 }).then( () => { location.reload(); } );
 
 
-url('//gf3.geo.gfsrv.net/cdn53/7a9861be0c38bf7de05a57c56d73cf.jpg');
-
-
-Seleziona un selettore css
+### Seleziona un selettore css
 ^#fleetdispatchcomponent[\n\D\d]*?\}{1}
