@@ -259,20 +259,21 @@
               </div>
             </div>
 
-            <div style="display: flex; justify-content: center;">
-              <button (click)="saveFleetMission(uni, p)">SALVA</button>
-            </div>
-
-            <div class="prova">
-              <button class="glow-on-hover"
-                      type="button">HOVER ME, THEN CLICK ME!</button>
-            </div>
           </div>
         </div>
       </div>
 
-      <footer>
+      <footer style="position: relative;">
         <div class="mp_footer"></div>
+        <div style="display: flex;
+                    justify-content: center;
+                    position: absolute;
+                    right: 1.5rem;
+                    bottom: 1rem;">
+          <button class="glow-on-hover"
+                  (click)="saveFleetMission(uni, p)"
+                  type="button">SALVA</button>
+        </div>
       </footer>
     </div>
   </div>
