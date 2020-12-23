@@ -55,3 +55,7 @@ body.no-commander .contentBoxBody {
 .smallplanet .moonlink{
     margin-left: -20px;
 } */
+
+#buttonz a:hover {
+    text-decoration: none !important;
+}
