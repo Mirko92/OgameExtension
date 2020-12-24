@@ -14,7 +14,6 @@ export class StorageService {
     private http: HttpClient,
     private _ngZone: NgZone) {
     this.initStorage();
-    this.syncStorage();
   }
 
   getFullStorage():Promise<any> {
@@ -30,6 +29,8 @@ export class StorageService {
         console.debug("r", r);
         this.storage = r;
       });
+
+      this.syncStorage();
     } else {
       // Mockup
       console.warn("USING MOCKUP");
