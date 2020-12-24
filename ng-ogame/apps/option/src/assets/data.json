@@ -1,1034 +1,1869 @@
 {
-    "s170-it": {
-        "1_296_9_1": {
-            "shipsData": []
-        },
-        "1_299_5_1": {
-            "shipsData": []
-        },
-        "1_299_5_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 9000,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 9000,
-                    "fuelCapacity": 5000,
-                    "fuelConsumption": 10,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 44000
-                },
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 18000000,
-                    "fuelCapacity": 10000000,
-                    "fuelConsumption": 10000,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 400,
-                    "recycleMode": 0,
-                    "speed": 27000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 11625,
-                    "fuelCapacity": 7500,
-                    "fuelConsumption": 500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 8500
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 93000,
-                    "fuelCapacity": 60000,
-                    "fuelConsumption": 450,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 3,
-                    "recycleMode": 0,
-                    "speed": 5200
-                }
-            ]
-        },
-        "1_299_6_1": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 2205000,
-                    "fuelCapacity": 1225000,
-                    "fuelConsumption": 1225,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 49,
-                    "recycleMode": 0,
-                    "speed": 27000
-                }
-            ]
-        },
-        "1_299_6_3": {
-            "shipsData": []
-        },
-        "1_403_1_1": {
-            "shipsData": []
-        },
-        "1_403_1_3": {
-            "shipsData": []
-        },
-        "1_99_8_1": {
-            "shipsData": []
-        },
-        "1_99_8_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 9000,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 900000,
-                    "fuelCapacity": 500000,
-                    "fuelConsumption": 1000,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 100,
-                    "recycleMode": 0,
-                    "speed": 44000
-                },
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 6075000,
-                    "fuelCapacity": 3375000,
-                    "fuelConsumption": 3375,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 135,
-                    "recycleMode": 0,
-                    "speed": 27000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 23250,
-                    "fuelCapacity": 15000,
-                    "fuelConsumption": 1000,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 2,
-                    "recycleMode": 0,
-                    "speed": 8500
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 31000,
-                    "fuelCapacity": 20000,
-                    "fuelConsumption": 150,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 5200
-                },
-                {
-                    "baseCargoCapacity": 0,
-                    "baseFuelCapacity": 5,
-                    "baseFuelConsumption": 1,
-                    "baseSpeed": 100000000,
-                    "cargoCapacity": 0,
-                    "fuelCapacity": 145,
-                    "fuelConsumption": 0,
-                    "id": 210,
-                    "name": "Sonda spia",
-                    "number": 29,
-                    "recycleMode": 0,
-                    "speed": 260000000
-                }
-            ]
-        },
-        "2_200_7_1": {
-            "shipsData": []
-        },
-        "2_200_7_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 9000,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 4950000,
-                    "fuelCapacity": 2750000,
-                    "fuelConsumption": 5500,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 550,
-                    "recycleMode": 0,
-                    "speed": 44000
-                },
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 7875000,
-                    "fuelCapacity": 4375000,
-                    "fuelConsumption": 4375,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 175,
-                    "recycleMode": 0,
-                    "speed": 27000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 11625,
-                    "fuelCapacity": 7500,
-                    "fuelConsumption": 500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 8500
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 31000,
-                    "fuelCapacity": 20000,
-                    "fuelConsumption": 150,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 5200
-                }
-            ]
-        },
-        "2_67_7_1": {
-            "shipsData": []
-        },
-        "2_67_7_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 4500000,
-                    "fuelCapacity": 2500000,
-                    "fuelConsumption": 2500,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 100,
-                    "recycleMode": 0,
-                    "speed": 27000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 11625,
-                    "fuelCapacity": 7500,
-                    "fuelConsumption": 500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 8500
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 2201000,
-                    "fuelCapacity": 1420000,
-                    "fuelConsumption": 10650,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 71,
-                    "recycleMode": 0,
-                    "speed": 5200
-                },
-                {
-                    "baseCargoCapacity": 0,
-                    "baseFuelCapacity": 5,
-                    "baseFuelConsumption": 1,
-                    "baseSpeed": 100000000,
-                    "cargoCapacity": 0,
-                    "fuelCapacity": 300,
-                    "fuelConsumption": 0,
-                    "id": 210,
-                    "name": "Sonda spia",
-                    "number": 60,
-                    "recycleMode": 0,
-                    "speed": 260000000
-                }
-            ]
-        },
-        "3_215_8_1": {
-            "shipsData": []
-        },
-        "3_215_8_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 7875000,
-                    "fuelCapacity": 4375000,
-                    "fuelConsumption": 4375,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 175,
-                    "recycleMode": 0,
-                    "speed": 27000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 11625,
-                    "fuelCapacity": 7500,
-                    "fuelConsumption": 500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 8500
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 62000,
-                    "fuelCapacity": 40000,
-                    "fuelConsumption": 300,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 2,
-                    "recycleMode": 0,
-                    "speed": 5200
-                }
-            ]
-        },
-        "4_309_15_1": {
-            "shipsData": []
-        },
-        "4_309_15_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 9000,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 900000,
-                    "fuelCapacity": 500000,
-                    "fuelConsumption": 1000,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 100,
-                    "recycleMode": 0,
-                    "speed": 44000
-                },
-                {
-                    "baseCargoCapacity": 45000,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 13500000,
-                    "fuelCapacity": 7500000,
-                    "fuelConsumption": 7500,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 300,
-                    "recycleMode": 0,
-                    "speed": 27000
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 31000,
-                    "fuelCapacity": 20000,
-                    "fuelConsumption": 150,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 5200
-                }
-            ]
-        }
+    "s162-it": {
+        "planets": [
+            {
+                "fleetMission": {},
+                "galaxy": 2,
+                "name": "Rinomina un pianeta",
+                "position": 13,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 50,
+                        "baseFuelCapacity": 50,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 12500,
+                        "cargoCapacity": 250,
+                        "fuelCapacity": 250,
+                        "fuelConsumption": 100,
+                        "id": 204,
+                        "name": "Caccia Leggero",
+                        "number": 5,
+                        "recycleMode": 0,
+                        "speed": 22500
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 595,
+                        "fuelConsumption": 119,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 119,
+                        "recycleMode": 0,
+                        "speed": 180000000
+                    }
+                ],
+                "system": 318,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 3,
+                "name": "Pianeta Madre",
+                "position": 10,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 5000,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 10,
+                        "baseSpeed": 5000,
+                        "cargoCapacity": 75000,
+                        "fuelCapacity": 75000,
+                        "fuelConsumption": 150,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 15,
+                        "recycleMode": 0,
+                        "speed": 9000
+                    },
+                    {
+                        "baseCargoCapacity": 25000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 200000,
+                        "fuelCapacity": 200000,
+                        "fuelConsumption": 400,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 8,
+                        "recycleMode": 0,
+                        "speed": 13500
+                    },
+                    {
+                        "baseCargoCapacity": 100,
+                        "baseFuelCapacity": 100,
+                        "baseFuelConsumption": 75,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 400,
+                        "fuelCapacity": 400,
+                        "fuelConsumption": 300,
+                        "id": 205,
+                        "name": "Caccia Pesante",
+                        "number": 4,
+                        "recycleMode": 0,
+                        "speed": 16000
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 5,
+                        "fuelConsumption": 1,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 180000000
+                    }
+                ],
+                "system": 464,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 2,
+                "name": "Colonia",
+                "position": 13,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 5000,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 10,
+                        "baseSpeed": 5000,
+                        "cargoCapacity": 1045000,
+                        "fuelCapacity": 1045000,
+                        "fuelConsumption": 2090,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 209,
+                        "recycleMode": 0,
+                        "speed": 9000
+                    },
+                    {
+                        "baseCargoCapacity": 50,
+                        "baseFuelCapacity": 50,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 12500,
+                        "cargoCapacity": 13350,
+                        "fuelCapacity": 13350,
+                        "fuelConsumption": 5340,
+                        "id": 204,
+                        "name": "Caccia Leggero",
+                        "number": 267,
+                        "recycleMode": 0,
+                        "speed": 22500
+                    },
+                    {
+                        "baseCargoCapacity": 100,
+                        "baseFuelCapacity": 100,
+                        "baseFuelConsumption": 75,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 7100,
+                        "fuelCapacity": 7100,
+                        "fuelConsumption": 5325,
+                        "id": 205,
+                        "name": "Caccia Pesante",
+                        "number": 71,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    },
+                    {
+                        "baseCargoCapacity": 800,
+                        "baseFuelCapacity": 800,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 15000,
+                        "cargoCapacity": 8000,
+                        "fuelCapacity": 8000,
+                        "fuelConsumption": 3000,
+                        "id": 206,
+                        "name": "Incrociatore",
+                        "number": 10,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 7500,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 37500,
+                        "fuelCapacity": 37500,
+                        "fuelConsumption": 5000,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 5,
+                        "recycleMode": 0,
+                        "speed": 4500
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 2775,
+                        "fuelConsumption": 555,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 555,
+                        "recycleMode": 0,
+                        "speed": 180000000
+                    }
+                ],
+                "system": 319,
+                "type": 1
+            }
+        ]
     },
-    "s171-it": {
-        "1_27_2_1": {
-            "shipsData": []
-        },
-        "1_27_2_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 7750,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 66502750,
-                    "fuelCapacity": 42905000,
-                    "fuelConsumption": 171620,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 8581,
-                    "recycleMode": 0,
-                    "speed": 32000
+    "s170-it": {
+        "planets": [
+            {
+                "fleetMission": {
+                    "galaxy": 1,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 99,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 38750,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 146552500,
-                    "fuelCapacity": 94550000,
-                    "fuelConsumption": 189100,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 3782,
-                    "recycleMode": 0,
-                    "speed": 17250
+                "galaxy": 1,
+                "name": "Valinor",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 9250,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 925000,
+                        "fuelCapacity": 500000,
+                        "fuelConsumption": 1000,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 44000
+                    },
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 18500000,
+                        "fuelCapacity": 10000000,
+                        "fuelConsumption": 10000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 400,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 24000,
+                        "fuelCapacity": 15000,
+                        "fuelConsumption": 1000,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 2,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 32000,
+                        "fuelCapacity": 20000,
+                        "fuelConsumption": 150,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 145,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 29,
+                        "recycleMode": 0,
+                        "speed": 260000000
+                    }
+                ],
+                "system": 99,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 1,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 299,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 78,
-                    "baseFuelCapacity": 50,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 12500,
-                    "cargoCapacity": 1259375,
-                    "fuelCapacity": 812500,
-                    "fuelConsumption": 325000,
-                    "id": 204,
-                    "name": "Caccia Leggero",
-                    "number": 16250,
-                    "recycleMode": 0,
-                    "speed": 28750
+                "galaxy": 1,
+                "name": "luna",
+                "position": 5,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 18500000,
+                        "fuelCapacity": 10000000,
+                        "fuelConsumption": 10000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 400,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 128000,
+                        "fuelCapacity": 80000,
+                        "fuelConsumption": 600,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 4,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    }
+                ],
+                "system": 299,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 1,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 299,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 155,
-                    "baseFuelCapacity": 100,
-                    "baseFuelConsumption": 75,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 855755,
-                    "fuelCapacity": 552100,
-                    "fuelConsumption": 414075,
-                    "id": 205,
-                    "name": "Caccia Pesante",
-                    "number": 5521,
-                    "recycleMode": 0,
-                    "speed": 32000
+                "galaxy": 1,
+                "name": "SOPHIA",
+                "position": 6,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 9250,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 31986500,
+                        "fuelCapacity": 17290000,
+                        "fuelConsumption": 34580,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 3458,
+                        "recycleMode": 0,
+                        "speed": 44000
+                    },
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 209281250,
+                        "fuelCapacity": 113125000,
+                        "fuelConsumption": 113125,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 4525,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 80,
+                        "baseFuelCapacity": 50,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 12500,
+                        "cargoCapacity": 1240800,
+                        "fuelCapacity": 775500,
+                        "fuelConsumption": 155100,
+                        "id": 204,
+                        "name": "Caccia Leggero",
+                        "number": 15510,
+                        "recycleMode": 0,
+                        "speed": 32500
+                    },
+                    {
+                        "baseCargoCapacity": 160,
+                        "baseFuelCapacity": 100,
+                        "baseFuelConsumption": 75,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 84800,
+                        "fuelCapacity": 53000,
+                        "fuelConsumption": 19610,
+                        "id": 205,
+                        "name": "Caccia Pesante",
+                        "number": 530,
+                        "recycleMode": 0,
+                        "speed": 34000
+                    },
+                    {
+                        "baseCargoCapacity": 1280,
+                        "baseFuelCapacity": 800,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 15000,
+                        "cargoCapacity": 2462720,
+                        "fuelCapacity": 1539200,
+                        "fuelConsumption": 288600,
+                        "id": 206,
+                        "name": "Incrociatore",
+                        "number": 1924,
+                        "recycleMode": 0,
+                        "speed": 51000
+                    },
+                    {
+                        "baseCargoCapacity": 2400,
+                        "baseFuelCapacity": 1500,
+                        "baseFuelConsumption": 500,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 4800000,
+                        "fuelCapacity": 3000000,
+                        "fuelConsumption": 500000,
+                        "id": 207,
+                        "name": "Nave da battaglia",
+                        "number": 2000,
+                        "recycleMode": 0,
+                        "speed": 43000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 120000,
+                        "fuelCapacity": 75000,
+                        "fuelConsumption": 5000,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 10,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 61120000,
+                        "fuelCapacity": 38200000,
+                        "fuelConsumption": 286500,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 1910,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 6240,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 1248,
+                        "recycleMode": 0,
+                        "speed": 260000000
+                    },
+                    {
+                        "baseCargoCapacity": 800,
+                        "baseFuelCapacity": 500,
+                        "baseFuelConsumption": 700,
+                        "baseSpeed": 5000,
+                        "cargoCapacity": 800000,
+                        "fuelCapacity": 500000,
+                        "fuelConsumption": 350000,
+                        "id": 211,
+                        "name": "Bombardiere",
+                        "number": 1000,
+                        "recycleMode": 0,
+                        "speed": 21500
+                    },
+                    {
+                        "baseCargoCapacity": 3200,
+                        "baseFuelCapacity": 2000,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 5000,
+                        "cargoCapacity": 320000,
+                        "fuelCapacity": 200000,
+                        "fuelConsumption": 50000,
+                        "id": 213,
+                        "name": "Corazzata",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 21500
+                    },
+                    {
+                        "baseCargoCapacity": 1600000,
+                        "baseFuelCapacity": 1000000,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100,
+                        "cargoCapacity": 1600000,
+                        "fuelCapacity": 1000000,
+                        "fuelConsumption": 0,
+                        "id": 214,
+                        "name": "Morte Nera",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 430
+                    },
+                    {
+                        "baseCargoCapacity": 1200,
+                        "baseFuelCapacity": 750,
+                        "baseFuelConsumption": 250,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 1200000,
+                        "fuelCapacity": 750000,
+                        "fuelConsumption": 125000,
+                        "id": 215,
+                        "name": "Incrociatore da Battaglia",
+                        "number": 1000,
+                        "recycleMode": 0,
+                        "speed": 43000
+                    },
+                    {
+                        "baseCargoCapacity": 16000,
+                        "baseFuelCapacity": 10000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 12000,
+                        "cargoCapacity": 1760000,
+                        "fuelCapacity": 1100000,
+                        "fuelConsumption": 16500,
+                        "id": 219,
+                        "name": "Pathfinder",
+                        "number": 110,
+                        "recycleMode": 3,
+                        "speed": 51600
+                    }
+                ],
+                "system": 299,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 1,
+                    "mission": 7,
+                    "position": 14,
+                    "system": 403,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 1240,
-                    "baseFuelCapacity": 800,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 15000,
-                    "cargoCapacity": 2152640,
-                    "fuelCapacity": 1388800,
-                    "fuelConsumption": 520800,
-                    "id": 206,
-                    "name": "Incrociatore",
-                    "number": 1736,
-                    "recycleMode": 0,
-                    "speed": 48000
+                "galaxy": 1,
+                "name": "Mount Doom",
+                "position": 1,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 21090000,
+                        "fuelCapacity": 11400000,
+                        "fuelConsumption": 11400,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 456,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 32000,
+                        "fuelCapacity": 20000,
+                        "fuelConsumption": 150,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 275,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 55,
+                        "recycleMode": 0,
+                        "speed": 260000000
+                    }
+                ],
+                "system": 403,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 2,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 67,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 2325,
-                    "baseFuelCapacity": 1500,
-                    "baseFuelConsumption": 500,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 1434525,
-                    "fuelCapacity": 925500,
-                    "fuelConsumption": 308500,
-                    "id": 207,
-                    "name": "Nave da battaglia",
-                    "number": 617,
-                    "recycleMode": 0,
-                    "speed": 34000
+                "galaxy": 2,
+                "name": "Hobbiton",
+                "position": 7,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 19887500,
+                        "fuelCapacity": 10750000,
+                        "fuelConsumption": 10750,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 430,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 2272000,
+                        "fuelCapacity": 1420000,
+                        "fuelConsumption": 10650,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 71,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 300,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 60,
+                        "recycleMode": 0,
+                        "speed": 260000000
+                    }
+                ],
+                "system": 67,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 2,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 200,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 34875,
-                    "fuelCapacity": 22500,
-                    "fuelConsumption": 3000,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 3,
-                    "recycleMode": 0,
-                    "speed": 8000
+                "galaxy": 2,
+                "name": "Ascension",
+                "position": 7,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 9250,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 2775000,
+                        "fuelCapacity": 1500000,
+                        "fuelConsumption": 3000,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 300,
+                        "recycleMode": 0,
+                        "speed": 44000
+                    },
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 18500000,
+                        "fuelCapacity": 10000000,
+                        "fuelConsumption": 10000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 400,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 32000,
+                        "fuelCapacity": 20000,
+                        "fuelConsumption": 150,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    }
+                ],
+                "system": 200,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 3,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 215,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 31000000,
-                    "fuelCapacity": 20000000,
-                    "fuelConsumption": 300000,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 1000,
-                    "recycleMode": 0,
-                    "speed": 4600
+                "galaxy": 3,
+                "name": "Erebor",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 23125000,
+                        "fuelCapacity": 12500000,
+                        "fuelConsumption": 12500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 500,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 64000,
+                        "fuelCapacity": 40000,
+                        "fuelConsumption": 300,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 2,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    }
+                ],
+                "system": 215,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 4,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 59,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 0,
-                    "baseFuelCapacity": 5,
-                    "baseFuelConsumption": 1,
-                    "baseSpeed": 100000000,
-                    "cargoCapacity": 0,
-                    "fuelCapacity": 134930,
-                    "fuelConsumption": 26986,
-                    "id": 210,
-                    "name": "Sonda spia",
-                    "number": 26986,
-                    "recycleMode": 0,
-                    "speed": 230000000
+                "galaxy": 4,
+                "name": "LunaVash",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 9250000,
+                        "fuelCapacity": 5000000,
+                        "fuelConsumption": 5000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 200,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 640000,
+                        "fuelCapacity": 400000,
+                        "fuelConsumption": 3000,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 20,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    }
+                ],
+                "system": 59,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 4,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 309,
+                    "type": 1,
+                    "velocity": 20
                 },
-                {
-                    "baseCargoCapacity": 775,
-                    "baseFuelCapacity": 500,
-                    "baseFuelConsumption": 700,
-                    "baseSpeed": 5000,
-                    "cargoCapacity": 449500,
-                    "fuelCapacity": 290000,
-                    "fuelConsumption": 406000,
-                    "id": 211,
-                    "name": "Bombardiere",
-                    "number": 580,
-                    "recycleMode": 0,
-                    "speed": 17000
+                "galaxy": 4,
+                "name": "Lunoby",
+                "position": 15,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 9250000,
+                        "fuelCapacity": 5000000,
+                        "fuelConsumption": 5000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 200,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    },
+                    {
+                        "baseCargoCapacity": 1280,
+                        "baseFuelCapacity": 800,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 15000,
+                        "cargoCapacity": 384000,
+                        "fuelCapacity": 240000,
+                        "fuelConsumption": 45000,
+                        "id": 206,
+                        "name": "Incrociatore",
+                        "number": 300,
+                        "recycleMode": 0,
+                        "speed": 51000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 24000,
+                        "fuelCapacity": 15000,
+                        "fuelConsumption": 1000,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 2,
+                        "recycleMode": 0,
+                        "speed": 8500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 3232000,
+                        "fuelCapacity": 2020000,
+                        "fuelConsumption": 15150,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 101,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 250,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 50,
+                        "recycleMode": 0,
+                        "speed": 260000000
+                    }
+                ],
+                "system": 309,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 1,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 99,
+                    "type": 1,
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 3100,
-                    "baseFuelCapacity": 2000,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 5000,
-                    "cargoCapacity": 988900,
-                    "fuelCapacity": 638000,
-                    "fuelConsumption": 319000,
-                    "id": 213,
-                    "name": "Corazzata",
-                    "number": 319,
-                    "recycleMode": 0,
-                    "speed": 17000
+                "galaxy": 1,
+                "name": "Gondor",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 9250,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 925000,
+                        "fuelCapacity": 500000,
+                        "fuelConsumption": 1000,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 44000
+                    },
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 18500000,
+                        "fuelCapacity": 10000000,
+                        "fuelConsumption": 10000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 400,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 99,
+                "type": 1
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 1,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 299,
+                    "type": 1,
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 1550000,
-                    "baseFuelCapacity": 1000000,
-                    "baseFuelConsumption": 1,
-                    "baseSpeed": 100,
-                    "cargoCapacity": 9300000,
-                    "fuelCapacity": 6000000,
-                    "fuelConsumption": 6,
-                    "id": 214,
-                    "name": "Morte Nera",
-                    "number": 6,
-                    "recycleMode": 0,
-                    "speed": 340
+                "galaxy": 1,
+                "name": "Harondor",
+                "position": 5,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 227781250,
+                        "fuelCapacity": 123125000,
+                        "fuelConsumption": 123125,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 4925,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 299,
+                "type": 1
+            },
+            {
+                "fleetMission": {
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 1163,
-                    "baseFuelCapacity": 750,
-                    "baseFuelConsumption": 250,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 1236900,
-                    "fuelCapacity": 798000,
-                    "fuelConsumption": 266000,
-                    "id": 215,
-                    "name": "Incrociatore da Battaglia",
-                    "number": 1064,
-                    "recycleMode": 0,
-                    "speed": 34000
+                "galaxy": 1,
+                "name": "Eriador",
+                "position": 6,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 9250,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 31986500,
+                        "fuelCapacity": 17290000,
+                        "fuelConsumption": 34580,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 3458,
+                        "recycleMode": 0,
+                        "speed": 44000
+                    }
+                ],
+                "system": 299,
+                "type": 1
+            },
+            {
+                "fleetMission": {
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 15500,
-                    "baseFuelCapacity": 10000,
-                    "baseFuelConsumption": 1100,
-                    "baseSpeed": 7000,
-                    "cargoCapacity": 4402000,
-                    "fuelCapacity": 2840000,
-                    "fuelConsumption": 312400,
-                    "id": 218,
-                    "name": "Reaper",
-                    "number": 284,
-                    "recycleMode": 2,
-                    "speed": 23800
+                "galaxy": 1,
+                "name": "Mordor",
+                "position": 1,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 21090000,
+                        "fuelCapacity": 11400000,
+                        "fuelConsumption": 11400,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 456,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 403,
+                "type": 1
+            },
+            {
+                "fleetMission": {
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 15500,
-                    "baseFuelCapacity": 10000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 12000,
-                    "cargoCapacity": 33170000,
-                    "fuelCapacity": 21400000,
-                    "fuelConsumption": 642000,
-                    "id": 219,
-                    "name": "Pathfinder",
-                    "number": 2140,
-                    "recycleMode": 3,
-                    "speed": 40800
-                }
-            ]
-        },
-        "1_27_7_3": {
-            "shipsData": []
-        },
-        "1_27_8_1": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 2604000,
-                    "fuelCapacity": 1680000,
-                    "fuelConsumption": 25200,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 84,
-                    "recycleMode": 0,
-                    "speed": 4600
-                }
-            ]
-        },
-        "1_27_8_3": {
-            "shipsData": []
-        }
+                "galaxy": 2,
+                "name": "Helm",
+                "position": 7,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 19887500,
+                        "fuelCapacity": 10750000,
+                        "fuelConsumption": 10750,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 430,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 67,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 2,
+                "name": "Adarta",
+                "position": 7,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 9250,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 2775000,
+                        "fuelCapacity": 1500000,
+                        "fuelConsumption": 3000,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 300,
+                        "recycleMode": 0,
+                        "speed": 44000
+                    },
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 18500000,
+                        "fuelCapacity": 10000000,
+                        "fuelConsumption": 10000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 400,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 200,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 3,
+                "name": "Rohan",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 23125000,
+                        "fuelCapacity": 12500000,
+                        "fuelConsumption": 12500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 500,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 215,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 4,
+                "name": "Moria",
+                "position": 15,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 1280,
+                        "baseFuelCapacity": 800,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 15000,
+                        "cargoCapacity": 384000,
+                        "fuelCapacity": 240000,
+                        "fuelConsumption": 45000,
+                        "id": 206,
+                        "name": "Incrociatore",
+                        "number": 300,
+                        "recycleMode": 0,
+                        "speed": 51000
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 3200000,
+                        "fuelCapacity": 2000000,
+                        "fuelConsumption": 15000,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 5200
+                    }
+                ],
+                "system": 309,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 1,
+                "name": "Belfalas",
+                "position": 9,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 13875000,
+                        "fuelCapacity": 7500000,
+                        "fuelConsumption": 7500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 300,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 296,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 4,
+                "name": "NientePanico",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 46250,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 9250000,
+                        "fuelCapacity": 5000000,
+                        "fuelConsumption": 5000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 200,
+                        "recycleMode": 0,
+                        "speed": 27000
+                    }
+                ],
+                "system": 59,
+                "type": 1
+            }
+        ]
     },
     "s172-it": {
-        "1_313_8_1": {
-            "shipsData": []
-        },
-        "1_313_8_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 7750,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 1550000,
-                    "fuelCapacity": 1000000,
-                    "fuelConsumption": 2000,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 200,
-                    "recycleMode": 0,
-                    "speed": 28000
+        "planets": [
+            {
+                "fleetMission": {
+                    "galaxy": 4,
+                    "mission": 7,
+                    "position": 2,
+                    "system": 89,
+                    "type": 1,
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 38750,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 1937500,
-                    "fuelCapacity": 1250000,
-                    "fuelConsumption": 1250,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 50,
-                    "recycleMode": 0,
-                    "speed": 18000
+                "galaxy": 3,
+                "name": "luna",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 8000,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 160048000,
+                        "fuelCapacity": 100030000,
+                        "fuelConsumption": 200060,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 20006,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 274640000,
+                        "fuelCapacity": 171650000,
+                        "fuelConsumption": 171650,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 6866,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    },
+                    {
+                        "baseCargoCapacity": 80,
+                        "baseFuelCapacity": 50,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 12500,
+                        "cargoCapacity": 1738560,
+                        "fuelCapacity": 1086600,
+                        "fuelConsumption": 217320,
+                        "id": 204,
+                        "name": "Caccia Leggero",
+                        "number": 21732,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 160,
+                        "baseFuelCapacity": 100,
+                        "baseFuelConsumption": 75,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 970400,
+                        "fuelCapacity": 606500,
+                        "fuelConsumption": 224405,
+                        "id": 205,
+                        "name": "Caccia Pesante",
+                        "number": 6065,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 1280,
+                        "baseFuelCapacity": 800,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 15000,
+                        "cargoCapacity": 4629760,
+                        "fuelCapacity": 2893600,
+                        "fuelConsumption": 542550,
+                        "id": 206,
+                        "name": "Incrociatore",
+                        "number": 3617,
+                        "recycleMode": 0,
+                        "speed": 45000
+                    },
+                    {
+                        "baseCargoCapacity": 2400,
+                        "baseFuelCapacity": 1500,
+                        "baseFuelConsumption": 500,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 2424000,
+                        "fuelCapacity": 1515000,
+                        "fuelConsumption": 252500,
+                        "id": 207,
+                        "name": "Nave da battaglia",
+                        "number": 1010,
+                        "recycleMode": 0,
+                        "speed": 40000
+                    },
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 96000,
+                        "fuelCapacity": 60000,
+                        "fuelConsumption": 4000,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 8,
+                        "recycleMode": 0,
+                        "speed": 7500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 18784000,
+                        "fuelCapacity": 11740000,
+                        "fuelConsumption": 88050,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 587,
+                        "recycleMode": 0,
+                        "speed": 4800
+                    },
+                    {
+                        "baseCargoCapacity": 8,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 604168,
+                        "fuelCapacity": 377605,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 75521,
+                        "recycleMode": 0,
+                        "speed": 240000000
+                    },
+                    {
+                        "baseCargoCapacity": 800,
+                        "baseFuelCapacity": 500,
+                        "baseFuelConsumption": 700,
+                        "baseSpeed": 5000,
+                        "cargoCapacity": 837600,
+                        "fuelCapacity": 523500,
+                        "fuelConsumption": 366450,
+                        "id": 211,
+                        "name": "Bombardiere",
+                        "number": 1047,
+                        "recycleMode": 0,
+                        "speed": 20000
+                    },
+                    {
+                        "baseCargoCapacity": 3200,
+                        "baseFuelCapacity": 2000,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 5000,
+                        "cargoCapacity": 2233600,
+                        "fuelCapacity": 1396000,
+                        "fuelConsumption": 349000,
+                        "id": 213,
+                        "name": "Corazzata",
+                        "number": 698,
+                        "recycleMode": 0,
+                        "speed": 20000
+                    },
+                    {
+                        "baseCargoCapacity": 1600000,
+                        "baseFuelCapacity": 1000000,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100,
+                        "cargoCapacity": 16000000,
+                        "fuelCapacity": 10000000,
+                        "fuelConsumption": 0,
+                        "id": 214,
+                        "name": "Morte Nera",
+                        "number": 10,
+                        "recycleMode": 0,
+                        "speed": 400
+                    },
+                    {
+                        "baseCargoCapacity": 1200,
+                        "baseFuelCapacity": 750,
+                        "baseFuelConsumption": 250,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 1216800,
+                        "fuelCapacity": 760500,
+                        "fuelConsumption": 126750,
+                        "id": 215,
+                        "name": "Incrociatore da Battaglia",
+                        "number": 1014,
+                        "recycleMode": 0,
+                        "speed": 40000
+                    },
+                    {
+                        "baseCargoCapacity": 16000,
+                        "baseFuelCapacity": 10000,
+                        "baseFuelConsumption": 1100,
+                        "baseSpeed": 7000,
+                        "cargoCapacity": 6512000,
+                        "fuelCapacity": 4070000,
+                        "fuelConsumption": 223850,
+                        "id": 218,
+                        "name": "Reaper",
+                        "number": 407,
+                        "recycleMode": 2,
+                        "speed": 28000
+                    },
+                    {
+                        "baseCargoCapacity": 16000,
+                        "baseFuelCapacity": 10000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 12000,
+                        "cargoCapacity": 34192000,
+                        "fuelCapacity": 21370000,
+                        "fuelConsumption": 320550,
+                        "id": 219,
+                        "name": "Pathfinder",
+                        "number": 2137,
+                        "recycleMode": 3,
+                        "speed": 48000
+                    }
+                ],
+                "system": 224,
+                "type": 3
+            },
+            {
+                "fleetMission": {
+                    "galaxy": 4,
+                    "mission": 7,
+                    "position": 8,
+                    "system": 88,
+                    "type": 3,
+                    "velocity": 40
                 },
-                {
-                    "baseCargoCapacity": 155,
-                    "baseFuelCapacity": 100,
-                    "baseFuelConsumption": 75,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 16275,
-                    "fuelCapacity": 10500,
-                    "fuelConsumption": 3885,
-                    "id": 205,
-                    "name": "Caccia Pesante",
-                    "number": 105,
-                    "recycleMode": 0,
-                    "speed": 28000
-                },
-                {
-                    "baseCargoCapacity": 1240,
-                    "baseFuelCapacity": 800,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 15000,
-                    "cargoCapacity": 70680,
-                    "fuelCapacity": 45600,
-                    "fuelConsumption": 8550,
-                    "id": 206,
-                    "name": "Incrociatore",
-                    "number": 57,
-                    "recycleMode": 0,
-                    "speed": 42000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 11625,
-                    "fuelCapacity": 7500,
-                    "fuelConsumption": 500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 7000
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 4030000,
-                    "fuelCapacity": 2600000,
-                    "fuelConsumption": 19500,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 130,
-                    "recycleMode": 0,
-                    "speed": 4800
-                },
-                {
-                    "baseCargoCapacity": 8,
-                    "baseFuelCapacity": 5,
-                    "baseFuelConsumption": 1,
-                    "baseSpeed": 100000000,
-                    "cargoCapacity": 31,
-                    "fuelCapacity": 20,
-                    "fuelConsumption": 0,
-                    "id": 210,
-                    "name": "Sonda spia",
-                    "number": 4,
-                    "recycleMode": 0,
-                    "speed": 240000000
-                }
-            ]
-        },
-        "1_413_13_1": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 930000,
-                    "fuelCapacity": 600000,
-                    "fuelConsumption": 4500,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 30,
-                    "recycleMode": 0,
-                    "speed": 4800
-                }
-            ]
-        },
-        "1_88_4_1": {
-            "shipsData": []
-        },
-        "1_88_4_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 38750,
-                    "baseFuelCapacity": 25000,
-                    "baseFuelConsumption": 50,
-                    "baseSpeed": 7500,
-                    "cargoCapacity": 50995000,
-                    "fuelCapacity": 32900000,
-                    "fuelConsumption": 32900,
-                    "id": 203,
-                    "name": "Cargo Pesante",
-                    "number": 1316,
-                    "recycleMode": 0,
-                    "speed": 18000
-                },
-                {
-                    "baseCargoCapacity": 78,
-                    "baseFuelCapacity": 50,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 12500,
-                    "cargoCapacity": 965263,
-                    "fuelCapacity": 622750,
-                    "fuelConsumption": 124550,
-                    "id": 204,
-                    "name": "Caccia Leggero",
-                    "number": 12455,
-                    "recycleMode": 0,
-                    "speed": 30000
-                },
-                {
-                    "baseCargoCapacity": 155,
-                    "baseFuelCapacity": 100,
-                    "baseFuelConsumption": 75,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 562495,
-                    "fuelCapacity": 362900,
-                    "fuelConsumption": 134273,
-                    "id": 205,
-                    "name": "Caccia Pesante",
-                    "number": 3629,
-                    "recycleMode": 0,
-                    "speed": 28000
-                },
-                {
-                    "baseCargoCapacity": 1240,
-                    "baseFuelCapacity": 800,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 15000,
-                    "cargoCapacity": 2437840,
-                    "fuelCapacity": 1572800,
-                    "fuelConsumption": 294900,
-                    "id": 206,
-                    "name": "Incrociatore",
-                    "number": 1966,
-                    "recycleMode": 0,
-                    "speed": 42000
-                },
-                {
-                    "baseCargoCapacity": 2325,
-                    "baseFuelCapacity": 1500,
-                    "baseFuelConsumption": 500,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 1153200,
-                    "fuelCapacity": 744000,
-                    "fuelConsumption": 124000,
-                    "id": 207,
-                    "name": "Nave da battaglia",
-                    "number": 496,
-                    "recycleMode": 0,
-                    "speed": 34000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 58125,
-                    "fuelCapacity": 37500,
-                    "fuelConsumption": 2500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 5,
-                    "recycleMode": 0,
-                    "speed": 7000
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 12617000,
-                    "fuelCapacity": 8140000,
-                    "fuelConsumption": 61050,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 407,
-                    "recycleMode": 0,
-                    "speed": 4800
-                },
-                {
-                    "baseCargoCapacity": 8,
-                    "baseFuelCapacity": 5,
-                    "baseFuelConsumption": 1,
-                    "baseSpeed": 100000000,
-                    "cargoCapacity": 310946,
-                    "fuelCapacity": 200610,
-                    "fuelConsumption": 0,
-                    "id": 210,
-                    "name": "Sonda spia",
-                    "number": 40122,
-                    "recycleMode": 0,
-                    "speed": 240000000
-                },
-                {
-                    "baseCargoCapacity": 775,
-                    "baseFuelCapacity": 500,
-                    "baseFuelConsumption": 700,
-                    "baseSpeed": 5000,
-                    "cargoCapacity": 620775,
-                    "fuelCapacity": 400500,
-                    "fuelConsumption": 280350,
-                    "id": 211,
-                    "name": "Bombardiere",
-                    "number": 801,
-                    "recycleMode": 0,
-                    "speed": 17000
-                },
-                {
-                    "baseCargoCapacity": 3100,
-                    "baseFuelCapacity": 2000,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 5000,
-                    "cargoCapacity": 1150100,
-                    "fuelCapacity": 742000,
-                    "fuelConsumption": 185500,
-                    "id": 213,
-                    "name": "Corazzata",
-                    "number": 371,
-                    "recycleMode": 0,
-                    "speed": 17000
-                },
-                {
-                    "baseCargoCapacity": 1163,
-                    "baseFuelCapacity": 750,
-                    "baseFuelConsumption": 250,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 778875,
-                    "fuelCapacity": 502500,
-                    "fuelConsumption": 83750,
-                    "id": 215,
-                    "name": "Incrociatore da Battaglia",
-                    "number": 670,
-                    "recycleMode": 0,
-                    "speed": 34000
-                },
-                {
-                    "baseCargoCapacity": 15500,
-                    "baseFuelCapacity": 10000,
-                    "baseFuelConsumption": 1100,
-                    "baseSpeed": 7000,
-                    "cargoCapacity": 3332500,
-                    "fuelCapacity": 2150000,
-                    "fuelConsumption": 118250,
-                    "id": 218,
-                    "name": "Reaper",
-                    "number": 215,
-                    "recycleMode": 2,
-                    "speed": 23800
-                },
-                {
-                    "baseCargoCapacity": 15500,
-                    "baseFuelCapacity": 10000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 12000,
-                    "cargoCapacity": 14585500,
-                    "fuelCapacity": 9410000,
-                    "fuelConsumption": 141150,
-                    "id": 219,
-                    "name": "Pathfinder",
-                    "number": 941,
-                    "recycleMode": 3,
-                    "speed": 40800
-                }
-            ]
-        },
-        "2_313_8_1": {
-            "shipsData": []
-        },
-        "2_38_1_1": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 7750,
-                    "baseFuelCapacity": 5000,
-                    "baseFuelConsumption": 20,
-                    "baseSpeed": 10000,
-                    "cargoCapacity": 387500,
-                    "fuelCapacity": 250000,
-                    "fuelConsumption": 500,
-                    "id": 202,
-                    "name": "Cargo leggero",
-                    "number": 50,
-                    "recycleMode": 0,
-                    "speed": 28000
-                }
-            ]
-        },
-        "3_224_8_1": {
-            "shipsData": []
-        },
-        "3_88_8_1": {
-            "shipsData": []
-        },
-        "4_88_8_1": {
-            "shipsData": []
-        },
-        "4_88_8_3": {
-            "shipsData": [
-                {
-                    "baseCargoCapacity": 1240,
-                    "baseFuelCapacity": 800,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 15000,
-                    "cargoCapacity": 372000,
-                    "fuelCapacity": 240000,
-                    "fuelConsumption": 45000,
-                    "id": 206,
-                    "name": "Incrociatore",
-                    "number": 300,
-                    "recycleMode": 0,
-                    "speed": 42000
-                },
-                {
-                    "baseCargoCapacity": 11625,
-                    "baseFuelCapacity": 7500,
-                    "baseFuelConsumption": 1000,
-                    "baseSpeed": 2500,
-                    "cargoCapacity": 11625,
-                    "fuelCapacity": 7500,
-                    "fuelConsumption": 500,
-                    "id": 208,
-                    "name": "Colonizzatrice",
-                    "number": 1,
-                    "recycleMode": 0,
-                    "speed": 7000
-                },
-                {
-                    "baseCargoCapacity": 31000,
-                    "baseFuelCapacity": 20000,
-                    "baseFuelConsumption": 300,
-                    "baseSpeed": 2000,
-                    "cargoCapacity": 1550000,
-                    "fuelCapacity": 1000000,
-                    "fuelConsumption": 7500,
-                    "id": 209,
-                    "name": "Riciclatrici",
-                    "number": 50,
-                    "recycleMode": 0,
-                    "speed": 4800
-                }
-            ]
-        },
-        "5_268_13_1": {
-            "shipsData": []
-        }
+                "galaxy": 1,
+                "name": "LunaBlalla",
+                "position": 4,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 8000,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 408000,
+                        "fuelCapacity": 255000,
+                        "fuelConsumption": 510,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 51,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 20400000,
+                        "fuelCapacity": 12750000,
+                        "fuelConsumption": 12750,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 510,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    },
+                    {
+                        "baseCargoCapacity": 1600000,
+                        "baseFuelCapacity": 1000000,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100,
+                        "cargoCapacity": 3200000,
+                        "fuelCapacity": 2000000,
+                        "fuelConsumption": 0,
+                        "id": 214,
+                        "name": "Morte Nera",
+                        "number": 2,
+                        "recycleMode": 0,
+                        "speed": 400
+                    }
+                ],
+                "system": 88,
+                "type": 3
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 2,
+                "name": "MontagneVerdi",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 8000000,
+                        "fuelCapacity": 5000000,
+                        "fuelConsumption": 5000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 200,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    }
+                ],
+                "system": 313,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 1,
+                "name": "Beeeee",
+                "position": 13,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 960000,
+                        "fuelCapacity": 600000,
+                        "fuelConsumption": 4500,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 30,
+                        "recycleMode": 0,
+                        "speed": 4800
+                    }
+                ],
+                "system": 413,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 1,
+                "name": "Dolly",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 4000000,
+                        "fuelCapacity": 2500000,
+                        "fuelConsumption": 2500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    }
+                ],
+                "system": 313,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 2,
+                "name": "Hot Sheep",
+                "position": 1,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 8000,
+                        "baseFuelCapacity": 5000,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 400000,
+                        "fuelCapacity": 250000,
+                        "fuelConsumption": 500,
+                        "id": 202,
+                        "name": "Cargo leggero",
+                        "number": 50,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 4000000,
+                        "fuelCapacity": 2500000,
+                        "fuelConsumption": 2500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    }
+                ],
+                "system": 38,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 4,
+                "name": "Navajo Churro",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 80,
+                        "baseFuelCapacity": 50,
+                        "baseFuelConsumption": 20,
+                        "baseSpeed": 12500,
+                        "cargoCapacity": 8000,
+                        "fuelCapacity": 5000,
+                        "fuelConsumption": 1000,
+                        "id": 204,
+                        "name": "Caccia Leggero",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 160,
+                        "baseFuelCapacity": 100,
+                        "baseFuelConsumption": 75,
+                        "baseSpeed": 10000,
+                        "cargoCapacity": 4800,
+                        "fuelCapacity": 3000,
+                        "fuelConsumption": 1110,
+                        "id": 205,
+                        "name": "Caccia Pesante",
+                        "number": 30,
+                        "recycleMode": 0,
+                        "speed": 30000
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 640000,
+                        "fuelCapacity": 400000,
+                        "fuelConsumption": 3000,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 20,
+                        "recycleMode": 0,
+                        "speed": 4800
+                    },
+                    {
+                        "baseCargoCapacity": 8,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 800,
+                        "fuelCapacity": 500,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 240000000
+                    }
+                ],
+                "system": 88,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 1,
+                "name": "Brucare",
+                "position": 4,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 4000000,
+                        "fuelCapacity": 2500000,
+                        "fuelConsumption": 2500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    }
+                ],
+                "system": 88,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 3,
+                "name": "Foraggio",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 8000000,
+                        "fuelCapacity": 5000000,
+                        "fuelConsumption": 5000,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 200,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    }
+                ],
+                "system": 88,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 5,
+                "name": "Altopiano",
+                "position": 13,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 4000000,
+                        "fuelCapacity": 2500000,
+                        "fuelConsumption": 2500,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 100,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 480000,
+                        "fuelCapacity": 300000,
+                        "fuelConsumption": 2250,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 15,
+                        "recycleMode": 0,
+                        "speed": 4800
+                    }
+                ],
+                "system": 268,
+                "type": 1
+            },
+            {
+                "fleetMission": {},
+                "galaxy": 3,
+                "name": "Belare",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 40000,
+                        "baseFuelCapacity": 25000,
+                        "baseFuelConsumption": 50,
+                        "baseSpeed": 7500,
+                        "cargoCapacity": 22320000,
+                        "fuelCapacity": 13950000,
+                        "fuelConsumption": 13950,
+                        "id": 203,
+                        "name": "Cargo Pesante",
+                        "number": 558,
+                        "recycleMode": 0,
+                        "speed": 18000
+                    }
+                ],
+                "system": 224,
+                "type": 1
+            }
+        ]
     }
 }
