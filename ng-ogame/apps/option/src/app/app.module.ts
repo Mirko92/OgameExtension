@@ -10,6 +10,7 @@ import { FleetComponent } from '../components/fleet/fleet.component';
 import { OgameMenuComponent } from '../components/ogame-menu/ogame-menu.component';
 import { OgamePlanetComponent } from '../components/ogame-planet/ogame-planet.component';
 import { OgameMissionsComponent } from '../components/ogame-missions/ogame-missions.component';
+import { OgameSpeedComponent } from '../components/ogame-speed/ogame-speed.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OgameMissionsComponent } from '../components/ogame-missions/ogame-missi
     FleetComponent,
     OgameMenuComponent,
     OgamePlanetComponent,
-    OgameMissionsComponent
+    OgameMissionsComponent,
+    OgameSpeedComponent
   ],
   imports: [
     BrowserModule,

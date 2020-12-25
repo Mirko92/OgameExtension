@@ -1,0 +1,21 @@
+<div id="fleet2">
+     <div>
+          <h2>Velocità</h2>
+     </div>
+
+     <div id="speedPercentage"
+          class="percentageBar"
+          style="float:left;width:300px;">
+          <div class="bar"
+               style="width: 300px;"></div>
+          <div class="steps">
+               <div *ngFor="let s of speedOptions"
+                    class="step"
+                    [class]="{'selected': speed === s}"
+                    (click)="speed = s"
+                    data-step="{{s}}">
+                    {{s}}
+               </div>
+          </div>
+     </div>
+</div>

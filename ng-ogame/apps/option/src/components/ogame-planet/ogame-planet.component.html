@@ -83,64 +83,11 @@
                     </div>
 
                     <!-- Velocity -->
-                    <div id="fleet2">
-                        <div>
-                            <h2>Velocità</h2>
-                        </div>
-
-                        <div id="speedPercentage"
-                             class="percentageBar"
-                             style="float:left;width:300px;">
-                            <div class="bar"
-                                 style="width: 300px;"></div>
-                            <div class="steps">
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 10}"
-                                     (click)="planet.fleetMission.velocity = 10"
-                                     data-step="1">10</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 20}"
-                                     (click)="planet.fleetMission.velocity = 20"
-                                     data-step="2">20</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 30}"
-                                     (click)="planet.fleetMission.velocity = 30"
-                                     data-step="3">30</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 40}"
-                                     (click)="planet.fleetMission.velocity = 40"
-                                     data-step="4">40</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 50}"
-                                     (click)="planet.fleetMission.velocity = 50"
-                                     data-step="5">50</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 60}"
-                                     (click)="planet.fleetMission.velocity = 60"
-                                     data-step="6">60</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 70}"
-                                     (click)="planet.fleetMission.velocity = 70"
-                                     data-step="7">70</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 80}"
-                                     (click)="planet.fleetMission.velocity = 80"
-                                     data-step="8">80</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 90}"
-                                     (click)="planet.fleetMission.velocity = 90"
-                                     data-step="9">90</div>
-                                <div class="step"
-                                     [class]="{'selected': planet.fleetMission.velocity === 100}"
-                                     (click)="planet.fleetMission.velocity = 100"
-                                     data-step="10">100</div>
-                            </div>
-                        </div>
-                    </div>
+                    <og-speed [(speed)]="planet.fleetMission.velocity"></og-speed>
                 </div>
 
                 <!-- Mission options -->
-                <og-missions [mission]="planet.fleetMission.mission"></og-missions>
+                <og-missions [(mission)]="planet.fleetMission.mission"></og-missions>
 
             </div>
         </div>
