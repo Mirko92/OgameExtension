@@ -12,8 +12,7 @@
                <div *ngFor="let s of speedOptions"
                     class="step"
                     [class]="{'selected': speed === s}"
-                    (click)="speed = s"
-                    data-step="{{s}}">
+                    (click)="speed = s">
                     {{s}}
                </div>
           </div>
