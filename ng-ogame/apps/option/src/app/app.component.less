@@ -2,12 +2,23 @@
 
 .page {
     display: flex;
-    flex-flow: column;    
+    justify-content: space-around;
     padding-top: 2rem;
+    position: relative;
+}
 
-    &-content {
-        align-self: center;
+.uni {
+    &_toc {
+        .menu {
+            position: sticky;
+            top: 4rem;
+        }
+    }
 
+    &_content {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
     }
 }
 
@@ -22,7 +33,7 @@
     width: 100%;
     max-width: 1185px;
 
-    &__title{
+    &__title {
         justify-self: flex-start;
         padding-left: 1rem;
         padding-bottom: 0.5rem;
@@ -68,20 +79,20 @@
     }
 }
 
-.target{
-    a{
+.target {
+    a {
         cursor: pointer;
     }
 }
 
-.steps{
-    .step{
+.steps {
+    .step {
         cursor: pointer;
     }
 }
 
-#missions{
-    a{
+#missions {
+    a {
         cursor: pointer;
     }
 }

@@ -1,284 +1,300 @@
 <div class="page"
      role="main">
 
-  <div *ngFor="let uni of keysOf(storage)">
-    <div style="text-align: center;">
-      <h1>{{uni}}</h1>
-    </div>
+  <div class="uni_toc">
+    <ul class="menu">
+      <li *ngFor="let uni of keysOf(storage)">
+        <h1>{{uni}}</h1>
 
-    <div id="buttonz"
-         class="fleet_save"
-         *ngFor="let p of storage[uni].planets">
-      <div class="fleet_save__title">
-        <h1>{{p.name}} [{{p.galaxy}}:{{p.system}}:{{p.position}}]</h1>
-      </div>
+        <ul>
+          <li *ngFor="let p of storage[uni].planets">
+            <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
+          </li>
+        </ul>
+      </li>
 
-      <div id="battleships">
-
-        <div class="header fleet_save__header">
-          <div class="left">&nbsp;</div>
-          <div class="center">&nbsp;</div>
-          <div class="right">&nbsp;</div>
-        </div>
-
-        <div class="fleet_save__content">
-
-          <div class="fleet_save__ships">
-            <app-fleet [planet]="p"></app-fleet>
-          </div>
-
-          <div style="margin-top: -27px; 
-                    padding: 0 30px; 
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;">
-            <div style="display: flex; justify-content: space-around;">
-              <!-- Destination options -->
-              <div id="fleet2">
-                <div class="mp_header">
-                  <h2>Destinazione</h2>
-                </div>
-
-                <div id="mission">
-
-                  <td id="target"
-                      class="border5px">
-
-                    <!-- <div class="planetname"
-                         id="targetPlanetName">
-                      LunaBlalla
-                    </div> -->
-
-                    <div class="target">
-                      <a [class]="p.fleetMission?.type === 1 ? 'planet_selected' : 'planet'"
-                         id="pbutton"
-                         (click)="p.fleetMission.type = 1">
-                      </a>
-                      <a [class]="p.fleetMission?.type === 3 ? 'moon_selected' : 'moon'"
-                         id="mbutton"
-                         (click)="p.fleetMission.type = 3">
-                      </a>
-                      <a [class]="p.fleetMission?.type === 2 ? 'debris_selected' : 'debris'"
-                         id="dbutton"
-                         (click)="p.fleetMission.type = 2">
-                      </a>
-                      <br class="clearfloat">
-                    </div>
-
-                    <div class="coords">
-                      Coordinate:
-                      <br>
-                      <input name="galaxy"
-                             id="galaxy"
-                             type="number"
-                             class="galaxy hideNumberSpin"
-                             size="1"
-                             [(ngModel)]="p.fleetMission.galaxy">
-                      <input name="system"
-                             id="system"
-                             type="number"
-                             class="system hideNumberSpin"
-                             size="3"
-                             [(ngModel)]="p.fleetMission.system">
-                      <input name="position"
-                             id="position"
-                             type="number"
-                             class="planet hideNumberSpin"
-                             size="2"
-                             [(ngModel)]="p.fleetMission.position">
-                    </div>
-                  </td>
-                </div>
-              </div>
-
-              <!-- Velocity -->
-              <div id="fleet2">
-                <div>
-                  <h2>Velocità</h2>
-                </div>
-
-                <div id="speedPercentage"
-                     class="percentageBar"
-                     style="float:left;width:300px;">
-                  <div class="bar"
-                       style="width: 300px;"></div>
-                  <div class="steps">
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 10}"
-                         (click)="p.fleetMission.velocity = 10"
-                         data-step="1">10</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 20}"
-                         (click)="p.fleetMission.velocity = 20"
-                         data-step="2">20</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 30}"
-                         (click)="p.fleetMission.velocity = 30"
-                         data-step="3">30</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 40}"
-                         (click)="p.fleetMission.velocity = 40"
-                         data-step="4">40</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 50}"
-                         (click)="p.fleetMission.velocity = 50"
-                         data-step="5">50</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 60}"
-                         (click)="p.fleetMission.velocity = 60"
-                         data-step="6">60</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 70}"
-                         (click)="p.fleetMission.velocity = 70"
-                         data-step="7">70</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 80}"
-                         (click)="p.fleetMission.velocity = 80"
-                         data-step="8">80</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 90}"
-                         (click)="p.fleetMission.velocity = 90"
-                         data-step="9">90</div>
-                    <div class="step"
-                         [class]="{'selected': p.fleetMission.velocity === 100}"
-                         (click)="p.fleetMission.velocity = 100"
-                         data-step="10">100</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mission options -->
-            <div id="fleet3">
-              <div id="buttonz">
-                <div class="content"
-                     style="margin: 0;">
-                  <div>
-                    <h2>Seleziona la missione per la destinazione::</h2>
-                  </div>
-
-                  <ul id="missions">
-                    <li id="button15"
-                        class="on">
-                      <a id="missionButton15"
-                         (click)="p.fleetMission.mission = 15"
-                         [class.selected]="p.fleetMission.mission === 15"
-                         data-mission="15">
-                        <span class="textlabel">Spedizione</span>
-                      </a>
-                    </li>
-                    <li id="button7"
-                        class="on">
-                      <a id="missionButton7"
-                         (click)="p.fleetMission.mission = 7"
-                         [class.selected]="p.fleetMission.mission === 7"
-                         data-mission="7">
-                        <span class="textlabel">Colonizzazione</span>
-                      </a>
-                    </li>
-                    <li id="button8"
-                        class="on">
-                      <a id="missionButton8"
-                         (click)="p.fleetMission.mission = 8"
-                         [class.selected]="p.fleetMission.mission === 8"
-                         data-mission="8">
-                        <span class="textlabel">Ricicla campo detriti</span>
-                      </a>
-                    </li>
-                    <li id="button3"
-                        class="on">
-                      <a id="missionButton3"
-                         (click)="p.fleetMission.mission = 3"
-                         [class.selected]="p.fleetMission.mission === 3"
-                         data-mission="3">
-                        <span class="textlabel">Trasporto</span>
-                      </a>
-                    </li>
-                    <li id="button4"
-                        class="on">
-                      <a id="missionButton4"
-                         (click)="p.fleetMission.mission = 4"
-                         [class.selected]="p.fleetMission.mission === 4"
-                         data-mission="4">
-                        <span class="textlabel">Schieramento</span>
-                      </a>
-                    </li>
-                    <li id="button6"
-                        class="on">
-                      <a id="missionButton6"
-                         (click)="p.fleetMission.mission = 6"
-                         [class.selected]="p.fleetMission.mission === 6"
-                         data-mission="6">
-                        <span class="textlabel">Spionaggio</span>
-                      </a>
-                    </li>
-                    <li id="button5"
-                        class="on">
-                      <a id="missionButton5"
-                         (click)="p.fleetMission.mission = 5"
-                         [class.selected]="p.fleetMission.mission === 5"
-                         data-mission="5">
-                        <span class="textlabel">Stazionamento</span>
-                      </a>
-                    </li>
-                    <li id="button1"
-                        class="on">
-                      <a id="missionButton1"
-                         (click)="p.fleetMission.mission = 1"
-                         [class.selected]="p.fleetMission.mission === 1"
-                         data-mission="1">
-                        <span class="textlabel">Attacco</span>
-                      </a>
-                    </li>
-                    <li id="button2"
-                        class="on">
-                      <a id="missionButton2"
-                         (click)="p.fleetMission.mission = 2"
-                         [class.selected]="p.fleetMission.mission === 2"
-                         data-mission="2">
-                        <span class="textlabel">Attacco federale</span>
-                      </a>
-                    </li>
-                    <li id="button9"
-                        class="on">
-                      <a id="missionButton9"
-                         (click)="p.fleetMission.mission = 9"
-                         [class.selected]="p.fleetMission.mission === 9"
-                         data-mission="9">
-                        <span class="textlabel">Distruzione Luna</span>
-                      </a>
-                    </li>
-                  </ul>
-                  <div id="missionNameWrapper">
-                    Missione:
-                    <span id="missionName"
-                          class="missionName"></span>
-                    <p class="mission_description">&nbsp;</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <footer style="position: relative;">
-        <div class="mp_footer"></div>
-        <div style="display: flex;
-                    justify-content: center;
-                    position: absolute;
-                    right: 1.5rem;
-                    bottom: 1rem;">
-          <button class="glow-on-hover"
-                  (click)="saveFleetMission(uni, p)"
-                  type="button">SALVA</button>
-        </div>
-      </footer>
-    </div>
+    </ul>
   </div>
 
+  <div class="uni_content">
 
+    <div *ngFor="let uni of keysOf(storage)" id="{{uni}}">
+      <div style="text-align: center;">
+        <h1>{{uni}}</h1>
+      </div>
+
+      <div id="buttonz"
+           class="og_card fleet_save"
+           *ngFor="let p of storage[uni].planets">
+        <div class="fleet_save__title">
+          <h1>{{p.name}} [{{p.galaxy}}:{{p.system}}:{{p.position}}]</h1>
+        </div>
+
+        <div id="battleships">
+
+          <div class="header fleet_save__header">
+            <div class="left">&nbsp;</div>
+            <div class="center">&nbsp;</div>
+            <div class="right">&nbsp;</div>
+          </div>
+
+          <div class="fleet_save__content">
+
+            <div class="fleet_save__ships">
+              <app-fleet [planet]="p"></app-fleet>
+            </div>
+
+            <div style="margin-top: -27px; 
+                      padding: 0 30px; 
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: space-between;">
+              <div style="display: flex; justify-content: space-around;">
+                <!-- Destination options -->
+                <div id="fleet2">
+                  <div class="mp_header">
+                    <h2>Destinazione</h2>
+                  </div>
+
+                  <div id="mission">
+
+                    <td id="target"
+                        class="border5px">
+
+                      <!-- <div class="planetname"
+                           id="targetPlanetName">
+                        LunaBlalla
+                      </div> -->
+
+                      <div class="target">
+                        <a [class]="p.fleetMission?.type === 1 ? 'planet_selected' : 'planet'"
+                           id="pbutton"
+                           (click)="p.fleetMission.type = 1">
+                        </a>
+                        <a [class]="p.fleetMission?.type === 3 ? 'moon_selected' : 'moon'"
+                           id="mbutton"
+                           (click)="p.fleetMission.type = 3">
+                        </a>
+                        <a [class]="p.fleetMission?.type === 2 ? 'debris_selected' : 'debris'"
+                           id="dbutton"
+                           (click)="p.fleetMission.type = 2">
+                        </a>
+                        <br class="clearfloat">
+                      </div>
+
+                      <div class="coords">
+                        Coordinate:
+                        <br>
+                        <input name="galaxy"
+                               id="galaxy"
+                               type="number"
+                               class="galaxy hideNumberSpin"
+                               size="1"
+                               [(ngModel)]="p.fleetMission.galaxy">
+                        <input name="system"
+                               id="system"
+                               type="number"
+                               class="system hideNumberSpin"
+                               size="3"
+                               [(ngModel)]="p.fleetMission.system">
+                        <input name="position"
+                               id="position"
+                               type="number"
+                               class="planet hideNumberSpin"
+                               size="2"
+                               [(ngModel)]="p.fleetMission.position">
+                      </div>
+                    </td>
+                  </div>
+                </div>
+
+                <!-- Velocity -->
+                <div id="fleet2">
+                  <div>
+                    <h2>Velocità</h2>
+                  </div>
+
+                  <div id="speedPercentage"
+                       class="percentageBar"
+                       style="float:left;width:300px;">
+                    <div class="bar"
+                         style="width: 300px;"></div>
+                    <div class="steps">
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 10}"
+                           (click)="p.fleetMission.velocity = 10"
+                           data-step="1">10</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 20}"
+                           (click)="p.fleetMission.velocity = 20"
+                           data-step="2">20</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 30}"
+                           (click)="p.fleetMission.velocity = 30"
+                           data-step="3">30</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 40}"
+                           (click)="p.fleetMission.velocity = 40"
+                           data-step="4">40</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 50}"
+                           (click)="p.fleetMission.velocity = 50"
+                           data-step="5">50</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 60}"
+                           (click)="p.fleetMission.velocity = 60"
+                           data-step="6">60</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 70}"
+                           (click)="p.fleetMission.velocity = 70"
+                           data-step="7">70</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 80}"
+                           (click)="p.fleetMission.velocity = 80"
+                           data-step="8">80</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 90}"
+                           (click)="p.fleetMission.velocity = 90"
+                           data-step="9">90</div>
+                      <div class="step"
+                           [class]="{'selected': p.fleetMission.velocity === 100}"
+                           (click)="p.fleetMission.velocity = 100"
+                           data-step="10">100</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mission options -->
+              <div id="fleet3">
+                <div id="buttonz">
+                  <div classog_card ="content"
+                       style="margin: 0;">
+                    <div>
+                      <h2>Seleziona la missione per la destinazione::</h2>
+                    </div>
+
+                    <ul id="missions">
+                      <li id="button15"
+                          class="on">
+                        <a id="missionButton15"
+                           (click)="p.fleetMission.mission = 15"
+                           [class.selected]="p.fleetMission.mission === 15"
+                           data-mission="15">
+                          <span class="textlabel">Spedizione</span>
+                        </a>
+                      </li>
+                      <li id="button7"
+                          class="on">
+                        <a id="missionButton7"
+                           (click)="p.fleetMission.mission = 7"
+                           [class.selected]="p.fleetMission.mission === 7"
+                           data-mission="7">
+                          <span class="textlabel">Colonizzazione</span>
+                        </a>
+                      </li>
+                      <li id="button8"
+                          class="on">
+                        <a id="missionButton8"
+                           (click)="p.fleetMission.mission = 8"
+                           [class.selected]="p.fleetMission.mission === 8"
+                           data-mission="8">
+                          <span class="textlabel">Ricicla campo detriti</span>
+                        </a>
+                      </li>
+                      <li id="button3"
+                          class="on">
+                        <a id="missionButton3"
+                           (click)="p.fleetMission.mission = 3"
+                           [class.selected]="p.fleetMission.mission === 3"
+                           data-mission="3">
+                          <span class="textlabel">Trasporto</span>
+                        </a>
+                      </li>
+                      <li id="button4"
+                          class="on">
+                        <a id="missionButton4"
+                           (click)="p.fleetMission.mission = 4"
+                           [class.selected]="p.fleetMission.mission === 4"
+                           data-mission="4">
+                          <span class="textlabel">Schieramento</span>
+                        </a>
+                      </li>
+                      <li id="button6"
+                          class="on">
+                        <a id="missionButton6"
+                           (click)="p.fleetMission.mission = 6"
+                           [class.selected]="p.fleetMission.mission === 6"
+                           data-mission="6">
+                          <span class="textlabel">Spionaggio</span>
+                        </a>
+                      </li>
+                      <li id="button5"
+                          class="on">
+                        <a id="missionButton5"
+                           (click)="p.fleetMission.mission = 5"
+                           [class.selected]="p.fleetMission.mission === 5"
+                           data-mission="5">
+                          <span class="textlabel">Stazionamento</span>
+                        </a>
+                      </li>
+                      <li id="button1"
+                          class="on">
+                        <a id="missionButton1"
+                           (click)="p.fleetMission.mission = 1"
+                           [class.selected]="p.fleetMission.mission === 1"
+                           data-mission="1">
+                          <span class="textlabel">Attacco</span>
+                        </a>
+                      </li>
+                      <li id="button2"
+                          class="on">
+                        <a id="missionButton2"
+                           (click)="p.fleetMission.mission = 2"
+                           [class.selected]="p.fleetMission.mission === 2"
+                           data-mission="2">
+                          <span class="textlabel">Attacco federale</span>
+                        </a>
+                      </li>
+                      <li id="button9"
+                          class="on">
+                        <a id="missionButton9"
+                           (click)="p.fleetMission.mission = 9"
+                           [class.selected]="p.fleetMission.mission === 9"
+                           data-mission="9">
+                          <span class="textlabel">Distruzione Luna</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <div id="missionNameWrapper">
+                      Missione:
+                      <span id="missionName"
+                            class="missionName"></span>
+                      <p class="mission_description">&nbsp;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <footer style="position: relative;">
+          <div class="mp_footer"></div>
+          <div style="display: flex;
+                      justify-content: center;
+                      position: absolute;
+                      right: 1.5rem;
+                      bottom: 1rem;">
+            <button class="glow-on-hover"
+                    (click)="saveFleetMission(uni, p)"
+                    type="button">SALVA</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
 </div>
 
 
