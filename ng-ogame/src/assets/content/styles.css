@@ -56,6 +56,6 @@ body.no-commander .contentBoxBody {
     margin-left: -20px;
 } */
 
-#buttonz a:hover {
+.og_card a:hover {
     text-decoration: none !important;
 }

@@ -1,20 +1,9 @@
 <div class="page"
      role="main">
 
-  <div class="uni_toc">
-    <ul class="menu">
-      <li *ngFor="let uni of keysOf(storage)">
-        <h1>{{uni}}</h1>
-
-        <ul>
-          <li *ngFor="let p of storage[uni].planets">
-            <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
-          </li>
-        </ul>
-      </li>
-
-    </ul>
-  </div>
+  <aside class="uni_toc">
+    <og-menu [storage]="storage"></og-menu>
+  </aside>
 
   <div class="uni_content">
 
@@ -23,7 +12,7 @@
         <h1>{{uni}}</h1>
       </div>
 
-      <div id="buttonz"
+      <div id="{{uni}}_{{p.galaxy}}_{{p.system}}_{{p.position}}_{{p.type}}"
            class="og_card fleet_save"
            *ngFor="let p of storage[uni].planets">
         <div class="fleet_save__title">
@@ -167,8 +156,8 @@
 
               <!-- Mission options -->
               <div id="fleet3">
-                <div id="buttonz">
-                  <div classog_card ="content"
+                <div class="og_card">
+                  <div class="content"
                        style="margin: 0;">
                     <div>
                       <h2>Seleziona la missione per la destinazione::</h2>

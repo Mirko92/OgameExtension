@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShipComponent } from '../components/ship/ship.component';
 import { FormsModule } from '@angular/forms';
 import { FleetComponent } from '../components/fleet/fleet.component';
+import { OgameMenuComponent } from '../components/ogame-menu/ogame-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShipComponent,
-    FleetComponent
+    FleetComponent,
+    OgameMenuComponent
   ],
   imports: [
     BrowserModule,

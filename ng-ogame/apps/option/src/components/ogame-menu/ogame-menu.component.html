@@ -1,0 +1,14 @@
+<ul class="menu">
+    <li *ngFor="let uni of keysOf(storage)">
+        <h1>{{uni}}</h1>
+
+        <ul>
+            <li *ngFor="let p of storage[uni].planets">
+                <a href="./#{{uni}}_{{p.galaxy}}_{{p.system}}_{{p.position}}_{{p.type}}">
+                    <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+</ul>
