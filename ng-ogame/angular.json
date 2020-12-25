@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "og",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -133,7 +133,7 @@
       },
       "root": "apps/option",
       "sourceRoot": "apps/option/src",
-      "prefix": "app",
+      "prefix": "og",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
