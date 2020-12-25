@@ -8,13 +8,17 @@ import { ShipComponent } from '../components/ship/ship.component';
 import { FormsModule } from '@angular/forms';
 import { FleetComponent } from '../components/fleet/fleet.component';
 import { OgameMenuComponent } from '../components/ogame-menu/ogame-menu.component';
+import { OgamePlanetComponent } from '../components/ogame-planet/ogame-planet.component';
+import { OgameMissionsComponent } from '../components/ogame-missions/ogame-missions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShipComponent,
     FleetComponent,
-    OgameMenuComponent
+    OgameMenuComponent,
+    OgamePlanetComponent,
+    OgameMissionsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,161 @@
+<div id="{{uni}}_{{planet.galaxy}}_{{planet.system}}_{{planet.position}}_{{planet.type}}"
+     class="og_card fleet_save">
+    <div class="fleet_save__title">
+        <h1>{{planet.name}} [{{planet.galaxy}}:{{planet.system}}:{{planet.position}}]</h1>
+    </div>
+
+    <div id="battleships">
+
+        <div class="header fleet_save__header">
+            <div class="left">&nbsp;</div>
+            <div class="center">&nbsp;</div>
+            <div class="right">&nbsp;</div>
+        </div>
+
+        <div class="fleet_save__content">
+
+            <div class="fleet_save__ships">
+                <app-fleet [planet]="planet"></app-fleet>
+            </div>
+
+            <div style="margin-top: -27px; 
+                        padding: 0 30px; 
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;">
+                <div style="display: flex; justify-content: space-around;">
+                    <!-- Destination options -->
+                    <div id="fleet2">
+                        <div class="mp_header">
+                            <h2>Destinazione</h2>
+                        </div>
+
+                        <div id="mission">
+
+                            <td id="target"
+                                class="border5px">
+
+                                <!-- <div class="planetname"
+                id="targetPlanetName">
+             LunaBlalla
+           </div> -->
+
+                                <div class="target">
+                                    <a [class]="planet.fleetMission?.type === 1 ? 'planet_selected' : 'planet'"
+                                       id="pbutton"
+                                       (click)="planet.fleetMission.type = 1">
+                                    </a>
+                                    <a [class]="planet.fleetMission?.type === 3 ? 'moon_selected' : 'moon'"
+                                       id="mbutton"
+                                       (click)="planet.fleetMission.type = 3">
+                                    </a>
+                                    <a [class]="planet.fleetMission?.type === 2 ? 'debris_selected' : 'debris'"
+                                       id="dbutton"
+                                       (click)="planet.fleetMission.type = 2">
+                                    </a>
+                                    <br class="clearfloat">
+                                </div>
+
+                                <div class="coords">
+                                    Coordinate:
+                                    <br>
+                                    <input name="galaxy"
+                                           id="galaxy"
+                                           type="number"
+                                           class="galaxy hideNumberSpin"
+                                           size="1"
+                                           [(ngModel)]="planet.fleetMission.galaxy">
+                                    <input name="system"
+                                           id="system"
+                                           type="number"
+                                           class="system hideNumberSpin"
+                                           size="3"
+                                           [(ngModel)]="planet.fleetMission.system">
+                                    <input name="position"
+                                           id="position"
+                                           type="number"
+                                           class="planet hideNumberSpin"
+                                           size="2"
+                                           [(ngModel)]="planet.fleetMission.position">
+                                </div>
+                            </td>
+                        </div>
+                    </div>
+
+                    <!-- Velocity -->
+                    <div id="fleet2">
+                        <div>
+                            <h2>Velocità</h2>
+                        </div>
+
+                        <div id="speedPercentage"
+                             class="percentageBar"
+                             style="float:left;width:300px;">
+                            <div class="bar"
+                                 style="width: 300px;"></div>
+                            <div class="steps">
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 10}"
+                                     (click)="planet.fleetMission.velocity = 10"
+                                     data-step="1">10</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 20}"
+                                     (click)="planet.fleetMission.velocity = 20"
+                                     data-step="2">20</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 30}"
+                                     (click)="planet.fleetMission.velocity = 30"
+                                     data-step="3">30</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 40}"
+                                     (click)="planet.fleetMission.velocity = 40"
+                                     data-step="4">40</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 50}"
+                                     (click)="planet.fleetMission.velocity = 50"
+                                     data-step="5">50</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 60}"
+                                     (click)="planet.fleetMission.velocity = 60"
+                                     data-step="6">60</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 70}"
+                                     (click)="planet.fleetMission.velocity = 70"
+                                     data-step="7">70</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 80}"
+                                     (click)="planet.fleetMission.velocity = 80"
+                                     data-step="8">80</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 90}"
+                                     (click)="planet.fleetMission.velocity = 90"
+                                     data-step="9">90</div>
+                                <div class="step"
+                                     [class]="{'selected': planet.fleetMission.velocity === 100}"
+                                     (click)="planet.fleetMission.velocity = 100"
+                                     data-step="10">100</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission options -->
+                <og-missions [mission]="planet.fleetMission.mission"></og-missions>
+
+            </div>
+        </div>
+    </div>
+
+    <footer style="position: relative;">
+        <div class="mp_footer"></div>
+        <div style="display: flex;
+           justify-content: center;
+           position: absolute;
+           right: 1.5rem;
+           bottom: 1rem;">
+            <button class="glow-on-hover"
+                    (click)="saveFleetMission(uni, planet)"
+                    type="button">SALVA</button>
+        </div>
+    </footer>
+</div>>

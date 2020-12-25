@@ -1,0 +1,109 @@
+<div id="fleet3">
+    <div class="og_card">
+        <div class="content"
+             style="margin: 0;">
+            <div>
+                <h2>Seleziona la missione per la destinazione::</h2>
+            </div>
+
+            <ul id="missions">
+                <li id="button15"
+                    class="on">
+                    <a id="missionButton15"
+                       (click)="mission = 15"
+                       [class.selected]="mission === 15"
+                       data-mission="15">
+                        <span class="textlabel">Spedizione</span>
+                    </a>
+                </li>
+                <li id="button7"
+                    class="on">
+                    <a id="missionButton7"
+                       (click)="mission = 7"
+                       [class.selected]="mission === 7"
+                       data-mission="7">
+                        <span class="textlabel">Colonizzazione</span>
+                    </a>
+                </li>
+                <li id="button8"
+                    class="on">
+                    <a id="missionButton8"
+                       (click)="mission = 8"
+                       [class.selected]="mission === 8"
+                       data-mission="8">
+                        <span class="textlabel">Ricicla campo detriti</span>
+                    </a>
+                </li>
+                <li id="button3"
+                    class="on">
+                    <a id="missionButton3"
+                       (click)="mission = 3"
+                       [class.selected]="mission === 3"
+                       data-mission="3">
+                        <span class="textlabel">Trasporto</span>
+                    </a>
+                </li>
+                <li id="button4"
+                    class="on">
+                    <a id="missionButton4"
+                       (click)="mission = 4"
+                       [class.selected]="mission === 4"
+                       data-mission="4">
+                        <span class="textlabel">Schieramento</span>
+                    </a>
+                </li>
+                <li id="button6"
+                    class="on">
+                    <a id="missionButton6"
+                       (click)="mission = 6"
+                       [class.selected]="mission === 6"
+                       data-mission="6">
+                        <span class="textlabel">Spionaggio</span>
+                    </a>
+                </li>
+                <li id="button5"
+                    class="on">
+                    <a id="missionButton5"
+                       (click)="mission = 5"
+                       [class.selected]="mission === 5"
+                       data-mission="5">
+                        <span class="textlabel">Stazionamento</span>
+                    </a>
+                </li>
+                <li id="button1"
+                    class="on">
+                    <a id="missionButton1"
+                       (click)="mission = 1"
+                       [class.selected]="mission === 1"
+                       data-mission="1">
+                        <span class="textlabel">Attacco</span>
+                    </a>
+                </li>
+                <li id="button2"
+                    class="on">
+                    <a id="missionButton2"
+                       (click)="mission = 2"
+                       [class.selected]="mission === 2"
+                       data-mission="2">
+                        <span class="textlabel">Attacco federale</span>
+                    </a>
+                </li>
+                <li id="button9"
+                    class="on">
+                    <a id="missionButton9"
+                       (click)="mission = 9"
+                       [class.selected]="mission === 9"
+                       data-mission="9">
+                        <span class="textlabel">Distruzione Luna</span>
+                    </a>
+                </li>
+            </ul>
+            <div id="missionNameWrapper">
+                Missione:
+                <span id="missionName"
+                      class="missionName"></span>
+                <p class="mission_description">&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</div>
