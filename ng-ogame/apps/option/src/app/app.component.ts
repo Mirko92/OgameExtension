@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { OgamePlanet } from 'model/OgameStorage';
+import { OgamePlanet, OgameStorage } from 'model/OgameStorage';
 import { StorageService } from '../services/storage.service';
 declare const chrome;
 
@@ -13,13 +13,10 @@ export class AppComponent implements OnInit {
   /**
    * TODO: Spostare (potresti vedere surgeries per qualche idea)
    */
-  storage: any = {};
+  storage: OgameStorage = {};
 
-  /**
-   * Utility: return keys array of an object 
-   */
-  keysOf(arg) {
-    return Object.keys(arg);
+  get ogameData(){
+    return this.storage?.ogameData;
   }
 
   /**
@@ -48,11 +45,10 @@ export class AppComponent implements OnInit {
   }
 
   initStorage() {
-    // TODO: Alternale le due tramite l'environment ? 
+    // TODO: Alterna le le due tramite l'environment ? 
     if (chrome.storage) {
-      this.storageSVC.getFullStorage().then(r => {
-        console.debug("r", r);
-        this.storage = r;
+      this.storageSVC.getFullStorage().then(storage => {
+        this.storage = storage;
       });
     } else {
       // Mockup
@@ -62,11 +58,10 @@ export class AppComponent implements OnInit {
   }
 
   setFleetMissionKey(p: OgamePlanet, key: string, value) {
-    p.fleetMission = {...(p.fleetMission||{}), [key]:value}
+    p.fleetMission = { ...(p.fleetMission || {}), [key]: value }
   }
 
   saveFleetMission(uni: string, p: OgamePlanet) {
-
     chrome.runtime.sendMessage(chrome.runtime.id,
       {
         method: "SAVE_FLEET_INFO",

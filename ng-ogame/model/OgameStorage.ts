@@ -2,8 +2,8 @@
  * Rappresenzatione dello storage locale di Chrome
  * key => Universe code -> Eg: s170-it
  */
-export class Storage {
-    ogameData: { [key: string]: OgameData };
+export class OgameStorage {
+    ogameData?: OgameData[];
 }
 
 /**
@@ -13,16 +13,16 @@ export class OgameData {
     /**
      * Eg: s170-it
      */
-    universeCode: string;
+    code: string;
 
     /**
      * Eg: Rosalind, Sombrero...
      */
-    universeName: string;
+    name: string;
+
+    playerName: string;
 
     planets: OgamePlanet[];
-
-    /* TODO: Si potrebbe aggiungere "playerName" */
 }
 
 

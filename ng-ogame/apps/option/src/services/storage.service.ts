@@ -25,9 +25,8 @@ export class StorageService {
   initStorage() {
     // TODO: Alternale le due tramite l'environment ? 
     if (chrome.storage) {
-      this.getFullStorage().then(r => {
-        console.debug("r", r);
-        this.storage = r;
+      this.getFullStorage().then(storage => {
+        this.storage = storage;
       });
 
       this.syncStorage();
