@@ -88,49 +88,38 @@ function handleMessage(request, sender, sendResponse) {
 function saveFleetInfo(data) {
   const { uni, planet, shipsData } = data;
 
-  chrome.storage.local.get([uni], function (result) {
-    const uniData = (result[uni] || {});
-    console.debug('Current Uni Data in storage:', uniData);
-
+  chrome.storage.local.get(['ogameData'], function (storage) {
+    const universes = storage.ogameData;
+    const uniData = universes.find(u => u.code === uni) || {};
     const index = uniData?.planets?.findIndex(p => p.name === planet.name);
-    console.debug("Index:", index);
-
     const planetInMemory = uniData?.planets?.[index];
-    console.debug("Planet In Memory:", planetInMemory);
-
     const fleetMission = planet?.fleetMission || planetInMemory?.fleetMission || {};
-
     const update = {
       ...planet,
       shipsData,
       fleetMission
     };
-
-    console.debug("Update:", update);
-
     if (index === undefined || index === null || index === -1) {
       uniData.planets = [...(uniData?.planets || []), update];
     } else {
       uniData.planets[index] = update;
     }
 
-    chrome.storage.local.set({ [uni]: uniData }, function () {
-      console.log("After update:", uniData);
-    });
+    chrome.storage.local.set({ ogameData: universes });
   });
 }
 
 function getFleetInfo(uni, callback) {
-  chrome.storage.local.get([uni], function (result) {
-    callback(result[uni]);
+  chrome.storage.local.get(['ogameData'], function (result) {
+    callback(result.find(u => u.code === uni));
   });
 }
 
 function getFleetSave(data, callback) {
   const { uni, planet } = data;
 
-  chrome.storage.local.get([uni], function (result) {
-    const uniData = result[uni];
+  chrome.storage.local.get(['ogameData'], function (result) {
+    const uniData = result.find(u => u.code === uni);
 
     const found = uniData?.planets?.find(p => p.name === planet.name);
 
