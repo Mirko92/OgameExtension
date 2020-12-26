@@ -86,11 +86,21 @@ function handleMessage(request, sender, sendResponse) {
  * @param {uni: string, planet: OgamePlanet, shipsData} data 
  */
 function saveFleetInfo(data) {
-  const { uni, planet, shipsData } = data;
+  const { uni, uniName, playerName, planet, shipsData } = data;
 
   chrome.storage.local.get(['ogameData'], function (storage) {
-    const universes = storage.ogameData;
-    const uniData = universes.find(u => u.code === uni) || {};
+    const universes = storage?.ogameData || [];
+
+    let uniData = universes.find(u => u.code === uni);
+    if(!uniData){
+      uniData = {
+        code: uni, 
+        name: uniName,
+        playerName
+      };
+      universes.push(uniData);
+    }
+
     const index = uniData?.planets?.findIndex(p => p.name === planet.name);
     const planetInMemory = uniData?.planets?.[index];
     const fleetMission = planet?.fleetMission || planetInMemory?.fleetMission || {};
@@ -99,6 +109,7 @@ function saveFleetInfo(data) {
       shipsData,
       fleetMission
     };
+
     if (index === undefined || index === null || index === -1) {
       uniData.planets = [...(uniData?.planets || []), update];
     } else {

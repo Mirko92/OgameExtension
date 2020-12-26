@@ -122,10 +122,11 @@ window.mp = {
      * @param {string} planet Eg: 1_88_4_3
      */
     saveFleetInfo(uni, planet, shipsData) {
+        const uniName = document.title?.split(' ')[0];
         chrome.runtime.sendMessage(this.extensionId(),
             {
                 method: "SAVE_FLEET_INFO",
-                data: { uni, planet, shipsData }
+                data: { uni, planet, shipsData, uniName, playerName}
             }
         );
     },

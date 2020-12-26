@@ -2,19 +2,19 @@
      role="main">
 
   <aside class="uni_toc">
-    <og-menu [storage]="storage" *ngIf="keysOf(storage)?.length > 0"></og-menu>
+    <og-menu [storage]="storage" *ngIf="ogameData?.length > 0"></og-menu>
   </aside>
 
   <div class="uni_content">
 
-    <div *ngFor="let uni of keysOf(storage)"
-         id="{{uni}}">
+    <div *ngFor="let uni of ogameData"
+         id="{{uni.code}}">
       <div style="text-align: center;">
-        <h1>{{uni}}</h1>
+        <h1>{{uni.code}}</h1>
       </div>
 
-      <og-planet *ngFor="let p of storage[uni].planets"
-                 uni="{{uni}}"
+      <og-planet *ngFor="let p of uni.planets"
+                 uni="{{uni.code}}"
                  [planet]="p">
       </og-planet>
     </div>
