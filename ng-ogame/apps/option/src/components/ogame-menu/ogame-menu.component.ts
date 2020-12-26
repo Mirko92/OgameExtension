@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
-import { OgamePlanet } from 'model/OgameStorage';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { OgamePlanet, OgameStorage } from 'model/OgameStorage';
 import { nextTick } from 'process';
 
 @Component({
@@ -7,26 +7,21 @@ import { nextTick } from 'process';
   templateUrl: './ogame-menu.component.html',
   styleUrls: ['./ogame-menu.component.less']
 })
-export class OgameMenuComponent implements OnInit, OnChanges{
+export class OgameMenuComponent implements OnInit, OnChanges {
 
-  @Input() storage: any;
+  @Input() storage: OgameStorage;
 
   observer: IntersectionObserver;
 
-  /**
-   * Utility: return keys array of an object 
-   */
-  keysOf(arg) {
-    return Object.keys(arg);
-  }
+  currentElement: string;
 
   idForPlanet(p: OgamePlanet, uni: string) {
     return `${uni}_${p.galaxy}_${p.system}_${p.position}_${p.type}`;
   }
 
-  get targets(){
-    const r: any = this.keysOf(this.storage)
-    .map(uni => (this.storage[uni].planets.map(x => `#${this.idForPlanet(x, uni)}`)) );
+  get targets() {
+    const r: any = this.storage?.ogameData
+      .map(uni => (uni.planets.map(x => `#${this.idForPlanet(x, uni.code)}`)));
     return r.flat();
   }
 
@@ -36,34 +31,37 @@ export class OgameMenuComponent implements OnInit, OnChanges{
         entries.forEach(entry => {
           console.debug("Entry:", entry);
           console.debug("IsIntersecting:", entry.isIntersecting);
-          // Each entry describes an intersection change for one observed
-          // target element:
-          //   entry.boundingClientRect
-          //   entry.intersectionRatio
-          //   entry.intersectionRect
-          //   entry.isIntersecting
-          //   entry.rootBounds
-          //   entry.target
-          //   entry.time
+
+          if(entry.isIntersecting){
+            this.currentElement = entry.target.getAttribute('id');
+          }
         });
       },
       {
         root: null,//document.querySelector('html'),
         rootMargin: '0px',
-        threshold: 0.5
+        threshold: 1
       }
     );
 
   }
 
-  ngOnChanges(){
-    // nextTick(() => {
-    //   this.targets.forEach(selector => {
-    //     console.debug("selector", selector);
-    //     const el = document.querySelector(selector);
-    //     console.debug("el", el);
-    //     el && this.observer.observe(el);
-    //   })
-    // });
+  ngOnChanges() {
+    nextTick(() => {
+      this.targets.forEach(selector => {
+        const el = document.querySelector(selector);
+        el && this.observer.observe(el);
+      })
+    });
   }
 }
+
+// Each entry describes an intersection change for one observed
+// target element:
+//   entry.boundingClientRect
+//   entry.intersectionRatio
+//   entry.intersectionRect
+//   entry.isIntersecting
+//   entry.rootBounds
+//   entry.target
+//   entry.time

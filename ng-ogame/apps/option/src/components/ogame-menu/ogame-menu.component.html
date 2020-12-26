@@ -3,7 +3,7 @@
         <h1>{{uni.code}}</h1>
 
         <ul>
-            <li *ngFor="let p of uni.planets">
+            <li *ngFor="let p of uni.planets" [class.active]="currentElement === idForPlanet(p, uni.code)">
                 <a href="./#{{idForPlanet(p, uni.code)}}">
                     <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
                 </a>
