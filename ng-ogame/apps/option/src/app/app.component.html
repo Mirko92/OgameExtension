@@ -2,7 +2,7 @@
      role="main">
 
   <aside class="uni_toc">
-    <og-menu [storage]="storage"></og-menu>
+    <og-menu [storage]="storage" *ngIf="keysOf(storage)?.length > 0"></og-menu>
   </aside>
 
   <div class="uni_content">

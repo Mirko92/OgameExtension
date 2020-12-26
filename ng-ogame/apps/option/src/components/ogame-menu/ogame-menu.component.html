@@ -4,7 +4,7 @@
 
         <ul>
             <li *ngFor="let p of storage[uni].planets">
-                <a href="./#{{uni}}_{{p.galaxy}}_{{p.system}}_{{p.position}}_{{p.type}}">
+                <a href="./#{{idForPlanet(p, uni)}}">
                     <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
                 </a>
             </li>
