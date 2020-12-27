@@ -1,14 +1,18 @@
 <ul class="menu">
-    <li *ngFor="let uni of storage?.ogameData">
-        <h1>{{uni.code}}</h1>
-
+    <ng-template ngFor
+                 let-uni
+                 [ngForOf]="storage?.ogameData">
+        <li>
+            <h1>{{uni.name}} <small>({{uni.code}})</small></h1>
+        </li>
         <ul>
-            <li *ngFor="let p of uni.planets" [class.active]="currentElement === idForPlanet(p, uni.code)">
+            <li *ngFor="let p of uni.planets"
+                [class.active]="currentElement === idForPlanet(p, uni.code)">
                 <a href="./#{{idForPlanet(p, uni.code)}}">
                     <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
                 </a>
             </li>
         </ul>
-    </li>
+    </ng-template>
 
 </ul>

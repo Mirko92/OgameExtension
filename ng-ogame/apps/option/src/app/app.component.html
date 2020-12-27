@@ -6,21 +6,27 @@
      role="main">
 
   <aside class="uni_toc">
-    <og-menu [storage]="storage" *ngIf="ogameData?.length > 0"></og-menu>
+    <og-menu [storage]="storage"
+             *ngIf="ogameData?.length > 0"></og-menu>
   </aside>
 
-  <div class="uni_content" style="position: relative;">
+  <div class="uni_content"
+       style="position: relative;">
 
     <div *ngFor="let uni of ogameData"
          id="{{uni.code}}">
-      <div style="text-align: center; position: sticky; color: orange;" ogStickyClass="isSticky">
+
+      <div class="uni_title"
+           ogStickyClass="isSticky">
         <h1>{{uni.code}}</h1>
       </div>
 
-      <og-planet *ngFor="let p of uni.planets"
-                 uni="{{uni.code}}"
-                 [planet]="p">
-      </og-planet>
+      <div class="planet_container"
+           *ngFor="let p of uni.planets">
+        <og-planet uni="{{uni.code}}"
+                   [planet]="p">
+        </og-planet>
+      </div>
     </div>
   </div>
 </div>
