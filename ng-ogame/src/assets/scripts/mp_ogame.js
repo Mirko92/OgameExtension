@@ -51,6 +51,7 @@ window.mp = {
             },
 
             (r) => {
+                console.debug("diocane", r);
                 if (!r || Object.keys(r)?.length === 0) {
                     this.message("Fleet save non configurato", true);
                     return;

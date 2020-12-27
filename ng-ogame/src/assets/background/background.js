@@ -121,16 +121,16 @@ function saveFleetInfo(data) {
 }
 
 function getFleetInfo(uni, callback) {
-  chrome.storage.local.get(['ogameData'], function (result) {
-    callback(result.find(u => u.code === uni));
+  chrome.storage.local.get(['ogameData'], function ({ogameData}) {
+    callback(ogameData.find(u => u.code === uni));
   });
 }
 
 function getFleetSave(data, callback) {
   const { uni, planet } = data;
 
-  chrome.storage.local.get(['ogameData'], function (result) {
-    const uniData = result.find(u => u.code === uni);
+  chrome.storage.local.get(['ogameData'], function ({ogameData}) {
+    const uniData = ogameData.find(u => u.code === uni);
 
     const found = uniData?.planets?.find(p => p.name === planet.name);
 
