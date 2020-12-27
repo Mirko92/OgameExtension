@@ -1,0 +1,40 @@
+@import '../../assets/ogame-theme/ogame.less';
+
+@card-height: 28px;
+
+.ogame_card {
+    position: relative;
+
+
+
+    &__header {
+        z-index: -1;
+        background: none !important;
+        display: flex;
+
+        position: absolute;
+
+        top: -@card-height;
+        height: @card-height;
+
+        left: -10px;
+        right: -10px;
+
+        .left {
+            flex: 1;
+            background-image: @ogame_header;
+        }
+
+        .center {
+            flex: 3;
+            background: @ogame_header center top no-repeat;
+            background-size: 200% 100%;
+        }
+
+        .right {
+            flex: 1;
+            background: @ogame_header right top no-repeat;
+
+        }
+    }
+}

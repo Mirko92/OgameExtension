@@ -12,12 +12,14 @@ import { OgamePlanetComponent } from '../components/ogame-planet/ogame-planet.co
 import { OgameMissionsComponent } from '../components/ogame-missions/ogame-missions.component';
 import { OgameSpeedComponent } from '../components/ogame-speed/ogame-speed.component';
 import { StickyClassDirective } from '../directives/sticky-class.directive';
+import { OgameCardComponent } from '../components/ogame-card/ogame-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShipComponent,
     FleetComponent,
+    OgameCardComponent,
     OgameMenuComponent,
     OgamePlanetComponent,
     OgameMissionsComponent,
