@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
+import { INT_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { OgamePlanet, OgameStorage } from 'model/OgameStorage';
+import { from } from 'rxjs';
 import { StorageService } from '../services/storage.service';
 declare const chrome;
 
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit {
    */
   storage: OgameStorage = {};
 
-  get ogameData(){
+  get ogameData() {
     return this.storage?.ogameData;
   }
 
@@ -45,16 +47,29 @@ export class AppComponent implements OnInit {
   }
 
   initStorage() {
-    // TODO: Alterna le le due tramite l'environment ? 
+    let storage$ = null;
+
     if (chrome.storage) {
-      this.storageSVC.getFullStorage().then(storage => {
-        this.storage = storage;
-      });
+      storage$ = from(this.storageSVC.getFullStorage());
     } else {
       // Mockup
       console.warn("USING MOCKUP");
-      this.http.get<any>('/assets/data.json').subscribe(r => this.storage = r);
+      storage$ = this.http.get<any>('/assets/data.json');
     }
+
+    storage$.subscribe(storage => {
+      storage.ogameData.sort((x, y) => x.code.localeCompare(y.code));
+
+      storage.ogameData.forEach(uni => {
+        uni.planets.sort((p1, p2) => {
+          const p1Coords = Number.parseInt(`${p1.galaxy}${p1.system}${p1.system}${p1.type}`);
+          const p2Coords = Number.parseInt(`${p2.galaxy}${p2.system}${p2.system}${p2.type}`);
+          return p1Coords - p2Coords;
+        });
+      });
+
+      this.storage = storage;
+    });
   }
 
   setFleetMissionKey(p: OgamePlanet, key: string, value) {
