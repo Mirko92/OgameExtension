@@ -29,9 +29,6 @@ export class OgameMenuComponent implements OnInit, OnChanges {
     this.observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
-          console.debug("Entry:", entry);
-          console.debug("IsIntersecting:", entry.isIntersecting);
-
           if(entry.isIntersecting){
             this.currentElement = entry.target.getAttribute('id');
           }
@@ -55,13 +52,3 @@ export class OgameMenuComponent implements OnInit, OnChanges {
     });
   }
 }
-
-// Each entry describes an intersection change for one observed
-// target element:
-//   entry.boundingClientRect
-//   entry.intersectionRatio
-//   entry.intersectionRect
-//   entry.isIntersecting
-//   entry.rootBounds
-//   entry.target
-//   entry.time

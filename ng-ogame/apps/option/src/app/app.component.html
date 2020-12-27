@@ -5,11 +5,11 @@
     <og-menu [storage]="storage" *ngIf="ogameData?.length > 0"></og-menu>
   </aside>
 
-  <div class="uni_content">
+  <div class="uni_content" style="position: relative;">
 
     <div *ngFor="let uni of ogameData"
          id="{{uni.code}}">
-      <div style="text-align: center;">
+      <div style="text-align: center; position: sticky; color: orange;" ogStickyClass="isSticky">
         <h1>{{uni.code}}</h1>
       </div>
 
