@@ -27,7 +27,7 @@ export class OgameMenuComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.observer = new IntersectionObserver(
-      (entries, observer) => {
+      (entries) => {
         entries.forEach(entry => {
           if(entry.isIntersecting){
             this.currentElement = entry.target.getAttribute('id');
