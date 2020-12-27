@@ -1,11 +1,14 @@
 @import '../../assets/ogame-theme/ogame.less';
 
 @card-height: 28px;
+@footer-height: 50px;
 
-.ogame_card {
+.og_card_container {
+    padding: 30px 12px 10px 12px;
+}
+
+.og_card {
     position: relative;
-
-
 
     &__header {
         z-index: -1;
@@ -36,5 +39,30 @@
             background: @ogame_header right top no-repeat;
 
         }
+    }
+
+    &__content {
+        width: 300px;
+        height: 150px;
+        background-color: #0d1014;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    &__footer {
+        z-index: -1;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAAyBAMAAADsLn0fAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODY3RURGQ0RCNTQ3MTFFMUJEMDQ5OEZGMDI5M0NFQzgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODY3RURGQ0VCNTQ3MTFFMUJEMDQ5OEZGMDI5M0NFQzgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4NjdFREZDQkI1NDcxMUUxQkQwNDk4RkYwMjkzQ0VDOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4NjdFREZDQ0I1NDcxMUUxQkQwNDk4RkYwMjkzQ0VDOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlBwUZAAAAAbUExURQYICgwQEwwPEgYICQgMDgoOEQUHCAwQFP///yYiknYAAAAJdFJOU///////////AFNPeBIAAADaSURBVHja7dohEsJQDEXRKDRsBcESugSwVW+iEcVG/cmyMYVWdBD8VPVeG3cmJjOxbNL0ou6mScqwFJ5lnh7W8KzzVJjwLPQc8cQTz0N5Op41no5nvWfiWefpgSeeeOJJeOKJJ+GJJ56EJ5544kl44okn4YknnoTnnp4NzzLPDMvkP6TIU44nnngey5P/+TJP4YknnofzHNAo8By+nkKjwFOL5wOO7u4rzyscvT1vK8/xQp2dNXumJBl1dpLme7NpI0/61ZaZMsOWGYSduI7nLp7ts630XwtgvAEKc5Vs3rSilwAAAABJRU5ErkJggg==) no-repeat;
+
+        background-size: 100% @footer-height;
+        height: @footer-height;
+        
+        position: absolute;
+        bottom: -5px;
+        left: -5px;
+        right: -5px;
     }
 }
