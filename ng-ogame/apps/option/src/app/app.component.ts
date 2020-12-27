@@ -62,8 +62,8 @@ export class AppComponent implements OnInit {
 
       storage.ogameData.forEach(uni => {
         uni.planets.sort((p1, p2) => {
-          const p1Coords = Number.parseInt(`${p1.galaxy}${p1.system}${p1.system}${p1.type}`);
-          const p2Coords = Number.parseInt(`${p2.galaxy}${p2.system}${p2.system}${p2.type}`);
+          const p1Coords = Number.parseInt(`${p1.galaxy}${p1.system.toString().padStart(3,'0')}${p1.position.toString().padStart(2, '0')}${p1.type}`);
+          const p2Coords = Number.parseInt(`${p2.galaxy}${p2.system.toString().padStart(3,'0')}${p2.position.toString().padStart(2, '0')}${p2.type}`);
           return p1Coords - p2Coords;
         });
       });
