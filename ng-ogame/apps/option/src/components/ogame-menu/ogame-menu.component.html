@@ -1,15 +1,21 @@
 <ul class="menu">
     <ng-template ngFor
                  let-uni
-                 [ngForOf]="storage?.ogameData">
+                 [ngForOf]="menuItems">
         <li>
             <h1>{{uni.name}} <small>({{uni.code}})</small></h1>
         </li>
         <ul>
-            <li *ngFor="let p of uni.planets"
-                [class.active]="currentElement === idForPlanet(p, uni.code)">
-                <a href="./#{{idForPlanet(p, uni.code)}}">
+            <li *ngFor="let p of uni.planets">
+                <a href="./#{{idForPlanet(p, uni.code)}}"
+                   [class.active]="currentElement === idForPlanet(p, uni.code)">
                     <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
+                </a>
+                
+                <a *ngIf="p?.moon"
+                   href="./#{{idForPlanet(p.moon, uni.code)}}"
+                   [class.active]="currentElement === idForPlanet(p.moon, uni.code)">
+                    <h2>(M)</h2>
                 </a>
             </li>
         </ul>
