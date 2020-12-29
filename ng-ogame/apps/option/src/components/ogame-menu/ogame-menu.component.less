@@ -4,7 +4,14 @@
     max-height: 90vh;
     overflow-y: auto;
 
-    >li:first-child{
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    >li:first-child {
         border: 3px solid black;
     }
 
