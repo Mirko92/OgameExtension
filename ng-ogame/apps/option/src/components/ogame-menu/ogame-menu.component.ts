@@ -15,8 +15,30 @@ export class OgameMenuComponent implements OnInit, OnChanges {
 
   currentElement: string;
 
-  idForPlanet(p: OgamePlanet, uni: string) {
-    return `${uni}_${p.galaxy}_${p.system}_${p.position}_${p.type}`;
+  get menuItems(){
+    const result = [];
+
+    this.storage.ogameData.forEach( u => {
+      const uni = {...u};
+
+      uni.planets = u.planets.reduce((acc, item)=>{
+        const found = acc.find(x => this.idForPlanetNoType(x, u.code) === this.idForPlanetNoType(item as OgamePlanet, u.code) );
+
+        if(found){
+          found.moon = item;
+        }else{
+          acc.push(item)
+        }
+
+        return acc;
+      }, []);
+
+      result.push(uni);
+    });
+
+
+    console.debug("results", result);
+    return result;
   }
 
   get targets() {
@@ -50,5 +72,12 @@ export class OgameMenuComponent implements OnInit, OnChanges {
         el && this.observer.observe(el);
       })
     });
+  }
+
+  idForPlanet(p: OgamePlanet, uni: string) {
+    return `${uni}_${p.galaxy}_${p.system}_${p.position}_${p.type}`;
+  }
+  idForPlanetNoType(p: OgamePlanet, uni: string) {
+    return `${uni}_${p.galaxy}_${p.system}_${p.position}`;
   }
 }
