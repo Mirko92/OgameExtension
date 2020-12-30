@@ -24,7 +24,7 @@
         border-right: 3px solid black;
 
         a.active {
-                color: red !important;
+            color: red !important;
         }
 
     }
@@ -32,5 +32,20 @@
     a {
         text-decoration: none;
         color: white;
+    }
+}
+
+.disabled{
+    pointer-events: none;
+}
+
+.moon_icon{
+    &:not(.disabled):hover path {
+        stroke: black;
+        stroke-width: 15px;
+    }
+
+    &.disabled{
+        filter: brightness(0.1);
     }
 }
