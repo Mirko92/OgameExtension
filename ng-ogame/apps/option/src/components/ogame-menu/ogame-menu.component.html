@@ -9,18 +9,24 @@
                   <li *ngFor="let p of uni.planets"
                       style="display: flex; justify-content: space-between; min-height: 45px;">
                         <a href="./#{{idForPlanet(p, uni.code)}}"
-                           [class.active]="currentElement === idForPlanet(p, uni.code)">
-                              <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
+                           [class.active]="currentElement?.startsWith(idForPlanetNoType(p, uni.code))">
+                              <div>
+                                    {{p.name}}
+                              </div>
+                              <div>
+                                    <h2>[{{p.galaxy}}:{{p.system}}:{{p.position}}]</h2>
+                              </div>
                         </a>
 
                         <div class="menu_icon">
-                              <a href="./#{{idForPlanet(p, uni.code)}}"
-                                 [class.active]="currentElement === idForPlanet(p, uni.code)">
+                              <a href="./#{{idForPlanet(p, uni.code)}}">
                                     <!-- 
                                           TODO:Attribute author
                                           Icons made by <a href="https://www.flaticon.com/free-icon/neptune_1086125?related_item_id=1086088&term=planet" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> 
                                     -->
-                                    <svg height="45"
+                                    <svg class="planet_icon"
+                                         [class.active]="currentElement === idForPlanet(p, uni.code)"
+                                         height="45"
                                          width="45"
                                          xmlns="http://www.w3.org/2000/svg"
                                          xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -77,14 +83,15 @@
                               </a>
 
                               <a href="./#{{p.moon && idForPlanet(p.moon, uni.code)}}"
-                                 [class.disabled]="!p?.moon"
-                                 [class.active]="p?.moon && currentElement === idForPlanet(p.moon, uni.code)">
+                                 title="{{p?.moon?.name}}"
+                                 [class.disabled]="!p?.moon">
                                     <!-- 
                                           TODO:Attribute author 
                                           Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
                                     -->
                                     <svg class="moon_icon"
                                          [class.disabled]="!p?.moon"
+                                         [class.active]="p?.moon && currentElement === idForPlanet(p.moon, uni.code)"
                                          height="25"
                                          width="25"
                                          viewBox="0 0 512 512"
