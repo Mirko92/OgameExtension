@@ -59,3 +59,11 @@ body.no-commander .contentBoxBody {
 .og_card a:hover {
     text-decoration: none !important;
 }
+
+.mp_pointer{
+    cursor: pointer;
+}
+
+#galaxytable tfoot td{
+    vertical-align: middle;
+}

@@ -41,6 +41,37 @@ window.mp = {
         `);
     },
 
+    addEspionageButton() {
+        if (document.getElementById('inatictiveEspionage')) return;
+
+        const legendIcon = document.querySelector('#galaxytable thead tr.info_header th:first-child #probes');
+
+        if (!legendIcon) {
+            setTimeout(() => {
+                mp.addEspionageButton();
+            }, 500);
+        }
+
+        legendIcon?.insertAdjacentHTML('afterend', `
+            <span   id="inatictiveEspionage"
+                    class="icon icon_eye mp_pointer" 
+                    style="float: left; margin-left:5px;"
+                    title="Inactives espionage"
+                    onclick="mp.runInactiveEspionage()" >
+            </span>`
+        );
+    },
+
+    observeGalaxyChanges() {
+        const config = { attributes: true, childList: true, subtree: true };
+
+        let observer = new MutationObserver(() => {
+            this.addEspionageButton();
+        });
+
+        observer.observe(document.getElementById('galaxyContent'), config);
+    },
+
     runFleetSave(e) {
         e.preventDefault();
 
@@ -116,6 +147,18 @@ window.mp = {
         });
     },
 
+    runInactiveEspionage() {
+        let delay = 0;
+        let step = 1000;
+        document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage')
+            .forEach(
+                x => {
+                    setTimeout(() => x.click(), delay);
+                    delay += step;
+                }
+            );
+    },
+
     /**
      * Create/Update in localstorage
      * info abount available ships on planet 
@@ -127,7 +170,7 @@ window.mp = {
         chrome.runtime.sendMessage(this.extensionId(),
             {
                 method: "SAVE_FLEET_INFO",
-                data: { uni, planet, shipsData, uniName, playerName}
+                data: { uni, planet, shipsData, uniName, playerName }
             }
         );
     },
@@ -150,6 +193,11 @@ window.mp = {
                 this.addFleetButton();
                 localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
                 this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
+                break;
+
+            case "galaxy":
+                this.addEspionageButton();
+                this.observeGalaxyChanges();
                 break;
             default:
                 break;
