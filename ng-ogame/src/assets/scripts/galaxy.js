@@ -23,10 +23,12 @@ export class MpGalaxy {
             <span   id="inatictiveEspionage"
                     class="icon icon_eye mp_pointer" 
                     style="float: left; margin-left:5px;"
-                    title="Inactives espionage"
-                    onclick="mp.runInactiveEspionage()" >
+                    title="Inactives espionage">
             </span>`
         );
+
+        document.getElementById("inatictiveEspionage")
+        .addEventListener('click', this.runInactiveEspionage);
     }
 
     // TODO: Create UtilsClass 
@@ -38,5 +40,34 @@ export class MpGalaxy {
         });
 
         this.observer.observe(document.getElementById('galaxyContent'), config);
+    }
+
+    runInactiveEspionage() {
+        console.debug("Run inactive espionage fn");
+        let delay = 0;
+        let step = 1000;
+
+        return new Promise((resolve) => {
+            let completed = 0;
+            const elements = document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage');
+
+            if (!elements?.length) resolve();
+
+            elements.forEach(
+                x => {
+                    setTimeout(() => {
+                        x.click();
+                        completed++;
+
+                        if (completed === elements.length) {
+                            console.debug("Inactive espionage in this system completed");
+                            resolve(true);
+                        }
+                    }, delay);
+
+                    delay += step;
+                }
+            );
+        });
     }
 }

@@ -8,13 +8,13 @@ import {
 import {MpGalaxy} from './galaxy.js';
 
 window.mp = {
+    galaxy: null,
+
     server: () => new RegExp(".*//(.*).ogame.gameforge.com.*").exec(location.href)[1],
 
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
 
     fleetToken: () => localStorage.getItem('mp_fleet_token'),
-
-    mp_galaxy: null,
 
     /**
      * Add fleet button in the first step of fleetDispatcher 
@@ -130,7 +130,6 @@ window.mp = {
                 }
             );
         });
-
     },
 
     /**
@@ -205,8 +204,8 @@ window.mp = {
                 break;
 
             case "galaxy":
-                this.mp_galaxy = new MpGalaxy();
-                this.mp_galaxy.init();
+                this.galaxy = new MpGalaxy();
+                this.galaxy.init();
                 break;
             default:
                 break;
