@@ -10,6 +10,7 @@ localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
     Script to direct interaction with Ogame.js
 */
 var ogameScript = document.createElement("script");
+ogameScript.setAttribute('type', "module");
 ogameScript.src = chrome.extension.getURL("assets/scripts/mp_ogame.js");
 document.head.appendChild(ogameScript);
 //#endregion

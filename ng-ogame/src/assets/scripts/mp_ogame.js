@@ -1,26 +1,11 @@
-const MP_MISSIONS = {
-    ATTACK: 1,
-    UNIONATTACK: 2,
-    TRANSPORT: 3,
-    DEPLOY: 4,
-    HOLD: 5,
-    ESPIONAGE: 6,
-    COLONIZE: 7,
-    RECYCLE: 8,
-    DESTROY: 9,
-    MISSILEATTACK: 10,
-    EXPEDITION: 15
-};
+import {
+    MP_MISSIONS,
+    MP_PLANET_TYPES,
+    MP_LOCAL_STORAGE,
+    MP_BOT_MISSIONS
+} from './consts.js';
 
-const MP_PLANET_TYPES = {
-    PLANET: 1,
-    DEBRIS: 2,
-    MOON: 3
-};
-
-const MP_LOCAL_STORAGE = {
-    FLEET_TOKEN: "mp_fleet_token"
-};
+import {MpGalaxy} from './galaxy.js';
 
 window.mp = {
     server: () => new RegExp(".*//(.*).ogame.gameforge.com.*").exec(location.href)[1],
@@ -28,6 +13,8 @@ window.mp = {
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
 
     fleetToken: () => localStorage.getItem('mp_fleet_token'),
+
+    mp_galaxy: null,
 
     /**
      * Add fleet button in the first step of fleetDispatcher 
@@ -39,37 +26,6 @@ window.mp = {
                 <span>FLEET SAVE</span>
             </a>
         `);
-    },
-
-    addEspionageButton() {
-        if (document.getElementById('inatictiveEspionage')) return;
-
-        const legendIcon = document.querySelector('#galaxytable thead tr.info_header th:first-child #probes');
-
-        if (!legendIcon) {
-            setTimeout(() => {
-                mp.addEspionageButton();
-            }, 500);
-        }
-
-        legendIcon?.insertAdjacentHTML('afterend', `
-            <span   id="inatictiveEspionage"
-                    class="icon icon_eye mp_pointer" 
-                    style="float: left; margin-left:5px;"
-                    title="Inactives espionage"
-                    onclick="mp.runInactiveEspionage()" >
-            </span>`
-        );
-    },
-
-    observeGalaxyChanges() {
-        const config = { attributes: true, childList: true, subtree: true };
-
-        let observer = new MutationObserver(() => {
-            this.addEspionageButton();
-        });
-
-        observer.observe(document.getElementById('galaxyContent'), config);
     },
 
     runFleetSave(e) {
@@ -148,15 +104,33 @@ window.mp = {
     },
 
     runInactiveEspionage() {
+        console.debug("Run inactive espionage fn");
         let delay = 0;
         let step = 1000;
-        document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage')
-            .forEach(
+
+        return new Promise((resolve) => {
+            let completed = 0;
+            const elements = document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage');
+
+            if (!elements?.length) resolve();
+
+            elements.forEach(
                 x => {
-                    setTimeout(() => x.click(), delay);
+                    setTimeout(() => {
+                        x.click();
+                        completed++;
+
+                        if (completed === elements.length) {
+                            console.debug("Inactive espionage in this system completed");
+                            resolve(true);
+                        }
+                    }, delay);
+
                     delay += step;
                 }
             );
+        });
+
     },
 
     /**
@@ -183,10 +157,45 @@ window.mp = {
         fadeBox(txt, isAlert);
     },
 
+    todo: function () {
+        const mission = JSON.parse(localStorage.getItem(MP_LOCAL_STORAGE.MISSION));
+
+        if (!mission) return;
+
+        if (mission.time) {
+            // TODO: Controllare quando andrà eseguita la prossima fase
+            return;
+        }
+
+        if (mission.code.startsWith('galaxy')) {
+
+            if (currentPage !== 'galaxy') {
+                if (!mission.coords) return;
+
+                const [g, s, p] = mission.coords;
+                showGalaxy(g, s, p);
+                return; //showGalaxy perform a navigation. 
+            } else {
+                var checkExist = setInterval(function () {
+                    if (document.getElementById('galaxy-content')) {
+                        clearInterval(checkExist);
+
+                        this.runInactiveEspionage()
+                            .then(respose => {
+                                showGalaxy(+galaxy, +system + 1, 1);
+                            });
+                    }
+                }, 100);
+            }
+        }
+    },
+
     init: function () {
         console.debug("Init ogame extension");
         console.debug("Player name: ", player.name);
         console.debug("Current page: ", currentPage);
+
+        this.todo();
 
         switch (currentPage) {
             case "fleetdispatch":
@@ -196,13 +205,14 @@ window.mp = {
                 break;
 
             case "galaxy":
-                this.addEspionageButton();
-                this.observeGalaxyChanges();
+                this.mp_galaxy = new MpGalaxy();
+                this.mp_galaxy.init();
                 break;
             default:
                 break;
         }
-    }
+    },
+
 }
 
 window.onload = mp.init();
