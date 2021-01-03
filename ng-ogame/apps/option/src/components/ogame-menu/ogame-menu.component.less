@@ -4,7 +4,14 @@
     max-height: 90vh;
     overflow-y: auto;
 
-    >li:first-child{
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    >li:first-child {
         border: 3px solid black;
     }
 
@@ -17,7 +24,7 @@
         border-right: 3px solid black;
 
         a.active {
-                color: red !important;
+            color: red !important;
         }
 
     }
@@ -25,5 +32,51 @@
     a {
         text-decoration: none;
         color: white;
+    }
+}
+
+.disabled{
+    pointer-events: none;
+}
+
+.menu_icon{
+    position: relative;
+
+    .moon_icon{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.moon_icon{
+    &:not(.disabled):hover path {
+        stroke: black;
+        stroke-width: 12px;
+    }
+    
+    &.active{
+        border-radius: 100%;
+        box-shadow: 0 0 11px white;
+    }
+
+    &.disabled{
+        filter: brightness(0.1);
+    }
+}
+
+.planet_icon{
+    &:not(.disabled):hover path {
+        stroke: black;
+        stroke-width: 12px;
+    }
+
+    &.active{
+        border-radius: 100%;
+        box-shadow: 0 0 11px white;
+    }
+
+    &.disabled{
+        filter: brightness(0.1);
     }
 }

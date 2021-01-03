@@ -1,28 +1,15 @@
-const MP_MISSIONS = {
-    ATTACK: 1,
-    UNIONATTACK: 2,
-    TRANSPORT: 3,
-    DEPLOY: 4,
-    HOLD: 5,
-    ESPIONAGE: 6,
-    COLONIZE: 7,
-    RECYCLE: 8,
-    DESTROY: 9,
-    MISSILEATTACK: 10,
-    EXPEDITION: 15
-};
+import {
+    MP_MISSIONS,
+    MP_PLANET_TYPES,
+    MP_LOCAL_STORAGE,
+    MP_BOT_MISSIONS
+} from './consts.js';
 
-const MP_PLANET_TYPES = {
-    PLANET: 1,
-    DEBRIS: 2,
-    MOON: 3
-};
-
-const MP_LOCAL_STORAGE = {
-    FLEET_TOKEN: "mp_fleet_token"
-};
+import { MpGalaxy } from './galaxy.js';
 
 window.mp = {
+    galaxy: null,
+
     server: () => new RegExp(".*//(.*).ogame.gameforge.com.*").exec(location.href)[1],
 
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
@@ -33,8 +20,7 @@ window.mp = {
      * Add fleet button in the first step of fleetDispatcher 
     */
     addFleetButton() {
-        const continueButton = document.querySelector('#continueToFleet2');
-        continueButton?.insertAdjacentHTML('afterend', `
+        document.getElementById('continueToFleet2')?.insertAdjacentHTML('afterend', `
             <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
                 <span>FLEET SAVE</span>
             </a>
@@ -116,6 +102,35 @@ window.mp = {
         });
     },
 
+    runInactiveEspionage() {
+        console.debug("Run inactive espionage fn");
+        let delay = 0;
+        let step = 1000;
+
+        return new Promise((resolve) => {
+            let completed = 0;
+            const elements = document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage');
+
+            if (!elements?.length) resolve();
+
+            elements.forEach(
+                x => {
+                    setTimeout(() => {
+                        x.click();
+                        completed++;
+
+                        if (completed === elements.length) {
+                            console.debug("Inactive espionage in this system completed");
+                            resolve(true);
+                        }
+                    }, delay);
+
+                    delay += step;
+                }
+            );
+        });
+    },
+
     /**
      * Create/Update in localstorage
      * info abount available ships on planet 
@@ -127,7 +142,7 @@ window.mp = {
         chrome.runtime.sendMessage(this.extensionId(),
             {
                 method: "SAVE_FLEET_INFO",
-                data: { uni, planet, shipsData, uniName, playerName}
+                data: { uni, planet, shipsData, uniName, playerName }
             }
         );
     },
@@ -140,10 +155,45 @@ window.mp = {
         fadeBox(txt, isAlert);
     },
 
+    todo: function () {
+        const mission = JSON.parse(localStorage.getItem(MP_LOCAL_STORAGE.MISSION));
+
+        if (!mission) return;
+
+        if (mission.time) {
+            // TODO: Controllare quando andrà eseguita la prossima fase
+            return;
+        }
+
+        if (mission.code.startsWith('galaxy')) {
+
+            if (currentPage !== 'galaxy') {
+                if (!mission.coords) return;
+
+                const [g, s, p] = mission.coords;
+                showGalaxy(g, s, p);
+                return; //showGalaxy perform a navigation. 
+            } else {
+                var checkExist = setInterval(function () {
+                    if (document.getElementById('galaxy-content')) {
+                        clearInterval(checkExist);
+
+                        this.runInactiveEspionage()
+                            .then(respose => {
+                                showGalaxy(+galaxy, +system + 1, 1);
+                            });
+                    }
+                }, 100);
+            }
+        }
+    },
+
     init: function () {
         console.debug("Init ogame extension");
         console.debug("Player name: ", player.name);
         console.debug("Current page: ", currentPage);
+
+        this.todo();
 
         switch (currentPage) {
             case "fleetdispatch":
@@ -151,10 +201,16 @@ window.mp = {
                 localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
                 this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
                 break;
+
+            case "galaxy":
+                this.galaxy = new MpGalaxy();
+                this.galaxy.init();
+                break;
             default:
                 break;
         }
-    }
+    },
+
 }
 
 window.onload = mp.init();
