@@ -5,7 +5,7 @@ import {
     MP_BOT_MISSIONS
 } from './consts.js';
 
-import {MpGalaxy} from './galaxy.js';
+import { MpGalaxy } from './galaxy.js';
 
 window.mp = {
     galaxy: null,
@@ -20,8 +20,7 @@ window.mp = {
      * Add fleet button in the first step of fleetDispatcher 
     */
     addFleetButton() {
-        const continueButton = document.querySelector('#continueToFleet2');
-        continueButton?.insertAdjacentHTML('afterend', `
+        document.getElementById('continueToFleet2')?.insertAdjacentHTML('afterend', `
             <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
                 <span>FLEET SAVE</span>
             </a>
