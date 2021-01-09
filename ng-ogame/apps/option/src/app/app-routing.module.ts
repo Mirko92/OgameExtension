@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  // TODO: Potrebbe essere un idea far terminare il path con index.html in modo da riabilitare il refresh 
   // {
   //   path: '*',
   //   pathMatch: 'full',
