@@ -67,3 +67,7 @@ body.no-commander .contentBoxBody {
 #galaxytable tfoot td{
     vertical-align: middle;
 }
+
+a:hover{
+    text-decoration: none !important;
+}
