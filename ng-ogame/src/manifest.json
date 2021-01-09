@@ -4,10 +4,10 @@
     "description": "Ogame extension",
     "manifest_version": 2,
     "icons": {
-        "16": "assets/images/get_started16.png",
-        "32": "assets/images/get_started32.png",
-        "48": "assets/images/get_started48.png",
-        "128": "assets/images/get_started128.png"
+        "16": "assets/images/icon_16.png",
+        "32": "assets/images/icon_32.png",
+        "48": "assets/images/icon_48.png",
+        "128": "assets/images/icon_128.png"
     },
     "options_page": "option/index.html",
     "background": {
@@ -20,10 +20,10 @@
         "default_popup": "index.html",
         "default_title": "Ogame MP",
         "default_icon": {
-            "16": "assets/images/get_started16.png",
-            "32": "assets/images/get_started32.png",
-            "48": "assets/images/get_started48.png",
-            "128": "assets/images/get_started128.png"
+            "16": "assets/images/icon_16.png",
+            "32": "assets/images/icon_32.png",
+            "48": "assets/images/icon_48.png",
+            "128": "assets/images/icon_128.png"
         }
     },
     "content_scripts": [

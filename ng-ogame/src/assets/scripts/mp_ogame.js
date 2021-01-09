@@ -19,8 +19,11 @@ window.mp = {
     /**
      * Add fleet button in the first step of fleetDispatcher 
     */
-    addFleetButton() {
+    addQuickActionButtons() {
         document.getElementById('continueToFleet2')?.insertAdjacentHTML('afterend', `
+            <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
+                <span>FLEET SAVE</span>
+            </a>
             <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
                 <span>FLEET SAVE</span>
             </a>
@@ -197,7 +200,7 @@ window.mp = {
 
         switch (currentPage) {
             case "fleetdispatch":
-                this.addFleetButton();
+                this.addQuickActionButtons();
                 localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
                 this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
                 break;
