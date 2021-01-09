@@ -15,7 +15,7 @@ export class MpGalaxy {
 
         if (!legendIcon) {
             return setTimeout(() => {
-                mp.addEspionageButton();
+                this._addEspionageButton();
             }, 500);
         }
 
