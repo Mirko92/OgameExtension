@@ -38,6 +38,7 @@ window.mp = {
 
     sendExpedition(e){
         e.preventDefault();
+        console.log("CIAO");
 
         const expSheeps = [
             {id: 203, number: 200}, //Cargoni
@@ -49,12 +50,12 @@ window.mp = {
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
             speed: 10,
-            mission: MP_MISSIONS.EXPEDITION,
+            mission: 15,
             //TO:
             galaxy: galaxy,
             system: system,
             position: 16,
-            type: MP_PLANET_TYPES.PLANET,
+            type: 1,
             //HOLD:
             metal: 0,
             crystal: 0,
@@ -66,7 +67,7 @@ window.mp = {
 
             retreatAfterDefenderRetreat: 0,
             union: 0,
-            holdingtime: 0,
+            holdingtime: 1,
 
             //Ships
             ...[{}, ...expSheeps].reduce(
