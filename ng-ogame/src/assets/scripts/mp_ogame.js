@@ -21,13 +21,60 @@ window.mp = {
     */
     addQuickActionButtons() {
         document.getElementById('continueToFleet2')?.insertAdjacentHTML('afterend', `
-            <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
-                <span>FLEET SAVE</span>
+            <a  href="" 
+                id="quick_action"
+                class="fright on" 
+                title="quick mission"
+                onclick="mp.runFleetSave(event)">
             </a>
-            <a class="continue fright on" href="" onclick="mp.runFleetSave(event)">
-                <span>FLEET SAVE</span>
+            <a  href=""
+                id="exp_button" 
+                class="fright on" 
+                title="quick epxedition"
+                onclick="mp.sendExpedition(event)">
             </a>
         `);
+    },
+
+    sendExpedition(e){
+        e.preventDefault();
+
+        const expSheeps = [
+            {id: 203, number: 200}, //Cargoni
+            {id: 219, number: 1},   //Path
+            {id: 210, number: 1},   //Sonda
+            {id: 215, number: 1},   //BC
+        ]
+
+        const body = new URLSearchParams({
+            token: fleetDispatcher.fleetSendingToken,
+            speed: 10,
+            mission: MP_MISSIONS.EXPEDITION,
+            //TO:
+            galaxy: galaxy,
+            system: system,
+            position: 16,
+            type: MP_PLANET_TYPES.PLANET,
+            //HOLD:
+            metal: 0,
+            crystal: 0,
+            deuterium: 0,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            retreatAfterDefenderRetreat: 0,
+            union: 0,
+            holdingtime: 0,
+
+            //Ships
+            ...[{}, ...expSheeps].reduce(
+                (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
+            )
+        }).toString();
+
+        this.sendFleet(body).then(() => location.reload());
     },
 
     runFleetSave(e) {
@@ -40,7 +87,6 @@ window.mp = {
             },
 
             (r) => {
-                console.debug("diocane", r);
                 if (!r || Object.keys(r)?.length === 0) {
                     this.message("Fleet save non configurato", true);
                     return;
