@@ -52,8 +52,8 @@ window.mp = {
             speed: 10,
             mission: 15,
             //TO:
-            galaxy: galaxy,
-            system: system,
+            galaxy: currentPlanet.galaxy,
+            system: currentPlanet.system,
             position: 16,
             type: 1,
             //HOLD:
