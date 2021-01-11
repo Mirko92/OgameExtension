@@ -18,12 +18,8 @@
                 <app-fleet [planet]="planet"></app-fleet>
             </div>
 
-            <div style="margin-top: -27px; 
-                        padding: 0 30px; 
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;">
-                <div style="display: flex; justify-content: space-around;">
+            <div class="fleet_save__mission">
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
                     <!-- Destination options -->
                     <div id="fleet2">
                         <div class="mp_header">
@@ -34,11 +30,6 @@
 
                             <td id="target"
                                 class="border5px">
-
-                                <!-- <div class="planetname"
-                id="targetPlanetName">
-             LunaBlalla
-           </div> -->
 
                                 <div class="target">
                                     <a [class]="planet.fleetMission?.type === 1 ? 'planet_selected' : 'planet'"

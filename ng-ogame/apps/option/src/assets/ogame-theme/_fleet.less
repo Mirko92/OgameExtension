@@ -202,11 +202,15 @@
 }
 
 #fleet3 .og_card ul#missions {
-    width: 648px;
-    height: 75px;
+    max-width: 648px;
+    min-height: 75px;
     margin: 10px auto 0 15px;
     position: relative;
     list-style-type: none;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 #fleet3 .og_card ul#missions div.buildingimg {
@@ -222,8 +226,8 @@
     width: 54px;
     height: 54px;
     background-repeat: no-repeat;
-    float: left;
-    margin: 0 5px;
+    // float: left;
+    margin: 0 5px 25px 0;
 }
 
 #fleet3 .og_card ul#missions li a {
