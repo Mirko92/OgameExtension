@@ -10,14 +10,23 @@ import { MpGalaxy } from './galaxy.js';
 window.mp = {
     galaxy: null,
 
+    /**
+     * Extracts server code from web url 
+     */
     server: () => new RegExp(".*//(.*).ogame.gameforge.com.*").exec(location.href)[1],
 
+    /**
+     * Return chrome extension id 
+     */
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
 
+    /**
+     * @DEPRECATED 
+     */
     fleetToken: () => localStorage.getItem('mp_fleet_token'),
 
     /**
-     * Add fleet button in the first step of fleetDispatcher 
+     * Add fleet buttons in the first step of fleetDispatcher 
     */
     addQuickActionButtons() {
         document.getElementById('continueToFleet2')?.insertAdjacentHTML('afterend', `
@@ -36,9 +45,12 @@ window.mp = {
         `);
     },
 
+    /**
+     * Send configured expedition mission
+     * TODO: "Configuration UI" is missing 
+     */
     sendExpedition(e){
         e.preventDefault();
-        console.log("CIAO");
 
         const expSheeps = [
             {id: 203, number: 200}, //Cargoni
@@ -78,6 +90,10 @@ window.mp = {
         this.sendFleet(body).then(() => location.reload());
     },
 
+    /**
+     * If configured, start configured quick mission for current planet
+     * TODO: Change name to "quickMission"
+     */
     runFleetSave(e) {
         e.preventDefault();
 
@@ -127,6 +143,9 @@ window.mp = {
 
     },
 
+    /**
+     * Perform HTTP request to send a fleet 
+     */
     sendFleet(body) {
         let fleetUrl = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1";
         let referrer = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch";
@@ -152,6 +171,10 @@ window.mp = {
         });
     },
 
+    /**
+     * Automacit espionage of inactives player in the current System 
+     * NB: It works on Galaxy view only 
+     */
     runInactiveEspionage() {
         console.debug("Run inactive espionage fn");
         let delay = 0;
@@ -197,10 +220,19 @@ window.mp = {
         );
     },
 
+    /**
+     * Navigate to Fleet Dispactch view
+     */
     goToFleet() {
         window.location = 'index.php?page=ingame&component=fleetdispatch';
     },
 
+    /**
+     * Wrapper function of fadeBox(),
+     * show a message to the user 
+     * @param {String} txt 
+     * @param {Boolean} isAlert 
+     */
     message(txt, isAlert) {
         fadeBox(txt, isAlert);
     },
