@@ -222,7 +222,7 @@ window.mp = {
 
                 const [g, s, p] = mission.coords;
                 showGalaxy(g, s, p);
-                return; //showGalaxy perform a navigation. 
+                return; //showGalaxy performs a navigation. 
             } else {
                 var checkExist = setInterval(function () {
                     if (document.getElementById('galaxy-content')) {
