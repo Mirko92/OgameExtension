@@ -8,6 +8,10 @@ import { OgamePlanet } from 'model/OgameStorage';
   styleUrls: ['./fleet-configuration.component.less']
 })
 export class FleetConfigurationComponent {
+  constructor(
+    private storageSVC: StorageService
+  ) { }
+
   get storage() {
     return this.storageSVC.storage;
   };
@@ -22,11 +26,6 @@ export class FleetConfigurationComponent {
   getShipById(shipsData: any, id: number) {
     return shipsData?.find(s => s.id === id) || { id };
   }
-
-  constructor(
-    private storageSVC: StorageService
-  ) { }
-
 
   setFleetMissionKey(p: OgamePlanet, key: string, value) {
     p.fleetMission = { ...(p.fleetMission || {}), [key]: value }

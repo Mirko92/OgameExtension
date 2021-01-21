@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { OgamePlanet, OgameStorage } from 'model/OgameStorage';
+import { OgamePlanet, OgameStorage, PlanetType } from 'model/OgameStorage';
 import { nextTick } from 'process';
 
 @Component({
@@ -15,23 +15,27 @@ export class OgameMenuComponent implements OnInit, OnChanges {
 
   currentElement: string;
 
-  get menuItems(){
+  get menuItems() {
     const result = [];
 
-    this.storage.ogameData.forEach( u => {
-      const uni = {...u};
+    this.storage.ogameData.forEach(u => {
+      const uni = { ...u };
 
-      uni.planets = u.planets.reduce((acc, item)=>{
-        const found = acc.find(x => this.idForPlanetNoType(x, u.code) === this.idForPlanetNoType(item as OgamePlanet, u.code) );
+      uni.planets = [...u.planets]
+        .sort((x, y) => x.type - y.type)
+        .reduce((acc, item) => {
+          if (item.type === PlanetType.MOON) {
+            const found = acc.find(x => this.idForPlanetNoType(x, u.code) === this.idForPlanetNoType(item, u.code));
 
-        if(found){
-          found.moon = item;
-        }else{
-          acc.push(item)
-        }
+            if (found?.type === PlanetType.PLANET) {
+              found.moon = item;
+            }
+          } else {
+            acc.push(item)
+          }
 
-        return acc;
-      }, []);
+          return acc;
+        }, []);
 
       result.push(uni);
     });
@@ -49,7 +53,7 @@ export class OgameMenuComponent implements OnInit, OnChanges {
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if(entry.isIntersecting){
+          if (entry.isIntersecting) {
             this.currentElement = entry.target.getAttribute('id');
           }
         });
