@@ -1,0 +1,20 @@
+<div class="menu__toggler"
+     [class.active]="isActive"
+     (click)="toggleMenu()">
+    <span></span>
+</div>
+
+<div class="backdrop" 
+[class.active]="isActive"
+(click)="isActive = false"></div>
+
+<aside class="menu"
+       [class.active]="isActive">
+    <ul class="main_menu">
+        <li class="menu_item">Menu 1</li>
+        <li class="menu_item">Menu 2</li>
+        <li class="menu_item">Menu 3</li>
+        <li class="menu_item">Menu 4</li>
+        <li class="menu_item">Menu 5</li>
+    </ul>
+</aside>

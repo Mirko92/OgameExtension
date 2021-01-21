@@ -14,10 +14,12 @@ import { OgameSpeedComponent } from '../components/ogame-speed/ogame-speed.compo
 import { StickyClassDirective } from '../directives/sticky-class.directive';
 import { OgameCardComponent } from '../components/ogame-card/ogame-card.component';
 import { FleetConfigurationComponent } from './pages/fleet-configuration/fleet-configuration.component';
+import { MainMenuComponent } from '../components/main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainMenuComponent,
     ShipComponent,
     FleetComponent,
     OgameCardComponent,
