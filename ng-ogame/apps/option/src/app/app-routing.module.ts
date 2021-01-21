@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './pages/about/about.component';
 import { FleetConfigurationComponent } from './pages/fleet-configuration/fleet-configuration.component';
 
 
@@ -14,6 +15,12 @@ const routes: Routes = [
     path: 'fleet-configuration',
     pathMatch: 'full',
     component: FleetConfigurationComponent
+  },
+
+  {
+    path: 'about',
+    pathMatch: 'full',
+    component: AboutComponent
   }
 ];
 

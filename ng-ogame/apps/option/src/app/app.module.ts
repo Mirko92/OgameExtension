@@ -15,6 +15,7 @@ import { StickyClassDirective } from '../directives/sticky-class.directive';
 import { OgameCardComponent } from '../components/ogame-card/ogame-card.component';
 import { FleetConfigurationComponent } from './pages/fleet-configuration/fleet-configuration.component';
 import { MainMenuComponent } from '../components/main-menu/main-menu.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { MainMenuComponent } from '../components/main-menu/main-menu.component';
     OgameMissionsComponent,
     OgameSpeedComponent,
     StickyClassDirective,
-    FleetConfigurationComponent
+    // PAGES
+    FleetConfigurationComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
