@@ -12,6 +12,12 @@
 
 .menu_item {
   padding: 15px;
+  text-decoration: none;
+  color: white;
+
+  &--active{
+    color: lightgreen;
+  }
 }
 
 .menu__toggler {
@@ -80,7 +86,7 @@
   flex-direction: column;
   justify-content: center;
   transition: 300ms left cubic-bezier(0.77, 0, 0.175, 1);
-  font-size: 2rem;
+  font-size: 1.4rem;
 
   &.active {
     left: 0;

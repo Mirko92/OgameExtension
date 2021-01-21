@@ -4,17 +4,33 @@
     <span></span>
 </div>
 
-<div class="backdrop" 
-[class.active]="isActive"
-(click)="isActive = false"></div>
+<div class="backdrop"
+     [class.active]="isActive"
+     (click)="isActive = false"></div>
 
 <aside class="menu"
        [class.active]="isActive">
     <ul class="main_menu">
-        <li class="menu_item">Menu 1</li>
-        <li class="menu_item">Menu 2</li>
-        <li class="menu_item">Menu 3</li>
-        <li class="menu_item">Menu 4</li>
-        <li class="menu_item">Menu 5</li>
+        <a routerLink="fleet-configuration"
+           routerLinkActive="menu_item--active"
+           class="menu_item">
+            <li>
+                Fleet save config.
+            </li>
+        </a>
+        <a 
+           routerLinkActive="menu_item--active"
+           class="menu_item">
+            <li>
+                Menu 2
+            </li>
+        </a>
+        <a 
+           routerLinkActive="menu_item--active"
+           class="menu_item">
+            <li>
+                Menu 3
+            </li>
+        </a>
     </ul>
 </aside>
