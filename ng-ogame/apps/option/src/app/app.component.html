@@ -2,10 +2,10 @@
   <og-card></og-card>
 </div> -->
 
-<div class="page"
-     role="main">
 
-  <aside class="uni_toc">
+  <router-outlet></router-outlet>
+
+  <!-- <aside class="uni_toc">
     <og-menu [storage]="storage"
              *ngIf="ogameData?.length > 0"></og-menu>
   </aside>
@@ -28,8 +28,4 @@
         </og-planet>
       </div>
     </div>
-  </div>
-</div>
-
-
-<router-outlet></router-outlet>
+  </div> -->
