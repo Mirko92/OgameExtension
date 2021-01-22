@@ -45,18 +45,36 @@ window.mp = {
         `);
     },
 
+    addMenuButtons() {
+        document
+            .querySelector("#menuTable li:last-child")
+            .insertAdjacentHTML(
+                "afterend",
+                `<li>
+                    <span class="menu_icon">
+                        <span class="menuImage"></span>
+                    </span>
+                    <a  class="menubutton" 
+                        href="javascript:void(0);"
+                        onclick="mp.automaticFleetSave()">
+                        <span class="textlabel">Fleet save</span>
+                    </a>
+                </li>`
+            );
+    },
+
     /**
      * Send configured expedition mission
      * TODO: "Configuration UI" is missing 
      */
-    sendExpedition(e){
+    sendExpedition(e) {
         e.preventDefault();
 
         const expSheeps = [
-            {id: 203, number: 200}, //Cargoni
-            {id: 219, number: 1},   //Path
-            {id: 210, number: 1},   //Sonda
-            {id: 215, number: 1},   //BC
+            { id: 203, number: 200 }, //Cargoni
+            { id: 219, number: 1 },   //Path
+            { id: 210, number: 1 },   //Sonda
+            { id: 215, number: 1 },   //BC
         ]
 
         const body = new URLSearchParams({
@@ -237,6 +255,54 @@ window.mp = {
         fadeBox(txt, isAlert);
     },
 
+    missionGalaxy() {
+        if (currentPage !== 'galaxy') {
+            if (!mission.coords) return;
+
+            const [g, s, p] = mission.coords;
+            showGalaxy(g, s, p);
+            return; //showGalaxy performs a navigation. 
+        } else {
+            var checkExist = setInterval(function () {
+                if (document.getElementById('galaxy-content')) {
+                    clearInterval(checkExist);
+
+                    this.runInactiveEspionage()
+                        .then(respose => {
+                            showGalaxy(+galaxy, +system + 1, 1);
+                        });
+                }
+            }, 100);
+        }
+    },
+
+    automaticFleetSave(mission) {
+        if (mission) {
+            var searchParams = new URLSearchParams(window.location.search);
+            const currentPlanetId = searchParams.get('cp');
+
+        } else {
+            const newMission = {code: 'fleet-save'};
+
+            newMission.planetList = [
+                {id = "33625478"},{id = "33633806"},
+                {id = "33624616"},
+                {id = "33625926"},{id = "33645639"},
+                {id = "33622735"},{id = "33630136"},
+                {id = "33636325"},{id = "33636399"},
+                {id = "33630273"},{id = "33640684"},
+                {id = "33627350"},{id = "33640680"},
+                {id = "33633276"},{id = "33641906"},
+                {id = "33650550"},{id = "33644930"},
+                {id = "33644623"},{id = "33644930"},
+            ]
+
+
+            // localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(newMission));
+            window.location.replace(`https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetDispatch`)
+        }
+    },
+
     todo: function () {
         const mission = JSON.parse(localStorage.getItem(MP_LOCAL_STORAGE.MISSION));
 
@@ -247,26 +313,21 @@ window.mp = {
             return;
         }
 
+        switch (mission.code) {
+            case "galaxy":
+                this.missionGalaxy();
+                break;
+
+            case "fleet-save":
+                this.automaticFleetSave();
+                break;
+            default:
+                break;
+        }
+
         if (mission.code.startsWith('galaxy')) {
 
-            if (currentPage !== 'galaxy') {
-                if (!mission.coords) return;
 
-                const [g, s, p] = mission.coords;
-                showGalaxy(g, s, p);
-                return; //showGalaxy performs a navigation. 
-            } else {
-                var checkExist = setInterval(function () {
-                    if (document.getElementById('galaxy-content')) {
-                        clearInterval(checkExist);
-
-                        this.runInactiveEspionage()
-                            .then(respose => {
-                                showGalaxy(+galaxy, +system + 1, 1);
-                            });
-                    }
-                }, 100);
-            }
         }
     },
 
@@ -276,6 +337,8 @@ window.mp = {
         console.debug("Current page: ", currentPage);
 
         this.todo();
+
+        this.addMenuButtons();
 
         switch (currentPage) {
             case "fleetdispatch":
