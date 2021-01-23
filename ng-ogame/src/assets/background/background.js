@@ -60,7 +60,7 @@ function handleMessage(request, sender, sendResponse) {
   switch (request.method) {
     case "SAVE_FLEET_INFO":
       console.debug("Methdod, save fleet info", request.data);
-      saveFleetInfo(request.data);
+      saveFleetInfo(request.data, sendResponse);
       break;
 
     case "GET_FLEET_INFO":
@@ -85,7 +85,7 @@ function handleMessage(request, sender, sendResponse) {
  * Dati Navi su pianeta
  * @param {uni: string, planet: OgamePlanet, shipsData} data 
  */
-function saveFleetInfo(data) {
+function saveFleetInfo(data, callback) {
   const { uni, uniName, playerName, planet, shipsData } = data;
 
   chrome.storage.local.get(['ogameData'], function (storage) {
@@ -117,6 +117,7 @@ function saveFleetInfo(data) {
     }
 
     chrome.storage.local.set({ ogameData: universes });
+    callback();
   });
 }
 
