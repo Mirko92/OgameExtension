@@ -21,11 +21,6 @@ window.mp = {
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
 
     /**
-     * @DEPRECATED 
-     */
-    fleetToken: () => localStorage.getItem('mp_fleet_token'),
-
-    /**
      * Lista degli ID dei pianeti del giocatore
      * Lune comprese
      */
@@ -42,17 +37,26 @@ window.mp = {
     },
 
     currentPlanetId: () => {
+        let result = null; 
+
         // TODO: Funziona solo in fleetDispatch credo
         if (currentPlanet.type === MP_PLANET_TYPES.MOON) {
             const currentMoonEl = document.querySelector(".hightlightMoon a.moonlink");
             const moonUrl = currentMoonEl.getAttribute("href");
 
             var searchParams = new URLSearchParams(moonUrl);
-            return searchParams.get('cp');
+            result = searchParams.get('cp');
         } else {
             const currentPlanetEl = document.querySelector(".hightlightPlanet");
-            return currentPlanetEl.getAttribute('id').replace("planet-");
+            result = currentPlanetEl.getAttribute('id').replace("planet-");
         }
+
+        if(result){
+            return result;
+        }else{
+            throw "Current planet id not found";
+        }
+
     },
 
     /**
@@ -64,7 +68,7 @@ window.mp = {
                 id="quick_action"
                 class="fright on" 
                 title="quick mission"
-                onclick="mp.runFleetSave(event)">
+                onclick="mp.quickAction(event)">
             </a>
             <a  href=""
                 id="exp_button" 
@@ -124,7 +128,7 @@ window.mp = {
      * If configured, start configured quick mission for current planet
      * TODO: Change name to "quickMission"
      */
-    runFleetSave(e, reload = true) {
+    quickAction(e, reload = true) {
         e?.preventDefault();
 
         return new Promise((resolve) => {
@@ -306,13 +310,13 @@ window.mp = {
         if (mission) {
 
             if(currentPage === 'fleetdispatch'){
-                await this.runFleetSave(null, false);
+                await this.quickAction(null, false);
             }
 
             if (mission.planetList?.length) {
                 const planetId = mission.planetList.pop();
                 localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
-                location.replace(`https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
+                location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
             } else {
                 localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
             }
@@ -335,7 +339,7 @@ window.mp = {
                 localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
 
                 setTimeout(() => {
-                    location.replace(`https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
+                    location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
                 }, 200);
             } else {
                 localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
