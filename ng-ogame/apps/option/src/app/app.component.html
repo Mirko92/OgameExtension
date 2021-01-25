@@ -1,11 +1,10 @@
-<!-- <div style="padding: 5rem; display: flex; justify-content: center;">
-  <og-card></og-card>
-</div> -->
+<div>
+  <og-main-menu></og-main-menu>
 
-<div class="page"
-     role="main">
+  <router-outlet></router-outlet>
+</div>
 
-  <aside class="uni_toc">
+<!-- <aside class="uni_toc">
     <og-menu [storage]="storage"
              *ngIf="ogameData?.length > 0"></og-menu>
   </aside>
@@ -28,8 +27,4 @@
         </og-planet>
       </div>
     </div>
-  </div>
-</div>
-
-
-<router-outlet></router-outlet>
+  </div> -->

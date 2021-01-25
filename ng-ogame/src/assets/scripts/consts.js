@@ -26,3 +26,7 @@ export const MP_LOCAL_STORAGE = {
 export const MP_BOT_MISSIONS = {
     G_I_E: "g_i_e"
 }
+
+export const MP_COMPONENTS = {
+    FLEET_DISPATCH = "fleetdispatch"
+}

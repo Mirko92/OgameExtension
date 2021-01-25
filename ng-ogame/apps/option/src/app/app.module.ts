@@ -13,10 +13,14 @@ import { OgameMissionsComponent } from '../components/ogame-missions/ogame-missi
 import { OgameSpeedComponent } from '../components/ogame-speed/ogame-speed.component';
 import { StickyClassDirective } from '../directives/sticky-class.directive';
 import { OgameCardComponent } from '../components/ogame-card/ogame-card.component';
+import { FleetConfigurationComponent } from './pages/fleet-configuration/fleet-configuration.component';
+import { MainMenuComponent } from '../components/main-menu/main-menu.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainMenuComponent,
     ShipComponent,
     FleetComponent,
     OgameCardComponent,
@@ -24,7 +28,10 @@ import { OgameCardComponent } from '../components/ogame-card/ogame-card.componen
     OgamePlanetComponent,
     OgameMissionsComponent,
     OgameSpeedComponent,
-    StickyClassDirective
+    StickyClassDirective,
+    // PAGES
+    FleetConfigurationComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,361 @@
+{
+    "ogameData": [
+        {
+            "code": "s170-it",
+            "name": "Rosalind",
+            "planets": [
+                {
+                    "fleetMission": {
+                        "galaxy": 1,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 299,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 1,
+                    "name": "SOPHIA",
+                    "position": 6,
+                    "shipsData": [],
+                    "system": 299,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 1,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 403,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 1,
+                    "name": "Mount Doom",
+                    "position": 1,
+                    "shipsData": [],
+                    "system": 403,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 2,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 67,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 2,
+                    "name": "Hobbiton",
+                    "position": 7,
+                    "shipsData": [],
+                    "system": 67,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 2,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 200,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 2,
+                    "name": "Ascension",
+                    "position": 7,
+                    "shipsData": [],
+                    "system": 200,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 3,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 215,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 3,
+                    "name": "Erebor",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 215,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 4,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 59,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 4,
+                    "name": "LunaVash",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 59,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 4,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 309,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 4,
+                    "name": "Lunoby",
+                    "position": 15,
+                    "shipsData": [],
+                    "system": 309,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 1,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 99,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 1,
+                    "name": "Valinor",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 99,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {
+                        "galaxy": 1,
+                        "mission": 7,
+                        "position": 2,
+                        "system": 299,
+                        "type": 1,
+                        "velocity": 30
+                    },
+                    "galaxy": 1,
+                    "name": "luna",
+                    "position": 5,
+                    "shipsData": [],
+                    "system": 299,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 1,
+                    "name": "Gondor",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 99,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 3,
+                    "name": "Rohan",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 215,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 4,
+                    "name": "Moria",
+                    "position": 15,
+                    "shipsData": [],
+                    "system": 309,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 1,
+                    "name": "Eriador",
+                    "position": 6,
+                    "shipsData": [],
+                    "system": 299,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 1,
+                    "name": "Harondor",
+                    "position": 5,
+                    "shipsData": [],
+                    "system": 299,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 1,
+                    "name": "Mordor",
+                    "position": 1,
+                    "shipsData": [],
+                    "system": 403,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 2,
+                    "name": "Helm",
+                    "position": 7,
+                    "shipsData": [],
+                    "system": 67,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 2,
+                    "name": "Adarta",
+                    "position": 7,
+                    "shipsData": [],
+                    "system": 200,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 4,
+                    "name": "NientePanico",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 59,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 1,
+                    "name": "Belfalas",
+                    "position": 9,
+                    "shipsData": [
+                        {
+                            "baseCargoCapacity": 46250,
+                            "baseFuelCapacity": 25000,
+                            "baseFuelConsumption": 50,
+                            "baseSpeed": 7500,
+                            "cargoCapacity": 13875000,
+                            "fuelCapacity": 7500000,
+                            "fuelConsumption": 7500,
+                            "id": 203,
+                            "name": "Cargo Pesante",
+                            "number": 300,
+                            "recycleMode": 0,
+                            "speed": 27000
+                        }
+                    ],
+                    "system": 296,
+                    "type": 1
+                }
+            ],
+            "playerName": "CiccioPasticcio"
+        },
+        {
+            "code": "s162-it",
+            "name": "Janice",
+            "planets": [
+                {
+                    "fleetMission": {},
+                    "galaxy": 2,
+                    "name": "Colonia",
+                    "position": 13,
+                    "shipsData": [
+                        {
+                            "baseCargoCapacity": 5000,
+                            "baseFuelCapacity": 5000,
+                            "baseFuelConsumption": 10,
+                            "baseSpeed": 5000,
+                            "cargoCapacity": 1070000,
+                            "fuelCapacity": 1070000,
+                            "fuelConsumption": 2140,
+                            "id": 202,
+                            "name": "Cargo leggero",
+                            "number": 214,
+                            "recycleMode": 0,
+                            "speed": 9000
+                        },
+                        {
+                            "baseCargoCapacity": 50,
+                            "baseFuelCapacity": 50,
+                            "baseFuelConsumption": 20,
+                            "baseSpeed": 12500,
+                            "cargoCapacity": 41900,
+                            "fuelCapacity": 41900,
+                            "fuelConsumption": 16760,
+                            "id": 204,
+                            "name": "Caccia Leggero",
+                            "number": 838,
+                            "recycleMode": 0,
+                            "speed": 22500
+                        },
+                        {
+                            "baseCargoCapacity": 100,
+                            "baseFuelCapacity": 100,
+                            "baseFuelConsumption": 75,
+                            "baseSpeed": 10000,
+                            "cargoCapacity": 29500,
+                            "fuelCapacity": 29500,
+                            "fuelConsumption": 22125,
+                            "id": 205,
+                            "name": "Caccia Pesante",
+                            "number": 295,
+                            "recycleMode": 0,
+                            "speed": 18000
+                        },
+                        {
+                            "baseCargoCapacity": 800,
+                            "baseFuelCapacity": 800,
+                            "baseFuelConsumption": 300,
+                            "baseSpeed": 15000,
+                            "cargoCapacity": 8000,
+                            "fuelCapacity": 8000,
+                            "fuelConsumption": 3000,
+                            "id": 206,
+                            "name": "Incrociatore",
+                            "number": 10,
+                            "recycleMode": 0,
+                            "speed": 27000
+                        },
+                        {
+                            "baseCargoCapacity": 7500,
+                            "baseFuelCapacity": 7500,
+                            "baseFuelConsumption": 1000,
+                            "baseSpeed": 2500,
+                            "cargoCapacity": 30000,
+                            "fuelCapacity": 30000,
+                            "fuelConsumption": 4000,
+                            "id": 208,
+                            "name": "Colonizzatrice",
+                            "number": 4,
+                            "recycleMode": 0,
+                            "speed": 4500
+                        },
+                        {
+                            "baseCargoCapacity": 0,
+                            "baseFuelCapacity": 5,
+                            "baseFuelConsumption": 1,
+                            "baseSpeed": 100000000,
+                            "cargoCapacity": 0,
+                            "fuelCapacity": 2840,
+                            "fuelConsumption": 568,
+                            "id": 210,
+                            "name": "Sonda spia",
+                            "number": 568,
+                            "recycleMode": 0,
+                            "speed": 180000000
+                        }
+                    ],
+                    "system": 319,
+                    "type": 1
+                }
+            ],
+            "playerName": "Emperor Deuterium"
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, NgZone } from '@angular/core';
 import { OgameStorage } from 'model/OgameStorage';
-import { BehaviorSubject, from } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class StorageService {
 
   private readonly _storage = new BehaviorSubject<OgameStorage>({});
 
-  public readonly storage$ = this._storage.asObservable();
+  public readonly storage$: Observable<OgameStorage> = this._storage.asObservable();
 
   get storage(): OgameStorage {
     return this._storage.getValue();
@@ -49,7 +49,7 @@ export class StorageService {
    * Copy storage to local variable 
    */
   initStorage() {
-    let storage$ = null;
+    let storage$: Observable<any> = null;
 
     if (chrome.storage) {
       storage$ = from(this.getFullStorage());
@@ -60,7 +60,7 @@ export class StorageService {
       storage$ = this.http.get<any>('/assets/data.json');
     }
 
-    storage$.subscribe(storage => {
+    let subs = storage$.subscribe(storage => {
       // Sort by Universe Code
       storage.ogameData.sort((x, y) => x.code.localeCompare(y.code));
 
@@ -74,6 +74,7 @@ export class StorageService {
       });
 
       this.storage = storage;
+      subs.unsubscribe();
     });
   }
 

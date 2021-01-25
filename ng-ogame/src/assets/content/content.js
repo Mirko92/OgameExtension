@@ -4,6 +4,32 @@ console.debug("Mp Ogame extension. ID: %s - Version: ",
 );
 localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
 
+document
+    .querySelector("#menuTable li:last-child")
+    .insertAdjacentHTML(
+        "afterend",
+        `<li>
+            <span class="menu_icon">
+                <span class="menuImage"></span>
+            </span>
+            <a  class="menubutton" 
+                href="javascript:void(0);"
+                onclick="mp.automaticFleetSave()">
+                <span class="textlabel">Fleet save</span>
+            </a>
+        </li>
+        <li>
+            <span class="menu_icon">
+                <span class="menuImage"></span>
+            </span>
+            <a  class="menubutton" 
+                href="javascript:void(0);"
+                onclick="mp.updateFleets()">
+                <span class="textlabel">Update Fleets</span>
+            </a>
+        </li>`
+    );
+
 
 //#region WepPage script
 /*

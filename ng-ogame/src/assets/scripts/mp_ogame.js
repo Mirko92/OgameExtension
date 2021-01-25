@@ -21,9 +21,43 @@ window.mp = {
     extensionId: () => localStorage.getItem('mp_ogame_ext_id'),
 
     /**
-     * @DEPRECATED 
+     * Lista degli ID dei pianeti del giocatore
+     * Lune comprese
      */
-    fleetToken: () => localStorage.getItem('mp_fleet_token'),
+    planetIds() {
+        return [...document.querySelectorAll('a.planetlink, a.moonlink')].map(l => {
+
+            let url = l.getAttribute("href");
+
+            var searchParams = new URLSearchParams(url);
+
+            return searchParams.get('cp');
+
+        });
+    },
+
+    currentPlanetId: () => {
+        let result = null; 
+
+        // TODO: Funziona solo in fleetDispatch credo
+        if (currentPlanet.type === MP_PLANET_TYPES.MOON) {
+            const currentMoonEl = document.querySelector(".hightlightMoon a.moonlink");
+            const moonUrl = currentMoonEl.getAttribute("href");
+
+            var searchParams = new URLSearchParams(moonUrl);
+            result = searchParams.get('cp');
+        } else {
+            const currentPlanetEl = document.querySelector(".hightlightPlanet");
+            result = currentPlanetEl.getAttribute('id').replace("planet-");
+        }
+
+        if(result){
+            return result;
+        }else{
+            throw "Current planet id not found";
+        }
+
+    },
 
     /**
      * Add fleet buttons in the first step of fleetDispatcher 
@@ -34,7 +68,7 @@ window.mp = {
                 id="quick_action"
                 class="fright on" 
                 title="quick mission"
-                onclick="mp.runFleetSave(event)">
+                onclick="mp.quickAction(event)">
             </a>
             <a  href=""
                 id="exp_button" 
@@ -49,14 +83,14 @@ window.mp = {
      * Send configured expedition mission
      * TODO: "Configuration UI" is missing 
      */
-    sendExpedition(e){
+    sendExpedition(e) {
         e.preventDefault();
 
         const expSheeps = [
-            {id: 203, number: 200}, //Cargoni
-            {id: 219, number: 1},   //Path
-            {id: 210, number: 1},   //Sonda
-            {id: 215, number: 1},   //BC
+            { id: 203, number: 200 }, //Cargoni
+            { id: 219, number: 1 },   //Path
+            { id: 210, number: 1 },   //Sonda
+            { id: 215, number: 1 },   //BC
         ]
 
         const body = new URLSearchParams({
@@ -94,52 +128,59 @@ window.mp = {
      * If configured, start configured quick mission for current planet
      * TODO: Change name to "quickMission"
      */
-    runFleetSave(e) {
-        e.preventDefault();
+    quickAction(e, reload = true) {
+        e?.preventDefault();
 
-        chrome.runtime.sendMessage(this.extensionId(),
-            {
-                method: "GET_FLEET_SAVE_DATA",
-                data: { uni: this.server(), planet: currentPlanet }
-            },
+        return new Promise((resolve) => {
 
-            (r) => {
-                if (!r || Object.keys(r)?.length === 0) {
-                    this.message("Fleet save non configurato", true);
-                    return;
+            chrome.runtime.sendMessage(this.extensionId(),
+                {
+                    method: "GET_FLEET_SAVE_DATA",
+                    data: { uni: this.server(), planet: currentPlanet }
+                },
+    
+                (r) => {
+                    if (!r || Object.keys(r)?.length === 0) {
+                        this.message("Fleet save non configurato", true);
+                        resolve(false);
+                        return;
+                    }
+    
+                    const body = new URLSearchParams({
+                        token: fleetDispatcher.fleetSendingToken,
+                        speed: r.velocity / 10,
+                        mission: r.mission,
+                        //TO:
+                        galaxy: r.galaxy,
+                        system: r.system,
+                        position: r.position,
+                        type: r.type,
+                        //HOLD:
+                        metal: resourcesBar.resources.metal.amount,
+                        crystal: resourcesBar.resources.crystal.amount,
+                        deuterium: resourcesBar.resources.deuterium.amount,
+    
+                        prioMetal: 1,
+                        prioCrystal: 2,
+                        prioDeuterium: 3,
+    
+                        retreatAfterDefenderRetreat: 0,
+                        union: 0,
+                        holdingtime: 0,
+    
+                        //Ships
+                        ...[{}, ...shipsOnPlanet].reduce(
+                            (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
+                        )
+                    }).toString();
+    
+                    this.sendFleet(body).then(() => {
+                        reload && location.reload();
+                    })
+                    .finally(() => resolve());
                 }
-
-                const body = new URLSearchParams({
-                    token: fleetDispatcher.fleetSendingToken,
-                    speed: r.velocity / 10,
-                    mission: r.mission,
-                    //TO:
-                    galaxy: r.galaxy,
-                    system: r.system,
-                    position: r.position,
-                    type: r.type,
-                    //HOLD:
-                    metal: resourcesBar.resources.metal.amount,
-                    crystal: resourcesBar.resources.crystal.amount,
-                    deuterium: resourcesBar.resources.deuterium.amount,
-
-                    prioMetal: 1,
-                    prioCrystal: 2,
-                    prioDeuterium: 3,
-
-                    retreatAfterDefenderRetreat: 0,
-                    union: 0,
-                    holdingtime: 0,
-
-                    //Ships
-                    ...[{}, ...shipsOnPlanet].reduce(
-                        (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
-                    )
-                }).toString();
-
-                this.sendFleet(body).then(() => location.reload());
-            }
-        )
+            );
+        });
 
     },
 
@@ -212,12 +253,18 @@ window.mp = {
      */
     saveFleetInfo(uni, planet, shipsData) {
         const uniName = document.title?.split(' ')[0];
-        chrome.runtime.sendMessage(this.extensionId(),
-            {
-                method: "SAVE_FLEET_INFO",
-                data: { uni, planet, shipsData, uniName, playerName }
-            }
-        );
+
+        planet.id = this.currentPlanetId();
+
+        return new Promise((resolve) => {
+            chrome.runtime.sendMessage(this.extensionId(),
+                {
+                    method: "SAVE_FLEET_INFO",
+                    data: { uni, planet, shipsData, uniName, playerName }
+                },
+                resolve
+            );
+        });
     },
 
     /**
@@ -237,6 +284,77 @@ window.mp = {
         fadeBox(txt, isAlert);
     },
 
+    missionGalaxy() {
+        if (currentPage !== 'galaxy') {
+            if (!mission.coords) return;
+
+            const [g, s, p] = mission.coords;
+            showGalaxy(g, s, p);
+            return; //showGalaxy performs a navigation. 
+        } else {
+            var checkExist = setInterval(function () {
+                if (document.getElementById('galaxy-content')) {
+                    clearInterval(checkExist);
+
+                    this.runInactiveEspionage()
+                        .then(respose => {
+                            showGalaxy(+galaxy, +system + 1, 1);
+                        });
+                }
+            }, 100);
+        }
+    },
+
+    async automaticFleetSave(mission) {
+        console.log("AutomaticFleetSave");
+        if (mission) {
+
+            if(currentPage === 'fleetdispatch'){
+                await this.quickAction(null, false);
+            }
+
+            if (mission.planetList?.length) {
+                const planetId = mission.planetList.pop();
+                localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+                location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
+            } else {
+                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+            }
+
+        } else {
+            mission = { code: 'fleet-save' };
+
+            mission.planetList = this.planetIds();
+
+            localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+            location.reload();
+        }
+
+    },
+
+    updateFleets(mission) {
+        if (mission) {
+            if (mission.planetList?.length) {
+                const planetId = mission.planetList.pop();
+                localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+
+                setTimeout(() => {
+                    location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
+                }, 200);
+            } else {
+                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+            }
+
+        } else {
+            mission = { code: 'update-fleets' };
+
+            mission.planetList = this.planetIds();
+
+            localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+            location.reload();
+        }
+    },
+
     todo: function () {
         const mission = JSON.parse(localStorage.getItem(MP_LOCAL_STORAGE.MISSION));
 
@@ -247,41 +365,33 @@ window.mp = {
             return;
         }
 
-        if (mission.code.startsWith('galaxy')) {
+        switch (mission.code) {
+            case "galaxy":
+                this.missionGalaxy();
+                break;
 
-            if (currentPage !== 'galaxy') {
-                if (!mission.coords) return;
+            case "fleet-save":
+                this.automaticFleetSave(mission);
+                break;
+                
+            case "update-fleets":
+                this.updateFleets(mission);
+                break;
 
-                const [g, s, p] = mission.coords;
-                showGalaxy(g, s, p);
-                return; //showGalaxy performs a navigation. 
-            } else {
-                var checkExist = setInterval(function () {
-                    if (document.getElementById('galaxy-content')) {
-                        clearInterval(checkExist);
-
-                        this.runInactiveEspionage()
-                            .then(respose => {
-                                showGalaxy(+galaxy, +system + 1, 1);
-                            });
-                    }
-                }, 100);
-            }
+            default:
+                break;
         }
     },
 
-    init: function () {
+    init: async function () {
         console.debug("Init ogame extension");
         console.debug("Player name: ", player.name);
         console.debug("Current page: ", currentPage);
 
-        this.todo();
-
         switch (currentPage) {
             case "fleetdispatch":
+                await this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
                 this.addQuickActionButtons();
-                localStorage.setItem(MP_LOCAL_STORAGE.FLEET_TOKEN, fleetDispatcher.fleetSendingToken);
-                this.saveFleetInfo(this.server(), currentPlanet, shipsOnPlanet);
                 break;
 
             case "galaxy":
@@ -291,6 +401,8 @@ window.mp = {
             default:
                 break;
         }
+
+        this.todo();
     },
 
 }
