@@ -90,7 +90,7 @@ window.mp = {
             { id: 203, number: 200 }, //Cargoni
             { id: 219, number: 1 },   //Path
             { id: 210, number: 1 },   //Sonda
-            { id: 215, number: 1 },   //BC
+            { id: 213, number: 1 },   //Cozza
         ]
 
         const body = new URLSearchParams({
