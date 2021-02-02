@@ -21,10 +21,14 @@ export class AppComponent implements OnInit {
     chrome.tabs.query(
       { active: true, currentWindow: true },
       (tabs) => {
-        const searchParams = new URLSearchParams(tabs[0].url);
-        let component = searchParams.get('component').split('#')[0];
+        const url = tabs[0]?.url;
 
-        this._ngZone.run(() => this.currentComponent = component);
+        if(url){
+          const searchParams = new URLSearchParams(url);
+          let component = searchParams.get('component').split('#')[0];
+  
+          this._ngZone.run(() => this.currentComponent = component);
+        }
       });
   }
 
