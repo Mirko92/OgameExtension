@@ -28,5 +28,5 @@ export const MP_BOT_MISSIONS = {
 }
 
 export const MP_COMPONENTS = {
-    FLEET_DISPATCH = "fleetdispatch"
+    FLEET_DISPATCH: "fleetdispatch"
 }
