@@ -43,13 +43,25 @@ a:hover {
   color: #125699;
 }
 
-.page-content {
+main{
+  display: flex;
+  flex-flow: column nowrap;
   height: 100%;
-  color: white;
-  padding: 1rem;
+
   background-image: url(./assets/images/universe.jpg);
   background-attachment: fixed;
   background-size: cover;
+}
+
+.page-content {
+  display: flex;
+  flex-flow: column nowrap;
+
+  height: 100%;
+  padding: 1rem;
+  color: white;
+
+  backdrop-filter: blur(5px);
 }
 
 .version{
@@ -60,4 +72,15 @@ a:hover {
   font-size: 9px;
   color: white;
   padding: 2px;
+}
+
+.centered{
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  i{
+    backdrop-filter: blur(5px);
+  }
 }

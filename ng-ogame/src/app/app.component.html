@@ -1,33 +1,43 @@
-<div class="page-content">
-
-  <div [ngSwitch]="currentComponent">
-    <div *ngSwitchCase="'traderOverview'">
-      <h1>Trader</h1>
-      <input type="number"
-             [(ngModel)]="maxBet">
-
-      <button (click)="runBot()">
-        RUN
-      </button>
-
-      <button (click)="stop()">
-        STOP
-      </button>
-
-      <button (click)="bet()">
-        BET
-      </button>
-    </div>
-
-    <div *ngSwitchCase="'fleetdispatch'">
-      <h1>Fleet</h1>
-    </div>
-
+<main>
+  <div class="page-content">
+  
+    <ng-container [ngSwitch]="currentComponent">
+      <ng-container *ngSwitchCase="'traderOverview'">
+        <h1>Trader</h1>
+        <input type="number"
+               [(ngModel)]="maxBet">
+  
+        <button (click)="runBot()">
+          RUN
+        </button>
+  
+        <button (click)="stop()">
+          STOP
+        </button>
+  
+        <button (click)="bet()">
+          BET
+        </button>
+      </ng-container>
+  
+      <ng-container *ngSwitchCase="'fleetdispatch'">
+        <h1>Fleet</h1>
+      </ng-container>
+  
+      <ng-container *ngSwitchDefault>
+        <h1>Mp-Ogame</h1>
+  
+        <div class="centered">
+          <i>Nessuna azione disponibile in questa pagina</i>
+        </div>
+      </ng-container>
+  
+    </ng-container>
   </div>
-</div>
-
-<router-outlet></router-outlet>
-
-<span class="version">
-  MP-Ogame V. 0.0.40
-</span>
+  
+  <router-outlet></router-outlet>
+  
+  <span class="version">
+    MP-Ogame V. 0.0.40
+  </span>
+</main>
