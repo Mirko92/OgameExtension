@@ -50,15 +50,14 @@ export class MpFleetDispatcher {
                 id="exp_button" 
                 class="fright on" 
                 title="quick epxedition">
-            </a>
-        `);
+            </a>`);
 
 
             document.getElementById("quick_action")
-                .addEventListener('click', (e) => this.quickAction(e));
+                ?.addEventListener('click', (e) => this.quickAction(e));
 
             document.getElementById("exp_button")
-                .addEventListener('click', (e) => this.sendExpedition(e));
+                ?.addEventListener('click', (e) => this.sendExpedition(e));
         }
     }
 
