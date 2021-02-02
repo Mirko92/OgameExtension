@@ -70,15 +70,15 @@ export class MpFleetDispatcher {
 
         return new Promise((resolve) => {
 
-            chrome.runtime.sendMessage(this.extensionId(),
+            chrome.runtime.sendMessage(mp.extensionId(),
                 {
                     method: "GET_FLEET_SAVE_DATA",
-                    data: { uni: this.server(), planet: currentPlanet }
+                    data: { uni: mp.server(), planet: currentPlanet }
                 },
 
                 (r) => {
                     if (!r || Object.keys(r)?.length === 0) {
-                        this.message("Fleet save non configurato", true);
+                        mp.message("Fleet save non configurato", true);
                         resolve(false);
                         return;
                     }

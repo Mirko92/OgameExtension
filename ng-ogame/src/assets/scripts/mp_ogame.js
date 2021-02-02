@@ -80,7 +80,7 @@ window.mp = {
         if (mission) {
 
             if (currentPage === 'fleetdispatch') {
-                await this.quickAction(null, false);
+                await this.fleetDispatcher.quickAction(null, false);
             }
 
             if (mission.planetList?.length) {

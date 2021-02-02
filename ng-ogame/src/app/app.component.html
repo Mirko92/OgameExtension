@@ -1,42 +1,56 @@
 <main>
   <div class="page-content">
-  
+
     <ng-container [ngSwitch]="currentComponent">
       <ng-container *ngSwitchCase="'traderOverview'">
-        <h1>Trader</h1>
-        <input type="number"
-               [(ngModel)]="maxBet">
-  
-        <button (click)="runBot()">
-          RUN
-        </button>
-  
-        <button (click)="stop()">
-          STOP
-        </button>
-  
-        <button (click)="bet()">
-          BET
-        </button>
+        <div class="trader">
+          <header>
+            <h1>Trader</h1>
+          </header>
+          <section class="trader__form">
+
+            <div class="form-group">
+              <label for="max-bet">Max bet</label>
+              <input id="max-bet"
+                     type="number"
+                     [(ngModel)]="maxBet">
+            </div>
+
+            <div class="actions">
+              <button (click)="runBot()">
+                RUN
+              </button>
+
+              <button (click)="stop()">
+                STOP
+              </button>
+
+              <button (click)="bet()">
+                BET
+              </button>
+            </div>
+          </section>
+
+        </div>
       </ng-container>
-  
+
       <ng-container *ngSwitchCase="'fleetdispatch'">
         <h1>Fleet</h1>
       </ng-container>
-  
+
       <ng-container *ngSwitchDefault>
         <h1>Mp-Ogame</h1>
-  
+
         <div class="centered">
           <i>Nessuna azione disponibile in questa pagina</i>
         </div>
       </ng-container>
-  
+
     </ng-container>
   </div>
-  
+
   <router-outlet></router-outlet>
-  
+
   <span class="version">
     MP-Ogame V. 0.0.40
   </span>
