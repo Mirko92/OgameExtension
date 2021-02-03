@@ -1,56 +1,57 @@
-<style>
-  .spacer {
-    flex: 1;
-  }
+<main>
+  <div class="page-content">
 
-  .toolbar {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
+    <ng-container [ngSwitch]="currentComponent">
+      <ng-container *ngSwitchCase="'traderOverview'">
+        <div class="trader">
+          <header>
+            <h1>Trader</h1>
+          </header>
+          <section class="trader__form">
 
-  .toolbar img {
-    margin: 0 16px;
-  }
+            <div class="form-group">
+              <label for="max-bet">Max bet</label>
+              <input id="max-bet"
+                     type="number"
+                     [(ngModel)]="maxBet">
+            </div>
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
+            <div class="actions">
+              <button (click)="runBot()">
+                RUN
+              </button>
 
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-</style>
+              <button (click)="stop()">
+                STOP
+              </button>
 
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img width="40" alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+              <button (click)="bet()">
+                BET
+              </button>
+            </div>
+          </section>
 
-  <span>Ogame Extension M.P</span>
-</div>
+        </div>
+      </ng-container>
 
-<div class="page-content">
+      <ng-container *ngSwitchCase="'fleetdispatch'">
+        <h1>Fleet</h1>
+      </ng-container>
 
-  <h1>eccomi</h1>
+      <ng-container *ngSwitchDefault>
+        <h1>Mp-Ogame</h1>
 
-  <input type="number" [(ngModel)]="maxBet">
+        <div class="centered">
+          <i>Nessuna azione disponibile in questa pagina</i>
+        </div>
+      </ng-container>
 
-  <button (click)="runBot()">
-    RUN
-  </button>
+    </ng-container>
+  </div>
 
-  <button (click)="stop()">
-    STOP
-  </button>
+  <router-outlet></router-outlet>
 
-  <button (click)="bet()">
-    BET
-  </button>
-</div>
-
-<router-outlet></router-outlet>
+  <span class="version">
+    MP-Ogame V. 0.0.40
+  </span>
+</main>
