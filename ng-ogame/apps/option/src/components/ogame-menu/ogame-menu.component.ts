@@ -22,7 +22,7 @@ export class OgameMenuComponent implements OnInit, OnChanges {
       const uni = { ...u };
 
       uni.planets = [...u.planets]
-        .sort((x, y) => x.type - y.type)
+        ?.sort((x, y) => x.type - y.type)
         .reduce((acc, item) => {
           if (item.type === PlanetType.MOON) {
             const found = acc.find(x => this.idForPlanetNoType(x, u.code) === this.idForPlanetNoType(item, u.code));

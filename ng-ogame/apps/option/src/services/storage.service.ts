@@ -62,11 +62,11 @@ export class StorageService {
 
     let subs = storage$.subscribe(storage => {
       // Sort by Universe Code
-      storage.ogameData.sort((x, y) => x.code.localeCompare(y.code));
+      storage.ogameData?.sort((x, y) => x.code.localeCompare(y.code));
 
       // Sort planets by coords and type 
       storage.ogameData.forEach(uni => {
-        uni.planets.sort((p1, p2) => {
+        uni.planets?.sort((p1, p2) => {
           const p1Coords = Number.parseInt(`${p1.galaxy}${p1.system.toString().padStart(3, '0')}${p1.position.toString().padStart(2, '0')}${p1.type}`);
           const p2Coords = Number.parseInt(`${p2.galaxy}${p2.system.toString().padStart(3, '0')}${p2.position.toString().padStart(2, '0')}${p2.type}`);
           return p1Coords - p2Coords;

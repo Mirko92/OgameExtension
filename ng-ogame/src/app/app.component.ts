@@ -32,6 +32,10 @@ export class AppComponent implements OnInit {
       });
   }
 
+  goToOptions(){
+    chrome.runtime.openOptionsPage();
+  }
+
   private executeScript(script: string) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.executeScript(

@@ -15,6 +15,7 @@
     "b-main": "ng build ogame-ext",
     "b-option": "ng build option --base-href=./",
 
+    "preb-main-prod":"npm --no-git-tag-version version patch",
     "b-main-prod": "ng build --prod ogame-ext",
     "b-option-prod": "ng build option --prod --base-href=./",
 
