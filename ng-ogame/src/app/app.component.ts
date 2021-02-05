@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
 
   currentComponent: string = null;
 
+  get version(){
+    return chrome.runtime.getManifest().version;
+  }
+
   constructor(
     private _ngZone: NgZone) { }
 

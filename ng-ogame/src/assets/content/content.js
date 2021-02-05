@@ -2,8 +2,15 @@ console.debug("Mp Ogame extension. ID: %s - Version: ",
     chrome.runtime.id,
     chrome.runtime.getManifest().version
 );
+
+/**
+ * Save Extension version on localstorage 
+ */
 localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
 
+/**
+ * Main menu buttons 
+ */
 document
     .querySelector("#menuTable li:last-child")
     .insertAdjacentHTML(
@@ -39,38 +46,6 @@ var ogameScript = document.createElement("script");
 ogameScript.setAttribute('type', "module");
 ogameScript.src = chrome.extension.getURL("assets/scripts/mp_ogame.js");
 document.head.appendChild(ogameScript);
-//#endregion
-
-//#region FLEET BUTTONS
-// function addFleetsButton() {
-//     const planets = document.querySelectorAll('#planetList > div');
-
-//     planets.forEach(container => {
-//         const planetCoordsText = container.querySelector('.planetlink .planet-koords').textContent;
-//         const regexResult = /\[(\d):(\d*):(\d*)\]/.exec(planetCoordsText);
-
-//         const [g, s, p] = [1, 2, 3].map(index => regexResult[index]);
-//         const coords = `${g}_${s}_${p}`
-
-//         const planet = `${coords}_1`;
-//         const moon = container.querySelector('.moonlink') ? `${coords}_3` : null;
-
-//         container.appendChild(fleetButton(planet, moon));
-//     });
-// };
-
-// function fleetButton(planet, moon) {
-//     let button = document.createElement('button');
-//     button.classList = 'mp_fleet_button fleet_icon_forward_end';
-//     button.title = 'Run fleet save';
-
-//     button.setAttribute('data-planet', planet);
-//     if (moon) {
-//         button.setAttribute('data-moon', moon);
-//     }
-//     return button;
-// }
-
 //#endregion
 
 //#region TRADER
@@ -169,20 +144,6 @@ function betMetal() {
 function stop() {
     console.debug("STOP");
     clearInterval(interval);
-}
-//#endregion
-
-//#region GALAXY ACTIONS
-function runInactiveEspionage() {
-    let delay = 0;
-    let step = 1000;
-    document.querySelectorAll('#galaxytable tr.inactive_filter td.action a.espionage')
-        .forEach(
-            x => {
-                setTimeout(() => x.click(), delay);
-                delay += step;
-            }
-        );
 }
 //#endregion
 
