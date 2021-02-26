@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, NgZone } from '@angular/core';
 import { OgameStorage } from 'model/OgameStorage';
 import { BehaviorSubject, from, Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +58,7 @@ export class StorageService {
     } else {
       // Using mockup, to Ng Serve command, without chrome API
       console.warn("USING MOCKUP");
-      storage$ = this.http.get<any>('/assets/data.json');
+      storage$ = this.http.get<any>(`/assets/data_${environment.dataVersion}.json`);
     }
 
     let subs = storage$.subscribe(storage => {

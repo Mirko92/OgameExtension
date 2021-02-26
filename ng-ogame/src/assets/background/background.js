@@ -59,17 +59,17 @@ function handleMessage(request, sender, sendResponse) {
 
   switch (request.method) {
     case "SAVE_FLEET_INFO":
-      console.debug("Methdod, save fleet info", request.data);
+      console.debug("Methdod: SAVE_FLEET_INFO", request.data);
       saveFleetInfo(request.data, sendResponse);
       break;
 
     case "GET_FLEET_INFO":
-      console.debug("Methdod, get fleet info", request.data);
+      console.debug("Methdod: GET_FLEET_INFO", request.data);
       getFleetInfo(request.data.uni, sendResponse);
       return true;
 
     case "GET_FLEET_SAVE_DATA":
-      console.debug("Methdod, get fleet save info", request.data);
+      console.debug("Methdod: GET_FLEET_SAVE_DATA", request.data);
       getFleetSave(request.data, sendResponse);
       return true;
 
@@ -79,11 +79,12 @@ function handleMessage(request, sender, sendResponse) {
 }
 
 /**
- * Dati provenienti dal gioco 
- * ID dell'Universo es: s170-it 
- * Info Pianeta
- * Dati Navi su pianeta
- * @param {uni: string, planet: OgamePlanet, shipsData} data 
+ * Datas from OG.  
+ * Universe ID eg: s170-it 
+ * Player's NickName 
+ * Planet info
+ * Ships on the planet
+ * @param {uni: string, playerName: string, planet: OgamePlanet, shipsData} data 
  */
 function saveFleetInfo(data, callback) {
   const { uni, uniName, playerName, planet, shipsData } = data;
@@ -92,16 +93,19 @@ function saveFleetInfo(data, callback) {
     const universes = storage?.ogameData || [];
 
     let uniData = universes.find(u => u.code === uni);
+
     if(!uniData){
       uniData = {
         code: uni, 
         name: uniName,
         playerName
       };
+
       universes.push(uniData);
     }
 
     const index = uniData?.planets?.findIndex(p => p.name === planet.name);
+    
     const planetInMemory = uniData?.planets?.[index];
     const fleetMission = planet?.fleetMission || planetInMemory?.fleetMission || {};
     const update = {

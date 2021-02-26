@@ -19,6 +19,7 @@ export class OgamePlanetComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // TODO: Cambio formato dati
   saveFleetMission(uni: string, p: OgamePlanet) {
 
     chrome.runtime.sendMessage(chrome.runtime.id,
