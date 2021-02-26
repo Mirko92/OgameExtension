@@ -22,7 +22,7 @@ export function currentPlanetId() {
         result = searchParams.get('cp');
     } else {
         const currentPlanetEl = document.querySelector(".hightlightPlanet");
-        result = currentPlanetEl.getAttribute('id').replace("planet-");
+        result = currentPlanetEl.getAttribute('id').replace("planet-", "");
     }
 
     if (result) {

@@ -1,0 +1,194 @@
+[
+    {
+        "code": "s170-it",
+        "name": "Rosalind",
+        "playerName": "CiccioPasticcio",
+
+        "planets": [
+            {
+                "galaxy": 4,
+                "id": "33644930",
+                "name": "Lunoby",
+                "position": 15,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 24000,
+                        "fuelCapacity": 15000,
+                        "fuelConsumption": 1000,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 2,
+                        "recycleMode": 0,
+                        "speed": 9500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 32000,
+                        "fuelCapacity": 20000,
+                        "fuelConsumption": 150,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 5400
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 245,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 49,
+                        "recycleMode": 0,
+                        "speed": 270000000
+                    }
+                ],
+                "system": 309,
+                "type": 3
+            },
+            {
+                "galaxy": 4,
+                "id": "33644623",
+                "name": "Moria",
+                "position": 15,
+                "shipsData": [],
+                "system": 309,
+                "type": 1
+            },
+            {
+                "galaxy": 4,
+                "id": "33650550",
+                "name": "NientePanico",
+                "position": 8,
+                "shipsData": [],
+                "system": 59,
+                "type": 1
+            },
+            {
+                "galaxy": 3,
+                "id": "33641906",
+                "name": "Erebor",
+                "position": 8,
+                "shipsData": [
+                    {
+                        "baseCargoCapacity": 12000,
+                        "baseFuelCapacity": 7500,
+                        "baseFuelConsumption": 1000,
+                        "baseSpeed": 2500,
+                        "cargoCapacity": 12000,
+                        "fuelCapacity": 7500,
+                        "fuelConsumption": 500,
+                        "id": 208,
+                        "name": "Colonizzatrice",
+                        "number": 1,
+                        "recycleMode": 0,
+                        "speed": 9500
+                    },
+                    {
+                        "baseCargoCapacity": 32000,
+                        "baseFuelCapacity": 20000,
+                        "baseFuelConsumption": 300,
+                        "baseSpeed": 2000,
+                        "cargoCapacity": 64000,
+                        "fuelCapacity": 40000,
+                        "fuelConsumption": 300,
+                        "id": 209,
+                        "name": "Riciclatrici",
+                        "number": 2,
+                        "recycleMode": 0,
+                        "speed": 5400
+                    },
+                    {
+                        "baseCargoCapacity": 0,
+                        "baseFuelCapacity": 5,
+                        "baseFuelConsumption": 1,
+                        "baseSpeed": 100000000,
+                        "cargoCapacity": 0,
+                        "fuelCapacity": 250,
+                        "fuelConsumption": 0,
+                        "id": 210,
+                        "name": "Sonda spia",
+                        "number": 50,
+                        "recycleMode": 0,
+                        "speed": 270000000
+                    }
+                ],
+                "system": 215,
+                "type": 3
+            },
+            {
+                "galaxy": 3,
+                "id": "33633276",
+                "name": "Rohan",
+                "position": 8,
+                "shipsData": [],
+                "system": 215,
+                "type": 1
+            }
+        ],
+        
+        "missions": [
+            {
+                "planetId": "33644930",
+                "missionCode": "fleet-mission",
+                "galaxy": 4,
+                "mission": 7,
+                "position": 2,
+                "system": 309,
+                "type": "1",
+                "velocity": 20
+            },
+            {
+                "planetId": "33644623",
+                "missionCode": "fleet-mission",
+                "galaxy": 4,
+                "mission": 7,
+                "position": 2,
+                "system": 309,
+                "type": "1",
+                "velocity": 20
+            },
+            {
+                "planetId": "33650550",
+                "missionCode": "fleet-mission",
+                "galaxy": 4,
+                "mission": 7,
+                "position": 2,
+                "system": 59,
+                "type": "1",
+                "velocity": 30
+            },
+            {
+                "planetId": "33641906",
+                "missionCode": "fleet-mission",
+                "galaxy": 3,
+                "mission": 7,
+                "position": 2,
+                "system": 215,
+                "type": "1",
+                "velocity": 20
+            },
+            {
+                "planetId": "33655172",
+                "missionCode": "fleet-mission",
+                "galaxy": 3,
+                "mission": 7,
+                "position": 2,
+                "system": 51,
+                "type": 1,
+                "velocity": 20
+            }
+        ]
+    }
+]
