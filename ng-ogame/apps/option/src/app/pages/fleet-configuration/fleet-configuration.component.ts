@@ -21,7 +21,7 @@ export class FleetConfigurationComponent {
   }
 
   getMissionFor(p: OgamePlanet, u : OgameData){
-    return u.missions?.find(m => m.planetId === p.id);
+    return u.missions?.find(m => m.planetId === p.id) || {};
   }
 
   saveFleetMission(uni: string, p: OgamePlanet) {

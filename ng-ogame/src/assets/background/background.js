@@ -130,10 +130,9 @@ function getFleetSave(data, callback) {
 
     const found = uniData?.missions?.find(m =>
       m.planetId === planetId
-      && m.missionCode === "fleet-mission"
     );
 
-    callback(found.fleetMission);
+    callback(found);
   });
 }
 
