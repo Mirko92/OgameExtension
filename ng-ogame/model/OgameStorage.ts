@@ -32,6 +32,8 @@ export class OgameData {
  * Planet/Moon data 
  */
 export class OgamePlanet {
+    id: string;
+    
     name: string;
     type: PlanetType;
 

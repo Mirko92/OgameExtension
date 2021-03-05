@@ -139,17 +139,19 @@ function getFleetSave(data, callback) {
 
 
 function saveMission(data, callback) {
-  const { uni, planetId } = data;
+  const { uni, mission } = data;
 
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
-    const uniData = ogameData.find(u => u.code === uni);
+  chrome.storage.local.get(['ogameData'], function ({ogameData}) {
+    let uniData = ogameData.find(u => u.code === uni);
 
-    const found = uniData?.missions?.find(m =>
-      m.planetId === planetId
-      && m.missionCode === "fleet-mission"
-    );
+    // Update planets into universe
+    uniData.missions = [
+      ...(uniData.missions || [])?.filter(x => x.planetId !== mission.planetId),
+      mission
+    ];
 
-    callback(found.fleetMission);
+    chrome.storage.local.set({ ogameData: [...ogameData.filter(u => u.code !== uni), uniData] });
+    callback();
   });
 }
 

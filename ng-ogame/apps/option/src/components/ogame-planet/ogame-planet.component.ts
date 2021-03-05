@@ -17,6 +17,9 @@ export class OgamePlanetComponent {
   mission: OgameMission = {};
 
   saveMission() {
+    this.mission.planetId = this.planet.id;
+    this.mission.missionCode = "fleet-mission";
+
     chrome.runtime.sendMessage(chrome.runtime.id,
       {
         method: "SAVE_MISSION",
