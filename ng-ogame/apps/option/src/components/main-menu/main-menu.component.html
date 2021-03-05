@@ -13,12 +13,14 @@
     <ul class="main_menu">
         <a routerLink="fleet-configuration"
            routerLinkActive="menu_item--active"
+           (click)="toggleMenu()"
            class="menu_item">
             <li>
                 Fleet save config.
             </li>
         </a>
         <a routerLinkActive="menu_item--active"
+           (click)="toggleMenu()"
            class="menu_item">
             <li>
                 Menu 2
@@ -26,6 +28,7 @@
         </a>
         <a routerLink="about"
            routerLinkActive="menu_item--active"
+           (click)="toggleMenu()"
            class="menu_item">
             <li>
                 About

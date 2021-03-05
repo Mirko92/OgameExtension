@@ -11,15 +11,19 @@
 }
 
 .menu_item {
-  padding: 15px;
+  margin: 15px 0;
+  display: block;
   text-decoration: none;
   color: white;
+
+  &:hover{
+    color: rgba(144, 238, 144, 0.514);
+  }
 
   &--active{
     color: lightgreen;
   }
 }
-
 .menu__toggler {
   position: fixed;
   top: 20px;
