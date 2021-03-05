@@ -34,12 +34,9 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
   for (var key in changes) {
     var storageChange = changes[key];
     console.debug(
-      'Storage key "%s" in namespace "%s" changed. ' +
-      'Old value was "%s", new value is "%s".',
-      key,
-      namespace,
-      storageChange.oldValue,
-      storageChange.newValue);
+      'Storage key "%s" in namespace "%s" changed. ', key, namespace);
+    console.debug("Old value was", storageChange.oldValue);
+    console.debug("New value is", storageChange.newValue);
   }
 });
 
@@ -63,14 +60,14 @@ function handleMessage(request, sender, sendResponse) {
       saveFleetInfo(request.data, sendResponse);
       break;
 
-    case "GET_FLEET_INFO":
-      console.debug("Methdod: GET_FLEET_INFO", request.data);
-      getFleetInfo(request.data.uni, sendResponse);
-      return true;
-
     case "GET_FLEET_SAVE_DATA":
       console.debug("Methdod: GET_FLEET_SAVE_DATA", request.data);
       getFleetSave(request.data, sendResponse);
+      return true;
+
+    case "SAVE_MISSION":
+      console.debug("Methdod: SAVE_MISSION", request.data);
+      saveMission(request.data, sendResponse);
       return true;
 
     default:
@@ -87,16 +84,22 @@ function handleMessage(request, sender, sendResponse) {
  * @param {uni: string, playerName: string, planet: OgamePlanet, shipsData} data 
  */
 function saveFleetInfo(data, callback) {
-  const { uni, uniName, playerName, planet, shipsData } = data;
+  const {
+    uni,
+    uniName,
+    playerName,
+    planet,
+    shipsData
+  } = data;
+
 
   chrome.storage.local.get(['ogameData'], function (storage) {
+    // Update universes
     const universes = storage?.ogameData || [];
-
     let uniData = universes.find(u => u.code === uni);
-
-    if(!uniData){
+    if (!uniData) {
       uniData = {
-        code: uni, 
+        code: uni,
         name: uniName,
         playerName
       };
@@ -104,40 +107,47 @@ function saveFleetInfo(data, callback) {
       universes.push(uniData);
     }
 
-    const index = uniData?.planets?.findIndex(p => p.name === planet.name);
-    
-    const planetInMemory = uniData?.planets?.[index];
-    const fleetMission = planet?.fleetMission || planetInMemory?.fleetMission || {};
-    const update = {
-      ...planet,
-      shipsData,
-      fleetMission
-    };
-
-    if (index === undefined || index === null || index === -1) {
-      uniData.planets = [...(uniData?.planets || []), update];
-    } else {
-      uniData.planets[index] = update;
-    }
+    // Update planets into universe
+    uniData.planets = [
+      ...(uniData.planets?.filter(p => p.id !== planet.id) || []),
+      {
+        ...planet,
+        shipsData
+      }
+    ];
 
     chrome.storage.local.set({ ogameData: universes });
     callback();
   });
 }
 
-function getFleetInfo(uni, callback) {
-  chrome.storage.local.get(['ogameData'], function ({ogameData}) {
-    callback(ogameData.find(u => u.code === uni));
+
+function getFleetSave(data, callback) {
+  const { uni, planetId } = data;
+
+  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
+    const uniData = ogameData.find(u => u.code === uni);
+
+    const found = uniData?.missions?.find(m =>
+      m.planetId === planetId
+      && m.missionCode === "fleet-mission"
+    );
+
+    callback(found.fleetMission);
   });
 }
 
-function getFleetSave(data, callback) {
-  const { uni, planet } = data;
 
-  chrome.storage.local.get(['ogameData'], function ({ogameData}) {
+function saveMission(data, callback) {
+  const { uni, planetId } = data;
+
+  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
     const uniData = ogameData.find(u => u.code === uni);
 
-    const found = uniData?.planets?.find(p => p.name === planet.name);
+    const found = uniData?.missions?.find(m =>
+      m.planetId === planetId
+      && m.missionCode === "fleet-mission"
+    );
 
     callback(found.fleetMission);
   });
@@ -145,21 +155,3 @@ function getFleetSave(data, callback) {
 
 console.debug("#######################################");
 //#endregion
-
-
-/*
-
-  var {galaxy, system, position, type} = currentPlanet;
-  var coords = galaxy + "_" + system + "_" + position + "_" + type;
-
-  console.debug("UniData saved:", uniData);
-  console.debug("Data to save:", data);
-
-  uniData[planet] = {
-      ...(uniData[planet] || {}),
-      ...data
-  };
-
-  console.debug("After merge:", uniData);
-
-*/

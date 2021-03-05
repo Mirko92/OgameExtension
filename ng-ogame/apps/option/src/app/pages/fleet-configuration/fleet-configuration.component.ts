@@ -28,7 +28,9 @@ export class FleetConfigurationComponent {
   }
 
   setFleetMissionKey(p: OgamePlanet, key: string, value) {
-    p.fleetMission = { ...(p.fleetMission || {}), [key]: value }
+    // TODO: 
+    console.debug("todo");
+    // p.fleetMission = { ...(p.fleetMission || {}), [key]: value }
   }
 
   saveFleetMission(uni: string, p: OgamePlanet) {

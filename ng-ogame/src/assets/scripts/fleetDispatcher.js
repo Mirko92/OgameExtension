@@ -73,7 +73,7 @@ export class MpFleetDispatcher {
             chrome.runtime.sendMessage(mp.extensionId(),
                 {
                     method: "GET_FLEET_SAVE_DATA",
-                    data: { uni: mp.server(), planet: currentPlanet }
+                    data: { uni: mp.server(), planetId: currentPlanetId() }
                 },
 
                 (r) => {
