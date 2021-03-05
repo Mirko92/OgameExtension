@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StorageService } from 'apps/option/src/services/storage.service';
-import { OgameData, OgamePlanet } from 'model/OgameStorage';
+import { OgameData, OgameMission, OgamePlanet } from 'model/OgameStorage';
 
 @Component({
   selector: 'og-fleet-configuration',
@@ -21,7 +21,7 @@ export class FleetConfigurationComponent {
   }
 
   getMissionFor(p: OgamePlanet, u : OgameData){
-    return u.missions?.find(m => m.planetId === p.id) || {};
+    return u.missions?.find(m => m.planetId === p.id) || new OgameMission();
   }
 
   saveFleetMission(uni: string, p: OgamePlanet) {

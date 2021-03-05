@@ -72,7 +72,7 @@ export enum Mission {
     EXPEDITION = 15
 }
 
-export interface OgameMission {
+export class OgameMission {
     planetId?: string;
     missionCode?: string;
     galaxy?: number;
@@ -81,4 +81,5 @@ export interface OgameMission {
     system?: number;
     type?: number;
     velocity?: number;
+
 }

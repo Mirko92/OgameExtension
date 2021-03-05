@@ -33,7 +33,6 @@ export class OgameMenuComponent implements OnInit, OnChanges {
       result.push(uni);
     });
 
-    console.debug("re", result);
     return result;
   }
 
