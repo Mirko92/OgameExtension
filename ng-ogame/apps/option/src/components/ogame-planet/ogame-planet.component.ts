@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OgamePlanet } from 'model/OgameStorage';
+import { OgameMission, OgamePlanet } from 'model/OgameStorage';
 
 @Component({
   selector: 'og-planet',
@@ -7,24 +7,32 @@ import { OgamePlanet } from 'model/OgameStorage';
   styleUrls: ['./ogame-planet.component.less']
 })
 export class OgamePlanetComponent implements OnInit {
-
   @Input()
-  uni: string; 
+  uni: string;
 
   @Input()
   planet: OgamePlanet;
 
-  constructor() { }
+  @Input("mission")
+  _mission: OgameMission = {};
 
-  ngOnInit(): void {
+  mission: OgameMission = new OgameMission();
+
+  ngOnInit(){
+    this.mission = this._mission;
   }
 
-  saveFleetMission(uni: string, p: OgamePlanet) {
+  saveMission() {
+    this.mission.planetId = this.planet.id;
+    this.mission.missionCode = "fleet-mission";
 
     chrome.runtime.sendMessage(chrome.runtime.id,
       {
-        method: "SAVE_FLEET_INFO",
-        data: { uni, planet: p, shipsData: p.shipsData }
+        method: "SAVE_MISSION",
+        data: {
+          uni: this.uni,
+          mission: this.mission
+        }
       }
     );
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StorageService } from 'apps/option/src/services/storage.service';
-import { OgamePlanet } from 'model/OgameStorage';
+import { OgameData, OgameMission, OgamePlanet } from 'model/OgameStorage';
 
 @Component({
   selector: 'og-fleet-configuration',
@@ -20,15 +20,8 @@ export class FleetConfigurationComponent {
     return this.storage?.ogameData;
   }
 
-  /**
-   * Passa value and icon of a single ship
-   */
-  getShipById(shipsData: any, id: number) {
-    return shipsData?.find(s => s.id === id) || { id };
-  }
-
-  setFleetMissionKey(p: OgamePlanet, key: string, value) {
-    p.fleetMission = { ...(p.fleetMission || {}), [key]: value }
+  getMissionFor(p: OgamePlanet, u : OgameData){
+    return u.missions?.find(m => m.planetId === p.id) || new OgameMission();
   }
 
   saveFleetMission(uni: string, p: OgamePlanet) {

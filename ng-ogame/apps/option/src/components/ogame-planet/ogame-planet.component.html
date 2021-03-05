@@ -32,17 +32,17 @@
                                 class="border5px">
 
                                 <div class="target">
-                                    <a [class]="planet.fleetMission?.type === 1 ? 'planet_selected' : 'planet'"
+                                    <a [class]="mission?.type === 1 ? 'planet_selected' : 'planet'"
                                        id="pbutton"
-                                       (click)="planet.fleetMission.type = 1">
+                                       (click)="mission.type = 1">
                                     </a>
-                                    <a [class]="planet.fleetMission?.type === 3 ? 'moon_selected' : 'moon'"
+                                    <a [class]="mission?.type === 3 ? 'moon_selected' : 'moon'"
                                        id="mbutton"
-                                       (click)="planet.fleetMission.type = 3">
+                                       (click)="mission.type = 3">
                                     </a>
-                                    <a [class]="planet.fleetMission?.type === 2 ? 'debris_selected' : 'debris'"
+                                    <a [class]="mission?.type === 2 ? 'debris_selected' : 'debris'"
                                        id="dbutton"
-                                       (click)="planet.fleetMission.type = 2">
+                                       (click)="mission.type = 2">
                                     </a>
                                     <br class="clearfloat">
                                 </div>
@@ -55,30 +55,30 @@
                                            type="number"
                                            class="galaxy hideNumberSpin"
                                            size="1"
-                                           [(ngModel)]="planet.fleetMission.galaxy">
+                                           [(ngModel)]="mission.galaxy">
                                     <input name="system"
                                            id="system"
                                            type="number"
                                            class="system hideNumberSpin"
                                            size="3"
-                                           [(ngModel)]="planet.fleetMission.system">
+                                           [(ngModel)]="mission.system">
                                     <input name="position"
                                            id="position"
                                            type="number"
                                            class="planet hideNumberSpin"
                                            size="2"
-                                           [(ngModel)]="planet.fleetMission.position">
+                                           [(ngModel)]="mission.position">
                                 </div>
                             </td>
                         </div>
                     </div>
 
                     <!-- Velocity -->
-                    <og-speed [(speed)]="planet.fleetMission.velocity"></og-speed>
+                    <og-speed [(speed)]="mission.velocity"></og-speed>
                 </div>
 
                 <!-- Mission options -->
-                <og-missions [(mission)]="planet.fleetMission.mission"></og-missions>
+                <og-missions [(mission)]="mission.mission"></og-missions>
 
             </div>
         </div>
@@ -92,7 +92,7 @@
            right: 1.5rem;
            bottom: 1rem;">
             <button class="glow-on-hover"
-                    (click)="saveFleetMission(uni, planet)"
+                    (click)="saveMission()"
                     type="button">SALVA</button>
         </div>
     </footer>

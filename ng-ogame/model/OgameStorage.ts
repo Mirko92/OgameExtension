@@ -23,6 +23,8 @@ export class OgameData {
     playerName: string;
 
     planets: OgamePlanet[];
+
+    missions: OgameMission[];
 }
 
 
@@ -30,6 +32,8 @@ export class OgameData {
  * Planet/Moon data 
  */
 export class OgamePlanet {
+    id: string;
+    
     name: string;
     type: PlanetType;
 
@@ -37,9 +41,9 @@ export class OgamePlanet {
     system: number;
     position: number;
 
-    shipsData: any; //TODO: Tipizzare
+    shipsData: any; 
 
-    fleetMission: any;
+    moon?: any;
 }
 
 /**
@@ -66,4 +70,16 @@ export enum Mission {
     DESTROY = 9,
     MISSILEATTACK = 10,
     EXPEDITION = 15
+}
+
+export class OgameMission {
+    planetId?: string;
+    missionCode?: string;
+    galaxy?: number;
+    mission?: number;
+    position?: number;
+    system?: number;
+    type?: number;
+    velocity?: number;
+
 }

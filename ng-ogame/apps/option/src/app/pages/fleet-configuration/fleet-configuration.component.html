@@ -20,6 +20,7 @@
             <div class="planet_container"
                  *ngFor="let p of uni.planets">
                 <og-planet uni="{{uni.code}}"
+                            [mission]="getMissionFor(p, uni)"
                            [planet]="p">
                 </og-planet>
             </div>

@@ -21,21 +21,14 @@ export class OgameMenuComponent implements OnInit, OnChanges {
     this.storage.ogameData.forEach(u => {
       const uni = { ...u };
 
-      uni.planets = [...u.planets]
-        ?.sort((x, y) => x.type - y.type)
-        .reduce((acc, item) => {
-          if (item.type === PlanetType.MOON) {
-            const found = acc.find(x => this.idForPlanetNoType(x, u.code) === this.idForPlanetNoType(item, u.code));
+      const moons = uni.planets.filter(p => p.type === PlanetType.MOON);
 
-            if (found?.type === PlanetType.PLANET) {
-              found.moon = item;
-            }
-          } else {
-            acc.push(item)
-          }
-
-          return acc;
-        }, []);
+      uni.planets = uni.planets
+        .filter(p => p.type === PlanetType.PLANET)
+        .map(p => ({
+          ...p,
+          moon: moons.find(m => this.idForPlanetNoType(m, u.code) === this.idForPlanetNoType(p, u.code))
+        }));
 
       result.push(uni);
     });
