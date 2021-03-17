@@ -33,11 +33,29 @@ export class StorageService {
     this.storageChanges.subscribe(
       (changes) => {
         for (var key in changes) {
-          this.storage[key] = changes[key]?.newValue;
-          this.storage = { ...this.storage };
+          const oldStorage = {...this.storage};
+          oldStorage[key] = changes[key]?.newValue;
+
+          this.sortStorage(oldStorage);
+          
+          this.storage = { ...oldStorage };
         }
       }
     );
+  }
+
+  private sortStorage(storage){
+    // Sort by Universe Code
+    storage.ogameData?.sort((x, y) => x.code.localeCompare(y.code));
+
+    // Sort planets by coords and type 
+    storage.ogameData.forEach(uni => {
+      uni.planets?.sort((p1, p2) => {
+        const p1Coords = Number.parseInt(`${p1.galaxy}${p1.system.toString().padStart(3, '0')}${p1.position.toString().padStart(2, '0')}${p1.type}`);
+        const p2Coords = Number.parseInt(`${p2.galaxy}${p2.system.toString().padStart(3, '0')}${p2.position.toString().padStart(2, '0')}${p2.type}`);
+        return p1Coords - p2Coords;
+      });
+    });
   }
 
   getFullStorage(): Promise<any> {
@@ -62,17 +80,7 @@ export class StorageService {
     }
 
     let subs = storage$.subscribe(storage => {
-      // Sort by Universe Code
-      storage.ogameData?.sort((x, y) => x.code.localeCompare(y.code));
-
-      // Sort planets by coords and type 
-      storage.ogameData.forEach(uni => {
-        uni.planets?.sort((p1, p2) => {
-          const p1Coords = Number.parseInt(`${p1.galaxy}${p1.system.toString().padStart(3, '0')}${p1.position.toString().padStart(2, '0')}${p1.type}`);
-          const p2Coords = Number.parseInt(`${p2.galaxy}${p2.system.toString().padStart(3, '0')}${p2.position.toString().padStart(2, '0')}${p2.type}`);
-          return p1Coords - p2Coords;
-        });
-      });
+      this.sortStorage(storage);
 
       this.storage = storage;
       subs.unsubscribe();

@@ -27,6 +27,7 @@ export class OgameMenuComponent implements OnInit, OnChanges {
         .filter(p => p.type === PlanetType.PLANET)
         .map(p => ({
           ...p,
+          // TODO: questa find ora può sfruttare gli ID 
           moon: moons.find(m => this.idForPlanetNoType(m, u.code) === this.idForPlanetNoType(p, u.code))
         }));
 
