@@ -46,7 +46,10 @@ export class AppComponent implements OnInit {
   }
 
   updateFleets(){
-    this.executeScript(`prova()`);
+    this.executeScript(`run('mp.updateFleets()')`);
+  }
+  fleetSave(){
+    this.executeScript(`run('mp.automaticFleetSave()')`);
   }
 
 }

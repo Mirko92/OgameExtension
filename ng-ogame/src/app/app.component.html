@@ -16,15 +16,18 @@
           <button (click)="updateFleets()">
             Update fleets
           </button>
+          <button (click)="fleetSave()">
+            Fleet-Save
+          </button>
         </div>
       </ng-container>
-
-      <button (click)="goToOptions()">Opzioni</button>
-
     </ng-container>
+
+    <button class="goto_option" (click)="goToOptions()">Opzioni</button>
   </div>
 
-  <router-outlet></router-outlet>
+  <!-- <router-outlet></router-outlet> -->
+
 
   <span class="version">
     MP-Ogame V. {{version}}

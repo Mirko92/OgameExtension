@@ -11,8 +11,11 @@ console.debug("Mp Ogame extension. ID: %s - Version: ",
 }).apply(this);
 
 
-function prova() {
-    console.log("prova()", planetIds());
+function run(script) {
+    document.body.insertAdjacentHTML("afterend",`<button id="runscript" hiddent onclick="${script}">Run script</button>`);
+    const btn = document.getElementById('runscript');
+    btn.click();
+    btn.remove();
 }
 
 /**

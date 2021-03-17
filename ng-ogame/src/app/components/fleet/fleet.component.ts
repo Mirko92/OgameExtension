@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'og-fleet',
   template: `
-    <h1>Fleet</h1>
+    <section>
+      <h1>Fleet</h1>
+    </section>
   `,
   styles: [
   ]
