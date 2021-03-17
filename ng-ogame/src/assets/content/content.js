@@ -4,53 +4,17 @@ console.debug("Mp Ogame extension. ID: %s - Version: ",
     chrome.runtime.getManifest().version
 );
 
-(async () => {
-    const utils = await import(chrome.extension.getURL('assets/scripts/mp_utils.js'));
-
-    this.planetIds = utils.planetIds;
-}).apply(this);
-
-
-function run(script) {
-    document.body.insertAdjacentHTML("afterend",`<button id="runscript" hiddent onclick="${script}">Run script</button>`);
-    const btn = document.getElementById('runscript');
-    btn.click();
-    btn.remove();
-}
-
 /**
  * Save Extension version on localstorage 
  */
 localStorage.setItem('mp_ogame_ext_id', chrome.runtime.id);
 
-/**
- * Main menu buttons 
- */
-document
-    .querySelector("#menuTable li:last-child")
-    .insertAdjacentHTML(
-        "afterend",
-        `<li>
-            <span class="menu_icon">
-                <span class="menuImage"></span>
-            </span>
-            <a  class="menubutton" 
-                href="javascript:void(0);"
-                onclick="mp.automaticFleetSave()">
-                <span class="textlabel">Fleet save</span>
-            </a>
-        </li>
-        <li>
-            <span class="menu_icon">
-                <span class="menuImage"></span>
-            </span>
-            <a  class="menubutton" 
-                href="javascript:void(0);"
-                onclick="mp.updateFleets()">
-                <span class="textlabel">Update Fleets</span>
-            </a>
-        </li>`
-    );
+function run(script) {
+    document.body.insertAdjacentHTML("afterend", `<button id="runscript" hiddent onclick="${script}">Run script</button>`);
+    const btn = document.getElementById('runscript');
+    btn.click();
+    btn.remove();
+}
 
 
 //#region WepPage script
@@ -67,12 +31,10 @@ document.head.appendChild(ogameScript);
 //#region TRADER
 var interval = null;
 
-// TODO: In generale creare classe per il battitore 
 function getMaxButtons() {
     return document.querySelectorAll(".normalResource a.max");
 }
 
-// TODO: scegliere nome migliore
 function payButton() {
     return document.querySelectorAll("a.pay")[0];
 }

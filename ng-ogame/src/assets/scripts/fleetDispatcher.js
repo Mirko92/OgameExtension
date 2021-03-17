@@ -20,7 +20,7 @@ export class MpFleetDispatcher {
     async saveFleetInfo(uni, planet, shipsData) {
         const uniName = document.title?.split(' ')[0];
 
-        planet.id = currentPlanetId();
+        planet.id = this._currentPlanetId();
 
         return new Promise((resolve) => {
             chrome.runtime.sendMessage(mp.extensionId(),
@@ -31,6 +31,28 @@ export class MpFleetDispatcher {
                 resolve
             );
         });
+    }
+
+    _currentPlanetId() {
+        let result = null;
+    
+        if (currentPlanet.type === MP_PLANET_TYPES.MOON) {
+            const currentMoonEl = document.querySelector(".hightlightMoon a.moonlink");
+            const moonUrl = currentMoonEl.getAttribute("href");
+    
+            var searchParams = new URLSearchParams(moonUrl);
+            result = searchParams.get('cp');
+        } else {
+            const currentPlanetEl = document.querySelector(".hightlightPlanet");
+            result = currentPlanetEl.getAttribute('id').replace("planet-", "");
+        }
+    
+        if (result) {
+            return result;
+        } else {
+            throw "Current planet id not found";
+        }
+    
     }
 
     /**
@@ -73,7 +95,7 @@ export class MpFleetDispatcher {
             chrome.runtime.sendMessage(mp.extensionId(),
                 {
                     method: "GET_FLEET_SAVE_DATA",
-                    data: { uni: mp.server(), planetId: currentPlanetId() }
+                    data: { uni: mp.server(), planetId: this._currentPlanetId() }
                 },
 
                 (r) => {
