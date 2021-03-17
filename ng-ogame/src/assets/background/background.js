@@ -1,30 +1,28 @@
 chrome.runtime.onInstalled.addListener(function () {
   console.debug("Extension installed");
-
-  /**
-   * Check if tab is running ogame inside 
-   */
-  chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (/https:\/\/s\d\d\d-\D\D.ogame.gameforge.*/.test(tab.url)) {
-      console.debug("Tab is running ogame");
-    }
-  });
-
-  /*  
+});
+/*  
     Enable extension for 'ogame.gameforges' host only
   */
-  chrome.declarativeContent.onPageChanged.addRules([
-    {
-      conditions: [
-        new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: { urlContains: 'ogame.gameforge' },
-        })
-      ],
-      actions: [
-        new chrome.declarativeContent.ShowPageAction(),
-      ]
-    }
-  ]);
+chrome.declarativeContent.onPageChanged.addRules([
+  {
+    conditions: [
+      new chrome.declarativeContent.PageStateMatcher({
+        pageUrl: { urlContains: 'ogame.gameforge' },
+      })
+    ],
+    actions: [
+      new chrome.declarativeContent.ShowPageAction(),
+    ]
+  }
+]);
+/**
+   * Check if tab is running ogame inside 
+   */
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  if (/https:\/\/s\d\d\d-\D\D.ogame.gameforge.*/.test(tab.url)) {
+    console.debug("Tab is running ogame");
+  }
 });
 
 /**
@@ -140,7 +138,7 @@ function getFleetSave(data, callback) {
 function saveMission(data, callback) {
   const { uni, mission } = data;
 
-  chrome.storage.local.get(['ogameData'], function ({ogameData}) {
+  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
     let uniData = ogameData.find(u => u.code === uni);
 
     // Update planets into universe

@@ -1,7 +1,19 @@
+
 console.debug("Mp Ogame extension. ID: %s - Version: ",
     chrome.runtime.id,
     chrome.runtime.getManifest().version
 );
+
+(async () => {
+    const utils = await import(chrome.extension.getURL('assets/scripts/mp_utils.js'));
+
+    this.planetIds = utils.planetIds;
+}).apply(this);
+
+
+function prova() {
+    console.log("prova()", planetIds());
+}
 
 /**
  * Save Extension version on localstorage 
@@ -47,6 +59,7 @@ ogameScript.setAttribute('type', "module");
 ogameScript.src = chrome.extension.getURL("assets/scripts/mp_ogame.js");
 document.head.appendChild(ogameScript);
 //#endregion
+
 
 //#region TRADER
 var interval = null;

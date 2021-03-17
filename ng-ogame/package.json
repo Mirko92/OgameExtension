@@ -1,24 +1,19 @@
 {
   "name": "ogame-ext",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
-
     "start": "ng serve",
     "start-option": "ng s --project option",
-    
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    
     "b-main": "ng build ogame-ext",
     "b-option": "ng build option --base-href=./",
-
-    "preb-main-prod":"npm --no-git-tag-version version patch",
+    "preb-main-prod": "npm --no-git-tag-version version patch",
     "b-main-prod": "ng build --prod ogame-ext",
     "b-option-prod": "ng build option --prod --base-href=./",
-
     "b-main-w": "ng build ogame-ext --watch",
     "b-option-w": "ng build option --watch --base-href=./"
   },

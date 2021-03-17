@@ -32,3 +32,15 @@ export function currentPlanetId() {
     }
 
 }
+
+export function planetIds() {
+    return [...document.querySelectorAll('a.planetlink, a.moonlink')].map(l => {
+
+        let url = l.getAttribute("href");
+
+        var searchParams = new URLSearchParams(url);
+
+        return searchParams.get('cp');
+
+    });
+}

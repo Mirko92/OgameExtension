@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TraderComponent } from './components/trader/trader.component';
+import { FleetComponent } from './components/fleet/fleet.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TraderComponent,
+    FleetComponent
   ],
   imports: [
     BrowserModule,

@@ -10,16 +10,13 @@ declare const chrome;
 export class AppComponent implements OnInit {
   title = 'ogame-ext';
 
-  maxBet: number = 5000;
-
   currentComponent: string = null;
 
-  get version(){
+  get version() {
     return chrome.runtime.getManifest().version;
   }
 
-  constructor(
-    private _ngZone: NgZone) { }
+  constructor(private _ngZone: NgZone) { }
 
   ngOnInit() {
     chrome.tabs.query(
@@ -27,16 +24,16 @@ export class AppComponent implements OnInit {
       (tabs) => {
         const url = tabs[0]?.url;
 
-        if(url){
+        if (url) {
           const searchParams = new URLSearchParams(url);
           let component = searchParams.get('component').split('#')[0];
-  
+
           this._ngZone.run(() => this.currentComponent = component);
         }
       });
   }
 
-  goToOptions(){
+  goToOptions() {
     chrome.runtime.openOptionsPage();
   }
 
@@ -48,15 +45,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  runBot() {
-    this.executeScript(`bot(${this.maxBet});`);
+  updateFleets(){
+    this.executeScript(`prova()`);
   }
 
-  stop() {
-    this.executeScript(`stop();`);
-  }
-
-  bet() {
-    this.executeScript('betMetal();');
-  }
 }
