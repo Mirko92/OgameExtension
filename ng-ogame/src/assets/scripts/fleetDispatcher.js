@@ -1,4 +1,4 @@
-import { MP_PLANET_TYPES } from './consts.js';
+import { MP_PLANET_TYPES, MP_MISSIONS } from './consts.js';
 /**
  * FleetDispatch page controller
  */
@@ -193,7 +193,7 @@ export class MpFleetDispatcher {
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
             speed: 10,
-            mission: 15,
+            mission: MP_MISSIONS.DEPLOY,
             //TO:
             galaxy: currentPlanet.galaxy,
             system: currentPlanet.system,
