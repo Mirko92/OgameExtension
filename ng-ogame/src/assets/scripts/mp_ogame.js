@@ -125,6 +125,31 @@ window.mp = {
         }
     },
 
+    async moveToPlanet(mission){
+        if (mission) {
+
+            if (currentPage === 'fleetdispatch') {
+                await this.fleetDispatcher.moveSmallCargoToPlanet();
+            }
+
+            if (mission.planetList?.length) {
+                const planetId = mission.planetList.pop();
+                localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+                location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
+            } else {
+                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+            }
+
+        } else {
+            mission = { code: 'move-to-planet' };
+
+            mission.planetList = this.planetIds();
+
+            localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+            location.reload();
+        }
+    },
+
     todo: function () {
         const mission = JSON.parse(localStorage.getItem(MP_LOCAL_STORAGE.MISSION));
 
@@ -146,6 +171,10 @@ window.mp = {
 
             case "update-fleets":
                 this.updateFleets(mission);
+                break;
+
+            case "move-to-planet":
+                this.moveToPlanet(mission);
                 break;
 
             default:

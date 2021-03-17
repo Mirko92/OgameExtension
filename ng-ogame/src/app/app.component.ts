@@ -51,5 +51,8 @@ export class AppComponent implements OnInit {
   fleetSave(){
     this.executeScript(`run('mp.automaticFleetSave()')`);
   }
+  moveToPlanet(){
+    this.executeScript(`run('mp.moveToPlanet()')`);
+  }
 
 }

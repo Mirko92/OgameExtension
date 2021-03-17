@@ -1,5 +1,4 @@
-import { currentPlanetId } from './mp_utils.js';
-
+import { MP_PLANET_TYPES } from './consts.js';
 /**
  * FleetDispatch page controller
  */
@@ -35,24 +34,24 @@ export class MpFleetDispatcher {
 
     _currentPlanetId() {
         let result = null;
-    
+
         if (currentPlanet.type === MP_PLANET_TYPES.MOON) {
             const currentMoonEl = document.querySelector(".hightlightMoon a.moonlink");
             const moonUrl = currentMoonEl.getAttribute("href");
-    
+
             var searchParams = new URLSearchParams(moonUrl);
             result = searchParams.get('cp');
         } else {
             const currentPlanetEl = document.querySelector(".hightlightPlanet");
             result = currentPlanetEl.getAttribute('id').replace("planet-", "");
         }
-    
+
         if (result) {
             return result;
         } else {
             throw "Current planet id not found";
         }
-    
+
     }
 
     /**
@@ -181,6 +180,40 @@ export class MpFleetDispatcher {
 
             //Ships
             ...[{}, ...expSheeps].reduce(
+                (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
+            )
+        }).toString();
+
+        this.sendFleet(body).then(() => location.reload());
+    }
+
+    moveSmallCargoToPlanet(e) {
+        const { id, number } = shipsData[202];
+
+        const body = new URLSearchParams({
+            token: fleetDispatcher.fleetSendingToken,
+            speed: 10,
+            mission: 15,
+            //TO:
+            galaxy: currentPlanet.galaxy,
+            system: currentPlanet.system,
+            position: currentPlanet.position,
+            type: 1,
+            //HOLD:
+            metal: 0,
+            crystal: 0,
+            deuterium: 0,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            retreatAfterDefenderRetreat: 0,
+            union: 0,
+            holdingtime: 1,
+
+            //Ships
+            ...[{}, { id, number }].reduce(
                 (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
             )
         }).toString();
