@@ -58,4 +58,10 @@ export class AppComponent implements OnInit {
     this.executeScript(`run('mp.moveToMoon()')`);
   }
 
+
+  destination: string; 
+  collect(){
+    this.executeScript(`run('mp.collectToMain(null, \\'${this.destination}\\')')`);
+  }
+
 }

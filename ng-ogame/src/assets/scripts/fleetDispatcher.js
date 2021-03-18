@@ -185,39 +185,65 @@ export class MpFleetDispatcher {
         }).toString();
 
         this.sendFleet(body)
-        .then(() => location.reload());
+            .then(() => location.reload());
     }
 
     moveSmallCargoToPlanet() {
-        const { number } = shipsOnPlanet.find(s => s.id === 202);
+        if(currentPlanet.type === MP_PLANET_TYPES.PLANET) {
+            console.warn("Mission lanciata da pianeta verso pianeta");
+            return Promise.resolve(null);
+        }; 
 
-        const body = new URLSearchParams({
-            token: fleetDispatcher.fleetSendingToken,
-            speed: 10,
-            mission: MP_MISSIONS.DEPLOY,
-            //TO:
-            galaxy: currentPlanet.galaxy,
-            system: currentPlanet.system,
-            position: currentPlanet.position,
-            type: 1,
-            //HOLD:
-            metal: 0,
-            crystal: 0,
-            deuterium: 0,
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const number = shipsOnPlanet.find(s => s.id === 202)?.number;
 
-            prioMetal: 1,
-            prioCrystal: 2,
-            prioDeuterium: 3,
-
-            am202: number
-        }).toString();
-
+                if(!number){
+                    resolve();
+                }
     
-        this.sendFleet(body).then(() => location.reload());
+                const body = new URLSearchParams({
+                    token: fleetDispatcher.fleetSendingToken,
+                    speed: 10,
+                    mission: MP_MISSIONS.DEPLOY,
+                    //TO:
+                    galaxy: currentPlanet.galaxy,
+                    system: currentPlanet.system,
+                    position: currentPlanet.position,
+                    type: 1,
+                    //HOLD:
+                    metal: 0,
+                    crystal: 0,
+                    deuterium: 0,
+    
+                    prioMetal: 1,
+                    prioCrystal: 2,
+                    prioDeuterium: 3,
+    
+                    am202: number
+                }).toString();
+    
+    
+                this.sendFleet(body)
+                .then(() => location.reload())
+                .finally(resolve)
+            }, 200);
+
+        })
+
     }
 
     moveSmallCargoToMoon() {
-        const { number } = shipsOnPlanet.find(s => s.id === 202);
+        if(currentPlanet.type === MP_PLANET_TYPES.MOON) {
+            console.warn("Mission lanciata da luna verso luna");
+            return Promise.resolve(null);
+        }; 
+
+        const number = shipsOnPlanet.find(s => s.id === 202)?.number;
+
+        if(!number){
+            return Promise.resolve(null);
+        }
 
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
@@ -241,7 +267,50 @@ export class MpFleetDispatcher {
             am202: number
         }).toString();
 
-        this.sendFleet(body).then(() => location.reload());
+        return this.sendFleet(body).then(() => location.reload());
+    }
+
+    moveSmallCargoTo(destination) {
+        const {galaxy, system, position, type} = currentPlanet;
+        const current = [galaxy, system, position, type].join(',');
+
+        if(current === destination){
+            console.warn("Partenza e destinazione sono uguali");
+            return Promise.resolve(null);
+        }
+
+        console.debug("destination");
+        const [destG,destS, destP,destT] = destination.split(',');
+
+        const number = shipsOnPlanet.find(s => s.id === 202)?.number;
+
+        if(!number){
+            return Promise.resolve(null);
+        }
+
+        const body = new URLSearchParams({
+            token: fleetDispatcher.fleetSendingToken,
+            speed: 10,
+            mission: MP_MISSIONS.DEPLOY,
+            //TO:
+            galaxy: destG,
+            system: destS,
+            position: destP,
+            type: destT,
+            //HOLD:
+            metal: resourcesBar.resources.metal.amount,
+            crystal: resourcesBar.resources.crystal.amount,
+            deuterium: resourcesBar.resources.deuterium.amount,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            //Ships
+            am202: number
+        }).toString();
+
+        return this.sendFleet(body).then(() => location.reload());
     }
 
     sendFleet(body) {

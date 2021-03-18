@@ -125,7 +125,7 @@ window.mp = {
         }
     },
 
-    async moveToPlanet(mission){
+    async moveToPlanet(mission) {
         if (mission) {
 
             if (currentPage === 'fleetdispatch') {
@@ -150,7 +150,7 @@ window.mp = {
         }
     },
 
-    async moveToMoon(mission){
+    async moveToMoon(mission) {
         if (mission) {
 
             if (currentPage === 'fleetdispatch') {
@@ -167,6 +167,31 @@ window.mp = {
 
         } else {
             mission = { code: 'move-to-moon' };
+
+            mission.planetList = this.planetIds();
+
+            localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+            location.reload();
+        }
+    },
+
+    async collectToMain(mission, destination) {
+        if (mission) {
+
+            if (currentPage === 'fleetdispatch') {
+                await this.fleetDispatcher.moveSmallCargoTo(mission.destination);
+            }
+
+            if (mission.planetList?.length) {
+                const planetId = mission.planetList.pop();
+                localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+                location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
+            } else {
+                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+            }
+
+        } else {
+            mission = { code: 'collect-to-main', destination };
 
             mission.planetList = this.planetIds();
 
@@ -204,6 +229,10 @@ window.mp = {
 
             case "move-to-moon":
                 this.moveToMoon(mission);
+                break;
+
+            case "collect-to-main":
+                this.collectToMain(mission);
                 break;
 
             default:

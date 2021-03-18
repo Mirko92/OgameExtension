@@ -28,6 +28,13 @@
           <button (click)="moveToMoon()">
             Move cargo to moon
           </button>
+
+          <input [(ngModel)]="destination" type="text">
+          
+          <button (click)="collect()">
+            Collect
+          </button>
+
         </div>
       </ng-container>
     </ng-container>
