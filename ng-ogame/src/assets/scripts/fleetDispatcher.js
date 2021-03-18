@@ -184,11 +184,12 @@ export class MpFleetDispatcher {
             )
         }).toString();
 
-        this.sendFleet(body).then(() => location.reload());
+        this.sendFleet(body)
+        .then(() => location.reload());
     }
 
-    moveSmallCargoToPlanet(e) {
-        const { id, number } = shipsOnPlanet.find(s => s.id === 202);
+    moveSmallCargoToPlanet() {
+        const { number } = shipsOnPlanet.find(s => s.id === 202);
 
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
@@ -208,21 +209,15 @@ export class MpFleetDispatcher {
             prioCrystal: 2,
             prioDeuterium: 3,
 
-            retreatAfterDefenderRetreat: 0,
-            union: 0,
-            holdingtime: 1,
-
-            //Ships
-            ...[{}, { id, number }].reduce(
-                (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
-            )
+            am202: number
         }).toString();
 
+    
         this.sendFleet(body).then(() => location.reload());
     }
 
     moveSmallCargoToMoon() {
-        const { id, number } = shipsOnPlanet.find(s => s.id === 202);
+        const { number } = shipsOnPlanet.find(s => s.id === 202);
 
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
@@ -242,14 +237,8 @@ export class MpFleetDispatcher {
             prioCrystal: 2,
             prioDeuterium: 3,
 
-            retreatAfterDefenderRetreat: 0,
-            union: 0,
-            holdingtime: 1,
-
             //Ships
-            ...[{}, { id, number }].reduce(
-                (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
-            )
+            am202: number
         }).toString();
 
         this.sendFleet(body).then(() => location.reload());

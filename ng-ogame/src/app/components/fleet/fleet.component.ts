@@ -5,6 +5,13 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <section>
       <h1>Fleet</h1>
+
+      <div class="centered">
+          <button (click)="moveSmallCargoToPlanet()">
+            Move cargo to planet
+          </button>
+      </div>
+
     </section>
   `,
   styles: [
@@ -17,4 +24,15 @@ export class FleetComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  private executeScript(script: string) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.executeScript(
+        tabs[0].id,
+        { code: script });
+    });
+  }
+
+  moveSmallCargoToPlanet() {
+    this.executeScript(`run('mp.fleetDispatcher.moveSmallCargoToPlanet()')`);
+  }
 }
