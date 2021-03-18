@@ -10,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
           <button (click)="moveSmallCargoToPlanet()">
             Move cargo to planet
           </button>
+          <button (click)="moveSmallCargoToMoon()">
+            Move cargo to moon
+          </button>
       </div>
 
     </section>
@@ -34,5 +37,9 @@ export class FleetComponent implements OnInit {
 
   moveSmallCargoToPlanet() {
     this.executeScript(`run('mp.fleetDispatcher.moveSmallCargoToPlanet()')`);
+  }
+
+  moveSmallCargoToMoon() {
+    this.executeScript(`run('mp.fleetDispatcher.moveSmallCargoToMoon()')`);
   }
 }

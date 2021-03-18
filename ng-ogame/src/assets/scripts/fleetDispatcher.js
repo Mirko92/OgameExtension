@@ -255,13 +255,14 @@ export class MpFleetDispatcher {
             position: currentPlanet.position,
             type: MP_PLANET_TYPES.MOON,
             //HOLD:
-            metal: resourcesBar.resources.metal.amount,
-            crystal: resourcesBar.resources.crystal.amount,
-            deuterium: resourcesBar.resources.deuterium.amount,
+            metal: resourcesBar.resources.metal.amount.toFixed(),
+            crystal: resourcesBar.resources.crystal.amount.toFixed(),
+            deuterium: resourcesBar.resources.deuterium.amount.toFixed(),
 
             prioMetal: 1,
             prioCrystal: 2,
             prioDeuterium: 3,
+
 
             //Ships
             am202: number
@@ -288,6 +289,9 @@ export class MpFleetDispatcher {
             return Promise.resolve(null);
         }
 
+        const currentDeuAmount = resourcesBar.resources.deuterium.amount;
+        const deuToHold = currentDeuAmount > 5e6  ? currentDeuAmount - 5e6 : 0;
+
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
             speed: 10,
@@ -300,7 +304,7 @@ export class MpFleetDispatcher {
             //HOLD:
             metal: resourcesBar.resources.metal.amount,
             crystal: resourcesBar.resources.crystal.amount,
-            deuterium: resourcesBar.resources.deuterium.amount,
+            deuterium: deuToHold,
 
             prioMetal: 1,
             prioCrystal: 2,
