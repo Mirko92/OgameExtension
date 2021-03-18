@@ -188,7 +188,7 @@ export class MpFleetDispatcher {
     }
 
     moveSmallCargoToPlanet(e) {
-        const { id, number } = shipsData[202];
+        const { id, number } = shipsOnPlanet.find(s => s.id === 202);
 
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
@@ -203,6 +203,40 @@ export class MpFleetDispatcher {
             metal: 0,
             crystal: 0,
             deuterium: 0,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            retreatAfterDefenderRetreat: 0,
+            union: 0,
+            holdingtime: 1,
+
+            //Ships
+            ...[{}, { id, number }].reduce(
+                (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
+            )
+        }).toString();
+
+        this.sendFleet(body).then(() => location.reload());
+    }
+
+    moveSmallCargoToMoon() {
+        const { id, number } = shipsOnPlanet.find(s => s.id === 202);
+
+        const body = new URLSearchParams({
+            token: fleetDispatcher.fleetSendingToken,
+            speed: 10,
+            mission: MP_MISSIONS.DEPLOY,
+            //TO:
+            galaxy: currentPlanet.galaxy,
+            system: currentPlanet.system,
+            position: currentPlanet.position,
+            type: MP_PLANET_TYPES.MOON,
+            //HOLD:
+            metal: resourcesBar.resources.metal.amount,
+            crystal: resourcesBar.resources.crystal.amount,
+            deuterium: resourcesBar.resources.deuterium.amount,
 
             prioMetal: 1,
             prioCrystal: 2,

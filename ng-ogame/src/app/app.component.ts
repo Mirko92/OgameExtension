@@ -54,5 +54,8 @@ export class AppComponent implements OnInit {
   moveToPlanet(){
     this.executeScript(`run('mp.moveToPlanet()')`);
   }
+  moveToMoon(){
+    this.executeScript(`run('mp.moveToMoon()')`);
+  }
 
 }
