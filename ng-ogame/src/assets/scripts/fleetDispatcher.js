@@ -295,7 +295,7 @@ export class MpFleetDispatcher {
         const body = new URLSearchParams({
             token: fleetDispatcher.fleetSendingToken,
             speed: 10,
-            mission: MP_MISSIONS.DEPLOY,
+            mission: MP_MISSIONS.TRANSPORT,
             //TO:
             galaxy: destG,
             system: destS,
