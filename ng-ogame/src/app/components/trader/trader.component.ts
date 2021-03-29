@@ -9,10 +9,13 @@ import { Component } from '@angular/core';
           </header>
           <section class="trader__form">
 
-            <div class="form-group">
-              <label for="max-bet">Max bet</label>
+            <div class="form_group">
+              <div>
+                <label for="max-bet">Max bet</label>
+              </div>
               <input id="max-bet"
                      type="number"
+                     [ngModelOptions]="{standalone: true}"
                      [(ngModel)]="maxBet">
             </div>
 
@@ -32,7 +35,7 @@ import { Component } from '@angular/core';
           </section>
 
         </div>
-  `,
+  `
 })
 export class TraderComponent {
   maxBet: number = 5000;

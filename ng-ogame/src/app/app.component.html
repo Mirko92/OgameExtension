@@ -16,7 +16,7 @@
           <button (click)="updateFleets()">
             Update fleets
           </button>
-          
+
           <button (click)="fleetSave()">
             Fleet-Save
           </button>
@@ -29,17 +29,25 @@
             Move cargo to moon
           </button>
 
-          <input [(ngModel)]="destination" type="text">
-          
-          <button (click)="collect()">
-            Collect
-          </button>
+          <form (ngSubmit)="collect()"
+                class="form_group">
+            <input type="text"
+            placeholder="g,s,p, (3|1)"
+                   [(ngModel)]="destination"
+                   [ngModelOptions]="{standalone: true}">
+
+            <button (click)="collect()">
+              Collect
+            </button>
+          </form>
+
 
         </div>
       </ng-container>
     </ng-container>
 
-    <button class="goto_option" (click)="goToOptions()">Opzioni</button>
+    <button class="goto_option"
+            (click)="goToOptions()">Opzioni</button>
   </div>
 
   <!-- <router-outlet></router-outlet> -->

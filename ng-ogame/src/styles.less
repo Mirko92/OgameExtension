@@ -16,7 +16,7 @@ body {
   box-sizing: border-box;
 }
 
-main{
+main {
   padding-bottom: 1rem;
 }
 
@@ -119,6 +119,49 @@ button {
   }
 }
 
-button.goto_option{
+button.goto_option {
   margin-top: auto;
+}
+
+
+.form_group {
+  input {
+    background: none;
+    padding: 0.5rem 1rem;
+    border-radius: 35px;
+    border: 2px solid white;
+    outline: none !important;
+    color: white;
+    font-size: 1rem;
+
+    &::placeholder{
+      color: white;
+      opacity: .8;
+    }
+  }
+}
+
+.trader {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+
+  &__form {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      min-height: 0;
+      flex: 1;
+      margin: 0 auto;
+
+      input{
+        text-align: center;
+      }
+  }
+
+  .actions{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
 }
