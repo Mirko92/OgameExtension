@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ship',
@@ -10,6 +10,9 @@ export class ShipComponent {
   @Input()
   ship: any; 
 
+  @Input()
+  editable: boolean = false; 
+
   constructor() { }
 
   get shipName(){
@@ -18,6 +21,9 @@ export class ShipComponent {
 
   get shipAmount(){
     return this.ship?.number || "0";
+  }
+  set shipAmount(value: number){
+    this.ship.number = value;
   }
 
   get shipIconClass(){

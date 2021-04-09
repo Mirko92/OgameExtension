@@ -10,7 +10,9 @@
         </span>
     </span>
 
-    <!-- <input type="text"
-        name="transporterSmall"> -->
+    <template [ngIf]="editable">
+        <input type="text"
+               [(ngModel)]="shipAmount">
+    </template>
 
 </li>
