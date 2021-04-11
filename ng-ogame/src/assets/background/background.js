@@ -68,6 +68,11 @@ function handleMessage(request, sender, sendResponse) {
       saveMission(request.data, sendResponse);
       return true;
 
+    case "SAVE_EXPEDITION_CONFIG":
+      console.debug("Methdod: SAVE_EXPEDITION_CONFIG", request.data);
+      saveExpeditionMission(request.data, sendResponse);
+      return true;
+
     default:
       break;
   }
@@ -146,6 +151,21 @@ function saveMission(data, callback) {
       ...(uniData.missions || [])?.filter(x => x.planetId !== mission.planetId),
       mission
     ];
+
+    chrome.storage.local.set({ ogameData: [...ogameData.filter(u => u.code !== uni), uniData] });
+    callback();
+  });
+}
+
+
+function saveExpeditionMission(data, callback){
+  const { uni, expeditionConfig } = data;
+
+  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
+    let uniData = ogameData.find(u => u.code === uni);
+
+    // Update expedition config 
+    uniData.expeditionConfig = expeditionConfig;
 
     chrome.storage.local.set({ ogameData: [...ogameData.filter(u => u.code !== uni), uniData] });
     callback();

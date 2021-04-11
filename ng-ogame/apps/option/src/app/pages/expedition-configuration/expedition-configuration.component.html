@@ -1,11 +1,10 @@
 <div class="page"
      role="main">
 
-     <div class="uni_content"
+    <div class="uni_content"
          style="position: relative;">
 
-        <div 
-            *ngFor="let uni of ogameData"
+        <div *ngFor="let uni of ogameData"
              id="{{uni.code}}">
 
             <div class="uni_title"
@@ -14,7 +13,10 @@
             </div>
 
             <div class="fleet">
-                <app-fleet [editable]="true"></app-fleet>
+                <app-fleet [editable]="true"
+                           [ships]="uni?.expeditionConfig?.ships"
+                           (onChange)="onChange(uni, $event)">
+                </app-fleet>
             </div>
 
         </div>

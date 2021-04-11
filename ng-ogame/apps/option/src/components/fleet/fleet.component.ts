@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { OgamePlanet } from 'model/OgameStorage';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-fleet',
@@ -9,15 +8,22 @@ import { OgamePlanet } from 'model/OgameStorage';
 export class FleetComponent {
 
   @Input()
-  planet: OgamePlanet;
+  ships: any[];
 
   @Input()
   editable: boolean = false;
 
+  @Output()
+  onChange: EventEmitter<{id:number, value: number}> = new EventEmitter();
+
   /**
    * Passa value and icon of a single ship
    */
-  getShipById(shipsData: any, id: number) {
-    return shipsData?.find(s => s.id === id) || { id };
+  getShipById(id: number) {
+    return this.ships?.find(s => s.id === id) || { id };
+  }
+
+  emitChange(value: {id:number, value: number}){
+    this.onChange.emit(value);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ship',
@@ -11,7 +11,10 @@ export class ShipComponent {
   ship: any; 
 
   @Input()
-  editable: boolean = false; 
+  editable: boolean = false;
+  
+  @Output()
+  onChange: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -26,8 +29,16 @@ export class ShipComponent {
     this.ship.number = value;
   }
 
+  get shipValue(){
+    return this.ship.value;
+  }
+
+  set shipValue(v){
+    this.ship.value = v;
+  }
+
   get shipIconClass(){
-    return `${this.mapping[this.ship?.id]?.iconClass} ${this.shipAmount > 0 ? '' : 'disabled'}`;
+    return `${this.mapping[this.ship?.id]?.iconClass} ${this.shipAmount > 0 || this.ship.value > 0 ? '' : 'disabled'}`;
   }
 
   mapping = {
@@ -47,4 +58,9 @@ export class ShipComponent {
     218:{name:"Reaper",                     iconClass:"reaper"            },
     219:{name:"Pathfinder",                 iconClass:"explorer"          }
   };
+
+  emitChange(value: number) {
+    const { id } = this.ship;
+    this.onChange.emit({ id, value });
+  }
 }

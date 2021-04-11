@@ -12,7 +12,8 @@
 
     <div *ngIf="editable">
         <input type="text"
-               [(ngModel)]="shipAmount">
+               (ngModelChange)="emitChange($event)"
+               [(ngModel)]="shipValue">
     </div>
 
 </li>

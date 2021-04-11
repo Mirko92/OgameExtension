@@ -2,6 +2,14 @@
     "ogameData": [
         {
             "code": "s170-it",
+            "expeditionConfig": {
+                "ships": [
+                    {
+                        "id": 208,
+                        "value": 20
+                    }
+                ]
+            },
             "missions": [
                 {
                     "galaxy": 1,

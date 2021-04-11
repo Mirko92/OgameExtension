@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StorageService } from 'apps/option/src/services/storage.service';
+import { OgameData } from 'model/OgameStorage';
 
 @Component({
   selector: 'og-expedition-configuration',
@@ -19,4 +20,22 @@ export class ExpeditionConfigurationComponent {
     return this.storage?.ogameData;
   }
 
+  onChange(uniData: OgameData, value: {id: number, value: number}){
+    let { code: uni } = uniData;
+
+    const expeditionConfig = { 
+      ...(uniData.expeditionConfig || {}), 
+      ...value
+    };
+
+    chrome.runtime.sendMessage(chrome.runtime.id,
+      {
+        method: "SAVE_EXPEDITION_CONFIG",
+        data: {
+          uni,
+          expeditionConfig
+        }
+      }
+    );
+  }
 }

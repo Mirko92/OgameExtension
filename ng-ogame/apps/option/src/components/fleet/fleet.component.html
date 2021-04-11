@@ -3,19 +3,19 @@
   </div>
 
   <ul id="military">
-    <app-ship [ship]="getShipById(planet?.shipsData, 202)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 203)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 208)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 209)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 210)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 204)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 205)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 206)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 207)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 215)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 211)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 213)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 214)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 218)" [editable]="editable"></app-ship>
-    <app-ship [ship]="getShipById(planet?.shipsData, 219)" [editable]="editable"></app-ship>
+    <app-ship [ship]="getShipById(202)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(203)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(208)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(209)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(210)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(204)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(205)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(206)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(207)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(215)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(211)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(213)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(214)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(218)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
+    <app-ship [ship]="getShipById(219)" [editable]="editable" (onChange)="emitChange($event)"></app-ship>
   </ul>
