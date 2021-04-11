@@ -11,6 +11,9 @@ export class FleetComponent {
   @Input()
   planet: OgamePlanet;
 
+  @Input()
+  editable: boolean = false;
+
   /**
    * Passa value and icon of a single ship
    */

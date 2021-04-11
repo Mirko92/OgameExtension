@@ -1,0 +1,33 @@
+.uni {
+
+    &_title {
+        text-align: center;
+        position: sticky;
+        color: orange;
+
+        height: 55px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    &_content {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        max-width: 400px;
+        height: 100vh;
+        .isSticky {
+            color: red;
+        }
+
+        /deep/ul#military{
+            li.technology{
+                margin-bottom: 2rem !important;
+            }
+        }
+
+    }
+}

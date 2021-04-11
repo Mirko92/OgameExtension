@@ -10,9 +10,9 @@
         </span>
     </span>
 
-    <template [ngIf]="editable">
+    <div *ngIf="editable">
         <input type="text"
                [(ngModel)]="shipAmount">
-    </template>
+    </div>
 
 </li>
