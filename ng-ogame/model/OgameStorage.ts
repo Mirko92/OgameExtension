@@ -25,6 +25,8 @@ export class OgameData {
     planets: OgamePlanet[];
 
     missions: OgameMission[];
+
+    expeditionConfig: any;
 }
 
 

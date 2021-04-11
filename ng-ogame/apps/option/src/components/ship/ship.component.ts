@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ship',
@@ -7,8 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ShipComponent {
 
+  ngOnInit(){
+    console.debug("diocane", this.ship);
+  }
+
   @Input()
   ship: any; 
+
+  @Input()
+  editable: boolean = false;
+  
+  @Output()
+  onChange: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -19,9 +29,20 @@ export class ShipComponent {
   get shipAmount(){
     return this.ship?.number || "0";
   }
+  set shipAmount(value: number){
+    this.ship.number = value;
+  }
+
+  get shipValue(){
+    return this.ship.value;
+  }
+
+  set shipValue(v){
+    this.ship.value = v;
+  }
 
   get shipIconClass(){
-    return `${this.mapping[this.ship?.id]?.iconClass} ${this.shipAmount > 0 ? '' : 'disabled'}`;
+    return `${this.mapping[this.ship?.id]?.iconClass} ${this.shipAmount > 0 || this.ship.value > 0 ? '' : 'disabled'}`;
   }
 
   mapping = {
@@ -41,4 +62,17 @@ export class ShipComponent {
     218:{name:"Reaper",                     iconClass:"reaper"            },
     219:{name:"Pathfinder",                 iconClass:"explorer"          }
   };
+
+  debounceId: any = null; 
+  emitChange(value: number) {
+    const { id } = this.ship;
+
+    clearTimeout(this.debounceId);
+
+    this.debounceId = setTimeout(() => {
+      this.onChange.emit({ id, value });
+    }, 300);
+  }
+
+
 }

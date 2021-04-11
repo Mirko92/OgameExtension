@@ -15,14 +15,19 @@
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+        justify-content: center;
 
+        max-width: 400px;
+        height: 100vh;
         .isSticky {
-            color: red;
+            color: rgb(230, 214, 214);
         }
 
-        &--centered{
-            justify-content: center;
-            max-width: 400px;
+        /deep/ul#military{
+            li.technology{
+                margin-bottom: 2rem !important;
+            }
         }
+
     }
 }

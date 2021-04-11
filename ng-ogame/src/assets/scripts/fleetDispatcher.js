@@ -144,48 +144,62 @@ export class MpFleetDispatcher {
 
     /**
      * Send configured expedition mission
-     * TODO: "Configuration UI" is missing 
      */
-    sendExpedition(e) {
+    sendExpedition(e, reload = true) {
         e.preventDefault();
 
-        const expSheeps = [
-            { id: 203, number: 200 }, //Cargoni
-            { id: 219, number: 1 },   //Path
-            { id: 210, number: 1 },   //Sonda
-            { id: 213, number: 1 },   //Cozza
-        ]
+        return new Promise((resolve) => {
+            chrome.runtime.sendMessage(mp.extensionId(),
+                {
+                    method: "GET_EXPEDITION_CONFIG",
+                    data: { uni: mp.server() }
+                },
 
-        const body = new URLSearchParams({
-            token: fleetDispatcher.fleetSendingToken,
-            speed: 10,
-            mission: 15,
-            //TO:
-            galaxy: currentPlanet.galaxy,
-            system: currentPlanet.system,
-            position: 16,
-            type: 1,
-            //HOLD:
-            metal: 0,
-            crystal: 0,
-            deuterium: 0,
+                (r) => {
+                    const { ships } = r || {};
+                    
+                    if (!ships || ships?.length === 0) {
+                        mp.message("Spedizioni non configurate", true);
+                        resolve(false);
+                        return;
+                    }
+            
+                    const body = new URLSearchParams({
+                        token: fleetDispatcher.fleetSendingToken,
+                        speed: 10,
+                        mission: 15,
+                        //TO:
+                        galaxy: currentPlanet.galaxy,
+                        system: currentPlanet.system,
+                        position: 16,
+                        type: 1,
+                        //HOLD:
+                        metal: 0,
+                        crystal: 0,
+                        deuterium: 0,
+            
+                        prioMetal: 1,
+                        prioCrystal: 2,
+                        prioDeuterium: 3,
+            
+                        retreatAfterDefenderRetreat: 0,
+                        union: 0,
+                        holdingtime: 1,
+            
+                        //Ships
+                        ...[{}, ...ships].reduce(
+                            (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.value }
+                        )
+                    }).toString();
 
-            prioMetal: 1,
-            prioCrystal: 2,
-            prioDeuterium: 3,
-
-            retreatAfterDefenderRetreat: 0,
-            union: 0,
-            holdingtime: 1,
-
-            //Ships
-            ...[{}, ...expSheeps].reduce(
-                (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
-            )
-        }).toString();
-
-        this.sendFleet(body)
-            .then(() => location.reload());
+                    this.sendFleet(body).then(() => {
+                        reload && location.reload();
+                    })
+                        .finally(() => resolve());
+            
+                }
+            );
+        });
     }
 
     async moveSmallCargoToPlanet() {
