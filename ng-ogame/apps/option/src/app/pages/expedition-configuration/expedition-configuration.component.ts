@@ -20,13 +20,15 @@ export class ExpeditionConfigurationComponent {
     return this.storage?.ogameData;
   }
 
-  onChange(uniData: OgameData, value: {id: number, value: number}){
-    let { code: uni } = uniData;
+  onChange(uniData: OgameData, shipUpdate: {id: number, value: number}){
+    let { code: uni, expeditionConfig} = uniData;
 
-    const expeditionConfig = { 
-      ...(uniData.expeditionConfig || {}), 
-      ...value
-    };
+    expeditionConfig ||= {ships: []};
+    
+    expeditionConfig.ships = [
+      ...(expeditionConfig?.ships?.filter(x => x.id !== shipUpdate.id) || []), 
+      shipUpdate
+    ];
 
     chrome.runtime.sendMessage(chrome.runtime.id,
       {

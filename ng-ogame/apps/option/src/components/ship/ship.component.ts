@@ -7,6 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ShipComponent {
 
+  ngOnInit(){
+    console.debug("diocane", this.ship);
+  }
+
   @Input()
   ship: any; 
 
@@ -59,8 +63,16 @@ export class ShipComponent {
     219:{name:"Pathfinder",                 iconClass:"explorer"          }
   };
 
+  debounceId: any = null; 
   emitChange(value: number) {
     const { id } = this.ship;
-    this.onChange.emit({ id, value });
+
+    clearTimeout(this.debounceId);
+
+    this.debounceId = setTimeout(() => {
+      this.onChange.emit({ id, value });
+    }, 300);
   }
+
+
 }
