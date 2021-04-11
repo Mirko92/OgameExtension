@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './pages/about/about.component';
-import { FleetConfigurationComponent } from './pages/fleet-configuration/fleet-configuration.component';
 
+// PAGES
+import { ExpeditionConfigurationComponent } from './pages/expedition-configuration/expedition-configuration.component';
+import { FleetConfigurationComponent }      from './pages/fleet-configuration/fleet-configuration.component';
+
+// ABOUT
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   {
@@ -15,6 +19,12 @@ const routes: Routes = [
     path: 'fleet-configuration',
     pathMatch: 'full',
     component: FleetConfigurationComponent
+  },
+
+  {
+    path: 'expedition-configuration',
+    pathMatch: 'full',
+    component: ExpeditionConfigurationComponent
   },
 
   {

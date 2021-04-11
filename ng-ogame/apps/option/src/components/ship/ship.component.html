@@ -5,12 +5,15 @@
     <span class="icon sprite sprite_small small"
           [class]="shipIconClass">
 
-        <span class="amount">
+        <span class="amount"
+              *ngIf="!editable">
             <span>{{shipAmount}}</span>
         </span>
     </span>
 
-    <!-- <input type="text"
-        name="transporterSmall"> -->
-
+    <div *ngIf="editable">
+        <input type="text"
+               (ngModelChange)="emitChange(+$event)"
+               [(ngModel)]="shipValue">
+    </div>
 </li>

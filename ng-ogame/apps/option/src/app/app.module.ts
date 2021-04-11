@@ -16,6 +16,7 @@ import { OgameCardComponent } from '../components/ogame-card/ogame-card.componen
 import { FleetConfigurationComponent } from './pages/fleet-configuration/fleet-configuration.component';
 import { MainMenuComponent } from '../components/main-menu/main-menu.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ExpeditionConfigurationComponent } from './pages/expedition-configuration/expedition-configuration.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AboutComponent } from './pages/about/about.component';
     StickyClassDirective,
     // PAGES
     FleetConfigurationComponent,
-    AboutComponent
+    AboutComponent,
+    ExpeditionConfigurationComponent
   ],
   imports: [
     BrowserModule,

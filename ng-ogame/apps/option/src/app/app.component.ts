@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
-import { OgamePlanet } from 'model/OgameStorage';
-import { StorageService } from '../services/storage.service';
-declare const chrome;
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 }
