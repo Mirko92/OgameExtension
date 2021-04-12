@@ -7,10 +7,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ShipComponent {
 
-  ngOnInit(){
-    console.debug("diocane", this.ship);
-  }
-
   @Input()
   ship: any; 
 

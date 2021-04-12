@@ -7,10 +7,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class FleetComponent {
 
-  ngOnInit(){
-    console.debug("madonna troia", this.ships);
-  }
-
   @Input()
   ships: any[];
 
