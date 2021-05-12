@@ -13,12 +13,19 @@
       <ng-container *ngSwitchDefault>
         <h1>Mp-Ogame</h1>
         <div class="centered">
+          <button (click)="keepMeOn()">
+            Keep me on
+          </button>
           <button (click)="updateFleets()">
             Update fleets
           </button>
 
           <button (click)="fleetSave()">
             Fleet-Save
+          </button>
+
+          <button (click)="sendExpeditions()">
+            Send expeditions
           </button>
 
           <button (click)="moveToPlanet()">
@@ -28,7 +35,6 @@
           <button (click)="moveToMoon()">
             Move cargo to moon
           </button>
-
           <form (ngSubmit)="collect()"
                 class="form_group">
             <input type="text"
@@ -40,6 +46,11 @@
               Collect
             </button>
           </form>
+
+          
+          <button (click)="STOP()">
+            STOP
+          </button>
 
 
         </div>

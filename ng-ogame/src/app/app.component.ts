@@ -45,6 +45,9 @@ export class AppComponent implements OnInit {
     });
   }
 
+  keepMeOn(){
+    this.executeScript(`run('mp.keepMeOn()')`);
+  }
   updateFleets(){
     this.executeScript(`run('mp.updateFleets()')`);
   }
@@ -57,11 +60,19 @@ export class AppComponent implements OnInit {
   moveToMoon(){
     this.executeScript(`run('mp.moveToMoon()')`);
   }
-
+  
 
   destination: string; 
   collect(){
     this.executeScript(`run('mp.collectToMain(null, \\'${this.destination}\\')')`);
+  }
+
+  STOP(){
+    this.executeScript(`run('mp.clearMissions()')`);
+  }
+
+  sendExpeditions(){
+    this.executeScript(`run('mp.sendExpeditions(null, \\'${this.destination}\\')')`);
   }
 
 }

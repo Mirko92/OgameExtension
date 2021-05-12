@@ -1,6 +1,6 @@
 {
   "name": "ogame-ext",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "b-main": "ng build ogame-ext",
     "b-option": "ng build option --base-href=./",
-    "preb-main-prod": "npm --no-git-tag-version version patch",
+    "asdpreb-main-prod": "npm --no-git-tag-version version patch",
     "b-main-prod": "ng build --prod ogame-ext",
     "b-option-prod": "ng build option --prod --base-href=./",
     "b-main-w": "ng build ogame-ext --watch",

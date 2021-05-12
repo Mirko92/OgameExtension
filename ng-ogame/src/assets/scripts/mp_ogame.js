@@ -88,7 +88,7 @@ window.mp = {
                 localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
                 location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
             } else {
-                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+                this.clearMissions()
             }
 
         } else {
@@ -112,7 +112,7 @@ window.mp = {
                     location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
                 }, 200);
             } else {
-                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+                this.clearMissions()
             }
 
         } else {
@@ -137,7 +137,7 @@ window.mp = {
                 localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
                 location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
             } else {
-                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+                this.clearMissions()
             }
 
         } else {
@@ -162,7 +162,7 @@ window.mp = {
                 localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
                 location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
             } else {
-                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+                this.clearMissions()
             }
 
         } else {
@@ -187,7 +187,7 @@ window.mp = {
                 localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
                 location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}&component=fleetdispatch`);
             } else {
-                localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+                this.clearMissions()
             }
 
         } else {
@@ -198,6 +198,65 @@ window.mp = {
             localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
             location.reload();
         }
+    },
+
+    //#region KEEP_ME_ON
+    _prepareKeepMeOn(delay) {
+        const next_exe = delay && (new Date().valueOf() + delay) ;
+
+        let mission = {
+            code: 'keep-me-on',
+            next_exe
+        };
+
+        mission.planetList = this.planetIds();
+
+        localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+        location.reload();
+    },
+
+    _randomMinutes() {
+        return (Math.floor(Math.random() * 4) + 3) * 1000 * 60;
+    },
+
+    _execKeepMeOn(mission) {
+        if (mission.planetList?.length) {
+            const planetId = mission.planetList.pop();
+
+            this.setMission(mission);
+
+            location.replace(`https://${this.server()}.ogame.gameforge.com/game/index.php?page=ingame&cp=${planetId}`);
+        } else {
+            this.clearMissions();
+            this._prepareKeepMeOn(this._randomMinutes());
+        }
+    },
+
+    keepMeOn(mission) {
+        if (mission) {
+            const now = new Date().valueOf();
+
+            if (!mission.next_exe || mission.next_exe < now) {
+                this._execKeepMeOn(mission);
+            } else {
+                const diff = mission.next_exe - now ;
+                setTimeout(() => {
+                    this._execKeepMeOn(mission);
+                }, diff);
+            }
+
+        } else {
+            this._prepareKeepMeOn(null);
+        }
+    },
+    //#endregion
+
+    setMission(mission) {
+        localStorage.setItem(MP_LOCAL_STORAGE.MISSION, JSON.stringify(mission));
+    },
+
+    clearMissions() {
+        localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
     },
 
     todo: function () {
@@ -233,6 +292,10 @@ window.mp = {
 
             case "collect-to-main":
                 this.collectToMain(mission);
+                break;
+
+            case "keep-me-on":
+                this.keepMeOn(mission);
                 break;
 
             default:
