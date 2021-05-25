@@ -179,7 +179,7 @@ window.mp = {
         if (mission) {
 
             if (currentPage === 'fleetdispatch') {
-                await this.fleetDispatcher.moveSmallCargoTo(mission.destination);
+                await this.fleetDispatcher.moveResourcesTo(mission.destination);
             }
 
             if (mission.planetList?.length) {

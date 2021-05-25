@@ -322,6 +322,64 @@ export class MpFleetDispatcher {
         return this.sendFleet(body).then(() => location.reload());
     }
 
+
+    moveResourcesTo(destination) {
+        const {galaxy, system, position, type} = currentPlanet;
+        const current = [galaxy, system, position, type].join(',');
+
+        if(current === destination){
+            console.warn("Partenza e destinazione sono uguali");
+            return Promise.resolve(null);
+        }
+
+        console.debug("destination");
+        const [destG,destS, destP,destT] = destination.split(',');
+
+        const littleCargo = shipsOnPlanet.find(s => s.id === 202);
+        const largeCargo  = shipsOnPlanet.find(s => s.id === 202);
+
+        const currentDeuAmount = resourcesBar.resources.deuterium.amount;
+        const deuToHold = currentDeuAmount > 5e6  ? currentDeuAmount - 5e6 : 0;
+
+        const total = deuToHold + crystalOnPlanet + metalOnPlanet;
+
+        const isEnoughLittleCargo   = total < littleCargo.cargoCapacity;
+        const isEnoughLargeCargo    = total < largeCargo.cargoCapacity;
+
+        let shipsToSend = null;
+        if ( isEnoughLittleCargo ) {
+            shipsToSend = { am202: (total / littleCargo.baseCargoCapacity) + 10 }
+        } else if ( isEnoughLargeCargo ) {
+            shipsToSend = { am203: (total / largeCargo.baseCargoCapacity) + 10 }
+        } else {
+            shipsToSend = { am203: largeCargo.number, am202: littleCargo.number }
+        }
+
+        const body = new URLSearchParams({
+            token: fleetDispatcher.fleetSendingToken,
+            speed: 10,
+            mission: MP_MISSIONS.TRANSPORT,
+            //TO:
+            galaxy: destG,
+            system: destS,
+            position: destP,
+            type: destT,
+            //HOLD:
+            metal: resourcesBar.resources.metal.amount,
+            crystal: resourcesBar.resources.crystal.amount,
+            deuterium: deuToHold,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            //Ships
+            ...shipsToSend
+        }).toString();
+
+        return this.sendFleet(body).then(() => location.reload());
+    }
+
     sendFleet(body) {
         let fleetUrl = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1";
         let referrer = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch";
