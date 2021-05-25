@@ -324,6 +324,13 @@ export class MpFleetDispatcher {
 
 
     moveResourcesTo(destination) {
+        if ( (metalOnPlanet + crystalOnPlanet) === 0 ) return;
+
+        const littleCargo = shipsOnPlanet.find(s => s.id === 202);
+        const largeCargo  = shipsOnPlanet.find(s => s.id === 203);
+
+        if( !littleCargo && !largeCargo ) return ;
+
         const {galaxy, system, position, type} = currentPlanet;
         const current = [galaxy, system, position, type].join(',');
 
@@ -335,9 +342,6 @@ export class MpFleetDispatcher {
         console.debug("destination");
         const [destG,destS, destP,destT] = destination.split(',');
 
-        const littleCargo = shipsOnPlanet.find(s => s.id === 202);
-        const largeCargo  = shipsOnPlanet.find(s => s.id === 202);
-
         const currentDeuAmount = resourcesBar.resources.deuterium.amount;
         const deuToHold = currentDeuAmount > 5e6  ? currentDeuAmount - 5e6 : 0;
 
@@ -348,9 +352,9 @@ export class MpFleetDispatcher {
 
         let shipsToSend = null;
         if ( isEnoughLittleCargo ) {
-            shipsToSend = { am202: (total / littleCargo.baseCargoCapacity) + 10 }
+            shipsToSend = { am202: Math.floor(total / littleCargo.baseCargoCapacity) + 10 }
         } else if ( isEnoughLargeCargo ) {
-            shipsToSend = { am203: (total / largeCargo.baseCargoCapacity) + 10 }
+            shipsToSend = { am203: Math.floor(total / largeCargo.baseCargoCapacity) + 10 }
         } else {
             shipsToSend = { am203: largeCargo.number, am202: littleCargo.number }
         }
