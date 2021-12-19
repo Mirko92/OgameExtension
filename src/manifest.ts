@@ -2,7 +2,7 @@ import type { Manifest } from 'webextension-polyfill-ts'
 import pkg from '../package.json'
 import { isDev, port } from '../scripts/utils'
 
-export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
+export async function getManifest(): Promise<Manifest.WebExtensionManifest | any> {
   // update this file to update this manifest.json
   // can also be conditional based on your need
   return {
@@ -44,5 +44,21 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
         ? `script-src \'self\' http://localhost:${port}; object-src \'self\'`
         : undefined,
     },
+    host_permissions: [
+      "http://*.ogame.gameforge.com/*",
+      // "*://*/*"
+    ],
+    web_accessible_resources: [
+      {
+        resources: [
+          './sections/overview.js',
+        ],
+        matches: [
+          'https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=overview*',
+          // 'http://*.ogame.gameforge/game/*',
+        ]
+      }
+    ]
+
   }
 }

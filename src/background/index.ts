@@ -1,8 +1,7 @@
 import { sendMessage, onMessage } from 'webext-bridge'
 
 chrome.runtime.onInstalled.addListener((): void => {
-  // eslint-disable-next-line no-console
-  console.log('Extension installed')
+  console.log('Ogame MP: Extension installed')
 })
 
 let previousTabId = 0
