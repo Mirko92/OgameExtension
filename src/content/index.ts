@@ -1,3 +1,5 @@
+// document.body.style.border = "5px solid red";
+
 /* eslint-disable no-console */
 import { onMessage } from 'webext-bridge'
 

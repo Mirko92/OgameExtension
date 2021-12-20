@@ -23,7 +23,7 @@
     "@antfu/eslint-config": "^0.7.0",
     "@iconify/json": "^1.1.379",
     "@intlify/vite-plugin-vue-i18n": "^2.4.0",
-    "@types/chrome": "^0.0.154",
+    "@types/chrome": "^0.0.171",
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16.4.1",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
