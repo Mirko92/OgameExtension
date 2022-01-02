@@ -32,7 +32,13 @@ export default defineConfig(({ command }) => {
         input: {
           popup: r('views/popup/index.html'),
           options: r('views/options/index.html'),
+          content_app: r('views/app/index.html'),
         },
+        output: {
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: `assets/[name].[ext]`
+        }
       },
     },
     plugins: [

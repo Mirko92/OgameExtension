@@ -23,3 +23,162 @@ html.dark {
     hover:opacity-100 hover:text-teal-600;
   font-size: 0.9em;
 }
+
+#mp_app .toggle_button:active {
+  transform: scale(0.9);
+}
+#mp_app .toggle_button {
+  position: fixed;
+  bottom: 2rem;
+  left: 1rem;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-image: url("../../assets/icon_32.png");
+  /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/icon_32.png"); */
+  background-position: center;
+
+  cursor: pointer;
+}
+
+#mp_app button.mp_button {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 0 20px 0px #eae1e142;
+  transition: box-shadow 200ms linear;
+  cursor: pointer;
+}
+#mp_app button.mp_button:active {
+  box-shadow: 0 0 20px 0px #eae1e1;
+  transform: scale(0.98);
+}
+
+#mp_app .app_container {
+  position: fixed;
+
+  width: 320px;
+  height: 768px;
+  padding: 1rem;
+
+  bottom: 75px;
+  left: 1rem;
+
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(1px);
+
+  transition: transform 0.3s ease-in;
+  transform: translateX(-110%);
+
+  overflow: auto;
+}
+@media screen and (max-height: 820px) {
+  #mp_app .app_container {
+      height: calc(100vh - 100px);
+  }
+}
+
+#mp_app .app_container::-webkit-scrollbar {
+  display: none;
+}
+
+#mp_app .app_container.open {
+  transform: translateX(0);
+}
+
+#mp_app .mission {
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+
+  margin: 0 auto;
+}
+
+#mp_app .mission .ship {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+}
+
+#mp_app input[type="number"] {
+  border: 0;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+#mp_app input[type="number"]:focus {
+  transform: scale(1.5);
+  box-shadow: 0px 2px 10px 0px black;
+}
+
+#mp_app .mission .ship .ship__number,
+#mp_app .mission .ship .ship__number input {
+  width: 50px;
+}
+
+#mp_app .mission .ship .ship__number {
+  padding: 1px;
+}
+
+#mp_app .mission .ship .ship__number:focus-within {
+  z-index: 2;
+}
+
+#mp_app .mission .ship .ship__name {
+  flex: 1;
+}
+
+#mp_app section {
+  background: rgb(125 92 162 / 60%);
+  /* background: #00000073; */
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  margin: 0.25rem 0;
+}
+
+#mp_app section:focus-within {
+  background: rgb(125 92 162 / 75%);
+}
+
+#mp_app section.center {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+#mp_app .destination,
+#mp_app .destination_type {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mp_app .destination input {
+  width: 50px;
+}
+
+#mp_app h5 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+#mp_app select {
+  width: 100%;
+  padding: 0.25rem;
+  border-radius: 10px;
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+#mp_app select option {
+  background-color: white;
+  color: black;
+}
+
+#mp_app #speed_range {
+  width: 100%;
+}

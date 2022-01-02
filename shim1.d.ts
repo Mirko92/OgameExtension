@@ -1,5 +1,6 @@
 import { ProtocolWithReturn } from 'webext-bridge'
 
+interface Window { mp: any; }
 export declare module 'webext-bridge' {
   export interface ProtocolMap {
     // define message protocol types

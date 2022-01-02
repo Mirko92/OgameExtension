@@ -23,7 +23,7 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
     },
 
     background: {
-      service_worker: './dist/background/index.global.js',
+      service_worker: './background.js',
     },
 
     content_scripts: [
@@ -32,8 +32,11 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
           'https://*.ogame.gameforge.com/game/*'
         ],
         js: [
-          './dist/content/index.global.js'
+          './dist/content/index.global.js',
         ],
+        css: [
+          "./assets/style.css"
+        ]
       },
     ],
 
@@ -61,5 +64,20 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
     // host_permissions: [
     //   "http://*.ogame.gameforge.com/*",
     // ]
+
+    web_accessible_resources: [
+      {
+        resources: [ 
+          "assets/icon_32.png",
+
+          "dist/assets/content_app.js",
+          "dist/assets/vendor.js",
+          "dist/assets/windi.js",
+        ],
+        matches: [ 
+          "https://*.ogame.gameforge.com/*"
+        ]
+      }
+    ],
   }
 }

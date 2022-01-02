@@ -29,27 +29,19 @@ export function run(script: string) {
 function createScriptModule(extensionUrl: string) {
   const script = document.createElement("script")
   script.setAttribute('type', "module")
-  script.src = chrome.extension.getURL(extensionUrl)
+  script.src = chrome.runtime.getURL(extensionUrl)
   return script 
 }
 
 //#region INJECTION VUE APP 
-const appTemplatePath = chrome.extension.getURL("assets/scripts/app.html")
-fetch(appTemplatePath)
-    .then(content => content.text())
-    .then(html => {
-        const div = document.createElement('div')
-        div.setAttribute('id', 'mp_app')
-        div.innerHTML = html
-        document.body.appendChild(div)
+  const div = document.createElement('div')
+  div.setAttribute('id', 'content_app')
+  document.body.appendChild(div)
 
-        // Load Vue AppJS Script 
-        document.body.append(createScriptModule("assets/scripts/app.js"))
-    })
+  // // Load Vue AppJS Script 
+  document.body.append(createScriptModule("./dist/assets/content_app.js"))
 //#endregion
 
-/** Load MpOgame script */
-document.head.appendChild(createScriptModule("assets/scripts/mp_ogame.js"))
 
 //#region TRADER
 var interval: NodeJS.Timer; 
