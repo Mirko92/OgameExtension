@@ -1,1 +1,0 @@
-console.log("Ogame MP: Overview");

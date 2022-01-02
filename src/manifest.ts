@@ -29,7 +29,7 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
     content_scripts: [
       {
         matches: [
-          'https://*.ogame.gameforge.com/*'
+          'https://*.ogame.gameforge.com/game/*'
         ],
         js: [
           './dist/content/index.global.js'
