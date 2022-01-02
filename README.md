@@ -13,7 +13,6 @@
 - ⚡️ **Instant HMR** - use **Vite** on dev (no more refresh!)
 - 🥝 Vue 3 - Composition API, [`<script setup>` syntax](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md) and more!
 - 💬 Effortless communications - powered by [`webext-bridge`](https://github.com/antfu/webext-bridge) and [VueUse](https://github.com/antfu/vueuse) storage
-- 🍃 [Windi CSS](https://windicss.org/) - on-demand CSS utilities
 - 🦾 [TypeScript](https://www.typescriptlang.org/) - type safe
 - 📦 [Components auto importing](./views/components)
 - 🌟 [Icons](./views/components) - Access to icons from any iconset directly
@@ -31,7 +30,6 @@
 ### Vite Plugins
 
 - [`vite-plugin-components`](https://github.com/antfu/vite-plugin-components) - components auto import
-- [`vite-plugin-windicss`](https://github.com/antfu/vite-plugin-windicss) - WindiCSS support
 - [`@intlify/vite-plugin-vue-i18n`](https://github.com/intlify/bundle-tools/blob/main/packages/vite-plugin-vue-i18n/README.md) - i18n support
 
 ### Vue Plugins
@@ -41,7 +39,6 @@
 
 ### UI Frameworks
 
-- [Windi CSS](https://github.com/windicss/windicss) - next generation utility-first CSS framework
 
 ### Icons
 

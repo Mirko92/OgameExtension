@@ -35,7 +35,8 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
           './dist/content/index.global.js',
         ],
         css: [
-          "./assets/style.css"
+          "./assets/style.css",
+          "dist/assets/main.css",
         ]
       },
     ],
@@ -71,8 +72,9 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
           "assets/icon_32.png",
 
           "dist/assets/content_app.js",
+          "dist/assets/main.js",
+          "dist/assets/main.css",
           "dist/assets/vendor.js",
-          "dist/assets/windi.js",
         ],
         matches: [ 
           "https://*.ogame.gameforge.com/*"

@@ -10,20 +10,6 @@ html.dark {
   background: #121212;
 }
 
-.btn {
-  @apply px-4 py-1 rounded inline-block
-    bg-teal-600 text-white cursor-pointer
-    hover:bg-teal-700
-    disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
-}
-
-.icon-btn {
-  @apply inline-block cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-600;
-  font-size: 0.9em;
-}
-
 #mp_app .toggle_button:active {
   transform: scale(0.9);
 }
@@ -35,8 +21,8 @@ html.dark {
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  background-image: url("../../assets/icon_32.png");
-  /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/icon_32.png"); */
+  /* background-image: url("../../assets/icon_32.png"); */
+  background-image: url("chrome-extension://__MSG_@@extension_id__/assets/icon_32.png");
   background-position: center;
 
   cursor: pointer;

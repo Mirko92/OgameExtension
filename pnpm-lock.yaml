@@ -24,7 +24,6 @@ specifiers:
   vite: ^2.4.3
   vite-plugin-components: ^0.13.2
   vite-plugin-icons: ^0.6.5
-  vite-plugin-windicss: ^1.2.5
   vue: ^3.1.5
   vue-demi: ^0.11.2
   vue-global-api: ^0.2.4
@@ -59,7 +58,6 @@ devDependencies:
   vite: 2.4.3
   vite-plugin-components: 0.13.2_vite@2.4.3
   vite-plugin-icons: 0.6.5_774edd05d2fe6e67dbc66770415e2b73
-  vite-plugin-windicss: 1.2.5_vite@2.4.3
   vue: 3.1.5
   vue-demi: 0.11.2_vue@3.1.5
   vue-global-api: 0.2.4_vue@3.1.5
@@ -141,12 +139,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
-    dev: true
-
-  /@antfu/utils/0.2.4:
-    resolution: {integrity: sha512-2bZNkVfL9IZESmvE26UKi8SzyvSoaIsGXDcnbHFMtmGMqUiB1fXpAJ1ijGf+tSqKRQ5yagck2U1Qk0p+705/kw==}
-    dependencies:
-      '@types/throttle-debounce': 2.1.0
     dev: true
 
   /@babel/code-frame/7.12.11:
@@ -423,7 +415,7 @@ packages:
     dev: true
 
   /@intlify/bundle-utils/0.2.0_eslint@7.31.0:
-    resolution: {integrity: sha512-P6H+jNT9CqU7d5gMOeaklHYo2vO6sVD7dYFvU7/T5rRBubmEikem7mSFfqMvYnOdIPRxhQSqxGEh+Jj4Act5nQ==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-P6H+jNT9CqU7d5gMOeaklHYo2vO6sVD7dYFvU7/T5rRBubmEikem7mSFfqMvYnOdIPRxhQSqxGEh+Jj4Act5nQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/bundle-utils/-/bundle-utils-0.2.0.tgz}
     engines: {node: '>= 12'}
     dependencies:
       '@intlify/core': 9.1.7
@@ -437,7 +429,7 @@ packages:
     dev: true
 
   /@intlify/core-base/9.1.7:
-    resolution: {integrity: sha512-q1W2j81xbHyfKrNcca/CeJyf0Bcx4u9UDu05l7AaiJbqOseTme2o2I3wp1hDDCtmC7k7HgX0sAygyHNJH9swuQ==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-q1W2j81xbHyfKrNcca/CeJyf0Bcx4u9UDu05l7AaiJbqOseTme2o2I3wp1hDDCtmC7k7HgX0sAygyHNJH9swuQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/core-base/-/core-base-9.1.7.tgz}
     engines: {node: '>= 10'}
     dependencies:
       '@intlify/devtools-if': 9.1.7
@@ -448,7 +440,7 @@ packages:
       '@intlify/vue-devtools': 9.1.7
 
   /@intlify/core/9.1.7:
-    resolution: {integrity: sha512-iWlzl1CiG9iF0h+90ZkxLIgVkaznhmjcfR/bfXk/Usp/IqkeBV8z5QGxtuFdzS3iurOHfylUCopSaT87hPOGmw==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-iWlzl1CiG9iF0h+90ZkxLIgVkaznhmjcfR/bfXk/Usp/IqkeBV8z5QGxtuFdzS3iurOHfylUCopSaT87hPOGmw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/core/-/core-9.1.7.tgz}
     engines: {node: '>= 10'}
     dependencies:
       '@intlify/core-base': 9.1.7
@@ -461,7 +453,7 @@ packages:
       '@intlify/shared': 9.1.7
 
   /@intlify/message-compiler/9.1.7:
-    resolution: {integrity: sha512-JZNkAhr3O7tnbdbRBcpYfqr/Ai26WTzX0K/lV8Y1KVdOIj/dGiamaffdWUdFiDXUnbJRNbPiOaKxy7Pwip3KxQ==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-JZNkAhr3O7tnbdbRBcpYfqr/Ai26WTzX0K/lV8Y1KVdOIj/dGiamaffdWUdFiDXUnbJRNbPiOaKxy7Pwip3KxQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/message-compiler/-/message-compiler-9.1.7.tgz}
     engines: {node: '>= 10'}
     dependencies:
       '@intlify/message-resolver': 9.1.7
@@ -481,11 +473,11 @@ packages:
       '@intlify/shared': 9.1.7
 
   /@intlify/shared/9.1.7:
-    resolution: {integrity: sha512-zt0zlUdalumvT9AjQNxPXA36UgOndUyvBMplh8uRZU0fhWHAwhnJTcf0NaG9Qvr8I1n3HPSs96+kLb/YdwTavQ==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-zt0zlUdalumvT9AjQNxPXA36UgOndUyvBMplh8uRZU0fhWHAwhnJTcf0NaG9Qvr8I1n3HPSs96+kLb/YdwTavQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/shared/-/shared-9.1.7.tgz}
     engines: {node: '>= 10'}
 
   /@intlify/vite-plugin-vue-i18n/2.4.0_9ccaa6a5b46572045d48a469e4f693e9:
-    resolution: {integrity: sha512-DXBvl7JEEcChjrsCUHIBJUSqgAXJSUzbaZskzTuJy5K3FDCX/g9XfHVaw8lCUaW7jYF60BIsPr87sAP1QSGB0Q==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-DXBvl7JEEcChjrsCUHIBJUSqgAXJSUzbaZskzTuJy5K3FDCX/g9XfHVaw8lCUaW7jYF60BIsPr87sAP1QSGB0Q==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/vite-plugin-vue-i18n/-/vite-plugin-vue-i18n-2.4.0.tgz}
     engines: {node: '>= 12'}
     peerDependencies:
       vite: ^2.3.6
@@ -504,7 +496,7 @@ packages:
     dev: true
 
   /@intlify/vue-devtools/9.1.7:
-    resolution: {integrity: sha512-DI5Wc0aOiohtBUGUkKAcryCWbbuaO4/PK4Pa/LaNCsFNxbtgR5qkIDmhBv9xVPYGTUhySXxaDDAMvOpBjhPJjw==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-DI5Wc0aOiohtBUGUkKAcryCWbbuaO4/PK4Pa/LaNCsFNxbtgR5qkIDmhBv9xVPYGTUhySXxaDDAMvOpBjhPJjw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@intlify/vue-devtools/-/vue-devtools-9.1.7.tgz}
     engines: {node: '>= 10'}
     dependencies:
       '@intlify/message-resolver': 9.1.7
@@ -533,7 +525,7 @@ packages:
     dev: true
 
   /@rollup/pluginutils/4.1.1:
-    resolution: {integrity: sha512-clDjivHqWGXi7u+0d2r2sBi4Ie6VLEAzWMIkvJLnDmxoOhBYOTfzGbOQBA32THHm11/LiJbd01tJUpJsbshSWQ==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-clDjivHqWGXi7u+0d2r2sBi4Ie6VLEAzWMIkvJLnDmxoOhBYOTfzGbOQBA32THHm11/LiJbd01tJUpJsbshSWQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.1.1.tgz}
     engines: {node: '>= 8.0.0'}
     dependencies:
       estree-walker: 2.0.2
@@ -581,10 +573,6 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
-    dev: true
-
-  /@types/throttle-debounce/2.1.0:
-    resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/4.28.4_b1648df9f9ba40bdeef3710a5a5af353:
@@ -775,7 +763,7 @@ packages:
     dev: true
 
   /@vue/devtools-api/6.0.0-beta.15:
-    resolution: {integrity: sha512-quBx4Jjpexo6KDiNUGFr/zF/2A4srKM9S9v2uHgMXSU//hjgq1eGzqkIFql8T9gfX5ZaVOUzYBP3jIdIR3PKIA==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-quBx4Jjpexo6KDiNUGFr/zF/2A4srKM9S9v2uHgMXSU//hjgq1eGzqkIFql8T9gfX5ZaVOUzYBP3jIdIR3PKIA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.15.tgz}
     dev: false
 
   /@vue/reactivity/3.1.5:
@@ -820,30 +808,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
-
-  /@windicss/config/1.2.5:
-    resolution: {integrity: sha512-XzbvVQ9crDRnzHLA9t0atejAIus0X+P4l9SFPmGhUXycI63Ae0SfNzdw5q56MM5Et3Xbtju0esJ89K8bkRe+xA==}
-    dependencies:
-      debug: 4.3.2
-      jiti: 1.10.1
-      windicss: 3.1.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@windicss/plugin-utils/1.2.5:
-    resolution: {integrity: sha512-RUFhW5l3YYkuNwYM1u7F/RoIpibULE7qe2N7D/rtiJVDf67lL9S8hjTll1/d7pvvW5XtI+fDuc8GpmGwARg83A==}
-    dependencies:
-      '@antfu/utils': 0.2.4
-      '@windicss/config': 1.2.5
-      debug: 4.3.2
-      fast-glob: 3.2.7
-      magic-string: 0.25.7
-      micromatch: 4.0.4
-      windicss: 3.1.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /acorn-jsx/5.3.2_acorn@7.4.1:
@@ -1170,7 +1134,7 @@ packages:
     dev: true
 
   /debug/4.3.2:
-    resolution: {integrity: sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -1575,7 +1539,7 @@ packages:
     dev: true
 
   /eslint-visitor-keys/3.0.0:
-    resolution: {integrity: sha512-mJOZa35trBTb3IyRmo8xmKBZlxf+N7OnUl4+ZhJHs/r+0770Wh/LEACE2pqMGMe27G/4y8P2bYGk4J70IC5k1Q==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-mJOZa35trBTb3IyRmo8xmKBZlxf+N7OnUl4+ZhJHs/r+0770Wh/LEACE2pqMGMe27G/4y8P2bYGk4J70IC5k1Q==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.0.0.tgz}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
@@ -1715,7 +1679,7 @@ packages:
     dev: true
 
   /fast-glob/3.2.7:
-    resolution: {integrity: sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.7.tgz}
     engines: {node: '>=8'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -2113,11 +2077,6 @@ packages:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
     dev: true
 
-  /jiti/1.10.1:
-    resolution: {integrity: sha512-qux9juDtAC8HlZxAk/fku73ak4TWNLigRFTNzFShE/kw4bXVFsVu538vLXAxvNyPszXgpX4YxkXfwTYEi+zf5A==}
-    hasBin: true
-    dev: true
-
   /joycon/3.0.1:
     resolution: {integrity: sha512-SJcJNBg32dGgxhPtM0wQqxqV0ax9k/9TaUskGDSJkSFSQOEWWvQ3zzWdGQRIUry2j1zA5+ReH13t0Mf3StuVZA==}
     engines: {node: '>=10'}
@@ -2177,7 +2136,7 @@ packages:
     dev: true
 
   /jsonc-eslint-parser/1.1.0_eslint@7.31.0:
-    resolution: {integrity: sha512-FA3oS+8V0Mz4vv19YpY4TuZZi2ecR0RHTua9SjbCYb4+e35MWKIi7jn17zdGi6jxE7Cv7Vk61ml376MmMENieA==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-FA3oS+8V0Mz4vv19YpY4TuZZi2ecR0RHTua9SjbCYb4+e35MWKIi7jn17zdGi6jxE7Cv7Vk61ml376MmMENieA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/jsonc-eslint-parser/-/jsonc-eslint-parser-1.1.0.tgz}
     dependencies:
       eslint-utils: 3.0.0_eslint@7.31.0
       eslint-visitor-keys: 3.0.0
@@ -2279,7 +2238,7 @@ packages:
     dev: true
 
   /lodash/4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz}
     dev: true
 
   /loose-envify/1.4.0:
@@ -2356,7 +2315,7 @@ packages:
     dev: true
 
   /ms/2.1.2:
-    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz}
     dev: true
 
   /ms/2.1.3:
@@ -2922,7 +2881,7 @@ packages:
     dev: true
 
   /semver/6.3.0:
-    resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz}
     hasBin: true
     dev: true
 
@@ -3336,20 +3295,6 @@ packages:
       vue-template-es2015-compiler: 1.9.1
     dev: true
 
-  /vite-plugin-windicss/1.2.5_vite@2.4.3:
-    resolution: {integrity: sha512-6z2XXQpV0WhSEoyWim4gaWyxrBhszhbufjQ3oiyJbtENoft90trJtnWYvPHXaTB0sspy1LIfSSQquru8N7KZJQ==}
-    peerDependencies:
-      vite: ^2.0.1
-    dependencies:
-      '@windicss/plugin-utils': 1.2.5
-      chalk: 4.1.1
-      debug: 4.3.2
-      vite: 2.4.3
-      windicss: 3.1.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /vite/2.4.3:
     resolution: {integrity: sha512-iT6NPeiUUZ2FkzC3eazytOEMRaM4J+xgRQcNcpRcbmfYjakCFP4WKPJpeEz1U5JEKHAtwv3ZBQketQUFhFU3ng==}
     engines: {node: '>=12.0.0'}
@@ -3421,7 +3366,7 @@ packages:
     dev: true
 
   /vue-i18n/9.1.7_vue@3.1.5:
-    resolution: {integrity: sha512-ujuuDanoHqtEd4GejWrbG/fXE9nrP51ElsEGxp0WBHfv+/ki0/wyUqkO+4fLikki2obGtXdviTPH0VNpas5K6g==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-ujuuDanoHqtEd4GejWrbG/fXE9nrP51ElsEGxp0WBHfv+/ki0/wyUqkO+4fLikki2obGtXdviTPH0VNpas5K6g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-9.1.7.tgz}
     engines: {node: '>= 10'}
     peerDependencies:
       vue: ^3.0.0
@@ -3489,12 +3434,6 @@ packages:
       isexe: 2.0.0
     dev: true
 
-  /windicss/3.1.5:
-    resolution: {integrity: sha512-sGi2YiN6Bp/vWJS0jlpJhMmh7O2TBQ+yTbL6oqoRXz32q1VKELOUMfF+5pdtVL5uoVnfKf4gOUQs2XKNgU30Lw==}
-    engines: {node: '>= 12'}
-    hasBin: true
-    dev: true
-
   /word-wrap/1.2.3:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
     engines: {node: '>=0.10.0'}
@@ -3513,7 +3452,7 @@ packages:
     dev: true
 
   /yaml-eslint-parser/0.3.2:
-    resolution: {integrity: sha512-32kYO6kJUuZzqte82t4M/gB6/+11WAuHiEnK7FreMo20xsCKPeFH5tDBU7iWxR7zeJpNnMXfJyXwne48D0hGrg==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-32kYO6kJUuZzqte82t4M/gB6/+11WAuHiEnK7FreMo20xsCKPeFH5tDBU7iWxR7zeJpNnMXfJyXwne48D0hGrg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/yaml-eslint-parser/-/yaml-eslint-parser-0.3.2.tgz}
     dependencies:
       eslint-visitor-keys: 1.3.0
       lodash: 4.17.21
@@ -3521,6 +3460,6 @@ packages:
     dev: true
 
   /yaml/1.10.2:
-    resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz}
     engines: {node: '>= 6'}
     dev: true
