@@ -43,11 +43,21 @@ html.dark {
   transform: scale(0.98);
 }
 
+#mp_app .app_container > main {
+  flex: 1;
+  overflow: auto;
+  padding-top: 5px;
+  border-radius: 10px;
+}
+
 #mp_app .app_container {
+  display: flex;
+  flex-flow: column nowrap;
+
   position: fixed;
 
   width: 320px;
-  height: 768px;
+  height: calc(100vh - 120px);
   padding: 1rem;
 
   bottom: 75px;

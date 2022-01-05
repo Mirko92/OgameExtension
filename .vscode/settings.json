@@ -7,10 +7,13 @@
     "source.fixAll.eslint": true,
   },
   "files.associations": {
-    "*.css": "postcss",
+    "*.css": "css"
   },
   "i18n-ally.localesPaths": [
     "views/locales"
   ],
-  "i18n-ally.enabledParsers": ["yaml"]
+  "i18n-ally.enabledParsers": [
+    "yaml"
+  ],
+  "i18n-ally.keystyle": "nested"
 }
