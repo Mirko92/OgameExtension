@@ -75,6 +75,12 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
           "dist/assets/main.js",
           "dist/assets/main.css",
           "dist/assets/vendor.js",
+          "/dist/mp_ogame/index.global.js",
+          "/dist/mp_ogame/mp_consts.global.js",
+          "/dist/mp_ogame/mp_fleet_dispatcher.global.js",
+          "/dist/mp_ogame/mp_mission.d.global.js",
+          "/dist/mp_ogame/mp_statistics.global.js",
+          "/dist/mp_ogame/mp_utils.global.js",
         ],
         matches: [ 
           "https://*.ogame.gameforge.com/*"

@@ -9,3 +9,10 @@ export declare module 'webext-bridge' {
     'get-current-tab': ProtocolWithReturn<{ tabId: number }, { title: string }>
   }
 }
+
+declare global {
+	interface Window {
+        mp: MpOgame;
+        currentPlanet: any;
+	}
+}

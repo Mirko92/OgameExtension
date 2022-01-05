@@ -2,7 +2,7 @@
  * Print current version and ID extension
  */
  console.debug(
-  "Mp Ogame extension. ID: %s - Version: ",
+  "[MpOgame extension] - ID: %s - Version: ",
   chrome.runtime.id,
   chrome.runtime.getManifest().version
 )
@@ -27,21 +27,16 @@ export function run(script: string) {
 }
 
 function createScriptModule(extensionUrl: string) {
-  const script = document.createElement("script")
+  const script = document.createElement("script") as HTMLScriptElement
   script.setAttribute('type', "module")
   script.src = chrome.runtime.getURL(extensionUrl)
   return script 
 }
 
-//#region INJECTION VUE APP 
-  const div = document.createElement('div')
-  div.setAttribute('id', 'content_app')
-  document.body.appendChild(div)
-
-  // // Load Vue AppJS Script 
-  document.body.append(createScriptModule("./dist/assets/content_app.js"))
+//#region INJECTION MpOgame 
+const mpOgameScript = createScriptModule("./dist/mp_ogame/index.global.js")
+document.head.appendChild(mpOgameScript)
 //#endregion
-
 
 //#region TRADER
 var interval: NodeJS.Timer; 
@@ -120,12 +115,11 @@ export function stop() {
 }
 //#endregion
 
+//#region EXAMPLES
 /* eslint-disable no-console */
-import { onMessage } from 'webext-bridge'
-
-console.info('[vitesse-modernized-chrome-ext] Hello world from content script')
-
+// import { onMessage } from 'webext-bridge'
 // communication example: send previous tab title from background page
-onMessage('tab-prev', ({ data }) => {
-  console.log(`[vitesse-modernized-chrome-ext] Navigate from page "${data.title}"`)
-})
+// onMessage('tab-prev', ({ data }) => {
+//   console.log(`[vitesse-modernized-chrome-ext] Navigate from page "${data.title}"`)
+// })
+//#endregion

@@ -151,6 +151,7 @@ const result = reactive({
 });
 
 onMounted(() => {
+    console.log('mounted')
   if (!mp) return;
 
     if (!lastMission) {
