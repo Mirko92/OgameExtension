@@ -61,7 +61,7 @@ export class MpOgame {
         goTo(planetId, 'fleetdispatch');
     }
 
-    async automaticFleetSave(mission: Mission) {
+    async automaticFleetSave(mission?: Mission) {
         console.debug("[MpOgame] - AutomaticFleetSave");
 
         if (mission) {
@@ -78,7 +78,7 @@ export class MpOgame {
         }
     }
 
-    async moveToPlanet(mission: Mission) {
+    async moveToPlanet(mission?: Mission) {
         console.debug("[MpOgame] - MoveToPlanet");
 
         if (mission) {
@@ -95,7 +95,7 @@ export class MpOgame {
         }
     }
 
-    async moveToMoon(mission: Mission) {
+    async moveToMoon(mission?: Mission) {
         console.debug("[MpOgame] - MoveToMoon");
 
         if (mission) {
@@ -113,7 +113,7 @@ export class MpOgame {
     }
 
     // TODO: Change name to "collectTo"
-    async collectToMain(mission: CollectMission, destination?: string) {
+    async collectToMain(mission?: CollectMission, destination?: string) {
         console.debug("[MpOgame] - CollectToMain");
 
         if (mission) {

@@ -8,17 +8,14 @@
       </header>
 
       <main style="flex: 1;">
-        <template v-if="currentView === 'FLEET_FORM'">
-          <MpFleetForm />
-        </template>
+        <transition
+          name="fade"
+          mode="out-in"
+          appear
+        >
+          <Component :is="getComponent()" />
+        </transition>
 
-        <template v-if="currentView === 'TRADER'">
-          <MpTrader />
-        </template>
-        
-        <template v-if="currentView === 'MISSIONS'">
-          <MpMissions />
-        </template>
       </main>
       
     </div>
@@ -46,4 +43,17 @@ function toggle() {
 }
 
 const currentView = ref("FLEET_FORM");
+
+function getComponent() {
+  switch (currentView.value) {
+    case "FLEET_FORM":
+      return MpFleetForm;      
+
+    case "TRADER":
+      return MpTrader;      
+
+    case "MISSIONS":
+      return MpMissions;
+  }
+}
 </script>

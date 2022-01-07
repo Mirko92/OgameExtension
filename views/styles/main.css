@@ -1,3 +1,5 @@
+@import "./_transitions.css";
+
 html,
 body,
 #app {
@@ -8,6 +10,14 @@ body,
 
 html.dark {
   background: #121212;
+}
+
+.grid {
+  display: grid;
+}
+
+.text-white {
+  color: #fff;
 }
 
 #mp_app .toggle_button:active {
@@ -183,3 +193,20 @@ html.dark {
 #mp_app #speed_range {
   width: 100%;
 }
+
+
+/* UTILS */
+.d-f-r {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.d-f-c {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.j-c-c {
+  justify-content: center;
+}
+/* END UTILS */
