@@ -20,6 +20,15 @@ html.dark {
   color: #fff;
 }
 
+.ogame_bg {
+  background-image: url("../../assets/universe.jpg");
+  /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/universe.jpg"); */
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #mp_app .toggle_button:active {
   transform: scale(0.9);
 }
