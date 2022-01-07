@@ -48,6 +48,7 @@ html.dark {
   overflow: auto;
   padding-top: 5px;
   border-radius: 10px;
+  display: grid;
 }
 
 #mp_app .app_container {
@@ -58,6 +59,7 @@ html.dark {
 
   width: 320px;
   height: calc(100vh - 120px);
+  max-height: 900px;
   padding: 1rem;
 
   bottom: 75px;
@@ -88,9 +90,12 @@ html.dark {
 
 #mp_app .mission {
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
+  justify-content: center;
   align-items: stretch;
 
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
 }
 

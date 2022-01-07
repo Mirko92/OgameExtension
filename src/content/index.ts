@@ -114,12 +114,3 @@ export function stop() {
   clearInterval(interval)
 }
 //#endregion
-
-//#region EXAMPLES
-/* eslint-disable no-console */
-// import { onMessage } from 'webext-bridge'
-// communication example: send previous tab title from background page
-// onMessage('tab-prev', ({ data }) => {
-//   console.log(`[vitesse-modernized-chrome-ext] Navigate from page "${data.title}"`)
-// })
-//#endregion

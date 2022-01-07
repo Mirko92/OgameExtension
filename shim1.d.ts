@@ -1,18 +1,11 @@
-import { ProtocolWithReturn } from 'webext-bridge'
+import { type MpOgame } from "./src/mp_ogame";
 
 interface Window { mp: any; }
-export declare module 'webext-bridge' {
-  export interface ProtocolMap {
-    // define message protocol types
-    // see https://github.com/antfu/webext-bridge#type-safe-protocols
-    'tab-prev': { title: string | undefined }
-    'get-current-tab': ProtocolWithReturn<{ tabId: number }, { title: string }>
-  }
-}
 
 declare global {
 	interface Window {
-        mp: MpOgame;
-        currentPlanet: any;
+                mp: MpOgame;
+                currentPlanet: any;
+                fadeBox(text: string, isAlert: boolean): void;
 	}
 }

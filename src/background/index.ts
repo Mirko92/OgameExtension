@@ -1,5 +1,7 @@
 const extensionName = "Ogame MP";
 
+//#region Enable/Disable behavior
+
 /**
  * Extension start disabled by default
  */
@@ -62,7 +64,9 @@ const rules: chrome.events.Rule[] = [
     ],
   }
 ]
+//#endregion
 
+//#region Installed Evennt
 chrome.runtime.onInstalled.addListener(function() {
   console.log(`${extensionName}: Extension installed`)
 
@@ -79,41 +83,9 @@ chrome.runtime.onInstalled.addListener(function() {
   );
 
 });
+//#endregion
 
-// import { sendMessage, onMessage } from 'webext-bridge'
-// let previousTabId = 0
-
-// // communication example: send previous tab title from background page
-// // see shim.d.ts for type decleration
-// chrome.tabs.onActivated.addListener(async({ tabId }) => {
-//   if (!previousTabId) {
-//     previousTabId = tabId
-//     return
-//   }
-//   const tab = await chrome.tabs.get(previousTabId)
-//   previousTabId = tabId
-//   if (!tab)
-//     return
-
-//   // eslint-disable-next-line no-console
-//   console.log('previous tab', tab)
-//   sendMessage('tab-prev', { title: tab.title }, { context: 'content-script', tabId })
-// })
-
-// onMessage('get-current-tab', async() => {
-//   try {
-//     const tab = await chrome.tabs.get(previousTabId)
-//     return {
-//       title: tab?.id,
-//     }
-//   }
-//   catch {
-//     return {
-//       title: undefined,
-//     }
-//   }
-// })
-
+//#region Storage logger for debugging purpose
 /**
  * Storage changes logger
  */
@@ -126,11 +98,9 @@ chrome.runtime.onInstalled.addListener(function() {
     console.debug("New value is", storageChange.newValue);
   }
 });
+//#endregion
 
 //#region MESSAGES HANDLING
-console.debug("#######################################");
-console.debug("Adding message listener");
-
 chrome.runtime.onMessage.addListener(handleMessage);
 chrome.runtime.onMessageExternal.addListener(handleMessage);
 
@@ -168,6 +138,7 @@ function handleMessage(request: any, sender: any, sendResponse: any) {
       return true;
 
     default:
+      sendResponse(false);
       break;
   }
 }
@@ -273,6 +244,4 @@ function getExpeditionConfig(data: any, callback: Function) {
     callback(ogameData.find((u: any) => u.code === uni).expeditionConfig);
   });
 }
-
-console.debug("#######################################");
 //#endregion

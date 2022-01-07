@@ -19,7 +19,7 @@ export class MpOgame {
     }
 
     get extensionId() {
-        return extensionId();
+        return extensionId() as string;
     }
 
     get planetIds() {

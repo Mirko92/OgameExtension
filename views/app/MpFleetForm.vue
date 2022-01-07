@@ -180,7 +180,7 @@ async function sendMission() {
     } catch (error) {
         console.error("Invio flotta non riuscito", error);
         
-        window?.mp.message("Invio flotta non riuscito");
+        window?.fadeBox("Invio flotta non riuscito", true);
     } finally {
         isSending.value = false;
     }

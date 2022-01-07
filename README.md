@@ -12,20 +12,13 @@
 
 - ⚡️ **Instant HMR** - use **Vite** on dev (no more refresh!)
 - 🥝 Vue 3 - Composition API, [`<script setup>` syntax](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md) and more!
-- 💬 Effortless communications - powered by [`webext-bridge`](https://github.com/antfu/webext-bridge) and [VueUse](https://github.com/antfu/vueuse) storage
+- 💬 [VueUse](https://github.com/antfu/vueuse) storage
 - 🦾 [TypeScript](https://www.typescriptlang.org/) - type safe
 - 📦 [Components auto importing](./views/components)
 - 🌟 [Icons](./views/components) - Access to icons from any iconset directly
 - 🌍 [I18N ready](views/locales)
 - 🌛 Dark Mode - support toggle dark mode
 - 📃 Dynamic `manifest.json` with full type support
-
-## Pre-packed
-
-### WebExtension Libraries
-
-- [`webextension-polyfill-ts`](https://github.com/Lusito/webextension-polyfill-ts) - WebExtension browser API Polyfill with types
-- [`webext-bridge`](https://github.com/antfu/webext-bridge) - effortlessly communication between contexts
 
 ### Vite Plugins
 
@@ -103,10 +96,6 @@ pnpm build
 ```
 
 And then pack files under `extension`.
-
-## Credits
-
-This is a template derive from [antfu/vitesse-webext](https://github.com/antfu/vitesse-webext)
 
 ## Who is using this template?
 

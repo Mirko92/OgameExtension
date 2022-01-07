@@ -2,7 +2,14 @@ import type { Manifest } from 'webextension-polyfill-ts'
 import pkg from '../package.json'
 import { isDev, port } from '../scripts/utils'
 
-export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
+type MpManifest = {
+  externally_connectable: {
+    matches: string[],
+    accepts_tls_channel_id: boolean
+  }
+} & Manifest.WebExtensionManifest
+
+export async function getManifest(): Promise<MpManifest> {
   // update this file to update this manifest.json
   // can also be conditional based on your need
   return {
@@ -37,6 +44,7 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
         css: [
           "./assets/style.css",
           "dist/assets/main.css",
+          "dist/assets/content_app.css",
         ]
       },
     ],
@@ -87,5 +95,12 @@ export async function getManifest(): Promise<Manifest.WebExtensionManifest> {
         ]
       }
     ],
+
+    externally_connectable: {
+      matches: [
+        "https://*.ogame.gameforge.com/*"
+      ],
+      accepts_tls_channel_id: true,
+    },
   }
 }
