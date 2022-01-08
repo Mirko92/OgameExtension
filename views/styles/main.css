@@ -1,11 +1,21 @@
 @import "./_transitions.css";
 
+:root {
+  --border-radius: 10px; 
+  --default-padding: 1rem; 
+
+  --icon-size: 32px;
+  --icon-size-sm: 24px;
+  --icon-size-xs: 18px;
+}
+
 html,
 body,
 #app {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 html.dark {
@@ -21,12 +31,48 @@ html.dark {
 }
 
 .ogame_bg {
+  background-color: black;
   background-image: url("../../assets/universe.jpg");
   /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/universe.jpg"); */
 
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+.icon_placeholder::after {
+  content: '...';
+}
+.moon_icon {
+  background-image: url("../../assets/moon_icon.svg");
+  /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/universe.jpg"); */
+}
+.planet_icon {
+  background-image: url("../../assets/planet_icon.svg");
+  /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/universe.jpg"); */
+}
+.debris_icon {
+  background-image: url("../../assets/debris_icon.svg");
+  /* background-image: url("chrome-extension://__MSG_@@extension_id__/assets/universe.jpg"); */
+}
+
+.icon_placeholder,
+.debris_icon,
+.moon_icon,
+.planet_icon {
+  background-position: center;
+  background-size: contain;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.icon_placeholder.small,
+.debris_icon.small,
+.moon_icon.small,
+.planet_icon.small {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
 }
 
 #mp_app .toggle_button:active {
@@ -217,5 +263,21 @@ html.dark {
 
 .j-c-c {
   justify-content: center;
+}
+
+.a-i-c {
+  align-items: center;
+}
+
+.gap05 {
+  gap: .5rem;
+}
+
+.gap1 {
+  gap: 1rem;
+}
+
+.mt05 {
+  margin-top: .5rem;
 }
 /* END UTILS */

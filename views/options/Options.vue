@@ -28,9 +28,11 @@ const component = computed( () => {
 </template>
 
 <style scoped>
-.options_main {
-  display: flex;
-  justify-content: center;
-  padding-top: 5rem;
+.options__main {
+  height: 100vh;
+
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 </style>

@@ -54,7 +54,13 @@ export class MpFleetDispatcher {
                 mp.extensionId as string,
                 {
                     method: "SAVE_FLEET_INFO",
-                    data: { uni, planet, shipsData, uniName, playerName }
+                    data: { 
+                        uni, 
+                        planet, 
+                        shipsData, 
+                        uniName, 
+                        playerName 
+                    }
                 },
                 resolve
             );
@@ -173,7 +179,7 @@ export class MpFleetDispatcher {
     /**
      * If configured, start configured quick mission for current planet
      */
-    quickAction(e: Event, reload = true) {
+    quickAction(e?: Event, reload = true) {
         e?.preventDefault();
 
         return new Promise((resolve) => {

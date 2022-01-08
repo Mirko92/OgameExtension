@@ -136,7 +136,7 @@ onMounted(() => {
   if (!window?.mp) return;
 
     if (!lastMission) {
-        const cp = window?.mp.fleetDispatcher._currentPlanet
+        const cp = window?.mp.fleetDispatcher!._currentPlanet
         result.galaxy   = cp?.galaxy;
         result.system   = cp?.system;
         result.position = cp?.position;
@@ -151,7 +151,7 @@ async function sendMission() {
     const params = {...result};
     params.speed = params.speed/10;
     
-    const token = await window?.mp.fleetDispatcher.getToken();
+    const token = await window?.mp.fleetDispatcher!.getToken();
 
     const body = new URLSearchParams({
         token,
@@ -175,7 +175,7 @@ async function sendMission() {
             JSON.stringify(result)
         );
         
-        await window?.mp.fleetDispatcher.sendFleet(body);
+        await window?.mp.fleetDispatcher!.sendFleet(body);
         location.reload();
     } catch (error) {
         console.error("Invio flotta non riuscito", error);

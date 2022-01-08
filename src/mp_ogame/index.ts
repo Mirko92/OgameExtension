@@ -12,7 +12,7 @@ declare const shipsOnPlanet: any;
 
 export class MpOgame {
     galaxy         : any = null;
-    fleetDispatcher: any = null;
+    fleetDispatcher?: MpFleetDispatcher;
 
     get server() {
         return server();
@@ -66,7 +66,7 @@ export class MpOgame {
 
         if (mission) {
             this.execute( mission, 
-                () => this.fleetDispatcher.quickAction(null, false)
+                () => this.fleetDispatcher?.quickAction(undefined, false)
             );
         } else {
             this.setMission({
@@ -83,7 +83,7 @@ export class MpOgame {
 
         if (mission) {
             this.execute( mission, 
-                () => this.fleetDispatcher.moveAllCargoToPlanet()
+                () => this.fleetDispatcher?.moveAllCargoToPlanet()
             );
         } else {
             this.setMission({ 
@@ -100,7 +100,7 @@ export class MpOgame {
 
         if (mission) {
             this.execute( mission, 
-                () => this.fleetDispatcher.moveAllCargoToMoon()
+                () => this.fleetDispatcher?.moveAllCargoToMoon()
             );
         } else {
             this.setMission({ 
@@ -118,7 +118,7 @@ export class MpOgame {
 
         if (mission) {
             this.execute( mission, 
-                () => this.fleetDispatcher.moveResourcesTo(mission.destination)
+                () => this.fleetDispatcher?.moveResourcesTo(mission.destination)
             );
         } else if (destination) {
             this.setMission({

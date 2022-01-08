@@ -17,6 +17,7 @@
     "clear": "rimraf extension/dist extension/background.js"
   },
   "dependencies": {
+    "pinia": "^2.0.9",
     "vue-i18n": "^9.1.7"
   },
   "devDependencies": {
@@ -27,8 +28,9 @@
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16.4.1",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.0.0",
     "@vitejs/plugin-vue": "^1.2.5",
-    "@vue/compiler-sfc": "^3.1.5",
+    "@vue/compiler-sfc": "^3.2.0",
     "@vueuse/core": "^5.1.4",
     "chokidar": "^3.5.2",
     "cross-env": "^7.0.3",
@@ -39,11 +41,11 @@
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "tsup": "^4.12.5",
-    "typescript": "^4.3.5",
+    "typescript": "^4.4.4",
     "vite": "^2.4.3",
     "vite-plugin-components": "^0.13.2",
     "vite-plugin-icons": "^0.6.5",
-    "vue": "^3.1.5",
+    "vue": "^3.2.0",
     "vue-demi": "^0.11.2",
     "vue-global-api": "^0.2.4",
     "webextension-polyfill-ts": "^0.26.0"
