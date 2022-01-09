@@ -280,4 +280,12 @@ html.dark {
 .mt05 {
   margin-top: .5rem;
 }
+
+.text-center{
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
 /* END UTILS */

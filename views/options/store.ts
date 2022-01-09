@@ -43,14 +43,14 @@ export const useStore = defineStore('options_store', () => {
 
     if (chrome.storage) {
       const s = await getFullStorage()
-      // sortStorage(s) TODO: questa riga non funziona perché non riesce a fare il sort sull'oggetto
+      sortStorage(s)
       storage.value = s
       syncStorage()
     } else {
       console.warn('No storage available, using mockup')
-
-      storage.value = await (await fetch(`/assets/data_v1.json`)).json()
-
+      const s = await (await fetch(`/assets/data_v1.json`)).json()
+      sortStorage(s)
+      storage.value = s
       console.debug("storage", storage.value);
     }
   }

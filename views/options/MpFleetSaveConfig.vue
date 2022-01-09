@@ -5,6 +5,9 @@ import { useStore } from "./store"
 import MpMissionSelect from "~/components/MpMissionSelect.vue"
 import MpMissionTypeSelect from "~/components/MpMissionTypeSelect.vue";
 import MpMissionSpeed from "~/components/MpMissionSpeed.vue";
+import { useCharacterClasses } from "~/logic/useCharacterClasses";
+import MpPlanetIcon from "~/components/MpPlanetIcon.vue";
+import MpPlanetNameCoords from "~/components/MpPlanetNameCoords.vue";
 
 const store = useStore()
 
@@ -14,6 +17,13 @@ const {
   storage
 } = storeToRefs(store)
 
+const filters = ref<{
+  [uni: string]: { 
+    type: 1|3|null; 
+    planetName?: string; 
+  }
+}>({});
+
 function getFleetMissionOf(missions: any[], planetId: string) {
   return missions?.find(m => 
     m.missionCode === 'fleet-mission' && m.planetId === planetId
@@ -22,23 +32,30 @@ function getFleetMissionOf(missions: any[], planetId: string) {
 
 const universes = computed(() => {
   storage.value?.ogameData.forEach((u: any) => {
+    filters.value[u.code] = { type: null};
+
     u.planets = u.planets.map((p: any) => ({
       ...p,
-      fleetMission: getFleetMissionOf(u.missions, p.id) || {}
+      // TODO: Al momento lo modifico qua
+      // Ma vorrei che questo fosse il formato già al primo salvataggio 
+      fleetMission: getFleetMissionOf(u.missions, p.id) || { velocity: 0}
     }))
   })
 
   return storage.value?.ogameData
 })
 
-function isWarrior() {
-  // TODO: implement 
-  return false
+function filteredPlanets(uni: any) {
+  const f = filters.value[uni.code];
+
+  return uni.planets.filter((p: any) => !f.type || p.type === f.type )
 }
+
+const { isWarrior } = useCharacterClasses()
 
 function destCoords({ galaxy:g, system:s, position:p}: any) {
   if (g && s && p) {
-    return `${g}:${s}:${p}`
+    return `[${g}:${s}:${p}]`
   } else {
     return '[-:-:-]'
   }
@@ -87,6 +104,33 @@ function toggle(planetId: string) {
     select(planetId)
   }
 }
+
+const planetIdEdit = ref('');
+function editDest(planet: any) {
+  const {galaxy, system, position} = planet.fleetMission
+  
+  if (galaxy && system && position) {
+    planet.destCoords = `${galaxy},${system},${position}`
+  }
+
+  planetIdEdit.value = planet.id
+}
+
+function saveDestCoords(planet: any) {
+  if (!(planet.destCoords as string)?.match(/\d\,\d{1,3}\,\d{1,2}/)) {
+    return;
+  }
+  const [g, s, p] = planet.destCoords.split(',')
+
+  planet.fleetMission.galaxy    = g
+  planet.fleetMission.system    = s
+  planet.fleetMission.position  = p
+
+  delete planet.destCoords
+  planetIdEdit.value = ''
+
+  console.debug("planet", planet);
+}
 </script>
 <template>
 
@@ -110,7 +154,19 @@ function toggle(planetId: string) {
           >
         </th>
   
-        <th/>
+        <th>
+          <select v-model="filters[u.code].type">
+            <option :value="null">
+              All
+            </option>
+            <option :value="1">
+              Only Planets
+            </option>
+            <option :value="3">
+              Only Moons
+            </option>
+          </select>
+        </th>
   
         <th>
           [Coordinate]
@@ -132,7 +188,7 @@ function toggle(planetId: string) {
       </thead>
   
       <tbody>
-        <tr v-for="p of u.planets" :key="p.id">
+        <tr v-for="p of filteredPlanets(u)" :key="p.id">
           <td>
             <input 
               type="checkbox" 
@@ -143,25 +199,26 @@ function toggle(planetId: string) {
             >
           </td>
 
-          <td>
-            <div 
-              class="planet_icon" 
-              title="Planet" 
-              v-if="p.type === 1"/>
-            <div 
-              class="moon_icon"  
-              title="Moon" 
-              v-if="p.type === 3"/>
-          </td>
+          <td> <MpPlanetIcon :type="p.type" /> </td>
 
-          <td>
-            <div class="d-f-c j-c-c">[{{p.galaxy}}:{{p.system}}:{{p.position}}]</div>
-            <div class="d-f-c j-c-c" style="height: 24px;">{{p.name}}</div>
-          </td>
+          <td> <MpPlanetNameCoords :planet="p" /> </td>
 
           <td>
             <div class="d-f-r j-c-c">
-              <div>{{destCoords(p.fleetMission)}}</div>
+              <template v-if="p.id !== planetIdEdit">
+                <div @click="editDest(p)" class="pointer">
+                  {{destCoords(p.fleetMission)}}
+                </div>
+              </template>
+              <template v-else>
+                <input 
+                  type="text" 
+                  class="text-center"
+                  v-model="p.destCoords"
+                  @keyup.enter="saveDestCoords(p)"
+                  style="width: 4rem;"
+                >
+              </template>
             </div>
             <div class="d-f-r j-c-c a-i-c gap05">
               <MpMissionTypeSelect 

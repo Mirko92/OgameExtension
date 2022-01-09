@@ -32,7 +32,8 @@ const component = computed( () => {
   height: 100vh;
 
   overflow-y: auto;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  scroll-padding-block: 5rem; */
 }
 </style>

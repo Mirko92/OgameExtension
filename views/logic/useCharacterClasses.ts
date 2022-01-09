@@ -2,7 +2,7 @@ export function useCharacterClasses() {
 
     function characterClass(character: string) {
         return document.querySelector('#characterclass .characterclass')
-            ?.classList.contains(character);
+            ?.classList.contains(character) || false;
     }
 
     function isExplorer() {
