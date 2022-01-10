@@ -4,7 +4,7 @@
       :class="{'open' : isOpen}">
 
       <header>
-        <MpTabs v-model="currentView"/>
+        <MpTabs v-model="currentView" />
       </header>
 
       <main style="flex: 1;">
@@ -42,7 +42,16 @@ function toggle() {
     sessionStorage.setItem('mp_dialog', isOpen.value);
 }
 
-const currentView = ref("FLEET_FORM");
+const currentView = ref(
+  sessionStorage.getItem("mp_dialog_current_view") || "FLEET_FORM"
+);
+
+watch(currentView, () => {
+    sessionStorage.setItem(
+      'mp_dialog_current_view', 
+      currentView.value
+    );
+})
 
 function getComponent() {
   switch (currentView.value) {
