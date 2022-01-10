@@ -214,7 +214,7 @@ export class MpOgame {
                 this.galaxy.init();
                 break;
 
-            case "trader":
+            case "traderOverview":
                 this.trader = new MpTrader();
                 break;
             default:
