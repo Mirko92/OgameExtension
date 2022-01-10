@@ -91,7 +91,7 @@
             </h5>
         </header>
 
-        <div class="mission">
+        <div>
             <select v-model="result.mission">
                 <option value="1">ATTACCO</option>
                 <option value="3">TRASPORTO</option>
