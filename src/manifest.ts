@@ -85,6 +85,7 @@ export async function getManifest(): Promise<MpManifest> {
           "dist/assets/vendor.js",
           "/dist/mp_ogame/index.global.js",
           "/dist/mp_ogame/mp_consts.global.js",
+          "/dist/mp_ogame/mp_trader.global.js",
           "/dist/mp_ogame/mp_fleet_dispatcher.global.js",
           "/dist/mp_ogame/mp_mission.d.global.js",
           "/dist/mp_ogame/mp_statistics.global.js",

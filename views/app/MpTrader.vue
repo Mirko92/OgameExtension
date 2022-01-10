@@ -61,17 +61,14 @@ button {
 <script lang="ts" setup>
 const maxBet = ref(2);
 function runBot(){
-  // TODO:
-  // executeScript(`bot(${maxBet.value * 1000});`)
+  window.mp.trader?.bot(maxBet.value * 1000);
 }
 
 function stop(){
-  // TODO:
-  // executeScript(`stop();`)
+  window.mp.trader?.stop()
 }
 
 function bet(){
-  // TODO:
-  // executeScript('betMetal();')
+  window.mp.trader?.betMetal()
 }
 </script>

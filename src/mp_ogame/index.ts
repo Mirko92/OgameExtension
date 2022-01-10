@@ -2,6 +2,7 @@ import { MP_LOCAL_STORAGE } from "./mp_consts";
 import { MpFleetDispatcher } from "./mp_fleet_dispatcher";
 import { MpGalaxy } from "./mp_galaxy";
 import { MpMessageDataCollector } from "./mp_statistics";
+import { MpTrader } from "./mp_trader";
 import { extensionId, goTo, planetIds, server } from "./mp_utils";
 
 declare const currentPage: string;
@@ -13,6 +14,7 @@ declare const shipsOnPlanet: any;
 export class MpOgame {
     galaxy         : any = null;
     fleetDispatcher?: MpFleetDispatcher;
+    trader?: MpTrader;
 
     get server() {
         return server();
@@ -210,6 +212,10 @@ export class MpOgame {
             case "galaxy":
                 this.galaxy = new MpGalaxy();
                 this.galaxy.init();
+                break;
+
+            case "trader":
+                this.trader = new MpTrader();
                 break;
             default:
                 break;
