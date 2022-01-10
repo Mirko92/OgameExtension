@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "es2016",
-    "target": "es2016",
+    "module": "es2020",
+    "target": "es2020",
     "lib": ["DOM", "ESNext"],
     "strict": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "incremental": false,
     "skipLibCheck": true,
     "moduleResolution": "node",
@@ -13,6 +13,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "types": [
       "vite/client",
       "chrome"

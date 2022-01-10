@@ -30,7 +30,8 @@ export async function getManifest(): Promise<MpManifest> {
     },
 
     background: {
-      service_worker: "./dist/background/index.global.js",
+      // service_worker: "./dist/background/index.global.js",
+      service_worker: "./background.js",
     },
 
     content_scripts: [
