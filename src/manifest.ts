@@ -30,7 +30,7 @@ export async function getManifest(): Promise<MpManifest> {
     },
 
     background: {
-      service_worker: './background.js',
+      service_worker: "./dist/background/index.global.js",
     },
 
     content_scripts: [
@@ -89,6 +89,7 @@ export async function getManifest(): Promise<MpManifest> {
           "/dist/mp_ogame/mp_mission.d.global.js",
           "/dist/mp_ogame/mp_statistics.global.js",
           "/dist/mp_ogame/mp_utils.global.js",
+          "dist/assets/useCharacterClasses.js"
         ],
         matches: [ 
           "https://*.ogame.gameforge.com/*"

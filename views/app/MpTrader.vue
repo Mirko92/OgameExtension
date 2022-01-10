@@ -59,24 +59,19 @@ button {
 </style>
 
 <script lang="ts" setup>
-function executeScript(script: string) {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.executeScript(
-      tabs[0].id as number,
-      { code: script })
-  });
-}
-
 const maxBet = ref(2);
 function runBot(){
-  executeScript(`bot(${maxBet.value * 1000});`)
+  // TODO:
+  // executeScript(`bot(${maxBet.value * 1000});`)
 }
 
 function stop(){
-  executeScript(`stop();`)
+  // TODO:
+  // executeScript(`stop();`)
 }
 
 function bet(){
-  executeScript('betMetal();')
+  // TODO:
+  // executeScript('betMetal();')
 }
 </script>
