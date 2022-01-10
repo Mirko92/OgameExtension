@@ -2,12 +2,13 @@
 import { storeToRefs } from "pinia";
 import { useStore } from "./store"
 
-import MpMissionSelect from "~/components/MpMissionSelect.vue"
-import MpMissionTypeSelect from "~/components/MpMissionTypeSelect.vue";
-import MpMissionSpeed from "~/components/MpMissionSpeed.vue";
-import { useCharacterClasses } from "~/logic/useCharacterClasses";
-import MpPlanetIcon from "~/components/MpPlanetIcon.vue";
-import MpPlanetNameCoords from "~/components/MpPlanetNameCoords.vue";
+import { useCharacterClasses }  from "~/logic/useCharacterClasses";
+
+import MpMissionSelect          from "~/components/MpMissionSelect.vue"
+import MpMissionTypeSelect      from "~/components/MpMissionTypeSelect.vue";
+import MpMissionSpeed           from "~/components/MpMissionSpeed.vue";
+import MpPlanetIcon             from "~/components/MpPlanetIcon.vue";
+import MpPlanetNameCoords       from "~/components/MpPlanetNameCoords.vue";
 
 const store = useStore()
 
