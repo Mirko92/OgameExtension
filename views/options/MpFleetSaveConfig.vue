@@ -54,15 +54,6 @@ function filteredPlanets(uni: any) {
 
 const { isWarrior } = useCharacterClasses()
 
-function destCoords({ galaxy:g, system:s, position:p}: any) {
-  if (g && s && p) {
-    return `[${g}:${s}:${p}]`
-  } else {
-    return '[-:-:-]'
-  }
-}
-
-
 const selected = ref<string[]>([])
 function toggleAll(universeCode: string){
   if (isAllSelected(universeCode)) {
@@ -106,32 +97,6 @@ function toggle(planetId: string) {
   }
 }
 
-const planetIdEdit = ref('');
-function editDest(planet: any) {
-  const {galaxy, system, position} = planet.fleetMission
-  
-  if (galaxy && system && position) {
-    planet.destCoords = `${galaxy},${system},${position}`
-  }
-
-  planetIdEdit.value = planet.id
-}
-
-function saveDestCoords(planet: any) {
-  if (!(planet.destCoords as string)?.match(/\d\,\d{1,3}\,\d{1,2}/)) {
-    return;
-  }
-  const [g, s, p] = planet.destCoords.split(',')
-
-  planet.fleetMission.galaxy    = g
-  planet.fleetMission.system    = s
-  planet.fleetMission.position  = p
-
-  delete planet.destCoords
-  planetIdEdit.value = ''
-
-  console.debug("planet", planet);
-}
 </script>
 <template>
 
@@ -205,22 +170,11 @@ function saveDestCoords(planet: any) {
           <td> <MpPlanetNameCoords :planet="p" /> </td>
 
           <td>
-            <div class="d-f-r j-c-c">
-              <template v-if="p.id !== planetIdEdit">
-                <div @click="editDest(p)" class="pointer">
-                  {{destCoords(p.fleetMission)}}
-                </div>
-              </template>
-              <template v-else>
-                <input 
-                  type="text" 
-                  class="text-center"
-                  v-model="p.destCoords"
-                  @keyup.enter="saveDestCoords(p)"
-                  style="width: 4rem;"
-                >
-              </template>
-            </div>
+            <MpCoordsInput 
+              v-model:galaxy="p.fleetMission.galaxy"
+              v-model:system="p.fleetMission.system"
+              v-model:position="p.fleetMission.position"
+            />
             <div class="d-f-r j-c-c a-i-c gap05">
               <MpMissionTypeSelect 
                 v-model.number="p.fleetMission.type"
