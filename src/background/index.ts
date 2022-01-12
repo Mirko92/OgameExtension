@@ -132,10 +132,15 @@ function handleMessage(request: any, sender: any, sendResponse: any) {
       saveExpeditionMission(request.data, sendResponse);
       return true;
 
-    case "GET_EXPEDITION_CONFIG":
-      console.debug("Methdod: GET_EXPEDITION_CONFIG", request.data);
-      getExpeditionConfig(request.data, sendResponse);
-      return true;
+      case "GET_EXPEDITION_CONFIG":
+        console.debug("Methdod: GET_EXPEDITION_CONFIG", request.data);
+        getExpeditionConfig(request.data, sendResponse);
+        return true;
+
+      case "OPEN_OPTIONS":
+        console.debug("Methdod: OPEN_OPTIONS");
+        chrome.runtime.openOptionsPage();
+        return true;
 
     default:
       sendResponse(false);

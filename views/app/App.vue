@@ -17,6 +17,8 @@
         </transition>
 
       </main>
+
+      <a href="javascript:void(0)" @click.prevent="goToOptions">Options</a>
       
     </div>
     <button title="Apri/Chiudi"
@@ -64,5 +66,12 @@ function getComponent() {
     case "MISSIONS":
       return MpMissions;
   }
+}
+
+function goToOptions() {
+  chrome.runtime.sendMessage(
+    window.mp.extensionId,
+    { method: 'OPEN_OPTIONS'}
+  )
 }
 </script>
