@@ -19,6 +19,10 @@ const {
   filters,
 } = storeToRefs(store)
 
+watch([storage],() => {
+  console.debug("Storage changed")
+})
+
 const {
   planetsOf
 } = store; 
@@ -70,7 +74,6 @@ function toggle(planetId: string) {
 
 </script>
 <template>
-
   <div class="universe"
     v-for="u of storage?.ogameData"
     :key="u.code"
@@ -92,7 +95,7 @@ function toggle(planetId: string) {
         </th>
   
         <th>
-          <select v-model="filters[u.code].type">
+          <select v-if="filters[u.code]" v-model="filters[u.code].type">
             <option :value="null">
               All
             </option>
@@ -125,7 +128,7 @@ function toggle(planetId: string) {
       </thead>
   
       <tbody>
-        <tr v-for="p of planetsOf(u)" :key="p.id">
+        <tr v-for="p of planetsOf(u.code)" :key="p.id">
           <td>
             <input 
               type="checkbox" 

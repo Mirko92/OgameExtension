@@ -60,9 +60,8 @@ export const useStore = defineStore('options_store', () => {
   function planetsOf(code: string) {
     const f = filters.value[code];
   
-    return uni(code).planets.filter((p: any) => !f.type || p.type === f.type )
+    return uni(code)?.planets.filter((p: any) => !f?.type || p.type === f.type )
   }
-
   async function init() {
     console.debug("Store INIT")
 
