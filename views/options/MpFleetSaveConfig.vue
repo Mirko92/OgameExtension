@@ -21,6 +21,8 @@ const {
 
 watch([storage],() => {
   console.debug("Storage changed")
+}, {
+  deep: true,
 })
 
 const {
