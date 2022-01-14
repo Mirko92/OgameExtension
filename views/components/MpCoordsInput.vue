@@ -6,9 +6,9 @@ const emit = defineEmits([
 ])
 
 const props = defineProps<{
-  galaxy?:   number;
-  system?:   number;
-  position?: number;
+  galaxy?:   number|string;
+  system?:   number|string;
+  position?: number|string;
 }>()
 
 const textCoords = computed(
@@ -45,10 +45,24 @@ const inpCoords = computed({
   }
 })
 
+const input = ref<HTMLIFrameElement>()
+
 const isEdit = ref(false)
 
 function toggleEdit() {
-  isEdit.value = !isEdit.value
+  isEdit.value = !(isEdit.value)
+
+  if(isEdit.value) {
+    nextTick(() => {
+      input.value!.focus()
+    })
+  }
+}
+
+function onBlur() {
+  if(isEdit.value) {
+    isEdit.value = false
+  }
 }
 </script>
 
@@ -62,11 +76,12 @@ function toggleEdit() {
     
     <template v-else>
       <input 
+        ref="input"
         type="text" 
         class="text-center"
         v-model="inpCoords"
         style="width: 4rem;"
-        @blur="toggleEdit"
+        @blur="onBlur"
         @keyup.enter="toggleEdit"
       >
     </template>

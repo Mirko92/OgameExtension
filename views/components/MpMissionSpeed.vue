@@ -12,14 +12,13 @@
 
 <script lang="ts" setup>
 defineProps<{
-    modelValue: number,
+    modelValue?: number|string,
     isWarrior: boolean
 }>()
 
 const emit = defineEmits(['update:modelValue'])
 
 function onInput(e: Event) {
-    console.debug("event", e);
     emit('update:modelValue', (e.target as HTMLInputElement).value)
 }
 </script>
