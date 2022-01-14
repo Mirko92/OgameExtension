@@ -117,6 +117,11 @@ function handleMessage(request: any, sender: any, sendResponse: any) {
       saveFleetInfo(request.data, sendResponse);
       break;
 
+    case "SAVE_FLEETSAVE_MISSION":
+      console.debug("Methdod: SAVE_FLEETSAVE_MISSION", request.data);
+      saveFleetsaveMission(request.data, sendResponse);
+      break;
+
     case "GET_FLEET_SAVE_DATA":
       console.debug("Methdod: GET_FLEET_SAVE_DATA", request.data);
       getFleetSave(request.data, sendResponse);
@@ -184,8 +189,9 @@ function saveFleetInfo(data: any, callback: Function) {
     uniData.planets = [
       ...(uniData.planets?.filter((p: any) => p.id !== planet.id) || []),
       {
+        fleetMission: {},
         ...planet,
-        shipsData
+        shipsData,
       }
     ];
 
@@ -193,7 +199,6 @@ function saveFleetInfo(data: any, callback: Function) {
     callback();
   });
 }
-
 
 function getFleetSave(data: any, callback: Function) {
   const { uni, planetId } = data;
@@ -206,6 +211,23 @@ function getFleetSave(data: any, callback: Function) {
     );
 
     callback(found);
+  });
+}
+
+function saveFleetsaveMission(data: any, callback: Function) {
+  const { uni, planetId, mission } = data;
+
+  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
+    let uniData = ogameData.find((u: any) => u.code === uni);
+
+    // Update FleetMission for this planet 
+    uniData.planets.find((p: any) => p.id === planetId).fleetMission = mission;
+
+    chrome.storage.local.set({ 
+      ogameData: [...ogameData.filter((u: any) => u.code !== uni), uniData] 
+    });
+
+    callback();
   });
 }
 

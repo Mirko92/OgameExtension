@@ -15,42 +15,13 @@ const store = useStore()
 store.init()
 
 const {
-  storage
+  storage,
+  filters,
 } = storeToRefs(store)
 
-const filters = ref<{
-  [uni: string]: { 
-    type: 1|3|null; 
-    planetName?: string; 
-  }
-}>({});
-
-function getFleetMissionOf(missions: any[], planetId: string) {
-  return missions?.find(m => 
-    m.missionCode === 'fleet-mission' && m.planetId === planetId
-  )
-}
-
-const universes = computed(() => {
-  storage.value?.ogameData.forEach((u: any) => {
-    filters.value[u.code] = { type: null};
-
-    u.planets = u.planets.map((p: any) => ({
-      ...p,
-      // TODO: Al momento lo modifico qua
-      // Ma vorrei che questo fosse il formato già al primo salvataggio 
-      fleetMission: getFleetMissionOf(u.missions, p.id) || { velocity: 0}
-    }))
-  })
-
-  return storage.value?.ogameData
-})
-
-function filteredPlanets(uni: any) {
-  const f = filters.value[uni.code];
-
-  return uni.planets.filter((p: any) => !f.type || p.type === f.type )
-}
+const {
+  planetsOf
+} = store; 
 
 const { isWarrior } = useCharacterClasses()
 
@@ -64,7 +35,7 @@ function toggleAll(universeCode: string){
 }
 
 function selectAll(universeCode: string) {
-  selected.value = universes.value?.find((u:any) => u.code === universeCode)
+  selected.value = storage?.ogameData?.value?.find((u:any) => u.code === universeCode)
     ?.planets?.map((p: any) => p.id)
 }
 
@@ -73,8 +44,8 @@ function unselectAll() {
 }
 
 function isAllSelected(universeCode: string){
-  const u = universes.value.find((u: any) => u.code === universeCode)
-  return u.planets.every((p: any) => selected.value.includes(p.id))
+  const u = storage?.ogameData?.value?.find((u: any) => u.code === universeCode)
+  return u?.planets.every((p: any) => selected.value.includes(p.id))
 }
 
 function isSelected(planetId: string) {
@@ -101,7 +72,7 @@ function toggle(planetId: string) {
 <template>
 
   <div class="universe"
-    v-for="u of universes"
+    v-for="u of storage?.ogameData"
     :key="u.code"
   >
     <table class="fleet_save_table">
@@ -154,7 +125,7 @@ function toggle(planetId: string) {
       </thead>
   
       <tbody>
-        <tr v-for="p of filteredPlanets(u)" :key="p.id">
+        <tr v-for="p of planetsOf(u)" :key="p.id">
           <td>
             <input 
               type="checkbox" 

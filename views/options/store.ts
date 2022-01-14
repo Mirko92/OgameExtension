@@ -4,6 +4,13 @@ export const useStore = defineStore('options_store', () => {
 
   const storage = ref()
 
+  const filters = ref<{
+    [uni: string]: { 
+      type: 1|3|null; 
+      planetName?: string; 
+    }
+  }>({});
+
   function getFullStorage(): Promise<any> {
     return new Promise((resolve) => {
       chrome.storage?.local.get(null, resolve)
@@ -39,24 +46,52 @@ export const useStore = defineStore('options_store', () => {
     });
   }
 
+  function initFilters(s: any) {
+    s.ogameData.forEach((u: any) => {
+      filters.value[u.code] = { type: null}
+    })
+  }
+
+  function uni(code: string) {
+    return storage.value.ogameData
+      ?.find((u: any)=> u.code === code)
+  }
+
+  function planetsOf(code: string) {
+    const f = filters.value[code];
+  
+    return uni(code).planets.filter((p: any) => !f.type || p.type === f.type )
+  }
+
   async function init() {
+    console.debug("Store INIT")
 
     if (chrome.storage) {
+      console.info("Chrome storage is available")
+
       const s = await getFullStorage()
       sortStorage(s)
-      storage.value = s
+      initFilters(s)
       syncStorage()
+
+      storage.value = s
+      console.debug("Storage: ", storage)
+      return s;
     } else {
       console.warn('No storage available, using mockup')
+
       const s = await (await fetch(`/assets/data_v1.json`)).json()
       sortStorage(s)
       storage.value = s
       console.debug("storage", storage.value);
+      return s;
     }
   }
 
   return {
     storage,
-    init
+    filters, 
+    init,
+    planetsOf
   }
 })
