@@ -1,30 +1,57 @@
+/**
+ * Chrome local storage type definition
+ */
 type OgameStorage = {
     [key: string]: any;
     ogameData?: Universe[];
 };
 
+/**
+ * Ogame universe data type definition
+ */
 type Universe = {
     code: string;
-    planets: Planet[];
+    name: string;
+    playerName: string;
+    planets?: Planet[];
+    missions?: GenericMission[];
+    expeditionConfig?: ExpeditionConfig;
 }
 
+/**
+ * Ogame planet data type definition
+ */
 type Planet = {
     id  : string;
     name: string;
 
     fleetMission?: FleetMission;
+    shipsData?: any; // TODO: Definire
 }
 
+/**
+ * Ogame fleet mission data type definition
+ * Actually, FleetSave Mission TODO: 
+ */
 type FleetMission = {
-    enabled : boolean;
-    galaxy  : string;
-    mission : string;
-    position: string;
-    system  : string;
-    type    : MP_MISSIONS;
-    velocity: string;
+    enabled ?: boolean;
+    galaxy  ?: string;
+    mission ?: string;
+    position?: string;
+    system  ?: string;
+    type    ?: MP_MISSIONS;
+    velocity?: string;
 }
 
+type GenericMission = FleetMission & {
+    planetId: string;
+}
+
+type ExpeditionConfig = any; //TODO: Definire
+
+/**
+ * Possible Ogame mission types
+ */
 const enum MP_MISSIONS {
     ATTACK       = 1,
     UNIONATTACK  = 2,
@@ -39,6 +66,28 @@ const enum MP_MISSIONS {
     EXPEDITION   = 15
 }
 
+/**
+ * Primary key for Ogame universe 
+ */
+type MpUniKey = {
+    uni: string; 
+}
+
+/**
+ * Primary keys to retrieve a single Planet from storage
+ */
+type MpPlanetKeys = {
+    uni: string;
+    planetId: string;
+}
+
+/**
+ * To save and update a planet's fleet-save mission
+ */
+type MpPlanetMissionData =  MpPlanetKeys & {
+    mission: FleetMission;
+}
+
 type MpSaveFleetInfoData = {
     uni: string;
     uniName: string;
@@ -47,10 +96,25 @@ type MpSaveFleetInfoData = {
     shipsData: any[]; //TODO: define
 }
 
-type MpFleetSaveMissionData = {
+type MpSaveManyFleetMissionsData = {
     uni: string;
-    planetId: string;
-    mission: FleetMission;
+    planets: {
+        planetId: string;
+        mission: FleetMission;
+    }[];
+}
+
+type MpSaveMissionData = {
+    uni: string;
+    mission: GenericMission;
+}
+
+/**
+ * Payload to save expeditions configuration
+ */
+type MpSaveExpeditionConfigData = {
+    uni: string;
+    expeditionConfig: ExpeditionConfig;
 }
 
 
@@ -61,56 +125,37 @@ type MpSaveFleetInfo = {
 
 type MpSaveFleetMission = {
     method: 'SAVE_FLEETSAVE_MISSION',
-    data: MpFleetSaveMissionData;
+    data: MpPlanetMissionData;
 }
 
 type MpSaveManyFleetMissions = {
     method: 'SAVE_MANY_FLEETSAVE_MISSIONS',
-    data: {
-        uni: string;
-        planets: {
-            planetId: string;
-            mission: FleetMission;
-        }[];
-    }
+    data: MpSaveManyFleetMissionsData;
 }
 
-type MpGetFleetSaveData = {
+type MpGetFleetSave = {
     method: 'GET_FLEET_SAVE_DATA';
-    data: {
-        uni: string;
-        planetId: string;
-    }
+    data: MpPlanetKeys;
 }
 
 type MpSaveMission = {
     method: 'SAVE_MISSION';
-    data: {
-        uni: string;
-        planetId: string;
-        mission: FleetMission; // TODO: Controllare 
-    }
+    data: MpSaveMissionData;
 }
 
 type MpSaveExpeditionConfig = {
     method: 'SAVE_EXPEDITION_CONFIG';
-    data: {
-        uni: string;
-        planetId: string;
-        mission: FleetMission;
-    }
+    data: MpSaveExpeditionConfigData;
 }
 
 type MpGetExpeditionConfig = {
     method: 'GET_EXPEDITION_CONFIG';
-    data: {
-        uni: string;
-        planetId: string;
-    }
+    data: MpUniKey;
 }
 
 type MpOpenOptions = {
     method: 'OPEN_OPTIONS';
+    data: null;
 }
 
-type MpRequest = MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions | MpGetFleetSaveData | MpSaveMission | MpSaveExpeditionConfig | MpGetExpeditionConfig | MpOpenOptions; 
+type MpRequest = MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions | MpGetFleetSave | MpSaveMission | MpSaveExpeditionConfig | MpGetExpeditionConfig | MpOpenOptions; 

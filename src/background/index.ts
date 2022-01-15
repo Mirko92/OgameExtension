@@ -30,18 +30,6 @@ chrome.tabs.onActivated.addListener(async function (tabInfo) {
   }
 });
 
-// Example to change icon dynamically
-// function imageData() {
-//   const canvas = new OffscreenCanvas(16, 16);
-
-//   const context = canvas.getContext('2d');
-//   context.clearRect(0, 0, 16, 16);
-//   context.fillStyle = '#00FF00';  // Green
-//   context.fillRect(0, 0, 16, 16);
-  
-//   return context.getImageData(0, 0, 16, 16);
-// }
-
 const rules: chrome.events.Rule[] = [
   {
     id: 'page_action',
@@ -104,6 +92,39 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.runtime.onMessage.addListener(handleMessage);
 chrome.runtime.onMessageExternal.addListener(handleMessage);
 
+/**
+ * Return all saved Universes data
+ */
+function getUniverses(): Promise<Universe[]> {
+  return new Promise<Universe[]>((resolve, reject) => {
+    chrome.storage.local.get('ogameData', 
+      function ({ ogameData }: OgameStorage) {
+        resolve(ogameData || []);
+      }
+    )
+  })
+}
+
+/**
+ * Return a specific universe by code
+ */
+async function getUniverse(uni: string): Promise<Universe> {
+  return (await getUniverses()).find(u => u.code === uni)!
+}
+
+/**
+ * Return {universe, uniData}
+ * All universe and a specific universe
+ */
+async function getUniversesAndUni(uni: string){
+  const universes = await getUniverses()
+  const uniData   = universes.find((u) => u.code === uni)!
+
+  return {
+    universes, uniData
+  }
+}
+
 function handleMessage(
   request: MpRequest, 
   sender: chrome.runtime.MessageSender, 
@@ -115,46 +136,40 @@ function handleMessage(
     "from a content script:" + sender.tab.url :
     "from the extension");
 
+  console.debug(`Method: ${request.method}`, request.data);
+
   switch (request.method) {
     case "SAVE_FLEET_INFO":
-      console.debug("Method: SAVE_FLEET_INFO", request.data);
       saveFleetInfo(request.data, sendResponse);
       break;
 
     case "SAVE_FLEETSAVE_MISSION":
-      console.debug("Method: SAVE_FLEETSAVE_MISSION", request.data);
       saveFleetsaveMission(request.data, sendResponse);
       break;
 
     case "SAVE_MANY_FLEETSAVE_MISSIONS":
-      console.debug("Method: SAVE_MANY_FLEETSAVE_MISSIONS", request.data);
-      saveManyFleetsaveMission(request.data, sendResponse);
+      saveManyFleetsaveMissions(request.data, sendResponse);
       break;
 
     case "GET_FLEET_SAVE_DATA":
-      console.debug("Method: GET_FLEET_SAVE_DATA", request.data);
       getFleetSave(request.data, sendResponse);
-      return true;
+      break
 
     case "SAVE_MISSION":
-      console.debug("Method: SAVE_MISSION", request.data);
       saveMission(request.data, sendResponse);
-      return true;
+      break
 
     case "SAVE_EXPEDITION_CONFIG":
-      console.debug("Method: SAVE_EXPEDITION_CONFIG", request.data);
       saveExpeditionMission(request.data, sendResponse);
-      return true;
+      break
 
-      case "GET_EXPEDITION_CONFIG":
-        console.debug("Method: GET_EXPEDITION_CONFIG", request.data);
-        getExpeditionConfig(request.data, sendResponse);
-        return true;
+    case "GET_EXPEDITION_CONFIG":
+      getExpeditionConfig(request.data, sendResponse);
+      break
 
-      case "OPEN_OPTIONS":
-        console.debug("Method: OPEN_OPTIONS");
-        chrome.runtime.openOptionsPage();
-        return true;
+    case "OPEN_OPTIONS":
+      chrome.runtime.openOptionsPage();
+      break
 
     default:
       sendResponse(false);
@@ -169,129 +184,130 @@ function handleMessage(
  * Planet info
  * Ships on the planet
  */
-function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
+async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
   const { uni, uniName, playerName, planet, shipsData } = data;
 
-  chrome.storage.local.get(['ogameData'], function (storage) {
-    // Update universes
-    const universes = storage?.ogameData || [];
-    
-    let uniData = universes.find((u: any) => u.code === uni);
-    if (!uniData) {
-      uniData = {
-        code: uni,
-        name: uniName,
-        playerName
-      };
+  let { universes, uniData } = await getUniversesAndUni(uni)
 
-      universes.push(uniData);
+  if (!uniData) {
+    uniData = {
+      code: uni,
+      name: uniName,
+      playerName
+    };
+
+    universes.push(uniData);
+  }
+
+  // Update planets into universe
+  uniData.planets = [
+    ...(uniData.planets?.filter(p => p.id !== planet.id) || []),
+    {
+      fleetMission: {},
+      ...planet,
+      shipsData,
     }
+  ];
 
-    // Update planets into universe
-    uniData.planets = [
-      ...(uniData.planets?.filter((p: any) => p.id !== planet.id) || []),
-      {
-        fleetMission: {},
-        ...planet,
-        shipsData,
-      }
-    ];
-
-    chrome.storage.local.set({ ogameData: universes });
-    callback();
-  });
+  chrome.storage.local.set({ ogameData: universes });
+  callback();
 }
 
-function getFleetSave(data: any, callback: Function) {
-  const { uni, planetId } = data;
-
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
-    const uniData = ogameData.find((u: any) => u.code === uni);
-
-    const found = uniData?.missions?.find((m: any) =>
-      m.planetId === planetId
-    );
-
-    callback(found);
-  });
+async function getFleetSave({ uni, planetId }: MpPlanetKeys, callback: Function) {
+  callback(
+    (await getUniverse(uni))?.planets
+      ?.find(p => p.id === planetId)
+      ?.fleetMission
+  );
 }
 
-function saveFleetsaveMission(data: MpFleetSaveMissionData, callback: Function) {
-  const { uni, planetId, mission } = data;
+async function saveFleetsaveMission(
+    { uni, planetId, mission }: MpPlanetMissionData, 
+    callback: Function
+  ) {
+  const {universes, uniData} = await getUniversesAndUni(uni)
 
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }: OgameStorage) {
-    if (ogameData) {
-      let uniData: Universe = ogameData.find((u) => u.code === uni)!;
-  
-      // Update FleetMission for this planet 
-      uniData.planets.find(p => p.id === planetId)!.fleetMission = mission;
-  
-      chrome.storage.local.set({ 
-        ogameData: [...ogameData.filter((u) => u.code !== uni), uniData] 
-      });
-  
-      callback();
-    }
+  uniData.planets!
+    .find(p => p.id === planetId)!
+    .fleetMission = mission;
+
+  await chrome.storage.local.set({ 
+    ogameData: [
+      ...universes.filter(u => u.code !== uni), 
+      uniData
+    ] 
   });
+
+  callback();
 }
 
-function saveManyFleetsaveMission(data: any, callback: Function) {
-  const { uni, planets } = data;
+async function saveManyFleetsaveMissions({ uni, planets }: MpSaveManyFleetMissionsData, callback: Function) {
+  const {universes, uniData} = await getUniversesAndUni(uni)
 
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
-    let uniData = ogameData.find((u: any) => u.code === uni);
-
-    planets.forEach(({planetId, mission}: any) => {
-      // Update FleetMission for this planet 
-      uniData.planets.find((p: any) => p.id === planetId).fleetMission = mission;
-    });
-
-    chrome.storage.local.set({ 
-      ogameData: [...ogameData.filter((u: any) => u.code !== uni), uniData] 
-    });
-
-    callback();
+  planets.forEach(({planetId, mission}: any) => {
+    // Update FleetMission for this planet 
+    uniData.planets!.find(p => p.id === planetId)!.fleetMission = mission;
   });
+
+  await chrome.storage.local.set({ 
+    ogameData: [
+      ...universes.filter(u => u.code !== uni), 
+      uniData
+    ] 
+  });
+
+  callback();
 }
 
+async function saveMission({ uni, mission }: MpSaveMissionData, callback: Function) {
+  const {universes, uniData} = await getUniversesAndUni(uni)
 
-function saveMission(data: any, callback: Function) {
-  const { uni, mission } = data;
+  // Update planets into universe
+  uniData.missions = [
+    ...(uniData.missions || [])?.filter(m => m.planetId !== mission.planetId),
+    mission
+  ];
 
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
-    let uniData = ogameData.find((u: any) => u.code === uni);
-
-    // Update planets into universe
-    uniData.missions = [
-      ...(uniData.missions || [])?.filter((x: any) => x.planetId !== mission.planetId),
-      mission
-    ];
-
-    chrome.storage.local.set({ ogameData: [...ogameData.filter((u: any) => u.code !== uni), uniData] });
-    callback();
+  await chrome.storage.local.set({ ogameData: [
+    ...universes.filter(u => u.code !== uni), 
+      uniData
+    ] 
   });
+
+  callback();
 }
 
 
-function saveExpeditionMission(data: any, callback: Function) {
-  const { uni, expeditionConfig } = data;
+async function saveExpeditionMission({ uni, expeditionConfig }: MpSaveExpeditionConfigData, callback: Function) {
+  const {universes, uniData} = await getUniversesAndUni(uni)
 
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
-    let uniData = ogameData.find((u: any) => u.code === uni);
+  // Update expedition config 
+  uniData.expeditionConfig = expeditionConfig;
 
-    // Update expedition config 
-    uniData.expeditionConfig = expeditionConfig;
-
-    chrome.storage.local.set({ ogameData: [...ogameData.filter((u: any) => u.code !== uni), uniData] });
-    callback();
+  chrome.storage.local.set({ ogameData: [
+    ...universes.filter(u => u.code !== uni), 
+      uniData
+    ] 
   });
+
+  callback();
 }
 
-function getExpeditionConfig(data: any, callback: Function) {
-  const { uni } = data;
-
-  chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
-    callback(ogameData.find((u: any) => u.code === uni).expeditionConfig);
-  });
+async function getExpeditionConfig({ uni }: MpUniKey, callback: Function) {
+  callback((await getUniverse(uni))?.expeditionConfig);
 }
 //#endregion
+
+
+
+// Example to change icon dynamically
+// function imageData() {
+//   const canvas = new OffscreenCanvas(16, 16);
+
+//   const context = canvas.getContext('2d');
+//   context.clearRect(0, 0, 16, 16);
+//   context.fillStyle = '#00FF00';  // Green
+//   context.fillRect(0, 0, 16, 16);
+  
+//   return context.getImageData(0, 0, 16, 16);
+// }
