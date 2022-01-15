@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 defineProps<{
-    modelValue: number,
+    modelValue?: number|string,
     isWarrior: boolean
 }>()
 

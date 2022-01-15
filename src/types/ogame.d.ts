@@ -13,7 +13,7 @@ type Universe = {
     code: string;
     name: string;
     playerName: string;
-    planets?: Planet[];
+    planets: Planet[];
     missions?: GenericMission[];
     expeditionConfig?: ExpeditionConfig;
 }
@@ -24,8 +24,9 @@ type Universe = {
 type Planet = {
     id  : string;
     name: string;
+    type: PlanetType;
 
-    fleetMission?: FleetMission;
+    fleetMission: FleetMission;
     shipsData?: any; // TODO: Definire
 }
 
@@ -65,6 +66,8 @@ const enum MP_MISSIONS {
     MISSILEATTACK= 10,
     EXPEDITION   = 15
 }
+
+type PlanetType = any; //TODO. definire
 
 /**
  * Primary key for Ogame universe 

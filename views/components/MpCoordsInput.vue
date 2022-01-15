@@ -6,9 +6,9 @@ const emit = defineEmits([
 ])
 
 const props = defineProps<{
-  galaxy?:   number;
-  system?:   number;
-  position?: number;
+  galaxy?:   number | String;
+  system?:   number | String;
+  position?: number | String;
 }>()
 
 const textCoords = computed(

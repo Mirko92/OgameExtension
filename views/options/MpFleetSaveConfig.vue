@@ -22,8 +22,9 @@ const {
 } = storeToRefs(store)
 
 function getMissionOf(uni: string, planetId: string) {
-  return storage.value?.ogameData.find((u: any) => u.code === uni)
-    ?.planets.find((p: any) => p.id === planetId)?.fleetMission;
+  return storage.value?.ogameData
+    ?.find((u: any) => u.code === uni)
+    ?.planets.find(p => p.id === planetId)?.fleetMission;
 }
 
 function onUpdateFleetMission(uni: string, planetId: string) {
@@ -47,11 +48,10 @@ function toggleAll(universe: Universe){
     enableAll(universe)
   }
 
-  const toSave = universe?.planets
-    .map(p =>({
-      planetId: p.id,
-      mission: p.fleetMission
-    }))
+  const toSave = planetsOf(universe.code)?.map(p =>({
+    planetId: p.id,
+    mission: p.fleetMission
+  }))
 
   chrome.runtime.sendMessage({
     method: 'SAVE_MANY_FLEETSAVE_MISSIONS',
@@ -63,15 +63,15 @@ function toggleAll(universe: Universe){
 }
 
 function enableAll(universe: Universe) {
-  universe.planets?.forEach(p => p.fleetMission.enabled = true)
+  planetsOf(universe.code)?.forEach(p => p.fleetMission.enabled = true)
 }
 
 function disableAll(universe: Universe) {
-  universe.planets?.forEach(p => p.fleetMission.enabled = false)
+  planetsOf(universe.code)?.forEach(p => p.fleetMission.enabled = false)
 }
 
 function isAllEnabled(universe: Universe){
-  return universe.planets.every(p => p.fleetMission.enabled )
+  return planetsOf(universe.code).every(p => p.fleetMission.enabled )
 }
 
 </script>
@@ -93,7 +93,7 @@ function isAllEnabled(universe: Universe){
             type="checkbox" 
             id="enableAll"
             name="enableAll"
-            :checked="isAllEnabled(u.code)"
+            :checked="isAllEnabled(u)"
             @change="toggleAll(u)"
           >
         </th>

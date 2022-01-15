@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 
 export const useStore = defineStore('options_store', () => {
-  const storage = ref()
+  const storage = ref<OgameStorage>()
 
   const filters = ref<{
     [uni: string]: { 
@@ -52,14 +52,13 @@ export const useStore = defineStore('options_store', () => {
   }
 
   function uni(code: string) {
-    return storage.value.ogameData
-      ?.find((u: any)=> u.code === code)
+    return storage.value?.ogameData?.find(u=> u.code === code)
   }
 
   function planetsOf(code: string) {
     const f = filters.value[code];
   
-    return uni(code)?.planets.filter((p: any) => !f?.type || p.type === f.type )
+    return uni(code)?.planets.filter(p => !f?.type || p.type === f.type ) || []
   }
 
   async function init() {

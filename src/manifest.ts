@@ -79,6 +79,8 @@ export async function getManifest(): Promise<MpManifest> {
       {
         resources: [ 
           "assets/icon_32.png",
+          "/assets/send_icon.jpeg",
+          "/assets/expedition_icon.jpeg",
 
           "dist/assets/content_app.js",
           "dist/assets/main.js",

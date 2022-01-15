@@ -197,7 +197,8 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
     uniData = {
       code: uni,
       name: uniName,
-      playerName
+      playerName,
+      planets: [],
     };
 
     universes.push(uniData);
@@ -207,6 +208,7 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
   uniData.planets = [
     ...(uniData.planets?.filter(p => p.id !== planet.id) || []),
     {
+      // @ts-ignore:
       fleetMission: {},
       ...planet,
       shipsData,
@@ -231,7 +233,7 @@ async function saveFleetsaveMission(
   ) {
   const {universes, uniData} = await getUniversesAndUni(uni)
 
-  uniData.planets!
+  uniData.planets
     .find(p => p.id === planetId)!
     .fleetMission = mission;
 
@@ -243,7 +245,7 @@ async function saveManyFleetsaveMissions({ uni, planets }: MpSaveManyFleetMissio
   const {universes, uniData} = await getUniversesAndUni(uni)
 
   planets.forEach(({planetId, mission}) => {
-    uniData.planets!.find(p => p.id === planetId)!.fleetMission = mission;
+    uniData.planets.find(p => p.id === planetId)!.fleetMission = mission;
   });
 
   await chrome.storage.local.set({ ogameData: updateUniverses(universes, uniData) });
