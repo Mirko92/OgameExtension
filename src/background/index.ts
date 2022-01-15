@@ -105,6 +105,10 @@ function getUniverses(): Promise<Universe[]> {
   })
 }
 
+function updateUniverses(universes: Universe[], uni: Universe) {
+  return [...universes.filter(u => u.code !== uni.code), uni ] 
+}
+
 /**
  * Return a specific universe by code
  */
@@ -231,31 +235,18 @@ async function saveFleetsaveMission(
     .find(p => p.id === planetId)!
     .fleetMission = mission;
 
-  await chrome.storage.local.set({ 
-    ogameData: [
-      ...universes.filter(u => u.code !== uni), 
-      uniData
-    ] 
-  });
-
+  await chrome.storage.local.set({ ogameData: updateUniverses(universes, uniData) })
   callback();
 }
 
 async function saveManyFleetsaveMissions({ uni, planets }: MpSaveManyFleetMissionsData, callback: Function) {
   const {universes, uniData} = await getUniversesAndUni(uni)
 
-  planets.forEach(({planetId, mission}: any) => {
-    // Update FleetMission for this planet 
+  planets.forEach(({planetId, mission}) => {
     uniData.planets!.find(p => p.id === planetId)!.fleetMission = mission;
   });
 
-  await chrome.storage.local.set({ 
-    ogameData: [
-      ...universes.filter(u => u.code !== uni), 
-      uniData
-    ] 
-  });
-
+  await chrome.storage.local.set({ ogameData: updateUniverses(universes, uniData) });
   callback();
 }
 
@@ -268,12 +259,7 @@ async function saveMission({ uni, mission }: MpSaveMissionData, callback: Functi
     mission
   ];
 
-  await chrome.storage.local.set({ ogameData: [
-    ...universes.filter(u => u.code !== uni), 
-      uniData
-    ] 
-  });
-
+  await chrome.storage.local.set({ ogameData: updateUniverses(universes, uniData) });
   callback();
 }
 
@@ -284,12 +270,7 @@ async function saveExpeditionMission({ uni, expeditionConfig }: MpSaveExpedition
   // Update expedition config 
   uniData.expeditionConfig = expeditionConfig;
 
-  chrome.storage.local.set({ ogameData: [
-    ...universes.filter(u => u.code !== uni), 
-      uniData
-    ] 
-  });
-
+  await chrome.storage.local.set({ ogameData: updateUniverses(universes, uniData) });
   callback();
 }
 
