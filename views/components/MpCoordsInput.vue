@@ -46,9 +46,20 @@ const inpCoords = computed({
 })
 
 const isEdit = ref(false)
+const inputRef = ref<HTMLElement>()
 
 function toggleEdit() {
   isEdit.value = !isEdit.value
+
+  if(isEdit.value) {
+    nextTick(() => inputRef.value?.focus())
+  }
+}
+
+function onBlur() {
+  if(isEdit.value) {
+    isEdit.value = false
+  }
 }
 </script>
 
@@ -62,11 +73,12 @@ function toggleEdit() {
     
     <template v-else>
       <input 
+        ref="inputRef"
         type="text" 
         class="text-center"
         v-model="inpCoords"
         style="width: 4rem;"
-        @blur="toggleEdit"
+        @blur="onBlur"
         @keyup.enter="toggleEdit"
       >
     </template>

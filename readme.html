@@ -26,3 +26,156 @@
         <a href="https://s208-it.ogame.gameforge.com/game/index.php?page=componentOnly&amp;component=eventList" class=" tooltipHTML js_hideTipOnMobile"></a>
             </div>
 </div>
+
+
+
+<script>
+    var database = null; 
+
+var r = window.indexedDB.open("OGAME", 1);
+
+r.onblocked = function(event) {
+  console.log("Please close all other tabs with this site open!");
+};
+
+r.onsuccess = (event) => {
+    database = event.target.result;
+
+    const mappaRisorse = {};
+    getMessages("EXPEDITION", "2022-01-05")
+        .then(x => {
+            console.log("N° Spedizioni: %s", x.length);
+            x.forEach( s => {
+                const {
+                    resource, amount
+                } = extractExpeditionResult(s.text);
+
+                if (resource) {
+                    mappaRisorse[resource] = 
+                      mappaRisorse[resource] 
+                          ? mappaRisorse[resource]+=amount 
+                          : amount; 
+                }
+            });
+
+
+            function formatNumber(num) {
+              return num?.toString()
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+            }
+
+            Object
+            .keys(mappaRisorse)
+            .forEach(k => {
+                const fmtN = formatNumber(mappaRisorse[k]);
+                console.log(`${k}: ${fmtN}`);
+            });
+            
+        });
+}
+
+r.onerror = console.error;
+
+function allMessagesByTypeDate(type, date) {
+    return new Promise((resolve) => {
+        const objs = database.transaction("MESSAGES")
+                            .objectStore("MESSAGES");
+
+        const result = [];
+
+        const idx = objs.index('by_type_date')
+
+        var singleKeyRange = IDBKeyRange.only([type, date]);
+        idx.openCursor(singleKeyRange).onsuccess = (e) => {
+            const c = e.target.result;
+
+            if (c) {
+                console.log("Index key: ", c.key);
+                result.push(c.key);
+                c.continue();
+            }
+            else {
+                resolve(result);
+            }
+        }
+    }); 
+}
+
+function allMessagesByCursor(titleQuery) { 
+
+    return new Promise((resolve) => {
+        const objs = database.transaction("MESSAGES")
+                            .objectStore("MESSAGES");
+
+        const result = [];
+
+        objs.openCursor().onsuccess = (e) => {
+            const c = e.target.result;
+
+            if (c) {
+                if (c.value?.title?.startsWith(titleQuery)) {    
+                    result.push(c.value);
+                }
+
+                c.continue();
+            }
+            else {
+                resolve(result);
+            }
+        }
+    }); 
+
+}
+
+function extractExpeditionResult(text) {
+    var r = /(Cristallo|Metallo|Deuterio)\s(.*)\s(è stato razziato\.)/mg.exec(text); 
+
+    if(!r) {
+        r = /(Materia Oscura)\s((\d{1,3}\.)?\d{1,3})\s(è stato razziato\.)/mgi.exec(text);
+    }
+    
+    var resource = r?.[1];
+    var amount = +(r?.[2].replaceAll('.',''));
+
+    if (resource) {
+      return { resource, amount };
+    }
+
+    return {};
+}
+
+function getStore(store_name, mode) {
+        const tx = database.transaction(store_name, mode);
+        return tx.objectStore(store_name);
+}
+
+function getMessages(type, date) {
+    const store = getStore("MESSAGES", 'readonly');
+
+    let indexName = "by_type_date"; 
+
+    if (type && date || (!type && !date)) {
+        indexName = "by_type_date";
+    } else if (type) {
+        indexName = "by_type";
+    } else if (date) {
+        indexName = "by_date";
+    }
+
+    const key = (type || date) ? [type, date].filter(x => x) : null;
+
+    const index = store.index(indexName);
+    const request = index.getAll(key);
+
+    return new Promise((resolve, reject) => {
+        request.onsuccess = (event) => {
+            resolve(event.target.result);
+        }
+
+        request.onerror = (e) => {
+            reject(e);
+        }
+    });
+
+}
+</script>

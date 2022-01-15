@@ -104,7 +104,11 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.runtime.onMessage.addListener(handleMessage);
 chrome.runtime.onMessageExternal.addListener(handleMessage);
 
-function handleMessage(request: any, sender: any, sendResponse: any) {
+function handleMessage(
+  request: MpRequest, 
+  sender: chrome.runtime.MessageSender, 
+  sendResponse: (response?: any) => void ) {
+
   console.debug("Request:", request);
 
   console.debug(sender.tab ?
@@ -113,37 +117,42 @@ function handleMessage(request: any, sender: any, sendResponse: any) {
 
   switch (request.method) {
     case "SAVE_FLEET_INFO":
-      console.debug("Methdod: SAVE_FLEET_INFO", request.data);
+      console.debug("Method: SAVE_FLEET_INFO", request.data);
       saveFleetInfo(request.data, sendResponse);
       break;
 
     case "SAVE_FLEETSAVE_MISSION":
-      console.debug("Methdod: SAVE_FLEETSAVE_MISSION", request.data);
+      console.debug("Method: SAVE_FLEETSAVE_MISSION", request.data);
       saveFleetsaveMission(request.data, sendResponse);
       break;
 
+    case "SAVE_MANY_FLEETSAVE_MISSIONS":
+      console.debug("Method: SAVE_MANY_FLEETSAVE_MISSIONS", request.data);
+      saveManyFleetsaveMission(request.data, sendResponse);
+      break;
+
     case "GET_FLEET_SAVE_DATA":
-      console.debug("Methdod: GET_FLEET_SAVE_DATA", request.data);
+      console.debug("Method: GET_FLEET_SAVE_DATA", request.data);
       getFleetSave(request.data, sendResponse);
       return true;
 
     case "SAVE_MISSION":
-      console.debug("Methdod: SAVE_MISSION", request.data);
+      console.debug("Method: SAVE_MISSION", request.data);
       saveMission(request.data, sendResponse);
       return true;
 
     case "SAVE_EXPEDITION_CONFIG":
-      console.debug("Methdod: SAVE_EXPEDITION_CONFIG", request.data);
+      console.debug("Method: SAVE_EXPEDITION_CONFIG", request.data);
       saveExpeditionMission(request.data, sendResponse);
       return true;
 
       case "GET_EXPEDITION_CONFIG":
-        console.debug("Methdod: GET_EXPEDITION_CONFIG", request.data);
+        console.debug("Method: GET_EXPEDITION_CONFIG", request.data);
         getExpeditionConfig(request.data, sendResponse);
         return true;
 
       case "OPEN_OPTIONS":
-        console.debug("Methdod: OPEN_OPTIONS");
+        console.debug("Method: OPEN_OPTIONS");
         chrome.runtime.openOptionsPage();
         return true;
 
@@ -159,21 +168,14 @@ function handleMessage(request: any, sender: any, sendResponse: any) {
  * Player's NickName 
  * Planet info
  * Ships on the planet
- * @param {uni: string, playerName: string, planet: OgamePlanet, shipsData} data 
  */
-function saveFleetInfo(data: any, callback: Function) {
-  const {
-    uni,
-    uniName,
-    playerName,
-    planet,
-    shipsData
-  } = data;
-
+function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
+  const { uni, uniName, playerName, planet, shipsData } = data;
 
   chrome.storage.local.get(['ogameData'], function (storage) {
     // Update universes
     const universes = storage?.ogameData || [];
+    
     let uniData = universes.find((u: any) => u.code === uni);
     if (!uniData) {
       uniData = {
@@ -214,14 +216,35 @@ function getFleetSave(data: any, callback: Function) {
   });
 }
 
-function saveFleetsaveMission(data: any, callback: Function) {
+function saveFleetsaveMission(data: MpFleetSaveMissionData, callback: Function) {
   const { uni, planetId, mission } = data;
+
+  chrome.storage.local.get(['ogameData'], function ({ ogameData }: OgameStorage) {
+    if (ogameData) {
+      let uniData: Universe = ogameData.find((u) => u.code === uni)!;
+  
+      // Update FleetMission for this planet 
+      uniData.planets.find(p => p.id === planetId)!.fleetMission = mission;
+  
+      chrome.storage.local.set({ 
+        ogameData: [...ogameData.filter((u) => u.code !== uni), uniData] 
+      });
+  
+      callback();
+    }
+  });
+}
+
+function saveManyFleetsaveMission(data: any, callback: Function) {
+  const { uni, planets } = data;
 
   chrome.storage.local.get(['ogameData'], function ({ ogameData }) {
     let uniData = ogameData.find((u: any) => u.code === uni);
 
-    // Update FleetMission for this planet 
-    uniData.planets.find((p: any) => p.id === planetId).fleetMission = mission;
+    planets.forEach(({planetId, mission}: any) => {
+      // Update FleetMission for this planet 
+      uniData.planets.find((p: any) => p.id === planetId).fleetMission = mission;
+    });
 
     chrome.storage.local.set({ 
       ogameData: [...ogameData.filter((u: any) => u.code !== uni), uniData] 

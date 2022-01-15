@@ -1,25 +1,24 @@
 <template>
-  <main class="w-[300px] px-4 py-5 text-center text-gray-700 dark:text-gray-200">
-    <carbon-popup class="icon-btn mx-2 text-2xl" />
-    <div>Popup</div>
-    <p class="mt-2 opacity-50">
-      {{ $t('popup.desc') }}
-    </p>
-    <button class="btn mt-2" @click="openOptionsPage">
-      {{ $t('popup.open_options') }}
-    </button>
+  <main class="popup">
+    <h1>Stop</h1>
 
-    <Footer />
-
-    <div class="mt-2">
-      <span class="opacity-50">{{ $t('popup.storage') }}:</span> {{ storageDemo }}
-    </div>
+    <a 
+      href="javascript:void(0)"
+      @click="openOptionsPage">
+      Options
+    </a>
   </main>
 </template>
 
-<script setup lang="ts">
-import { storageDemo } from '~/logic/storage'
+<style scoped>
+.popup {
+  width: 300px;
+  height: 100px;
+  padding: 1rem;
+}
+</style>
 
+<script setup lang="ts">
 function openOptionsPage() {
   chrome.runtime.openOptionsPage()
 }

@@ -10,6 +10,8 @@ import MpMissionSpeed           from "~/components/MpMissionSpeed.vue";
 import MpPlanetIcon             from "~/components/MpPlanetIcon.vue";
 import MpPlanetNameCoords       from "~/components/MpPlanetNameCoords.vue";
 
+const { isWarrior } = useCharacterClasses()
+
 const store = useStore()
 
 store.init()
@@ -19,57 +21,57 @@ const {
   filters,
 } = storeToRefs(store)
 
-watch([storage],() => {
-  console.debug("Storage changed")
-})
+function getMissionOf(uni: string, planetId: string) {
+  return storage.value?.ogameData.find((u: any) => u.code === uni)
+    ?.planets.find((p: any) => p.id === planetId)?.fleetMission;
+}
+
+function onUpdateFleetMission(uni: string, planetId: string) {
+  chrome.runtime.sendMessage({
+    method: 'SAVE_FLEETSAVE_MISSION',
+    data: {
+      uni, planetId,
+      mission: getMissionOf(uni, planetId),
+    }
+  })
+}
 
 const {
   planetsOf
 } = store; 
 
-const { isWarrior } = useCharacterClasses()
-
-const selected = ref<string[]>([])
-function toggleAll(universeCode: string){
-  if (isAllSelected(universeCode)) {
-    unselectAll()
+function toggleAll(universe: Universe){
+  if (isAllEnabled(universe)) {
+    disableAll(universe)
   } else {
-    selectAll(universeCode)
+    enableAll(universe)
   }
+
+  const toSave = universe?.planets
+    .map(p =>({
+      planetId: p.id,
+      mission: p.fleetMission
+    }))
+
+  chrome.runtime.sendMessage({
+    method: 'SAVE_MANY_FLEETSAVE_MISSIONS',
+    data: {
+      uni: universe.code,
+      planets: toSave
+    }
+  })
 }
 
-function selectAll(universeCode: string) {
-  selected.value = storage?.ogameData?.value?.find((u:any) => u.code === universeCode)
-    ?.planets?.map((p: any) => p.id)
+function enableAll(universe: Universe) {
+  universe.planets?.forEach(p => p.fleetMission.enabled = true)
 }
 
-function unselectAll() {
-  selected.value = []
+function disableAll(universe: Universe) {
+  universe.planets?.forEach(p => p.fleetMission.enabled = false)
 }
 
-function isAllSelected(universeCode: string){
-  const u = storage?.ogameData?.value?.find((u: any) => u.code === universeCode)
-  return u?.planets.every((p: any) => selected.value.includes(p.id))
-}
-
-function isSelected(planetId: string) {
-  return selected.value.includes(planetId)
-}
-
-function unselect(planetId: string) {
-  selected.value = selected.value.filter((id: string) => id !== planetId)
-}
-
-function select(planetId: string) {
-  selected.value.push(planetId)
-}
-
-function toggle(planetId: string) {
-  if (isSelected(planetId)) {
-    unselect(planetId)
-  } else {
-    select(planetId)
-  }
+function isAllEnabled(universe: Universe){
+  return universe.planets.every(p => p.fleetMission.enabled )
 }
 
 </script>
@@ -89,8 +91,10 @@ function toggle(planetId: string) {
         <th>
           <input 
             type="checkbox" 
-            :checked="isAllSelected(u.code)"
-            @click="toggleAll(u.code)"
+            id="enableAll"
+            name="enableAll"
+            :checked="isAllEnabled(u.code)"
+            @change="toggleAll(u)"
           >
         </th>
   
@@ -134,8 +138,8 @@ function toggle(planetId: string) {
               type="checkbox" 
               name="select" 
               id="select"
-              :checked="isSelected(p.id)"
-              @click="toggle(p.id)"
+              v-model="p.fleetMission.enabled"
+              @change="onUpdateFleetMission(u.code, p.id)"
             >
           </td>
 
@@ -148,10 +152,14 @@ function toggle(planetId: string) {
               v-model:galaxy="p.fleetMission.galaxy"
               v-model:system="p.fleetMission.system"
               v-model:position="p.fleetMission.position"
+              @update:galaxy="onUpdateFleetMission(u.code, p.id)"
+              @update:system="onUpdateFleetMission(u.code, p.id)"
+              @update:position="onUpdateFleetMission(u.code, p.id)"
             />
             <div class="d-f-r j-c-c a-i-c gap05">
               <MpMissionTypeSelect 
                 v-model.number="p.fleetMission.type"
+                @update="onUpdateFleetMission(u.code, p.id)"
               />
             </div>
           </td>
@@ -159,12 +167,16 @@ function toggle(planetId: string) {
           <td>
             <MpMissionSpeed 
               v-model="p.fleetMission.velocity"
+              @update:modelValue="onUpdateFleetMission(u.code, p.id)"
               :isWarrior="isWarrior()"
             />
           </td>
 
           <td>
-            <MpMissionSelect v-model="p.fleetMission.mission"/>
+            <MpMissionSelect 
+              v-model="p.fleetMission.mission"
+              @update:modelValue="onUpdateFleetMission(u.code, p.id)"
+            />
           </td>
         </tr>
       </tbody>
