@@ -2,7 +2,7 @@
   "name": "vitesse-modernized-chrome-ext",
   "displayName": "Ogame MP DEV",
   "description": "Chrome extension for Ogame",
-  "version": "0.0.142",
+  "version": "0.0.164",
   "private": true,
   "scripts": {
     "dev": "run-p dev:*",

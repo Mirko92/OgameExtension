@@ -103,7 +103,7 @@ function fleetSave() {
 
 function sendExpedition() {
     console.log("[MpOgame] - SendExpedition")
-    window.mp.fleetDispatcher.sendExpedition(null, false)
+    window.mp.fleetDispatcher?.sendExpedition(undefined, false)
 }
 
 function moveCargoToPlanet() {

@@ -61,7 +61,8 @@ export async function getManifest(): Promise<MpManifest> {
       'tabs',
       'storage',
       'activeTab',
-      "declarativeContent",
+      'declarativeContent',
+      'scripting'
     ],
 
     // this is required on dev for Vite script to load

@@ -14,7 +14,8 @@
             <input type="number"
                 placeholder="0" 
                 min="0"
-                v-model="modelValue[`am${ship.id}`]"/>
+                v-model="modelValue[`am${ship.id}`]"
+                @update:modelValue="onUpdate"/>
         </span>
     </div>
   </section>
@@ -24,8 +25,12 @@
 <script lang="ts" setup>
 import { shipsOptions } from "../logic/shipsOptions"
 
-defineProps<{ modelValue?: any }>()
-defineEmits<{ (e: 'update:modelValue', x: any): void }>()
+const props = defineProps<{ modelValue?: any }>()
+const emit = defineEmits<{ (e: 'update:modelValue', x: any): void }>()
+
+function onUpdate() {
+  emit('update:modelValue', props.modelValue)
+}
 </script>
 
 <style scoped>

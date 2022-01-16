@@ -41,7 +41,11 @@ export class MpOgame {
         );
     }
 
+    /**
+     * Stop running mission clearing local storage
+     */
     clearMissions() {
+        console.log("[MpOgame] - ClearMissions");
         localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
     }
 

@@ -159,7 +159,7 @@ function isAllEnabled(universe: Universe){
             <div class="d-f-r j-c-c a-i-c gap05">
               <MpMissionTypeSelect 
                 v-model.number="p.fleetMission.type"
-                @update="onUpdateFleetMission(u.code, p.id)"
+                @update:modelValue="onUpdateFleetMission(u.code, p.id)"
               />
             </div>
           </td>
