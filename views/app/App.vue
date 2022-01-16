@@ -30,7 +30,7 @@
 
 <script lang="ts" setup>
 import MpTabs from "./MpTabs.vue";
-import MpFleetForm from "./MpFleetForm.vue";
+import MpFleetDispatcher from "./MpFleetDispatcher.vue";
 import MpMissions from "./MpMissions.vue";
 import MpTrader from "./MpTrader.vue";
 
@@ -58,7 +58,7 @@ watch(currentView, () => {
 function getComponent() {
   switch (currentView.value) {
     case "FLEET_FORM":
-      return MpFleetForm;      
+      return MpFleetDispatcher;      
 
     case "TRADER":
       return MpTrader;      

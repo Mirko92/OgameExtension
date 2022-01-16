@@ -21,6 +21,10 @@ const {
   filters,
 } = storeToRefs(store)
 
+const {
+  planetsOf
+} = store; 
+
 function getMissionOf(uni: string, planetId: string) {
   return storage.value?.ogameData
     ?.find((u: any) => u.code === uni)
@@ -36,10 +40,6 @@ function onUpdateFleetMission(uni: string, planetId: string) {
     }
   })
 }
-
-const {
-  planetsOf
-} = store; 
 
 function toggleAll(universe: Universe){
   if (isAllEnabled(universe)) {
