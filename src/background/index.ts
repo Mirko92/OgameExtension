@@ -189,7 +189,7 @@ function handleMessage(
  * Ships on the planet
  */
 async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
-  const { uni, uniName, playerName, planet, shipsData } = data;
+  const { uni, uniName, playerName, planet, shipsData = [] } = data;
 
   let { universes, uniData } = await getUniversesAndUni(uni)
 
@@ -199,6 +199,7 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
       name: uniName,
       playerName,
       planets: [],
+      expeditionConfig: {}
     };
 
     universes.push(uniData);

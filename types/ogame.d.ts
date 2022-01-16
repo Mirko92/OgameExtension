@@ -15,7 +15,7 @@ type Universe = {
     playerName: string;
     planets: Planet[];
     missions?: GenericMission[];
-    expeditionConfig?: ExpeditionConfig;
+    expeditionConfig: ExpeditionConfig;
 }
 
 /**
