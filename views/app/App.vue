@@ -29,10 +29,10 @@
 </template>
 
 <script lang="ts" setup>
-import MpTabs from "./MpTabs.vue";
+import MpTabs            from "./MpTabs.vue";
 import MpFleetDispatcher from "./MpFleetDispatcher.vue";
-import MpMissions from "./MpMissions.vue";
-import MpTrader from "./MpTrader.vue";
+import MpMissions        from "./MpMissions.vue";
+import MpTrader          from "./MpTrader.vue";
 
 const isOpen    = ref(
   JSON.parse(sessionStorage.getItem('mp_dialog')!)

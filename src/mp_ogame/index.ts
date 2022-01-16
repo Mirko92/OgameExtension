@@ -184,6 +184,9 @@ export class MpOgame {
         console.debug("[MpOgame] - Init ogame extension");
         console.debug("[MpOgame] - Player name: ", player.name);
         console.debug("[MpOgame] - Current page: ", currentPage);
+
+        const attackAlert = document.querySelector('#attack_alert');
+        if (!attackAlert?.classList.contains('noAttack')) return;
         
         this.loadVueApp();
         /**
