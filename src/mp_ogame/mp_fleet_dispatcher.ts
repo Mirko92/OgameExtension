@@ -250,9 +250,7 @@ export class MpFleetDispatcher {
                     data: { uni: mp.server }
                 },
 
-                (r) => {
-                    const { ships } = r || {};
-                    
+                (ships) => {
                     if (!ships) {
                         fadeBox("Spedizioni non configurate", true);
                         resolve(false);
@@ -287,10 +285,11 @@ export class MpFleetDispatcher {
                         ...ships
                     }).toString();
 
-                    this.sendFleet(body).then(() => {
-                        reload && location.reload();
-                    })
-                        .finally(() => r());
+                    this.sendFleet(body)
+                        .then(() => {
+                            reload && location.reload();
+                        })
+                        .finally(() => resolve(null));
             
                 }
             );
