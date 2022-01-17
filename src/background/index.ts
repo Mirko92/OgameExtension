@@ -205,18 +205,19 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
     universes.push(uniData);
   }
 
+  const idx = uniData.planets?.findIndex(p => p.id !== planet.id)
+
   // Update planets into universe
   uniData.planets = [
     ...(uniData.planets?.filter(p => p.id !== planet.id) || []),
     {
-      // @ts-ignore:
-      fleetMission: {},
       ...planet,
+      ...(idx !== -1 ? uniData.planets[idx] : { fleetMission: {} }),
       shipsData,
     }
   ];
 
-  chrome.storage.local.set({ ogameData: universes });
+  chrome.storage.local.set({ ogameData: updateUniverses(universes, uniData) });
   callback();
 }
 
