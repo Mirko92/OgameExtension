@@ -25,10 +25,10 @@ function onPopState({state}: PopStateEvent) {
 
 function onLoad() {
   const u = new URL(window.location.href)
-  const view = u.searchParams.get('view') as OptionPage
-  
-  if (view) {
-    currentView.value = view
+  currentView.value = u.searchParams.get('view') as OptionPage || 'FLEET_SAVE_CONFIG'
+
+  if (!history.state) {
+    history.pushState(currentView.value, '', `?view=${currentView.value}`)
   }
 }
 
