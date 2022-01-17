@@ -290,4 +290,12 @@ html.dark {
 .pointer {
   cursor: pointer;
 }
+
+.p1 {
+  padding: 1rem;
+}
+
+.px1{
+  padding: 0 1rem
+}
 /* END UTILS */

@@ -26,6 +26,10 @@ type Planet = {
     name: string;
     type: PlanetType;
 
+    galaxy: string;
+    system: string;
+    position: string;
+
     fleetMission: FleetMission;
     shipsData?: any; // TODO: Definire
 }

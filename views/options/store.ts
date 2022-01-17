@@ -80,6 +80,7 @@ export const useStore = defineStore('options_store', () => {
 
       const s = await (await fetch(`/assets/data_v1.json`)).json()
       sortStorage(s)
+      initFilters(s)
       storage.value = s
       console.debug("storage", storage.value);
       return s;
