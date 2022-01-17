@@ -48,6 +48,10 @@ function toggleAll(universe: Universe){
     enableAll(universe)
   }
 
+  saveMany(universe)
+}
+
+function saveMany(universe: Universe) {
   const toSave = planetsOf(universe.code)?.map(p =>({
     planetId: p.id,
     mission: p.fleetMission
@@ -74,7 +78,30 @@ function isAllEnabled(universe: Universe){
   return planetsOf(universe.code).every(p => p.fleetMission.enabled )
 }
 
+
+const position  = ref<string>('')
+const type      = ref()
+const speed     = ref<string>('')
+const mission   = ref<string>('')
+function applyToAll(universe: Universe) {
+  const planets = planetsOf(universe.code)
+  if (!planets) return
+
+  planets.forEach(p => {
+    p.fleetMission.galaxy   = p.galaxy
+    p.fleetMission.system   = p.system
+
+    p.fleetMission.position = position.value
+    p.fleetMission.velocity = speed.value
+    p.fleetMission.mission  = mission.value
+    p.fleetMission.type     = type.value
+  })
+
+  saveMany(universe)
+} 
+
 </script>
+
 <template>
   <div class="universe"
     v-for="u of storage?.ogameData"
@@ -84,7 +111,42 @@ function isAllEnabled(universe: Universe){
       <thead>
         <tr style="text-align: center;">
           <td colspan="100">
-            {{u.name}} - {{u.code}}
+            <h3 class="universe_name_code">{{u.name}} - {{u.code}}</h3>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="100">
+            <div class="px1">
+              Modifica ed applica a tutti i pianeti/lune visibili
+              <br>
+              <small>In questo caso Galassia e Sistema corrisponderanno a quelli di partenza</small>
+            </div>
+            <form 
+              @submit.prevent="applyToAll(u)"
+              class="d-f-r gap05 p1">
+              <div>
+                <label>Posizione: </label>
+                <input 
+                  min="1"
+                  type="number"
+                  style="width: 3rem;"
+                  v-model="position" >
+              </div>
+
+              <MpMissionTypeSelect v-model.number="type" />
+
+              <label>Velocità</label>
+              <MpMissionSpeed 
+                :isWarrior="isWarrior()" 
+                v-model="speed"
+              />
+
+              <label>Missione</label>
+              <MpMissionSelect v-model="mission"/>
+
+              <button type="submit" >Applica</button>
+            </form>
           </td>
         </tr>
 
@@ -185,6 +247,10 @@ function isAllEnabled(universe: Universe){
 </template>
 
 <style scoped>
+
+.universe_name_code {
+  margin: 0;
+}
 .universe {
   min-height: 100vh;
   display: flex;
