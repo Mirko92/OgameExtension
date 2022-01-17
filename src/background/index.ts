@@ -205,7 +205,7 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
     universes.push(uniData);
   }
 
-  const idx = uniData.planets?.findIndex(p => p.id !== planet.id)
+  const idx = uniData.planets?.findIndex(p => p.id === planet.id)
 
   // Update planets into universe
   uniData.planets = [
@@ -222,11 +222,19 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
 }
 
 async function getFleetSave({ uni, planetId }: MpPlanetKeys, callback: Function) {
-  callback(
-    (await getUniverse(uni))?.planets
-      ?.find(p => p.id === planetId)
-      ?.fleetMission
-  );
+  const us = await getUniverse(uni);
+  console.debug("universes", us);
+
+  const ps = us.planets;
+  console.debug("planets", ps);
+
+  const p = ps.find(p => p.id === planetId);
+  console.debug("planet", p);
+
+  const fleetMission = p?.fleetMission;
+  console.debug("fleetMission", fleetMission);
+
+  callback(fleetMission);
 }
 
 async function saveFleetsaveMission(
