@@ -239,7 +239,7 @@ export class MpFleetDispatcher {
     /**
      * Send configured expedition mission
      */
-    sendExpedition(e: Event, reload = true) {
+    sendExpedition(e?: Event, reload = true) {
         e?.preventDefault();
 
         return new Promise((resolve) => {
@@ -250,14 +250,14 @@ export class MpFleetDispatcher {
                     data: { uni: mp.server }
                 },
 
-                (r) => {
-                    const { ships } = r || {};
-                    
-                    if (!ships || ships?.length === 0) {
+                (ships) => {
+                    if (!ships) {
                         fadeBox("Spedizioni non configurate", true);
                         resolve(false);
                         return;
                     }
+
+                    // TODO: Controllare se ci sono sufficienti navi 
             
                     const body = new URLSearchParams({
                         token: this.myToken, //fleetDispatcher.token,
@@ -282,15 +282,14 @@ export class MpFleetDispatcher {
                         holdingtime: 1,
             
                         //Ships
-                        ...[{}, ...ships].reduce(
-                            (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.value }
-                        )
+                        ...ships
                     }).toString();
 
-                    this.sendFleet(body).then(() => {
-                        reload && location.reload();
-                    })
-                        .finally(() => r());
+                    this.sendFleet(body)
+                        .then(() => {
+                            reload && location.reload();
+                        })
+                        .finally(() => resolve(null));
             
                 }
             );

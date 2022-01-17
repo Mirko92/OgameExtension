@@ -1,10 +1,21 @@
 <script lang="ts" setup>
-const props = defineProps<{ isActive: boolean }>()
+const props = defineProps<{ 
+  isActive: boolean,
+  view: OptionPage  
+}>()
 
-const emit = defineEmits(['update:isActive'])
+const emit = defineEmits<{
+  (e: 'update:isActive', value: boolean): void,
+  (e: 'update:view', to: OptionPage): void,
+}>()
 
 function toggleMenu() {
   emit("update:isActive", !props.isActive)
+}
+
+function goTo(to: OptionPage) {
+  emit("update:view", to)
+  toggleMenu()
 }
 </script>
 
@@ -27,28 +38,25 @@ function toggleMenu() {
   >
     <ul class="main_menu">
       <a
-        routerLink="fleet-configuration"
-        routerLinkActive="menu_item--active"
-        @click="toggleMenu"
+        @click="goTo('FLEET_SAVE_CONFIG')"
         class="menu_item"
+        :class="{'menu_item--active': view === 'FLEET_SAVE_CONFIG'}"
       >
         <span>Fleet save config.</span>
       </a>
 
       <a
-        routerLink="expedition-configuration"
-        routerLinkActive="menu_item--active"
-        @click="toggleMenu"
+        @click="goTo('EXPEDITION_CONFIG')"
         class="menu_item"
+        :class="{'menu_item--active': view === 'EXPEDITION_CONFIG'}"
       >
         <span>Expedition config.</span>
       </a>
 
       <a
-        routerLink="about"
-        routerLinkActive="menu_item--active"
-        @click="toggleMenu"
+        @click="goTo('ABOUT')"
         class="menu_item"
+        :class="{'menu_item--active': view === 'ABOUT'}"
       >
         <span>About</span>
       </a>
@@ -93,6 +101,7 @@ function toggleMenu() {
   display: block;
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 .menu_item:hover {
   color: rgba(144, 238, 144, 0.514);

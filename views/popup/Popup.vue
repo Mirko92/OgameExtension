@@ -1,26 +1,71 @@
 <template>
-  <main class="w-[300px] px-4 py-5 text-center text-gray-700 dark:text-gray-200">
-    <carbon-popup class="icon-btn mx-2 text-2xl" />
-    <div>Popup</div>
-    <p class="mt-2 opacity-50">
-      {{ $t('popup.desc') }}
-    </p>
-    <button class="btn mt-2" @click="openOptionsPage">
-      {{ $t('popup.open_options') }}
-    </button>
-
-    <Footer />
-
-    <div class="mt-2">
-      <span class="opacity-50">{{ $t('popup.storage') }}:</span> {{ storageDemo }}
-    </div>
+  <main id="mp_app" class="popup">
+    <section class="d-f-c">
+      
+      <button 
+        class="mp_button"
+        @click="stopAll">
+        STOP ALL 
+      </button>
+  
+      <a 
+        class="mt05"
+        href="javascript:void(0)"
+        @click="openOptionsPage">
+        Options
+      </a>
+    </section>
   </main>
 </template>
 
-<script setup lang="ts">
-import { storageDemo } from '~/logic/storage'
+<style scoped>
+.popup {
+  width: 300px;
+  height: 100px;
+  padding: .5rem;
+}
 
+.popup section {
+  margin: 0;
+}
+
+.popup a {
+  color: white;
+}
+</style>
+
+<script setup lang="ts">
 function openOptionsPage() {
   chrome.runtime.openOptionsPage()
+}
+
+/**
+ * Function to execute in DOM 
+ * to STOP running mission 
+ */
+function runScript(script: string) {
+  document.body.insertAdjacentHTML(
+    "afterend",
+    `<button id="runscript" hidden onclick="${script}">Run script</button>`
+  )
+
+  const btn = document.getElementById('runscript')
+  btn!.click()
+  btn!.remove()
+}
+
+const clearMission = "window.mp.clearMissions();"
+
+async function stopAll() {
+  const currentTab = await chrome.tabs.query({
+    currentWindow: true,
+    active: true
+  })
+
+  chrome.scripting.executeScript({
+    target: { tabId: currentTab[0].id! },
+    func: runScript,
+    args: [ clearMission ]
+  })
 }
 </script>

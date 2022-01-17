@@ -1,0 +1,1 @@
+type OptionPage = "EXPEDITION_CONFIG" | "FLEET_SAVE_CONFIG" | "ABOUT";

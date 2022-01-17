@@ -96,29 +96,30 @@
 //     console.log("[MpOgame] - prova response", response)
 // }
 
-function fleetSave() {
+async function fleetSave() {
     console.log("[MpOgame] - FleetSave")
     window.mp.automaticFleetSave()
 }
 
-function sendExpedition() {
+async function sendExpedition() {
     console.log("[MpOgame] - SendExpedition")
-    window.mp.fleetDispatcher.sendExpedition(null, false)
+    await window.mp.fleetDispatcher?.sendExpedition(undefined, false)
+    location.reload()
 }
 
-function moveCargoToPlanet() {
+async function moveCargoToPlanet() {
     console.log("[MpOgame] - MoveCargoToPlanet")
-    window.mp.moveToPlanet()
+    await window.mp.moveToPlanet()
 }
 
-function moveCargoToMoon() {
+async function moveCargoToMoon() {
     console.log("[MpOgame] - MoveCargoToMoon")
-    window.mp.moveToMoon()
+    await window.mp.moveToMoon()
 }
 
 const destination = ref("")
-function collectTo() {
+async function collectTo() {
     console.log("[MpOgame] - CollectTo")
-    window.mp.collectToMain(undefined, destination.value)
+    await window.mp.collectToMain(undefined, destination.value)
 }
 </script>

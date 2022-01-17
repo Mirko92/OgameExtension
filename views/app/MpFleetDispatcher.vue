@@ -1,24 +1,6 @@
 <template>
   <div class="mission">
-    <section>
-      <header>
-        <h5>
-          Navi
-        </h5>
-      </header>
-
-      <div class="ship"
-          v-for="ship in shipsOptions"
-          :key="ship.id">
-          <span class="ship__name">{{ship.name}}</span>
-          <span class="ship__number">
-              <input type="number"
-                  placeholder="0" 
-                  min="0"
-                  v-model="result[`am${ship.id}`]"/>
-          </span>
-      </div>
-    </section>
+    <MpShipsForm v-model="result"/>
 
     <section>
         <header>
@@ -117,7 +99,6 @@
 
 
 <script lang="ts" setup>
-import { shipsOptions } from "../logic/shipsOptions"
 import { useCharacterClasses } from "../logic/useCharacterClasses"
 
 const isSending = ref(false)

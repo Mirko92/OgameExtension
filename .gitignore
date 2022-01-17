@@ -10,3 +10,6 @@ components.d.ts
 *.log
 extension/manifest.json
 extension/background.js
+*.crx
+*.zip
+*.pem

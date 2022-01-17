@@ -61,7 +61,8 @@ export async function getManifest(): Promise<MpManifest> {
       'tabs',
       'storage',
       'activeTab',
-      "declarativeContent",
+      'declarativeContent',
+      'scripting'
     ],
 
     // this is required on dev for Vite script to load
@@ -79,6 +80,8 @@ export async function getManifest(): Promise<MpManifest> {
       {
         resources: [ 
           "assets/icon_32.png",
+          "/assets/send_icon.jpeg",
+          "/assets/expedition_icon.jpeg",
 
           "dist/assets/content_app.js",
           "dist/assets/main.js",
@@ -91,7 +94,8 @@ export async function getManifest(): Promise<MpManifest> {
           "/dist/mp_ogame/mp_mission.d.global.js",
           "/dist/mp_ogame/mp_statistics.global.js",
           "/dist/mp_ogame/mp_utils.global.js",
-          "dist/assets/useCharacterClasses.js"
+          "dist/assets/useCharacterClasses.js",
+          "dist/assets/MpShipsForm.js"
         ],
         matches: [ 
           "https://*.ogame.gameforge.com/*"
