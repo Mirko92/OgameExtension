@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const version = chrome.runtime.getManifest().version;
+const version = chrome.runtime?.getManifest().version || "DEV";
 </script>
 <template>
 <div class="page">

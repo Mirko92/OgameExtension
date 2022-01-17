@@ -16,18 +16,26 @@ const component = computed( () => {
       return MpExpeditionConfig
     case "ABOUT":
       return MpAbout
-    default:
-      break;
   }
 })
 
-// onMounted(() => {
-//   const u = new URL(window.location.href)
-//   const v = u.searchParams.get('view') as OptionPage
-//   if (v) {
-//     currentView.value = v
-//   }
-// })
+function onPopState({state}: PopStateEvent) {
+  currentView.value = state
+}
+
+function onLoad() {
+  const u = new URL(window.location.href)
+  const view = u.searchParams.get('view') as OptionPage
+  
+  if (view) {
+    currentView.value = view
+  }
+}
+
+onMounted(() => {
+  window.onpopstate = onPopState
+  onLoad()
+})
 </script>
 
 <template>
@@ -44,10 +52,6 @@ const component = computed( () => {
 <style scoped>
 .options__main {
   height: 100vh;
-
   overflow-y: auto;
-  /* scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-padding-block: 5rem; */
 }
 </style>

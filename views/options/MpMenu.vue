@@ -14,6 +14,7 @@ function toggleMenu() {
 }
 
 function goTo(to: OptionPage) {
+  history.pushState(to, to, `?view=${to}`)
   emit("update:view", to)
   toggleMenu()
 }
