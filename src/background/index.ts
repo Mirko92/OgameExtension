@@ -222,19 +222,12 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
 }
 
 async function getFleetSave({ uni, planetId }: MpPlanetKeys, callback: Function) {
-  const us = await getUniverse(uni);
-  console.debug("universes", us);
-
-  const ps = us.planets;
-  console.debug("planets", ps);
-
-  const p = ps.find(p => p.id === planetId);
-  console.debug("planet", p);
-
-  const fleetMission = p?.fleetMission;
-  console.debug("fleetMission", fleetMission);
-
-  callback(fleetMission);
+  callback(
+    (await getUniverse(uni))
+      .planets
+        .find(p => p.id === planetId)
+        ?.fleetMission
+  );
 }
 
 async function saveFleetsaveMission(

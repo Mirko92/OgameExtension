@@ -20,6 +20,10 @@ export class MpOgame {
         return server();
     }
 
+    get uniName() {
+        return document.title?.split(' ')[0];
+    }
+
     get extensionId() {
         return extensionId() as string;
     }

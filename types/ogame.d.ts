@@ -35,6 +35,13 @@ type Planet = {
 }
 
 /**
+ * TODO: Finire
+ */
+type Ship = {
+    id: number;
+}
+
+/**
  * Ogame fleet mission data type definition
  * Actually, FleetSave Mission TODO: 
  */
@@ -128,41 +135,54 @@ type MpSaveExpeditionConfigData = {
 type MpSaveFleetInfo = {
     method: 'SAVE_FLEET_INFO';
     data: MpSaveFleetInfoData;
+    response?: never;
 }
 
 type MpSaveFleetMission = {
     method: 'SAVE_FLEETSAVE_MISSION',
     data: MpPlanetMissionData;
+    response?: never;
 }
 
 type MpSaveManyFleetMissions = {
     method: 'SAVE_MANY_FLEETSAVE_MISSIONS',
     data: MpSaveManyFleetMissionsData;
+    response?: never;
 }
 
 type MpGetFleetSave = {
     method: 'GET_FLEET_SAVE_DATA';
     data: MpPlanetKeys;
+    response?: FleetMission;
 }
 
 type MpSaveMission = {
     method: 'SAVE_MISSION';
     data: MpSaveMissionData;
+    response?: void;
 }
 
 type MpSaveExpeditionConfig = {
     method: 'SAVE_EXPEDITION_CONFIG';
     data: MpSaveExpeditionConfigData;
+    response?: void;
 }
 
 type MpGetExpeditionConfig = {
     method: 'GET_EXPEDITION_CONFIG';
     data: MpUniKey;
+    response?: void;
 }
 
 type MpOpenOptions = {
     method: 'OPEN_OPTIONS';
     data: null;
+    response?: void;
 }
 
 type MpRequest = MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions | MpGetFleetSave | MpSaveMission | MpSaveExpeditionConfig | MpGetExpeditionConfig | MpOpenOptions; 
+
+// type MpResponse<T> = T extends {response: unknown} ? T['response']: never;
+type MpResponse<T> = T['response'];
+
+//TODO: PRovare T extends {response:unknown}? Omit<T, 'response'> :T

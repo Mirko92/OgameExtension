@@ -1,23 +1,7 @@
-import { MpOgame } from '.';
-
 import { 
     MP_PLANET_TYPES, 
     MP_MISSIONS 
 } from './mp_consts';
-
-declare const mp           : MpOgame;
-declare const playerName   : string;
-declare const ogameUrl     : string;
-declare const resourcesBar : any;
-declare const metalOnPlanet     : any;
-declare const crystalOnPlanet   : any;
-declare const deuteriumOnPlanet : any;
-declare const shipsOnPlanet     : any;
-declare function fadeBox(text: string, isAlert: boolean) : void;
-
-type Ship = {
-    id: number;
-}
 
 /**
  * FleetDispatch page controller
@@ -38,37 +22,43 @@ export class MpFleetDispatcher {
         console.debug("Token received", this.myToken);
     }
 
+
+    async sendMessage(r: MpSaveFleetInfo): Promise<void>;
+    async sendMessage(r: MpGetFleetSave): Promise<FleetMission>;
+    async sendMessage<T extends MpRequest>(request: T): Promise<MpResponse<T>> {
+        return new Promise((resolve) => {
+            chrome.runtime.sendMessage(
+                window.mp.extensionId,
+                request,
+                (response) => resolve(response)
+            )
+        })
+    }
+
     /**
      * Create/Update in localstorage
      * info abount available ships on planet 
      * @param {string} uni Eg: s-170.it
      * @param {any} planet Eg: 1_88_4_3
      */
-    async saveFleetInfo(uni: string, planet: any, shipsData: any) {
-        const uniName = document.title?.split(' ')[0];
-
+    async saveFleetInfo(uni: string, planet: Planet, shipsData: any) {
         planet.id = this._currentPlanetId();
 
-        return new Promise((resolve) => {
-            chrome.runtime.sendMessage<any>(
-                mp.extensionId as string,
-                {
-                    method: "SAVE_FLEET_INFO",
-                    data: { 
-                        uni, 
-                        planet, 
-                        shipsData, 
-                        uniName, 
-                        playerName 
-                    }
-                },
-                resolve
-            );
-        });
+        return this.sendMessage({
+            method: "SAVE_FLEET_INFO",
+            data: {
+                uni, 
+                planet, 
+                shipsData, 
+                uniName: window.mp.uniName, 
+                playerName 
+            }
+        })
     }
 
     async getToken() {
-        let url = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch&action=checkTarget&ajax=1&asJson=1"
+        let url = ogameUrl + "/game/index.php?page=ingame" + 
+            "&component=fleetdispatch&action=checkTarget&ajax=1&asJson=1";
 
         const {
             galaxy,
@@ -145,7 +135,7 @@ export class MpFleetDispatcher {
     _currentPlanetId() {
         return document.head
                 .querySelector("[name=ogame-planet-id]")!
-                .getAttribute("content");
+                .getAttribute("content")!;
     }
 
     /**
@@ -185,11 +175,11 @@ export class MpFleetDispatcher {
         return new Promise((resolve) => {
 
             chrome.runtime.sendMessage(
-                mp.extensionId as string,
+                window.mp.extensionId as string,
                 {
                     method: "GET_FLEET_SAVE_DATA",
                     data: { 
-                        uni: mp.server, 
+                        uni: window.mp.server, 
                         planetId: this._currentPlanetId() 
                     }
                 },
@@ -244,10 +234,10 @@ export class MpFleetDispatcher {
 
         return new Promise((resolve) => {
             chrome.runtime.sendMessage(
-                mp.extensionId as string,
+                window.mp.extensionId as string,
                 {
                     method: "GET_EXPEDITION_CONFIG",
-                    data: { uni: mp.server }
+                    data: { uni: window.mp.server }
                 },
 
                 (ships) => {
