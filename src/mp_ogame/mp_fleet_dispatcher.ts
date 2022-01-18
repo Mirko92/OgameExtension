@@ -192,21 +192,21 @@ export class MpFleetDispatcher {
                     }
 
                     const body = new URLSearchParams({
-                        token: this.myToken,//fleetDispatcher.token,
-                        speed: r.velocity / 10,
+                        token  : this.myToken,      //fleetDispatcher.token,
+                        speed  : r.velocity / 10,
                         mission: r.mission,
                         //TO:
-                        galaxy: r.galaxy,
-                        system: r.system,
+                        galaxy  : r.galaxy,
+                        system  : r.system,
                         position: r.position,
-                        type: r.type,
+                        type    : r.type,
                         //HOLD:
                         metal    : resourcesBar.resources.metal.amount,
                         crystal  : resourcesBar.resources.crystal.amount,
                         deuterium: resourcesBar.resources.deuterium.amount,
 
-                        prioMetal: 1,
-                        prioCrystal: 2,
+                        prioMetal    : 1,
+                        prioCrystal  : 2,
                         prioDeuterium: 3,
 
                         retreatAfterDefenderRetreat: 0,
@@ -217,9 +217,11 @@ export class MpFleetDispatcher {
                         ...this._allShipsParmas
                     }).toString();
 
-                    this.sendFleet(body).then(() => {
-                        reload && location.reload();
-                    }).finally(() => r());
+                    this.sendFleet(body)
+                        .then(() => {
+                            reload && location.reload();
+                        })
+                        .finally(() => resolve(null));
                 }
             );
         });
