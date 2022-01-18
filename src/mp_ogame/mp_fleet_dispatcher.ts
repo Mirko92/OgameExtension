@@ -8,7 +8,7 @@ import {
  */
 export class MpFleetDispatcher {
 
-    myToken = null; 
+    myToken: null | string = null; 
 
     constructor() { }
 
@@ -57,55 +57,21 @@ export class MpFleetDispatcher {
     }
 
     async getToken() {
-        let url = ogameUrl + "/game/index.php?page=ingame" + 
-            "&component=fleetdispatch&action=checkTarget&ajax=1&asJson=1";
-
-        const {
-            galaxy,
-            system,
-            position,
-            type,
-        } = this._currentPlanet;
-
-        const body = new URLSearchParams({
-            galaxy,
-            system,
-            position,
-            type,
-            token: this.myToken,
-            union: 0, 
-        } as any).toString();
-
-        const response = await fetch(
-            url, 
+        return (await fetch(
+            ogameUrl + "/game/index.php?page=ingame" + 
+            "&component=fleetdispatch&action=checkTarget&ajax=1&asJson=1", 
             {
-                mode: "cors",
-                credentials: "same-origin",
-                method: "POST",
-                headers: {
-                    "accept": "*/*",
-                    "accept-language": "it,it-IT;",
-                    "cache-control": "no-cache",
-                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    cookie: document.cookie,
-                    "pragma": "no-cache",
-                    "sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"91\", \"Chromium\";v=\"91\"",
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin",
-                    "x-requested-with": "XMLHttpRequest"
-                },
-                referrer: "https://s170-it.ogame.gameforge.com/game/index.php?page=ingame&component=fleetdispatch",
-                referrerPolicy: "strict-origin-when-cross-origin",
-                body
+                method  : "POST",
+                headers : { "x-requested-with": "XMLHttpRequest" },
+                body    : new URLSearchParams({
+                    token: this.myToken!,
+                }).toString()
             }
-        );
-
-        return response.json().then(x => x.newAjaxToken );
+        ))
+        .json().then(x => x.newAjaxToken);
     }
 
-    get _currentPlanet() {
+    get _currentPlanet(): Omit<Planet, 'id'|'name'|'fleetMission'> {
         if (window?.currentPlanet) {
             return window?.currentPlanet;
         } else {
@@ -119,8 +85,8 @@ export class MpFleetDispatcher {
                 return a;
             }, {})
     
-            const [galaxy, system, position] = coords.replace(/[\[\]]/g, "").split(':');
-            const type = stringType === "planet" ? 1 : 3;
+            const [galaxy, system, position] = coords.replace(/[\[\]]/g, "").split(':') as string[];
+            const type: number = stringType === "planet" ? 1 : 3;
 
             return {
                 galaxy, system, position, type
