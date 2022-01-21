@@ -11,6 +11,7 @@ declare global {
     declare const shipsOnPlanet     : Ship[];
     declare function fadeBox(text: string, isAlert: boolean) : void;
 
+    declare function $(...args: any[]): any;
 	interface Window {
         mp: MpOgame;
 

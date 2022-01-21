@@ -1,190 +1,23 @@
 {
     "ogameData": [
         {
-            "code": "s801-en",
-            "expeditionConfig": {
-                "ships": [
-                    { "id": 210, "value": 1   },
-                    { "id": 219, "value": 1   },
-                    { "id": 206, "value": 0   },
-                    { "id": 215, "value": 1   },
-                    { "id": 207, "value": 0   },
-                    { "id": 203, "value": 150 },
-                    { "id": 202, "value": 250 }
-                ]
-            },
-            "name": "Bermuda",
-            "planets": [
-                {
-                    "galaxy": 1,
-                    "id": "34026723",
-                    "name": "0100",
-                    "position": 13,
-                    "shipsData": [],
-                    "system": 230,
-                    "type": 1,
-                    "fleetMission": {}
-                }
-            ],
-            "playerName": "Director Helios"
-        },
-        {
             "code": "s170-it",
             "expeditionConfig": {
-                "ships": [
-                    {
-                        "id": 219,
-                        "value": 1
-                    },
-                    {
-                        "id": 210,
-                        "value": 1
-                    },
-                    {
-                        "id": 203,
-                        "value": 2750
-                    },
-                    {
-                        "id": 218,
-                        "value": 1
-                    }
-                ]
+                "am203": 2750,
+                "am210": 1,
+                "am219": 1
             },
-            "missions": [
-                {
-                    "galaxy": 1,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33633806",
-                    "position": 2,
-                    "system": 99,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 1,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33645639",
-                    "position": 2,
-                    "system": 299,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 1,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33636399",
-                    "position": 2,
-                    "system": 403,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 2,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33640684",
-                    "position": 2,
-                    "system": 67,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 2,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33640680",
-                    "position": 2,
-                    "system": 200,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 2,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33664098",
-                    "position": 11,
-                    "system": 401,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 3,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33655172",
-                    "position": 2,
-                    "system": 51,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 3,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33641906",
-                    "position": 2,
-                    "system": 215,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 4,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33650907",
-                    "position": 2,
-                    "system": 59,
-                    "type": 1,
-                    "velocity": 80
-                },
-                {
-                    "galaxy": 4,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33644930",
-                    "position": 2,
-                    "system": 309,
-                    "type": 1,
-                    "velocity": 70
-                },
-                {
-                    "galaxy": 5,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33660183",
-                    "position": 2,
-                    "system": 200,
-                    "type": 1,
-                    "velocity": 40
-                },
-                {
-                    "galaxy": 5,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33656338",
-                    "position": 2,
-                    "system": 450,
-                    "type": 1,
-                    "velocity": 100
-                },
-                {
-                    "galaxy": 1,
-                    "mission": 7,
-                    "missionCode": "fleet-mission",
-                    "planetId": "33630136",
-                    "position": 2,
-                    "system": 299,
-                    "type": 1,
-                    "velocity": 90
-                }
-            ],
             "name": "Rosalind",
             "planets": [
                 {
+                    "fleetMission": {
+                        "galaxy": "5",
+                        "mission": "7",
+                        "position": "2",
+                        "system": "450",
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 5,
                     "id": "33656338",
                     "name": "PolloFritto",
@@ -276,11 +109,28 @@
                         }
                     ],
                     "system": 450,
-                    "type": 3,
-                    "fleetMission": {}
-                    
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
+                    "galaxy": 5,
+                    "id": "33624616",
+                    "name": "Cannolo",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 450,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 5,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 200,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 5,
                     "id": "33660183",
                     "name": "luna",
@@ -372,10 +222,240 @@
                         }
                     ],
                     "system": 200,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
+                    "galaxy": 5,
+                    "id": "33660063",
+                    "name": "Casatiello",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 200,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 4,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 309,
+                        "type": 1,
+                        "velocity": "90"
+                    },
+                    "galaxy": 4,
+                    "id": "33644930",
+                    "name": "Burro",
+                    "position": 15,
+                    "shipsData": [
+                        {
+                            "baseCargoCapacity": 9000,
+                            "baseFuelCapacity": 9000,
+                            "baseFuelConsumption": 20,
+                            "baseSpeed": 10000,
+                            "cargoCapacity": 49500000,
+                            "fuelCapacity": 49500000,
+                            "fuelConsumption": 55000,
+                            "id": 202,
+                            "name": "Cargo leggero",
+                            "number": 5500,
+                            "recycleMode": 0,
+                            "speed": 45000
+                        },
+                        {
+                            "baseCargoCapacity": 45000,
+                            "baseFuelCapacity": 45000,
+                            "baseFuelConsumption": 50,
+                            "baseSpeed": 7500,
+                            "cargoCapacity": 22500000,
+                            "fuelCapacity": 22500000,
+                            "fuelConsumption": 12500,
+                            "id": 203,
+                            "name": "Cargo Pesante",
+                            "number": 500,
+                            "recycleMode": 0,
+                            "speed": 22500
+                        },
+                        {
+                            "baseCargoCapacity": 13500,
+                            "baseFuelCapacity": 13500,
+                            "baseFuelConsumption": 1000,
+                            "baseSpeed": 2500,
+                            "cargoCapacity": 54000,
+                            "fuelCapacity": 54000,
+                            "fuelConsumption": 2000,
+                            "id": 208,
+                            "name": "Colonizzatrice",
+                            "number": 4,
+                            "recycleMode": 0,
+                            "speed": 11000
+                        },
+                        {
+                            "baseCargoCapacity": 36000,
+                            "baseFuelCapacity": 36000,
+                            "baseFuelConsumption": 900,
+                            "baseSpeed": 6000,
+                            "cargoCapacity": 7560000,
+                            "fuelCapacity": 7560000,
+                            "fuelConsumption": 94500,
+                            "id": 209,
+                            "name": "Riciclatrici",
+                            "number": 210,
+                            "recycleMode": 0,
+                            "speed": 33000
+                        },
+                        {
+                            "baseCargoCapacity": 0,
+                            "baseFuelCapacity": 9,
+                            "baseFuelConsumption": 1,
+                            "baseSpeed": 100000000,
+                            "cargoCapacity": 0,
+                            "fuelCapacity": 900,
+                            "fuelConsumption": 100,
+                            "id": 210,
+                            "name": "Sonda spia",
+                            "number": 100,
+                            "recycleMode": 0,
+                            "speed": 290000000
+                        },
+                        {
+                            "baseCargoCapacity": 1800000,
+                            "baseFuelCapacity": 1800000,
+                            "baseFuelConsumption": 1,
+                            "baseSpeed": 100,
+                            "cargoCapacity": 3600000,
+                            "fuelCapacity": 3600000,
+                            "fuelConsumption": 2,
+                            "id": 214,
+                            "name": "Morte Nera",
+                            "number": 2,
+                            "recycleMode": 0,
+                            "speed": 550
+                        }
+                    ],
+                    "system": 309,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 4,
+                    "id": "33644623",
+                    "name": "Pastiera",
+                    "position": 15,
+                    "shipsData": [],
+                    "system": 309,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 4,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 59,
+                        "type": 1,
+                        "velocity": "90"
+                    },
+                    "galaxy": 4,
+                    "id": "33650907",
+                    "name": "Gelato",
+                    "position": 8,
+                    "shipsData": [
+                        {
+                            "baseCargoCapacity": 9000,
+                            "baseFuelCapacity": 9000,
+                            "baseFuelConsumption": 20,
+                            "baseSpeed": 10000,
+                            "cargoCapacity": 49500000,
+                            "fuelCapacity": 49500000,
+                            "fuelConsumption": 55000,
+                            "id": 202,
+                            "name": "Cargo leggero",
+                            "number": 5500,
+                            "recycleMode": 0,
+                            "speed": 45000
+                        },
+                        {
+                            "baseCargoCapacity": 45000,
+                            "baseFuelCapacity": 45000,
+                            "baseFuelConsumption": 50,
+                            "baseSpeed": 7500,
+                            "cargoCapacity": 22500000,
+                            "fuelCapacity": 22500000,
+                            "fuelConsumption": 12500,
+                            "id": 203,
+                            "name": "Cargo Pesante",
+                            "number": 500,
+                            "recycleMode": 0,
+                            "speed": 22500
+                        },
+                        {
+                            "baseCargoCapacity": 13500,
+                            "baseFuelCapacity": 13500,
+                            "baseFuelConsumption": 1000,
+                            "baseSpeed": 2500,
+                            "cargoCapacity": 13500,
+                            "fuelCapacity": 13500,
+                            "fuelConsumption": 500,
+                            "id": 208,
+                            "name": "Colonizzatrice",
+                            "number": 1,
+                            "recycleMode": 0,
+                            "speed": 11000
+                        },
+                        {
+                            "baseCargoCapacity": 0,
+                            "baseFuelCapacity": 9,
+                            "baseFuelConsumption": 1,
+                            "baseSpeed": 100000000,
+                            "cargoCapacity": 0,
+                            "fuelCapacity": 360,
+                            "fuelConsumption": 40,
+                            "id": 210,
+                            "name": "Sonda spia",
+                            "number": 40,
+                            "recycleMode": 0,
+                            "speed": 290000000
+                        },
+                        {
+                            "baseCargoCapacity": 1800000,
+                            "baseFuelCapacity": 1800000,
+                            "baseFuelConsumption": 1,
+                            "baseSpeed": 100,
+                            "cargoCapacity": 1800000,
+                            "fuelCapacity": 1800000,
+                            "fuelConsumption": 1,
+                            "id": 214,
+                            "name": "Morte Nera",
+                            "number": 1,
+                            "recycleMode": 0,
+                            "speed": 550
+                        }
+                    ],
+                    "system": 59,
+                    "type": 3
+                },
+                {
+                    "fleetMission": {},
+                    "galaxy": 4,
+                    "id": "33650550",
+                    "name": "Tiramisu",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 59,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 3,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 215,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 3,
                     "id": "33641906",
                     "name": "Nutella",
@@ -443,11 +523,11 @@
                             "baseFuelConsumption": 1,
                             "baseSpeed": 100000000,
                             "cargoCapacity": 0,
-                            "fuelCapacity": 450,
-                            "fuelConsumption": 50,
+                            "fuelCapacity": 441,
+                            "fuelConsumption": 49,
                             "id": 210,
                             "name": "Sonda spia",
-                            "number": 50,
+                            "number": 49,
                             "recycleMode": 0,
                             "speed": 290000000
                         },
@@ -467,10 +547,28 @@
                         }
                     ],
                     "system": 215,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
+                    "galaxy": 3,
+                    "id": "33633276",
+                    "name": "Merendine",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 215,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 3,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 51,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 3,
                     "id": "33655172",
                     "name": "Ciambella",
@@ -562,10 +660,28 @@
                         }
                     ],
                     "system": 51,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
+                    "galaxy": 3,
+                    "id": "33654756",
+                    "name": "FrittoMisto",
+                    "position": 8,
+                    "shipsData": [],
+                    "system": 51,
+                    "type": 1
+                },
+                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 2,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 401,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 2,
                     "id": "33664098",
                     "name": "TOTS",
@@ -590,12 +706,12 @@
                             "baseFuelCapacity": 45000,
                             "baseFuelConsumption": 50,
                             "baseSpeed": 7500,
-                            "cargoCapacity": 67500000,
-                            "fuelCapacity": 67500000,
-                            "fuelConsumption": 37500,
+                            "cargoCapacity": 45000000,
+                            "fuelCapacity": 45000000,
+                            "fuelConsumption": 25000,
                             "id": 203,
                             "name": "Cargo Pesante",
-                            "number": 1500,
+                            "number": 1000,
                             "recycleMode": 0,
                             "speed": 22500
                         },
@@ -685,20 +801,28 @@
                         }
                     ],
                     "system": 401,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
                     "galaxy": 2,
                     "id": "33662956",
                     "name": "Spaghetti",
                     "position": 15,
                     "shipsData": [],
                     "system": 401,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 2,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 200,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 2,
                     "id": "33640680",
                     "name": "Maionese",
@@ -723,12 +847,12 @@
                             "baseFuelCapacity": 45000,
                             "baseFuelConsumption": 50,
                             "baseSpeed": 7500,
-                            "cargoCapacity": 22500000,
-                            "fuelCapacity": 22500000,
-                            "fuelConsumption": 12500,
+                            "cargoCapacity": 45000000,
+                            "fuelCapacity": 45000000,
+                            "fuelConsumption": 25000,
                             "id": 203,
                             "name": "Cargo Pesante",
-                            "number": 500,
+                            "number": 1000,
                             "recycleMode": 0,
                             "speed": 22500
                         },
@@ -751,12 +875,12 @@
                             "baseFuelCapacity": 36000,
                             "baseFuelConsumption": 900,
                             "baseSpeed": 6000,
-                            "cargoCapacity": 28800000,
-                            "fuelCapacity": 28800000,
-                            "fuelConsumption": 360000,
+                            "cargoCapacity": 7200000,
+                            "fuelCapacity": 7200000,
+                            "fuelConsumption": 90000,
                             "id": 209,
                             "name": "Riciclatrici",
-                            "number": 800,
+                            "number": 200,
                             "recycleMode": 0,
                             "speed": 33000
                         },
@@ -787,37 +911,31 @@
                             "number": 1,
                             "recycleMode": 0,
                             "speed": 550
-                        },
-                        {
-                            "baseCargoCapacity": 18000,
-                            "baseFuelCapacity": 18000,
-                            "baseFuelConsumption": 1100,
-                            "baseSpeed": 7000,
-                            "cargoCapacity": 5400000,
-                            "fuelCapacity": 5400000,
-                            "fuelConsumption": 165000,
-                            "id": 218,
-                            "name": "Reaper",
-                            "number": 300,
-                            "recycleMode": 2,
-                            "speed": 38500
                         }
                     ],
                     "system": 200,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
                     "galaxy": 2,
                     "id": "33627350",
                     "name": "LardoDiColonnata",
                     "position": 7,
                     "shipsData": [],
                     "system": 200,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 2,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 67,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 2,
                     "id": "33640684",
                     "name": "Ketchup",
@@ -909,20 +1027,28 @@
                         }
                     ],
                     "system": 67,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
                     "galaxy": 2,
                     "id": "33630273",
                     "name": "PolloArrosto",
                     "position": 7,
                     "shipsData": [],
                     "system": 67,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 1,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 403,
+                        "type": 1,
+                        "velocity": "90"
+                    },
                     "galaxy": 1,
                     "id": "33636399",
                     "name": "Nduja",
@@ -1014,45 +1140,46 @@
                         }
                     ],
                     "system": 403,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
                     "galaxy": 1,
                     "id": "33636325",
                     "name": "Pizza",
                     "position": 1,
                     "shipsData": [],
                     "system": 403,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": "1",
+                        "mission": "4",
+                        "position": "5",
+                        "system": "299",
+                        "type": 1,
+                        "velocity": "100"
+                    },
                     "galaxy": 1,
                     "id": "33622735",
                     "name": "Lasagna",
                     "position": 6,
-                    "shipsData": [
-                        {
-                            "baseCargoCapacity": 9000,
-                            "baseFuelCapacity": 9000,
-                            "baseFuelConsumption": 20,
-                            "baseSpeed": 10000,
-                            "cargoCapacity": 837000,
-                            "fuelCapacity": 837000,
-                            "fuelConsumption": 930,
-                            "id": 202,
-                            "name": "Cargo leggero",
-                            "number": 93,
-                            "recycleMode": 0,
-                            "speed": 45000
-                        }
-                    ],
+                    "shipsData": [],
                     "system": 299,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": "1",
+                        "mission": "7",
+                        "position": "1",
+                        "system": "299",
+                        "type": 1,
+                        "velocity": "100"
+                    },
                     "galaxy": 1,
                     "id": "33645639",
                     "name": "Porchetta",
@@ -1130,20 +1257,57 @@
                         }
                     ],
                     "system": 299,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
                     "galaxy": 1,
                     "id": "33625926",
                     "name": "Carbonara",
                     "position": 5,
-                    "shipsData": [],
+                    "shipsData": [
+                        {
+                            "baseCargoCapacity": 36000,
+                            "baseFuelCapacity": 36000,
+                            "baseFuelConsumption": 900,
+                            "baseSpeed": 6000,
+                            "cargoCapacity": 36000,
+                            "fuelCapacity": 36000,
+                            "fuelConsumption": 450,
+                            "id": 209,
+                            "name": "Riciclatrici",
+                            "number": 1,
+                            "recycleMode": 0,
+                            "speed": 33000
+                        },
+                        {
+                            "baseCargoCapacity": 0,
+                            "baseFuelCapacity": 9,
+                            "baseFuelConsumption": 1,
+                            "baseSpeed": 100000000,
+                            "cargoCapacity": 0,
+                            "fuelCapacity": 9,
+                            "fuelConsumption": 1,
+                            "id": 210,
+                            "name": "Sonda spia",
+                            "number": 1,
+                            "recycleMode": 0,
+                            "speed": 290000000
+                        }
+                    ],
                     "system": 299,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": 1,
+                        "mission": "7",
+                        "position": 2,
+                        "system": 99,
+                        "type": 1,
+                        "velocity": "100"
+                    },
                     "galaxy": 1,
                     "id": "33633806",
                     "name": "TortaAlTesto",
@@ -1235,100 +1399,28 @@
                         }
                     ],
                     "system": 99,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 },
                 {
+                    "fleetMission": {},
                     "galaxy": 1,
                     "id": "33625478",
                     "name": "Amatriciana",
                     "position": 8,
                     "shipsData": [],
                     "system": 99,
-                    "type": 1,
-                    "fleetMission": {}
+                    "type": 1
                 },
                 {
-                    "galaxy": 4,
-                    "id": "33644930",
-                    "name": "Burro",
-                    "position": 15,
-                    "shipsData": [],
-                    "system": 309,
-                    "type": 3,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 4,
-                    "id": "33650907",
-                    "name": "Gelato",
-                    "position": 8,
-                    "shipsData": [],
-                    "system": 59,
-                    "type": 3,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 5,
-                    "id": "33624616",
-                    "name": "Cannolo",
-                    "position": 8,
-                    "shipsData": [],
-                    "system": 450,
-                    "type": 1,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 5,
-                    "id": "33660063",
-                    "name": "Casatiello",
-                    "position": 8,
-                    "shipsData": [],
-                    "system": 200,
-                    "type": 1,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 4,
-                    "id": "33644623",
-                    "name": "Pastiera",
-                    "position": 15,
-                    "shipsData": [],
-                    "system": 309,
-                    "type": 1,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 4,
-                    "id": "33650550",
-                    "name": "Tiramisu",
-                    "position": 8,
-                    "shipsData": [],
-                    "system": 59,
-                    "type": 1,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 3,
-                    "id": "33633276",
-                    "name": "Merendine",
-                    "position": 8,
-                    "shipsData": [],
-                    "system": 215,
-                    "type": 1,
-                    "fleetMission": {}
-                },
-                {
-                    "galaxy": 3,
-                    "id": "33654756",
-                    "name": "FrittoMisto",
-                    "position": 8,
-                    "shipsData": [],
-                    "system": 51,
-                    "type": 1,
-                    "fleetMission": {}
-                },
-                {
+                    "fleetMission": {
+                        "enabled": true,
+                        "galaxy": "1",
+                        "mission": "7",
+                        "position": "1",
+                        "system": "299",
+                        "type": 1,
+                        "velocity": "100"
+                    },
                     "galaxy": 1,
                     "id": "33630136",
                     "name": "SOPHIA",
@@ -1339,12 +1431,12 @@
                             "baseFuelCapacity": 9000,
                             "baseFuelConsumption": 20,
                             "baseSpeed": 10000,
-                            "cargoCapacity": 1246284000,
-                            "fuelCapacity": 1246284000,
-                            "fuelConsumption": 1384760,
+                            "cargoCapacity": 1363221000,
+                            "fuelCapacity": 1363221000,
+                            "fuelConsumption": 1514690,
                             "id": 202,
                             "name": "Cargo leggero",
-                            "number": 138476,
+                            "number": 151469,
                             "recycleMode": 0,
                             "speed": 45000
                         },
@@ -1353,12 +1445,12 @@
                             "baseFuelCapacity": 45000,
                             "baseFuelConsumption": 50,
                             "baseSpeed": 7500,
-                            "cargoCapacity": 3097935000,
-                            "fuelCapacity": 3097935000,
-                            "fuelConsumption": 1721075,
+                            "cargoCapacity": 4014045000,
+                            "fuelCapacity": 4014045000,
+                            "fuelConsumption": 2230025,
                             "id": 203,
                             "name": "Cargo Pesante",
-                            "number": 68843,
+                            "number": 89201,
                             "recycleMode": 0,
                             "speed": 22500
                         },
@@ -1367,12 +1459,12 @@
                             "baseFuelCapacity": 90,
                             "baseFuelConsumption": 20,
                             "baseSpeed": 12500,
-                            "cargoCapacity": 30188970,
-                            "fuelCapacity": 30188970,
-                            "fuelConsumption": 3354330,
+                            "cargoCapacity": 30935250,
+                            "fuelCapacity": 30935250,
+                            "fuelConsumption": 3437250,
                             "id": 204,
                             "name": "Caccia Leggero",
-                            "number": 335433,
+                            "number": 343725,
                             "recycleMode": 0,
                             "speed": 36250
                         },
@@ -1381,12 +1473,12 @@
                             "baseFuelCapacity": 180,
                             "baseFuelConsumption": 75,
                             "baseSpeed": 10000,
-                            "cargoCapacity": 12115800,
-                            "fuelCapacity": 12115800,
-                            "fuelConsumption": 2490470,
+                            "cargoCapacity": 13193820,
+                            "fuelCapacity": 13193820,
+                            "fuelConsumption": 2712063,
                             "id": 205,
                             "name": "Caccia Pesante",
-                            "number": 67310,
+                            "number": 73299,
                             "recycleMode": 0,
                             "speed": 44000
                         },
@@ -1395,12 +1487,12 @@
                             "baseFuelCapacity": 1440,
                             "baseFuelConsumption": 300,
                             "baseSpeed": 15000,
-                            "cargoCapacity": 51040800,
-                            "fuelCapacity": 51040800,
-                            "fuelConsumption": 5316750,
+                            "cargoCapacity": 53706240,
+                            "fuelCapacity": 53706240,
+                            "fuelConsumption": 5594400,
                             "id": 206,
                             "name": "Incrociatore",
-                            "number": 35445,
+                            "number": 37296,
                             "recycleMode": 0,
                             "speed": 66000
                         },
@@ -1409,12 +1501,12 @@
                             "baseFuelCapacity": 2700,
                             "baseFuelConsumption": 500,
                             "baseSpeed": 10000,
-                            "cargoCapacity": 48492000,
-                            "fuelCapacity": 48492000,
-                            "fuelConsumption": 4490000,
+                            "cargoCapacity": 50098500,
+                            "fuelCapacity": 50098500,
+                            "fuelConsumption": 4638750,
                             "id": 207,
                             "name": "Nave da battaglia",
-                            "number": 17960,
+                            "number": 18555,
                             "recycleMode": 0,
                             "speed": 55000
                         },
@@ -1437,12 +1529,12 @@
                             "baseFuelCapacity": 36000,
                             "baseFuelConsumption": 900,
                             "baseSpeed": 6000,
-                            "cargoCapacity": 712800000,
-                            "fuelCapacity": 712800000,
-                            "fuelConsumption": 8910000,
+                            "cargoCapacity": 1818000000,
+                            "fuelCapacity": 1818000000,
+                            "fuelConsumption": 22725000,
                             "id": 209,
                             "name": "Riciclatrici",
-                            "number": 19800,
+                            "number": 50500,
                             "recycleMode": 0,
                             "speed": 33000
                         },
@@ -1452,11 +1544,11 @@
                             "baseFuelConsumption": 1,
                             "baseSpeed": 100000000,
                             "cargoCapacity": 0,
-                            "fuelCapacity": 1901862,
-                            "fuelConsumption": 211318,
+                            "fuelCapacity": 2425761,
+                            "fuelConsumption": 269529,
                             "id": 210,
                             "name": "Sonda spia",
-                            "number": 211318,
+                            "number": 269529,
                             "recycleMode": 0,
                             "speed": 290000000
                         },
@@ -1465,12 +1557,12 @@
                             "baseFuelCapacity": 900,
                             "baseFuelConsumption": 700,
                             "baseSpeed": 5000,
-                            "cargoCapacity": 4671000,
-                            "fuelCapacity": 4671000,
-                            "fuelConsumption": 1816500,
+                            "cargoCapacity": 4886100,
+                            "fuelCapacity": 4886100,
+                            "fuelConsumption": 1900150,
                             "id": 211,
                             "name": "Bombardiere",
-                            "number": 5190,
+                            "number": 5429,
                             "recycleMode": 0,
                             "speed": 27500
                         },
@@ -1479,12 +1571,12 @@
                             "baseFuelCapacity": 3600,
                             "baseFuelConsumption": 1000,
                             "baseSpeed": 5000,
-                            "cargoCapacity": 10728000,
-                            "fuelCapacity": 10728000,
-                            "fuelConsumption": 1490000,
+                            "cargoCapacity": 11656800,
+                            "fuelCapacity": 11656800,
+                            "fuelConsumption": 1619000,
                             "id": 213,
                             "name": "Corazzata",
-                            "number": 2980,
+                            "number": 3238,
                             "recycleMode": 0,
                             "speed": 27500
                         },
@@ -1507,12 +1599,12 @@
                             "baseFuelCapacity": 1350,
                             "baseFuelConsumption": 250,
                             "baseSpeed": 10000,
-                            "cargoCapacity": 16310700,
-                            "fuelCapacity": 16310700,
-                            "fuelConsumption": 1510250,
+                            "cargoCapacity": 16911450,
+                            "fuelCapacity": 16911450,
+                            "fuelConsumption": 1565875,
                             "id": 215,
                             "name": "Incrociatore da Battaglia",
-                            "number": 12082,
+                            "number": 12527,
                             "recycleMode": 0,
                             "speed": 55000
                         },
@@ -1521,12 +1613,12 @@
                             "baseFuelCapacity": 18000,
                             "baseFuelConsumption": 1100,
                             "baseSpeed": 7000,
-                            "cargoCapacity": 43164000,
-                            "fuelCapacity": 43164000,
-                            "fuelConsumption": 1318900,
+                            "cargoCapacity": 50940000,
+                            "fuelCapacity": 50940000,
+                            "fuelConsumption": 1556500,
                             "id": 218,
                             "name": "Reaper",
-                            "number": 2398,
+                            "number": 2830,
                             "recycleMode": 2,
                             "speed": 38500
                         },
@@ -1535,19 +1627,18 @@
                             "baseFuelCapacity": 18000,
                             "baseFuelConsumption": 300,
                             "baseSpeed": 12000,
-                            "cargoCapacity": 390132000,
-                            "fuelCapacity": 390132000,
-                            "fuelConsumption": 3251100,
+                            "cargoCapacity": 432090000,
+                            "fuelCapacity": 432090000,
+                            "fuelConsumption": 3600750,
                             "id": 219,
                             "name": "Pathfinder",
-                            "number": 21674,
+                            "number": 24005,
                             "recycleMode": 3,
                             "speed": 66000
                         }
                     ],
                     "system": 299,
-                    "type": 3,
-                    "fleetMission": {}
+                    "type": 3
                 }
             ],
             "playerName": "CiccioPasticcio"

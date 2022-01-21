@@ -1,20 +1,22 @@
+
 const DATABASE_VERSION = 1;
 const DATABASE_NAME = "OGAME";
 const DATABASE_STORE_MESSAGES = "MESSAGES";
 
-const MessageType = {
-    EXPEDITION    : 'EXPEDITION',
-    ESPIONAGE     : 'ESPIONAGE',
-    COMBAT_REPORT : 'COMBAT_REPORT',
-    OTHER         : 'OTHER',
+const enum MessageType {
+    EXPEDITION    = 'EXPEDITION',
+    ESPIONAGE     = 'ESPIONAGE',
+    COMBAT_REPORT = 'COMBAT_REPORT',
+    OTHER         = 'OTHER',
 }
 
-function formatNumber(num) {
-    return num?.toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+type MessageTypes = keyof typeof MessageType;
+
+function formatNumber(num: number): string {
+    return num?.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
 }
 export class DbContext {
-    #db = null;
+    #db?: IDBDatabase;
 
     get db() {
         return this.#db;
@@ -31,10 +33,10 @@ export class DbContext {
                 DATABASE_VERSION
             );
 
-            request.onsuccess = (event) => {
+            request.onsuccess = (event: Event) => {
                 console.debug("ACCESSO A DB RIUSCITO");
 
-                this.#db = event.target.result;
+                this.#db = (event.target as IDBRequest).result;
                 resolve(this.#db);
             }
 
@@ -50,7 +52,7 @@ export class DbContext {
             request.onupgradeneeded = (event) => {
                 console.debug("ON UPGRADE", event);
 
-                const db = event.target.result;
+                const db = (event.target as IDBRequest<IDBDatabase>).result;
 
                 if (event.oldVersion < 1) {
                     // Version 1 is the first version of the database.
@@ -85,21 +87,21 @@ export class DbContext {
         return promise;
     }
 
-    #getStore(store_name, mode) {
-        const tx = this.#db.transaction(store_name, mode);
+    #getStore(store_name: string, mode: 'readonly' | 'readwrite') {
+        const tx = this.#db!.transaction(store_name, mode);
         return tx.objectStore(store_name);
     }
 
-    getMessagesStore(mode) {
+    getMessagesStore(mode: 'readonly' | 'readwrite') {
         return this.#getStore(DATABASE_STORE_MESSAGES, mode);
     }
 
-    addMessage(message) {
+    addMessage(message: MpMessage) {
         const tx = this.getMessagesStore('readwrite');
         tx.add(message);
     }
 
-    getMessages(type, date) {
+    getMessages(type: MessageTypes, date: Date) {
         const store = this.#getStore(DATABASE_STORE_MESSAGES, 'readonly');
 
         let indexName = "by_type_date"; 
@@ -119,7 +121,7 @@ export class DbContext {
 
         return new Promise((resolve, reject) => {
             request.onsuccess = (event) => {
-                resolve(event.target.result);
+                resolve((event.target as IDBRequest<IDBDatabase>).result);
             }
 
             request.onerror = (e) => {
@@ -131,12 +133,11 @@ export class DbContext {
 }
 
 export class MpMessageDataCollector {
+    dbContext = new DbContext();
 
-    dbContext = null;
+    observer?: MutationObserver;
 
-    constructor() {
-        this.dbContext = new DbContext();
-    }
+    constructor() {}
 
     async init() {
         await this.dbContext.init();
@@ -150,18 +151,26 @@ export class MpMessageDataCollector {
             const isChildListChange = ml.some(m => m.type === 'childList');
 
             if (isChildListChange) {
-                $('.msg').toArray().forEach(el => {
-                    this.dbContext.addMessage(MpMessage.fromElement(el));
+                $('.msg').toArray().forEach((el: HTMLElement) => {
+                    this.dbContext.addMessage(MpMessage.fromElement(el) as any);
                 });
             }
         });
 
-        this.observer.observe(document.getElementById('buttonz'), config);
+        this.observer.observe(document.getElementById('buttonz') as Node, config);
     }
 }
 
 export class MpMessage {
-    constructor({id, text, title, date, time, type, coords}) {
+    id     : string;
+    text   : string;
+    title  : string;
+    date   : string;
+    time   : string;
+    type   : string;
+    coords : any; //TODO: Define type
+
+    constructor({id, text, title, date, time, type, coords}: any) {
         this.id     = id;
         this.text   = text;
         this.title  = title;
@@ -174,18 +183,21 @@ export class MpMessage {
     get resources() {
         if (this.type === MessageType.EXPEDITION) {
             const r = /(Cristallo|Metallo|Deuterio)\s(.*)\s(è stato razziato\.)/mg.exec(this.text); 
-            const resource = r?.[1];
-            const amount = +(r?.[2].replaceAll('.',''));
-    
-            if (resource) {
-                return { resource, amount };
+            if (r) {
+                const resource = r[1];
+                const amount = +(r[2].replaceAll('.',''));
+                
+                if (resource) {
+                    return { resource, amount };
+                }
             }
+    
         }
         
         return null;
     }
 
-    static #parseType(text) {
+    static #parseType(text: string) {
         const types = [
             {
                 tokens: ['risultato della spedizione',],
@@ -206,47 +218,48 @@ export class MpMessage {
         return r?.type || MessageType.OTHER;
     }
 
-    static fromElement(el) {
-        const id    = el.getAttribute('data-msg-id');
-        const text  = el.querySelector('.msg_content').textContent;
-        const title = el.querySelector('.msg_title ').textContent;
-
-        const textDatetime = el.querySelector('.msg_date.fright').textContent;
-        const time = textDatetime.split(' ')[1];
-        const date = textDatetime.split(' ')[0].split('.').reverse().join('-');
-
-        const [
-            _, galaxy, system, position,
-        ] = /\[(\d):(\d{1,3}):(\d{1,2})\]/.exec(title) || [];
-
-        const type = this.#parseType(title);
-
-        return new MpMessage({ 
-            id, date, time, type, text, title, 
-            coords: { galaxy, system, position } 
-        });
+    static fromElement(el: HTMLElement) {
+        if (el.hasAttribute('data-msg-id')) {
+            const id    = el.getAttribute('data-msg-id')!;
+            const text  = el.querySelector('.msg_content')?.textContent || '';
+            const title = el.querySelector('.msg_title ')?.textContent  || '';
+    
+            const textDatetime = el.querySelector('.msg_date.fright')?.textContent;
+            const time = textDatetime?.split(' ')[1]!;
+            const date = textDatetime?.split(' ')[0].split('.').reverse().join('-')!;
+    
+            const [
+                _, galaxy, system, position,
+            ] = /\[(\d):(\d{1,3}):(\d{1,2})\]/.exec(title) || [];
+    
+            const type = this.#parseType(title);
+    
+            return new MpMessage({ 
+                id, date, time, type, text, title, 
+                coords: { galaxy, system, position } 
+            });
+        }
     }
 }
 
 export class MpMessageStatistics {
-    messages = null; 
+    messages: any = null; 
 
-    constructor(dbContext) {
-        this.dbContext = dbContext;
-    }
+    constructor(public dbContext: DbContext) {}
 
-    async loadExpeditionMessages(date) {
-        const response = await this.dbContext.getMessages(MessageType.EXPEDITION, date);
-        this.messages = response.map(m => new MpMessage(m));
+    // TODO: define types
+    async loadExpeditionMessages(date: Date) {
+        const response: any = await this.dbContext.getMessages(MessageType.EXPEDITION, date);
+        this.messages = response.map((m: any) => new MpMessage(m));
     }
 
     get resources() {
-        const result = {};
+        const result: any = {};
 
         this.messages
-            ?.map(m => m.resources)
-            ?.filter(r => r)
-            ?.forEach(({resource, amount}) => {
+            ?.map((m: any) => m.resources)
+            ?.filter((r: any) => r)
+            ?.forEach(({resource, amount}: any) => {
                 result[resource] = 
                   result[resource] 
                       ? result[resource]+=amount 
