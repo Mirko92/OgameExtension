@@ -31,7 +31,7 @@ function onChange(uniData: Universe){
 <div class="page">
     <header>
         <section>
-            <h1>Configurazione spedizioni</h1>
+            <h1 v-t="'exp_conf.title'" />
         </section>
     </header>
 

@@ -118,15 +118,15 @@ function applyToAll(universe: Universe) {
         <tr>
           <td colspan="100">
             <div class="px1">
-              Modifica ed applica a tutti i pianeti/lune visibili
+              <span v-t="'fs_config.form.title'" /> 
               <br>
-              <small>In questo caso Galassia e Sistema corrisponderanno a quelli di partenza</small>
+              <small v-t="'fs_config.form.sub_title'" />
             </div>
             <form 
               @submit.prevent="applyToAll(u)"
               class="d-f-r gap05 p1">
               <div>
-                <label>Posizione: </label>
+                <label v-t="'fs_config.form.position'" />
                 <input 
                   min="1"
                   type="number"
@@ -136,16 +136,17 @@ function applyToAll(universe: Universe) {
 
               <MpMissionTypeSelect v-model.number="type" />
 
-              <label>Velocità</label>
+              <label v-t="'fs_config.form.speed'" />
               <MpMissionSpeed 
                 :isWarrior="isWarrior()" 
                 v-model="speed"
               />
 
-              <label>Missione</label>
+              <label v-t="'fs_config.form.mission'" />
               <MpMissionSelect v-model="mission"/>
 
-              <button type="submit" >Applica</button>
+              <button type="submit" 
+                v-t="'common.apply'" />
             </form>
           </td>
         </tr>
@@ -162,35 +163,16 @@ function applyToAll(universe: Universe) {
   
         <th>
           <select v-if="filters[u.code]" v-model="filters[u.code].type">
-            <option :value="null">
-              All
-            </option>
-            <option :value="1">
-              Only Planets
-            </option>
-            <option :value="3">
-              Only Moons
-            </option>
+            <option :value="null" v-t="'planet_type.all'" />
+            <option :value="1"    v-t="'planet_type.planets'" />
+            <option :value="3"    v-t="'planet_type.moons'" />
           </select>
         </th>
   
-        <th>
-          [Coordinate]
-          <br />
-          Nome
-        </th>
-  
-        <th>
-          Destinazione
-        </th>
-  
-        <th>
-          Velocità
-        </th>
-  
-        <th>
-          Missione
-        </th>
+        <th v-html="$t('fs_config.table.name')" />
+        <th v-t="'fs_config.table.destination'" />
+        <th v-t="'fs_config.table.speed'" />
+        <th v-t="'fs_config.table.mission'" />
       </thead>
   
       <tbody>

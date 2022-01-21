@@ -1,0 +1,37 @@
+common:
+  apply: Applica
+mission_order:
+  attacking: ATTACCO
+  transport: TRASPORTO
+  deployment: SCHIERAMENTO
+  holding: STAZIONAMENTO
+  espionage: SPIONAGGIO
+  colonization: COLONIZZAZIONE
+  harvesting: RICICLAGGIO
+  expedition: SPEDIZIONE
+mission_type:
+  planet: Pianeta
+  debris: Destriti
+  moon: Luna
+planet_type:
+  all: Tutti
+  planets: Solo pianeti
+  moons: Solo lune
+fs_config:
+  form:
+    title: Modifica e applica a tutti i pianeti/lune visibili
+    sub_title: Galassia e Sistema viene preso da ciascun pianeta/luna
+    position: 'Posizione: '
+    speed: Velocità
+    mission: 'Missione: '
+  table:
+    name: '[Coordinate]<br>Nome'
+    destination: Destinazione
+    speed: Velocità
+    mission: Missione
+menu:
+  fs_config: Config. Fleetsave
+  exp_config: Config. Spedizioni
+  about: Altro
+exp_conf:
+  title: Configurazione spedizioni

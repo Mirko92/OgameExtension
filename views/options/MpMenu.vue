@@ -43,7 +43,7 @@ function goTo(to: OptionPage) {
         class="menu_item"
         :class="{'menu_item--active': view === 'FLEET_SAVE_CONFIG'}"
       >
-        <span>Fleet save config.</span>
+        <span v-t="'menu.fs_config'" />
       </a>
 
       <a
@@ -51,7 +51,7 @@ function goTo(to: OptionPage) {
         class="menu_item"
         :class="{'menu_item--active': view === 'EXPEDITION_CONFIG'}"
       >
-        <span>Expedition config.</span>
+        <span v-t="'menu.exp_config'" />
       </a>
 
       <a
@@ -59,7 +59,7 @@ function goTo(to: OptionPage) {
         class="menu_item"
         :class="{'menu_item--active': view === 'ABOUT'}"
       >
-        <span>About</span>
+        <span v-t="'menu.about'" />
       </a>
     </ul>
   </aside>

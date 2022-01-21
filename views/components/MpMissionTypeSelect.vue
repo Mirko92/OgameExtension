@@ -5,9 +5,9 @@
     <div class="icon_placeholder small" v-else />
 
     <select :value="$attrs.modelValue" @change="onChange">
-        <option :value="1">Pianeta</option>
-        <option :value="2">Detriti</option>
-        <option :value="3">Luna</option>
+        <option :value="1" v-t="'mission_type.planet'" />
+        <option :value="2" v-t="'mission_type.debris'" />
+        <option :value="3" v-t="'mission_type.moon'" />
     </select>
 </template>
 

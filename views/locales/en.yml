@@ -1,13 +1,37 @@
 common:
-  extension_name: Vitesse Chrome Extensionbutton
-button:
-  toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
-popup:
-  desc: This is the popup page
-  open_options: Open Options
-  storage: Storage
-options:
-  desc: This is the options page
-  sync_storage: Sync Storage Message
-  powered_by_vite: Powered By Vite
+  apply: Apply
+mission_order:
+  attacking: ATTACKING
+  transport: TRANSPORT
+  deployment: DEPLOYMENT
+  holding: HOLDING
+  espionage: ESPIONAGE
+  colonization: COLONIZATION
+  harvesting: HARVESTING
+  expedition: EXPEDITION
+mission_type:
+  planet: Planet
+  debris: Debris
+  moon: Moon
+planet_type:
+  all: All
+  planets: Only Planets
+  moons: Only moons
+fs_config:
+  form:
+    title: Edit and appy to all visible planets
+    sub_title: Galaxy and System are taken from each planet coordinates
+    position: 'Position: '
+    speed: Speed
+    mission: 'Mission: '
+  table:
+    name: '[Coordinates]<br>Name'
+    destination: Destination
+    speed: Speed
+    mission: Mission
+menu:
+  fs_config: Fleet save config.
+  exp_config: Expedition config.
+  about: About
+exp_conf:
+  title: Expedition configuration
