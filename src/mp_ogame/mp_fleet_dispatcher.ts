@@ -22,7 +22,6 @@ export class MpFleetDispatcher {
         console.debug("Token received", this.myToken);
     }
 
-
     async sendMessage(r: MpGetExpeditionConfig): Promise<any>;
     async sendMessage(r: MpSaveFleetInfo): Promise<void>;
     async sendMessage(r: MpGetFleetSave): Promise<FleetMission>;
@@ -85,24 +84,13 @@ export class MpFleetDispatcher {
     }
 
     /**
-     * Create/Update in localstorage
-     * info abount available ships on planet 
-     * @param {string} uni Eg: s-170.it
-     * @param {any} planet Eg: 1_88_4_3
+     * Return a string collection, for each ship on the current planet
      */
-     async saveFleetInfo(uni: string, planet: Planet, shipsData: any) {
-        planet.id = this._currentPlanetId();
-
-        return this.sendMessage({
-            method: "SAVE_FLEET_INFO",
-            data: {
-                uni, 
-                planet, 
-                shipsData, 
-                uniName: window.mp.uniName, 
-                playerName 
-            }
-        })
+     get _allShipsParmas(){
+        return shipsOnPlanet.reduce((acc, val) => ({ 
+                ...acc, 
+                [`am${val.id}`]: val.number 
+        }), {} );
     }
 
     /**
@@ -134,10 +122,76 @@ export class MpFleetDispatcher {
         }
     }
 
+    _smallCargobody(galaxy: string, system: string, position: string, type: number, withResources: boolean){
+
+        const lcargo = shipsOnPlanet.find((s: Ship) => s.id === 202)?.number;
+
+        if ( !lcargo ) {
+            console.error(`No cargo on planet ${galaxy}:${system}:${position}`);
+        }
+
+        return new URLSearchParams({
+            token: this.myToken,//fleetDispatcher.token,
+            speed: 10,
+            mission: MP_MISSIONS.DEPLOY,
+            //TO:
+            galaxy,
+            system,
+            position,
+            type,
+            //HOLD:
+            metal:      withResources ? metalOnPlanet.toFixed()     : 0,
+            crystal:    withResources ? crystalOnPlanet.toFixed()   : 0,
+            deuterium:  withResources ? deuteriumOnPlanet.toFixed() : 0,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            am202: lcargo
+        } as any).toString();
+    }
+
+    _allCargobody(galaxy: string, system: string, position: string, type: number, withResources: boolean){
+
+        const [
+            lcargo,
+            bigCargo
+        ] = [ 202, 203].map(
+            id => shipsOnPlanet.find((s: Ship) => s.id === id)?.number
+        );
+
+        if ( !lcargo && !bigCargo ) {
+            console.error(`No cargo on planet ${galaxy}:${system}:${position}`);
+        }
+
+        return new URLSearchParams({
+            token: this.myToken,//fleetDispatcher.token,
+            speed: 10,
+            mission: MP_MISSIONS.DEPLOY,
+            //TO:
+            galaxy,
+            system,
+            position,
+            type,
+            //HOLD:
+            metal:      withResources ? metalOnPlanet.toFixed()     : 0,
+            crystal:    withResources ? crystalOnPlanet.toFixed()   : 0,
+            deuterium:  withResources ? deuteriumOnPlanet.toFixed() : 0,
+
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            am202: lcargo,
+            am203: bigCargo
+        } as any).toString();
+    }
+
     /**
      * If configured, start fleet-save for current planet
      */
-    async fleetSave(e?: Event, reload = true) {
+     async fleetSave(e?: Event, reload = true) {
         e?.preventDefault();
 
         const r = await this.sendMessage({
@@ -234,79 +288,24 @@ export class MpFleetDispatcher {
     }
 
     /**
-     * Return a string collection, for each ship on the current planet
+     * Create/Update in localstorage
+     * info abount available ships on planet 
+     * @param {string} uni Eg: s-170.it
+     * @param {any} planet Eg: 1_88_4_3
      */
-    get _allShipsParmas(){
-        return shipsOnPlanet.reduce((acc, val) => ({ 
-                ...acc, 
-                [`am${val.id}`]: val.number 
-        }), {} );
-    }
+    async saveFleetInfo(uni: string, planet: Planet, shipsData: any) {
+        planet.id = this._currentPlanetId();
 
-    _smallCargobody(galaxy: string, system: string, position: string, type: number, withResources: boolean){
-
-        const lcargo = shipsOnPlanet.find((s: Ship) => s.id === 202)?.number;
-
-        if ( !lcargo ) {
-            console.error(`No cargo on planet ${galaxy}:${system}:${position}`);
-        }
-
-        return new URLSearchParams({
-            token: this.myToken,//fleetDispatcher.token,
-            speed: 10,
-            mission: MP_MISSIONS.DEPLOY,
-            //TO:
-            galaxy,
-            system,
-            position,
-            type,
-            //HOLD:
-            metal:      withResources ? metalOnPlanet.toFixed()     : 0,
-            crystal:    withResources ? crystalOnPlanet.toFixed()   : 0,
-            deuterium:  withResources ? deuteriumOnPlanet.toFixed() : 0,
-
-            prioMetal: 1,
-            prioCrystal: 2,
-            prioDeuterium: 3,
-
-            am202: lcargo
-        } as any).toString();
-    }
-
-    _allCargobody(galaxy: string, system: string, position: string, type: number, withResources: boolean){
-
-        const [
-            lcargo,
-            bigCargo
-        ] = [ 202, 203].map(
-            id => shipsOnPlanet.find((s: Ship) => s.id === id)?.number
-        );
-
-        if ( !lcargo && !bigCargo ) {
-            console.error(`No cargo on planet ${galaxy}:${system}:${position}`);
-        }
-
-        return new URLSearchParams({
-            token: this.myToken,//fleetDispatcher.token,
-            speed: 10,
-            mission: MP_MISSIONS.DEPLOY,
-            //TO:
-            galaxy,
-            system,
-            position,
-            type,
-            //HOLD:
-            metal:      withResources ? metalOnPlanet.toFixed()     : 0,
-            crystal:    withResources ? crystalOnPlanet.toFixed()   : 0,
-            deuterium:  withResources ? deuteriumOnPlanet.toFixed() : 0,
-
-            prioMetal: 1,
-            prioCrystal: 2,
-            prioDeuterium: 3,
-
-            am202: lcargo,
-            am203: bigCargo
-        } as any).toString();
+        return this.sendMessage({
+            method: "SAVE_FLEET_INFO",
+            data: {
+                uni, 
+                planet, 
+                shipsData, 
+                uniName: window.mp.uniName, 
+                playerName 
+            }
+        })
     }
 
     async moveAllCargoToPlanet() {
@@ -452,7 +451,7 @@ export class MpFleetDispatcher {
         location.reload();
     }
 
-    sendFleet(body: string) {
+    async sendFleet(body: string) {
         let fleetUrl = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch&action=sendFleet&ajax=1&asJson=1";
         let referrer = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch";
 
