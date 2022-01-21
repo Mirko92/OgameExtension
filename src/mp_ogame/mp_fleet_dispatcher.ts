@@ -23,6 +23,7 @@ export class MpFleetDispatcher {
     }
 
 
+    async sendMessage(r: MpGetExpeditionConfig): Promise<any>;
     async sendMessage(r: MpSaveFleetInfo): Promise<void>;
     async sendMessage(r: MpGetFleetSave): Promise<FleetMission>;
     async sendMessage<T extends MpRequest>(request: T): Promise<MpResponse<T>> {
@@ -32,27 +33,6 @@ export class MpFleetDispatcher {
                 request,
                 (response) => resolve(response)
             )
-        })
-    }
-
-    /**
-     * Create/Update in localstorage
-     * info abount available ships on planet 
-     * @param {string} uni Eg: s-170.it
-     * @param {any} planet Eg: 1_88_4_3
-     */
-    async saveFleetInfo(uni: string, planet: Planet, shipsData: any) {
-        planet.id = this._currentPlanetId();
-
-        return this.sendMessage({
-            method: "SAVE_FLEET_INFO",
-            data: {
-                uni, 
-                planet, 
-                shipsData, 
-                uniName: window.mp.uniName, 
-                playerName 
-            }
         })
     }
 
@@ -69,6 +49,16 @@ export class MpFleetDispatcher {
             }
         ))
         .json().then(x => x.newAjaxToken);
+    }
+
+    /**
+     * Get planet/moon ID from document headers
+     * @returns {string} Current planet/moon ID
+     */
+     _currentPlanetId() {
+        return document.head
+                .querySelector("[name=ogame-planet-id]")!
+                .getAttribute("content")!;
     }
 
     get _currentPlanet(): Omit<Planet, 'id'|'name'|'fleetMission'> {
@@ -95,13 +85,24 @@ export class MpFleetDispatcher {
     }
 
     /**
-     * Get planet/moon ID from document headers
-     * @returns {string} Current planet/moon ID
+     * Create/Update in localstorage
+     * info abount available ships on planet 
+     * @param {string} uni Eg: s-170.it
+     * @param {any} planet Eg: 1_88_4_3
      */
-    _currentPlanetId() {
-        return document.head
-                .querySelector("[name=ogame-planet-id]")!
-                .getAttribute("content")!;
+     async saveFleetInfo(uni: string, planet: Planet, shipsData: any) {
+        planet.id = this._currentPlanetId();
+
+        return this.sendMessage({
+            method: "SAVE_FLEET_INFO",
+            data: {
+                uni, 
+                planet, 
+                shipsData, 
+                uniName: window.mp.uniName, 
+                playerName 
+            }
+        })
     }
 
     /**
@@ -112,20 +113,21 @@ export class MpFleetDispatcher {
 
         if (place) {
             place?.insertAdjacentHTML('afterend', `
-            <a  href="" 
-                id="quick_action"
-                class="fright on" 
-                title="quick mission">
-            </a>
-            <a  href=""
-                id="exp_button" 
-                class="fright on" 
-                title="quick epxedition">
-            </a>`);
+                <a  href="" 
+                    id="fleet_save"
+                    class="fright on" 
+                    title="quick mission">
+                </a>
+                <a  href=""
+                    id="exp_button" 
+                    class="fright on" 
+                    title="quick epxedition">
+                </a>`
+            );
 
 
-            document.getElementById("quick_action")
-                ?.addEventListener('click', (e) => this.quickAction(e));
+            document.getElementById("fleet_save")
+                ?.addEventListener('click', (e) => this.fleetSave(e));
 
             document.getElementById("exp_button")
                 ?.addEventListener('click', (e) => this.sendExpedition(e));
@@ -133,134 +135,112 @@ export class MpFleetDispatcher {
     }
 
     /**
-     * If configured, start configured quick mission for current planet
+     * If configured, start fleet-save for current planet
      */
-    quickAction(e?: Event, reload = true) {
+    async fleetSave(e?: Event, reload = true) {
         e?.preventDefault();
 
-        return new Promise((resolve) => {
+        const r = await this.sendMessage({
+            method: "GET_FLEET_SAVE_DATA",
+            data: {
+                uni: window.mp.server, 
+                planetId: this._currentPlanetId() 
+            }
+        })
 
-            chrome.runtime.sendMessage(
-                window.mp.extensionId as string,
-                {
-                    method: "GET_FLEET_SAVE_DATA",
-                    data: { 
-                        uni: window.mp.server, 
-                        planetId: this._currentPlanetId() 
-                    }
-                },
+        if (!r || Object.keys(r)?.length === 0) {
+            fadeBox("Fleet save non configurato", true);
+            return;
+        }
 
-                (r) => {
-                    if (!r || Object.keys(r)?.length === 0) {
-                        fadeBox("Fleet save non configurato", true);
-                        resolve(false);
-                        return;
-                    }
+        const body = new URLSearchParams({
+            token  : this.myToken,      //fleetDispatcher.token,
+            speed  : (+r.velocity!) / 10,
+            mission: r.mission,
+            //TO:
+            galaxy  : r.galaxy,
+            system  : r.system,
+            position: r.position,
+            type    : r.type,
+            //HOLD:
+            metal    : resourcesBar.resources.metal.amount,
+            crystal  : resourcesBar.resources.crystal.amount,
+            deuterium: resourcesBar.resources.deuterium.amount,
 
-                    const body = new URLSearchParams({
-                        token  : this.myToken,      //fleetDispatcher.token,
-                        speed  : r.velocity / 10,
-                        mission: r.mission,
-                        //TO:
-                        galaxy  : r.galaxy,
-                        system  : r.system,
-                        position: r.position,
-                        type    : r.type,
-                        //HOLD:
-                        metal    : resourcesBar.resources.metal.amount,
-                        crystal  : resourcesBar.resources.crystal.amount,
-                        deuterium: resourcesBar.resources.deuterium.amount,
+            prioMetal    : 1,
+            prioCrystal  : 2,
+            prioDeuterium: 3,
 
-                        prioMetal    : 1,
-                        prioCrystal  : 2,
-                        prioDeuterium: 3,
+            retreatAfterDefenderRetreat: 0,
+            union: 0,
+            holdingtime: 0,
 
-                        retreatAfterDefenderRetreat: 0,
-                        union: 0,
-                        holdingtime: 0,
+            //Ships
+            ...this._allShipsParmas
+        } as any).toString();
 
-                        //Ships
-                        ...this._allShipsParmas
-                    }).toString();
+        await this.sendFleet(body);
 
-                    this.sendFleet(body)
-                        .then(() => {
-                            reload && location.reload();
-                        })
-                        .finally(() => resolve(null));
-                }
-            );
-        });
-
+        reload && location.reload();
     }
 
     /**
      * Send configured expedition mission
      */
-    sendExpedition(e?: Event, reload = true) {
+    async sendExpedition(e?: Event, reload = true) {
         e?.preventDefault();
 
-        return new Promise((resolve) => {
-            chrome.runtime.sendMessage(
-                window.mp.extensionId as string,
-                {
-                    method: "GET_EXPEDITION_CONFIG",
-                    data: { uni: window.mp.server }
-                },
+        const ships = await this.sendMessage({
+            method: "GET_EXPEDITION_CONFIG",
+            data: {
+                uni: window.mp.server,
+            }
+        })
 
-                (ships) => {
-                    if (!ships) {
-                        fadeBox("Spedizioni non configurate", true);
-                        resolve(false);
-                        return;
-                    }
+        if (!ships) {
+            fadeBox("Spedizioni non configurate", true);
+            return;
+        }
 
-                    // TODO: Controllare se ci sono sufficienti navi 
-            
-                    const body = new URLSearchParams({
-                        token: this.myToken, //fleetDispatcher.token,
-                        speed: 10,
-                        mission: 15,
-                        //TO:
-                        galaxy: this._currentPlanet.galaxy,
-                        system: this._currentPlanet.system,
-                        position: 16,
-                        type: 1,
-                        //HOLD:
-                        metal: 0,
-                        crystal: 0,
-                        deuterium: 0,
-            
-                        prioMetal: 1,
-                        prioCrystal: 2,
-                        prioDeuterium: 3,
-            
-                        retreatAfterDefenderRetreat: 0,
-                        union: 0,
-                        holdingtime: 1,
-            
-                        //Ships
-                        ...ships
-                    }).toString();
+        const body = new URLSearchParams({
+            token: this.myToken, //fleetDispatcher.token,
+            speed: 10,
+            mission: 15,
+            //TO:
+            galaxy: this._currentPlanet.galaxy,
+            system: this._currentPlanet.system,
+            position: 16,
+            type: 1,
+            //HOLD:
+            metal: 0,
+            crystal: 0,
+            deuterium: 0,
 
-                    this.sendFleet(body)
-                        .then(() => {
-                            reload && location.reload();
-                        })
-                        .finally(() => resolve(null));
-            
-                }
-            );
-        });
+            prioMetal: 1,
+            prioCrystal: 2,
+            prioDeuterium: 3,
+
+            retreatAfterDefenderRetreat: 0,
+            union: 0,
+            holdingtime: 1,
+
+            //Ships
+            ...ships
+        }).toString();
+
+        await this.sendFleet(body);
+
+        reload && location.reload();
     }
 
     /**
      * Return a string collection, for each ship on the current planet
      */
     get _allShipsParmas(){
-        return [{}, ...shipsOnPlanet].reduce(
-            (acc, val) => val?.id && { ...(acc || {}), [`am${val.id}`]: val.number }
-        );
+        return shipsOnPlanet.reduce((acc, val) => ({ 
+                ...acc, 
+                [`am${val.id}`]: val.number 
+        }), {} );
     }
 
     _smallCargobody(galaxy: string, system: string, position: string, type: number, withResources: boolean){
@@ -331,68 +311,77 @@ export class MpFleetDispatcher {
 
     async moveAllCargoToPlanet() {
         if(this._currentPlanet.type === MP_PLANET_TYPES.PLANET) {
-            console.warn("Mission lanciata da pianeta verso pianeta");
-            return Promise.resolve(null);
+            console.warn("Partenza e destinazione uguali");
+            return;
         }; 
 
         const { galaxy, system, position } = this._currentPlanet;
 
-        return this.sendFleet(
-            this._allCargobody(
-                galaxy, system, position, MP_PLANET_TYPES.PLANET, false
-            )
-        ).then(() => location.reload());
+        await this.sendFleet(this._allCargobody(
+            galaxy, system, position, MP_PLANET_TYPES.PLANET, false
+        ));
+
+        location.reload()
     }
 
     async moveAllCargoToMoon() {
         if(this._currentPlanet.type === MP_PLANET_TYPES.MOON) {
-            console.warn("Mission lanciata da luna verso luna");
-            return Promise.resolve(null);
+            console.warn("Partenza e destinazione uguali");
+            return;
         }; 
 
         const { galaxy, system, position } = this._currentPlanet;
 
-        return this.sendFleet(
-            this._allCargobody(
-                galaxy, system, position, MP_PLANET_TYPES.MOON, true
-            )
-        ).then(() => location.reload());
+        await this.sendFleet(this._allCargobody(
+            galaxy, system, position, MP_PLANET_TYPES.MOON, true
+        ))
+
+        location.reload();
     }
 
     async moveSmallCargoToPlanet() {
         if(this._currentPlanet.type === MP_PLANET_TYPES.PLANET) {
-            console.warn("Mission lanciata da pianeta verso pianeta");
-            return Promise.resolve(null);
+            console.warn("Partenza e destinazione uguali");
+            return;
         }; 
 
         const { galaxy, system, position } = this._currentPlanet;
-        const body = this._smallCargobody(galaxy, system, position, MP_PLANET_TYPES.PLANET, false);
 
-        return this.sendFleet(body).then(() => location.reload());
+        await this.sendFleet(this._smallCargobody(
+            galaxy, system, position, MP_PLANET_TYPES.PLANET, false
+        ));
+
+        location.reload();
     }
     
     async moveCargoToPlanet() {
         if(this._currentPlanet.type === MP_PLANET_TYPES.PLANET) {
-            console.warn("Mission lanciata da pianeta verso pianeta");
-            return Promise.resolve(null);
+            console.warn("Partenza e destinazione uguali");
+            return;
         }; 
 
         const { galaxy, system, position } = this._currentPlanet;
-        const body = this._allCargobody(galaxy, system, position, MP_PLANET_TYPES.PLANET, false);
 
-        return this.sendFleet(body).then(() => location.reload());
+        await this.sendFleet(this._allCargobody(
+            galaxy, system, position, MP_PLANET_TYPES.PLANET, false
+        ))
+
+        location.reload();
     }
 
     async moveSmallCargoToMoon() {
         if(this._currentPlanet.type === MP_PLANET_TYPES.MOON) {
-            console.warn("Mission lanciata da luna verso luna");
-            return Promise.resolve(null);
+            console.warn("Partenza e destinazione uguali");
+            return;
         }; 
 
         const { galaxy, system, position } = this._currentPlanet;
-        const body = this._smallCargobody(galaxy, system, position, MP_PLANET_TYPES.MOON, true);
 
-        return this.sendFleet(body).then(() => location.reload());
+        await this.sendFleet(this._smallCargobody(
+            galaxy, system, position, MP_PLANET_TYPES.MOON, true
+        ));
+
+        location.reload();
     }
 
     async moveResourcesTo(destination: string) {
@@ -400,7 +389,7 @@ export class MpFleetDispatcher {
         const current = [galaxy, system, position, type].join(',');
 
         if(current === destination){
-            console.warn("Partenza e destinazione sono uguali");
+            console.warn("Partenza e destinazione uguali");
             return Promise.resolve(null);
         }
 
@@ -418,14 +407,14 @@ export class MpFleetDispatcher {
         }
 
         const [destG,destS, destP,destT] = destination.split(',');
-
+// TODO: amount backup deu 
         const currentDeuAmount = resourcesBar.resources.deuterium.amount;
         const deuToHold = currentDeuAmount > 10e6  ? currentDeuAmount - 10e6 : 0;
 
         const total = deuToHold + crystalOnPlanet + metalOnPlanet;
 
-        const isEnoughLittleCargo   = total < littleCargo?.cargoCapacity;
-        const isEnoughLargeCargo    = total < largeCargo?.cargoCapacity;
+        const isEnoughLittleCargo   = littleCargo && total < littleCargo.cargoCapacity;
+        const isEnoughLargeCargo    = largeCargo  && total < largeCargo.cargoCapacity;
 
         let shipsToSend = null;
         if ( isEnoughLittleCargo ) {
@@ -436,7 +425,6 @@ export class MpFleetDispatcher {
             shipsToSend = { am203: largeCargo?.number || 0, am202: littleCargo?.number || 0 }
         }
 
-        
         const body = new URLSearchParams({
             token: this.myToken, //fleetDispatcher.token,
             speed: 10,
@@ -459,7 +447,9 @@ export class MpFleetDispatcher {
             ...shipsToSend
         } as any).toString();
 
-        return this.sendFleet(body).then(() => location.reload());
+        await this.sendFleet(body);
+        
+        location.reload();
     }
 
     sendFleet(body: string) {
@@ -467,23 +457,15 @@ export class MpFleetDispatcher {
         let referrer = ogameUrl + "/game/index.php?page=ingame&component=fleetdispatch";
 
         return fetch(fleetUrl, {
-            "headers": {
-                "accept": "application/json, text/javascript, */*; q=0.01",
-                "accept-language": "it,it-IT;q=0.9,en;q=0.8,en-US;q=0.7",
-                "cache-control": "no-cache",
+            body,
+            method: "POST",
+            referrer,
+            referrerPolicy: "strict-origin-when-cross-origin",
+            credentials: "include",
+            headers: {
                 "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "pragma": "no-cache",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin",
                 "x-requested-with": "XMLHttpRequest"
             },
-            "referrer": referrer,
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": body,
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
         });
     }
 }

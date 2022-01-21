@@ -73,13 +73,13 @@ a:hover {
     text-decoration: none !important;
 }
 
-a#quick_action,
+a#fleet_save,
 a#exp_button {
     width: 38px;
     height: 38px;
 }
 
-a#quick_action:hover,
+a#fleet_save:hover,
 a#exp_button:hover {
     filter: brightness(1.5);
 }
@@ -88,7 +88,7 @@ a#exp_button {
     background-image: url("chrome-extension://__MSG_@@extension_id__/assets/expedition_icon.jpeg");
 }
 
-a#quick_action {
+a#fleet_save {
     background-image: url("chrome-extension://__MSG_@@extension_id__/assets/send_icon.jpeg");
 }
 

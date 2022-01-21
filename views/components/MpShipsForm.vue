@@ -70,7 +70,6 @@ input[type="number"]:focus {
 
 section {
   background: rgb(125 92 162 / 60%);
-  /* background: #00000073; */
   padding: 0.75rem 1.5rem;
   border-radius: 10px;
   margin: 0.25rem 0;

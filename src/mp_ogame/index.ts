@@ -76,7 +76,7 @@ export class MpOgame {
 
         if (mission) {
             this.execute( mission, 
-                () => this.fleetDispatcher?.quickAction(undefined, false)
+                () => this.fleetDispatcher?.fleetSave(undefined, false)
             );
         } else {
             this.setMission({

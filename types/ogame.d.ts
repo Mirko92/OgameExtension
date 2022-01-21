@@ -39,6 +39,9 @@ type Planet = {
  */
 type Ship = {
     id: number;
+    number: number;
+    cargoCapacity: number;
+    baseCargoCapacity: number;
 }
 
 /**

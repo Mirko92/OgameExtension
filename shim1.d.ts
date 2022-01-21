@@ -8,7 +8,7 @@ declare global {
     declare const metalOnPlanet     : any;
     declare const crystalOnPlanet   : any;
     declare const deuteriumOnPlanet : any;
-    declare const shipsOnPlanet     : any;
+    declare const shipsOnPlanet     : Ship[];
     declare function fadeBox(text: string, isAlert: boolean) : void;
 
 	interface Window {
