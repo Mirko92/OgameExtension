@@ -78,7 +78,7 @@ export const useStore = defineStore('options_store', () => {
     } else {
       console.warn('No storage available, using mockup')
 
-      const s = await (await fetch(`/assets/data_v1.json`)).json()
+      const s = await (await fetch(`/dist/data/data_v1.json`)).json()
       sortStorage(s)
       initFilters(s)
       storage.value = s

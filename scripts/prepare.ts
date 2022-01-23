@@ -3,7 +3,6 @@ import fs from 'fs-extra'
 import chokidar from 'chokidar'
 import { getManifest } from '../src/manifest'
 import { r, port, isDev, logger } from './utils'
-
 /**
  * Stub index.html to use Vite in development
  */
@@ -30,10 +29,35 @@ export async function writeManifest() {
   logger('PRE', 'write manifest.json')
 }
 
+function getFakeData() {
+  return fs.readJSON(r(`fake_data/data_v1.json`))
+}
+
+export async function copyFakeData() {
+  logger('PRE', 'copying data_v1.json')
+
+  const path = 'extension/dist/data'
+  try {
+    await fs.ensureDir(r(path))
+
+    await fs.writeJSON(
+      r(path + '/data_v1.json'),
+      await getFakeData(), 
+      { spaces: 2 }
+    )
+  } catch (e: any) {
+    logger('ERROR', "Can't copy data_v1.json")
+  }
+}
+
 writeManifest()
+
 
 if (isDev) {
   stubIndexHtml()
+
+  copyFakeData()
+
   chokidar.watch(r('views/**/*.html'))
     .on('change', () => {
       stubIndexHtml()
@@ -42,4 +66,5 @@ if (isDev) {
     .on('change', () => {
       writeManifest()
     })
+    
 }
