@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import MpFleetSaveConfig  from './MpFleetSaveConfig.vue'
 import MpExpeditionConfig from './MpExpeditionConfig.vue'
-import MpAbout  from './MpAbout.vue'
-import MpMenu   from './MpMenu.vue'
+import MpAbout    from './MpAbout.vue'
+import MpMenu     from './MpMenu.vue'
+import MpSettings from './MpSettings.vue'
 
 const isActive = ref(false)
 
@@ -16,6 +17,8 @@ const component = computed( () => {
       return MpExpeditionConfig
     case "ABOUT":
       return MpAbout
+    case "SETTINGS":
+      return MpSettings
   }
 })
 

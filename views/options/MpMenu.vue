@@ -55,6 +55,14 @@ function goTo(to: OptionPage) {
       </a>
 
       <a
+        @click="goTo('SETTINGS')"
+        class="menu_item"
+        :class="{'menu_item--active': view === 'SETTINGS'}"
+      >
+        <span v-t="'menu.ext_confif'" />
+      </a>
+
+      <a
         @click="goTo('ABOUT')"
         class="menu_item"
         :class="{'menu_item--active': view === 'ABOUT'}"
