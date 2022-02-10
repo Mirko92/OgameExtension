@@ -167,6 +167,10 @@ function handleMessage(
       saveExpeditionMission(request.data, sendResponse);
       break
 
+    case "SAVE_SETTINGS":
+      saveSettings(request.data, sendResponse);
+      break
+
     case "GET_EXPEDITION_CONFIG":
       getExpeditionConfig(request.data, sendResponse);
       break
