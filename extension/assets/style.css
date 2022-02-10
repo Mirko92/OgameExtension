@@ -2,22 +2,6 @@
     display: none !important;
 }
 
-/* 
-    Hide some elments of the page
-*/
-#mmonetbar,         /* Top Banner */
-#siteHeader,        /* Top Banner */
-#banner_skyscraper  /* Right banner */ {
-    display: none !important;
-}
-
-/* 
-    Get rid of the useless gameforge tobar
-*/
-body.no-commander #pageContent {
-    top: 0px !important;
-}
-
 body.no-commander {
     background-position: 50% -1px !important;
     background-attachment: fixed  !important;

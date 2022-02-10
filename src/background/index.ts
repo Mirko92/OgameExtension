@@ -7,6 +7,8 @@ const extensionName = "Ogame MP";
  */
 chrome.action.disable();
 
+chrome.tabs.onUpdated.addListener(() => addCSS());
+
 /**
  * On tab change check if the url matches with the ogame url
  * If it does, enable the extension
@@ -314,7 +316,6 @@ async function saveSettings({ settings }: MpSaveSettingsData, callback: Function
 //#endregion
 
 
-
 // Example to change icon dynamically
 // function imageData() {
 //   const canvas = new OffscreenCanvas(16, 16);
@@ -326,3 +327,53 @@ async function saveSettings({ settings }: MpSaveSettingsData, callback: Function
   
 //   return context.getImageData(0, 0, 16, 16);
 // }
+
+async function getCurrentTab() {
+  let queryOptions = { active: true, currentWindow: true };
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
+
+async function addCSS() {
+  try {
+    const tab = await getCurrentTab();
+
+    if (tab.url && /https:\/\/s\d\d\d-\D\D.ogame.gameforge.*/.test(tab.url)) {
+      const uni = /https:\/\/(s\d\d\d-\D\D).ogame.gameforge.*/.exec(tab.url)![1];
+
+      const { uniData } = await getUniversesAndUni(uni);
+
+      console.debug("Found settings", uniData.settings);
+      
+      if (!uniData.settings.displayBanner) {
+        chrome.scripting.insertCSS({
+          target: {tabId: tab.id!}, 
+          css: `
+            #banner_skyscraper {
+                display: none !important;
+            }
+          `
+        });
+      }
+
+      if (!uniData.settings.displayGfBar) {
+        chrome.scripting.insertCSS({
+          target: {tabId: tab.id!}, 
+          css: `
+            #siteHeader,
+            #mmonetbar {
+              display: none !important;
+            }
+            body.no-commander #pageContent {
+              top: 0px !important;
+            }
+          `
+        });
+      }
+
+    }
+    
+  } catch (error) {
+    console.error(error)
+  }
+}

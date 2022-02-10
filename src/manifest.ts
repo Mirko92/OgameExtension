@@ -6,7 +6,8 @@ type MpManifest = {
   externally_connectable: {
     matches: string[],
     accepts_tls_channel_id: boolean
-  }
+  },
+  host_permissions: string[]
 } & Manifest.WebExtensionManifest
 
 export async function getManifest(): Promise<MpManifest> {
@@ -72,9 +73,9 @@ export async function getManifest(): Promise<MpManifest> {
         : undefined,
     },
     
-    // host_permissions: [
-    //   "http://*.ogame.gameforge.com/*",
-    // ]
+    host_permissions: [
+      "https://*.ogame.gameforge.com/*"
+    ],
 
     web_accessible_resources: [
       {
