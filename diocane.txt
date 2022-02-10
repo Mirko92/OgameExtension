@@ -1,9 +1,0 @@
-
-> vitesse-modernized-chrome-ext@0.0.191 esno /Users/mirkopetrelli/Desktop/Dev/OgameExtension/OgameExtension
-> esno scripts/prepare.ts dev
-
- PRE  copying data_v1.json
- PRE  write manifest.json
- PRE  stub options
- PRE  stub popup
- PRE  stub app
