@@ -16,7 +16,19 @@ type Universe = {
     planets: Planet[];
     missions?: GenericMission[];
     expeditionConfig: ExpeditionConfig;
+    settings: UniverseSettings;
 }
+
+type UniverseSettings = {
+    deuReserve: number;
+    displayBanner: boolean;
+    displayGfBar: boolean;
+}
+
+type UpdateUniverseSettings = {
+    uni: string;
+} & UniverseSettings;
+
 
 /**
  * Ogame planet data type definition
@@ -134,6 +146,10 @@ type MpSaveExpeditionConfigData = {
     expeditionConfig: ExpeditionConfig;
 }
 
+type MpSaveSettingsData = {
+    settings: UpdateUniverseSettings[];
+}
+
 
 type MpSaveFleetInfo = {
     method: 'SAVE_FLEET_INFO';
@@ -183,7 +199,13 @@ type MpOpenOptions = {
     response?: void;
 }
 
-type MpRequest = MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions | MpGetFleetSave | MpSaveMission | MpSaveExpeditionConfig | MpGetExpeditionConfig | MpOpenOptions; 
+type MpSaveSettings = {
+    method: 'SAVE_SETTINGS';
+    data: MpSaveSettingsData;
+    response?: void;
+}
+
+type MpRequest = MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions | MpGetFleetSave | MpSaveMission | MpSaveExpeditionConfig | MpGetExpeditionConfig | MpOpenOptions | MpSaveSettings; 
 
 // type MpResponse<T> = T extends {response: unknown} ? T['response']: never;
 type MpResponse<T> = T['response'];

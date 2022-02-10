@@ -199,7 +199,12 @@ async function saveFleetInfo(data: MpSaveFleetInfoData, callback: Function) {
       name: uniName,
       playerName,
       planets: [],
-      expeditionConfig: {}
+      expeditionConfig: {},
+      settings: {
+        deuReserve: 1000,
+        displayBanner: false,
+        displayGfBar: false,
+      }
     };
 
     universes.push(uniData);
@@ -281,6 +286,26 @@ async function saveExpeditionMission({ uni, expeditionConfig }: MpSaveExpedition
 
 async function getExpeditionConfig({ uni }: MpUniKey, callback: Function) {
   callback((await getUniverse(uni))?.expeditionConfig);
+}
+
+async function saveSettings({ settings }: MpSaveSettingsData, callback: Function) {
+  const universes = await getUniverses();
+
+  // Update settings 
+  settings.forEach(s => {
+    const u = universes.find(u => u.code === s.uni);
+
+    if (u) { 
+      u.settings = {
+        deuReserve: s.deuReserve,
+        displayBanner: s.displayBanner,
+        displayGfBar: s.displayGfBar,
+      };
+    }
+  });
+
+  await chrome.storage.local.set({ ogameData: universes });
+  callback();
 }
 //#endregion
 

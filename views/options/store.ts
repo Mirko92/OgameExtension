@@ -63,6 +63,7 @@ export const useStore = defineStore('options_store', () => {
 
   async function init() {
     console.debug("Store INIT")
+    // TODO: check if storage is empty
 
     if (chrome.storage) {
       console.info("Chrome storage is available")

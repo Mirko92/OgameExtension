@@ -77,6 +77,6 @@ function onChange(uniData: Universe){
     background: rgb(125 92 162 / 60%);
     margin: 0;
     padding: 0.5rem;
-  border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
 }
 </style>
