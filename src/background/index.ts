@@ -181,6 +181,10 @@ function handleMessage(
       chrome.runtime.openOptionsPage();
       break
 
+    case "GET_CONFIG":
+      getConfig(request.data, sendResponse);
+      break;
+
     default:
       sendResponse(false);
       break;
@@ -312,6 +316,11 @@ async function saveSettings({ settings }: MpSaveSettingsData, callback: Function
 
   await chrome.storage.local.set({ ogameData: universes });
   callback();
+}
+
+async function getConfig({ uni }: MpUniKey, callback: Function) {
+  const {uniData} = await getUniversesAndUni(uni);
+  return callback(uniData);
 }
 //#endregion
 

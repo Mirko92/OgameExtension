@@ -22,6 +22,7 @@ export class MpFleetDispatcher {
         console.debug("Token received", this.myToken);
     }
 
+    async sendMessage(r: MpGetConfig): Promise<any>;
     async sendMessage(r: MpGetExpeditionConfig): Promise<any>;
     async sendMessage(r: MpSaveFleetInfo): Promise<void>;
     async sendMessage(r: MpGetFleetSave): Promise<FleetMission>;
@@ -384,6 +385,13 @@ export class MpFleetDispatcher {
     }
 
     async moveResourcesTo(destination: string) {
+        const config = await this.sendMessage({
+            method: "GET_CONFIG",
+            data: {
+                uni: window.mp.server,
+            }
+        })
+
         const {galaxy, system, position, type} = window?.currentPlanet;
         const current = [galaxy, system, position, type].join(',');
 
