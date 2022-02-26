@@ -50,7 +50,7 @@ export class MpOgame {
      */
     clearMissions() {
         console.log("[MpOgame] - ClearMissions");
-        localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+        localStorage.setItem(MP_LOCAL_STORAGE.STOP_MISSION, 'true');
     }
 
     private async execute(mission: Mission, fleetCommand: Function) {
@@ -124,13 +124,15 @@ export class MpOgame {
 
     // TODO: Change name to "collectTo"
     async collectToMain(mission?: CollectMission, destination?: string) {
-        console.debug("[MpOgame] - CollectToMain");
+        console.debug("[MpOgame] - CollectToMain", mission, destination);
 
         if (mission) {
+            console.debug("[MpOgame] - Run mission");
             this.execute( mission, 
                 () => this.fleetDispatcher?.moveResourcesTo(mission.destination)
             );
         } else if (destination) {
+            console.debug("[MpOgame] - Set mission");
             this.setMission({
                 code: 'collect-to-main', 
                 destination,
@@ -232,7 +234,17 @@ export class MpOgame {
                 break;
         }
 
-        this.todo();
+        const stopMission = JSON.parse(
+            localStorage.getItem(MP_LOCAL_STORAGE.STOP_MISSION) || 'null'
+        );
+
+        if (!stopMission) {
+            this.todo();
+        } else {
+            console.log("[MpOgame] - Missione interrotta");
+            localStorage.removeItem(MP_LOCAL_STORAGE.MISSION);
+            localStorage.removeItem(MP_LOCAL_STORAGE.STOP_MISSION);
+        }
     }
 }
 

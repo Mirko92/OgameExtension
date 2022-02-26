@@ -20,5 +20,6 @@ export const enum MP_PLANET_TYPES {
 
 export const enum MP_LOCAL_STORAGE {
     FLEET_TOKEN  = "mp_fleet_token",
-    MISSION      = "mp_mission"
+    MISSION      = "mp_mission",
+    STOP_MISSION = "mp_stop_mission",
 }

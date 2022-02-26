@@ -175,6 +175,12 @@ type MpGetFleetSave = {
     response?: FleetMission;
 }
 
+type MpGetConfig = {
+    method: 'GET_CONFIG';
+    data: MpUniKey;
+    response?: Universe;
+}
+
 type MpSaveMission = {
     method: 'SAVE_MISSION';
     data: MpSaveMissionData;
@@ -205,7 +211,11 @@ type MpSaveSettings = {
     response?: void;
 }
 
-type MpRequest = MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions | MpGetFleetSave | MpSaveMission | MpSaveExpeditionConfig | MpGetExpeditionConfig | MpOpenOptions | MpSaveSettings; 
+type MpRequest = 
+    MpSaveFleetInfo | MpSaveFleetMission | MpSaveManyFleetMissions |
+     MpGetFleetSave | MpSaveMission | MpSaveExpeditionConfig | 
+     MpGetExpeditionConfig | MpOpenOptions | MpSaveSettings |
+     MpGetConfig;; 
 
 // type MpResponse<T> = T extends {response: unknown} ? T['response']: never;
 type MpResponse<T> = T['response'];

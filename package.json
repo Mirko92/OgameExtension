@@ -2,7 +2,7 @@
   "name": "vitesse-modernized-chrome-ext",
   "displayName": "Ogame MP",
   "description": "Work in progress",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "esno": "esno scripts/prepare.ts dev",
