@@ -22,7 +22,7 @@ export class MpFleetDispatcher {
         console.debug("Token received", this.myToken);
     }
 
-    async sendMessage(r: MpGetConfig): Promise<any>;
+    async sendMessage(r: MpGetConfig): Promise<Universe>;
     async sendMessage(r: MpGetExpeditionConfig): Promise<any>;
     async sendMessage(r: MpSaveFleetInfo): Promise<void>;
     async sendMessage(r: MpGetFleetSave): Promise<FleetMission>;
@@ -385,38 +385,44 @@ export class MpFleetDispatcher {
     }
 
     async moveResourcesTo(destination: string) {
-        const config = await this.sendMessage({
-            method: "GET_CONFIG",
-            data: {
-                uni: window.mp.server,
-            }
-        })
+        console.debug("[MpOgame] - moveResourcesTo", destination);
 
         const {galaxy, system, position, type} = window?.currentPlanet;
         const current = [galaxy, system, position, type].join(',');
 
         if(current === destination){
-            console.warn("Partenza e destinazione uguali");
+            console.warn("[MpOgame] - Partenza e destinazione uguali");
             return Promise.resolve(null);
         }
 
-        if ( (metalOnPlanet + crystalOnPlanet) === 0 ) {
-            console.warn("Nessuna risorsa in " + current);
+        if ( (metalOnPlanet + crystalOnPlanet + deuteriumOnPlanet) === 0 ) {
+            console.warn("[MpOgame] - Nessuna risorsa in " + current);
             return;
         }
         
-        const littleCargo = shipsOnPlanet.find((s: Ship) => s.id === 202);
-        const largeCargo  = shipsOnPlanet.find((s: Ship) => s.id === 203);
+        const littleCargo = shipsOnPlanet.find((s: Ship) => s.id === 202)!;
+        const largeCargo  = shipsOnPlanet.find((s: Ship) => s.id === 203)!;
         
         if( !littleCargo && !largeCargo ) {
-            console.warn("Nessun cargo in " + current);
+            console.warn("[MpOgame] - Nessun cargo in " + current);
             return;
         }
 
+        // Quantità di deuterio da conservare configurata
+        const uni = await this.sendMessage({
+            method: "GET_CONFIG",
+            data: {
+                uni: window.mp.server,
+            }
+        });
+
+        const deuReserve = (uni.settings.deuReserve||0) * 1000;
+        console.info("[MpOgame] - Detuerium reserve: ", deuReserve.toLocaleString());
+
         const [destG,destS, destP,destT] = destination.split(',');
-// TODO: amount backup deu 
+
         const currentDeuAmount = resourcesBar.resources.deuterium.amount;
-        const deuToHold = currentDeuAmount > 10e6  ? currentDeuAmount - 10e6 : 0;
+        const deuToHold = currentDeuAmount > deuReserve  ? currentDeuAmount - deuReserve : 0;
 
         const total = deuToHold + crystalOnPlanet + metalOnPlanet;
 

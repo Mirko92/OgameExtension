@@ -178,7 +178,7 @@ type MpGetFleetSave = {
 type MpGetConfig = {
     method: 'GET_CONFIG';
     data: MpUniKey;
-    response?: any;
+    response?: Universe;
 }
 
 type MpSaveMission = {
