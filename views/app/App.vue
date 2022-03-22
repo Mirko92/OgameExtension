@@ -18,9 +18,39 @@
 
       </main>
 
-      <a href="javascript:void(0)" @click.prevent="goToOptions">Options</a>
-      
+      <footer class="d-f-r j-c-b">
+        <a href="javascript:void(0)" @click.prevent="goToOptions">Options</a>
+        <a href="javascript:void(0)" @click.prevent="openDialog">Statistics</a>
+      </footer>
     </div>
+
+    <transition name="slide-fade" >
+      <div id="mp_dialog" v-if="displayDialog">
+        <header>
+          <h2 class="black">Statistics</h2>
+          <i class="close_icon"
+              @click="closeDialog">
+            &times;
+          </i>
+        </header>
+
+        <section>
+          <MpStatistics />
+        </section>
+
+        <footer class="d-f-r j-c-b">
+          <a href="javascript:void(0)"
+              @click="back">
+            back
+          </a>
+          <a href="javascript:void(0)"
+            @click="closeDialog">
+            close
+          </a>
+        </footer>
+      </div>
+    </transition>
+
     <button title="Apri/Chiudi"
             class="toggle_button"
             @click="toggle">
@@ -33,6 +63,7 @@ import MpTabs            from "./MpTabs.vue";
 import MpFleetDispatcher from "./MpFleetDispatcher.vue";
 import MpMissions        from "./MpMissions.vue";
 import MpTrader          from "./MpTrader.vue";
+import MpStatistics from "./MpStatistics.vue";
 
 const isOpen    = ref(
   JSON.parse(sessionStorage.getItem('mp_dialog')!)
@@ -40,6 +71,7 @@ const isOpen    = ref(
 
 function toggle() {
     isOpen.value = !isOpen.value;
+    displayDialog.value = false; 
 
     sessionStorage.setItem('mp_dialog', isOpen.value);
 }
@@ -73,5 +105,18 @@ function goToOptions() {
     window.mp.extensionId,
     { method: 'OPEN_OPTIONS'}
   )
+}
+
+const displayDialog = ref(false)
+function openDialog() {
+  toggle()
+  displayDialog.value = true
+}
+function closeDialog() {
+  displayDialog.value = false
+}
+function back() {
+  closeDialog()
+  toggle()
 }
 </script>
