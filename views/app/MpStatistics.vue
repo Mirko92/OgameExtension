@@ -141,7 +141,7 @@ const data = computed(() => {
             data : [
                 (resourcesMap.value.metal        || 0) / 1e3,
                 (resourcesMap.value.crystal      || 0) / 1e3,
-                (resourcesMap.value.detuerium    || 0) / 1e3,
+                (resourcesMap.value.deuterium    || 0) / 1e3,
                 resourcesMap.value.darkmatter    || 0,
             ],
             backgroundColor: [
