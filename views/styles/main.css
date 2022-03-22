@@ -140,6 +140,7 @@ html.dark {
   transform: translateX(-110%);
 
   overflow: auto;
+  will-change: transform;
 }
 @media screen and (max-height: 820px) {
   #mp_app .app_container {
@@ -271,7 +272,51 @@ html.dark {
   border:2px solid #555;
 }
 
+#mp_dialog {
+  z-index: 1;
+  position: fixed;
+
+  padding: 1rem;
+  width: max(60vw, 300px);
+
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(1px);
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+#mp_dialog > header { 
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+#mp_dialog > header h3 {
+  margin: 0;
+}
+
+#mp_dialog .close_icon {
+  cursor: pointer;
+}
+
+#mp_dialog .close_icon:hover {
+  font-weight: bold;
+}
+
+#mp_dialog .close_icon:active {
+  transform: scale(0.95);
+}
+
 /* UTILS */
+.black {
+  color: black;
+}
 .d-f-r {
   display: flex;
   flex-flow: row nowrap;

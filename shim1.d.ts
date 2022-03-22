@@ -19,4 +19,8 @@ declare global {
         
         fadeBox(text: string, isAlert: boolean): void;
 	}
+
+    interface EventTarget { 
+        result: any;
+    }
 }
