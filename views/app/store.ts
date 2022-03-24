@@ -40,9 +40,10 @@ export const useDbStore = defineStore('db_store', () => {
           const r = e.target!.result
   
           if (r) {
-            result.push(r.key)
+            result.push(r.value)
             r.continue();
           } else {
+            console.log("Result", result)
             resolve(result)
           }
         }
