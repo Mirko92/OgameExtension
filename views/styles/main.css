@@ -334,6 +334,9 @@ html.dark {
 .j-c-b {
   justify-content: space-between;
 }
+.j-c-a {
+  justify-content: space-around;
+}
 
 .a-i-c {
   align-items: center;

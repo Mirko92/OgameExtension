@@ -1,6 +1,27 @@
 <template>
     <div>
+        <!-- <div class="d-f-r j-c-a">
+            <div>
+                <label for="since_date">
+                    Dal:
+                </label>
+                <input id="since_date" type="date">
+            </div>
+
+            <div>
+                <label for="till_date">
+                    Al:
+                </label>
+                <input id="till_date" type="date">
+            </div>
+        </div> -->
+
         <DoughnutChart :chartData = "data" :options = "chartOptions" />
+
+        <div class="d-f-r j-c-b">
+            <pre>{{ t('chart.dark_matter') }}: {{darkMatter}}</pre>
+            <pre>{{ t('chart.total_exp') }}: {{expeditionsCount}}</pre>
+        </div>
     </div>
 </template>
 
@@ -15,44 +36,48 @@ import {
     Tooltip,
 } from "chart.js"
 import { storeToRefs } from 'pinia';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
+
 Chart.register(DoughnutController, ArcElement, Legend, Tooltip)
 
 const dbStore = useDbStore()
-const { resourcesMap }  = storeToRefs(dbStore)
+const { resourcesMap, count: expeditionsCount }  = storeToRefs(dbStore)
+
+const darkMatter = computed(() => resourcesMap.value?.darkmatter) 
 
 const data = computed(() => {
     return {
         labels: [
-            'Metallo [K]',
-            'Cristallo [K]',
-            'Detuerio [K]',
-            'Materia Oscura'
+            t('chart.legend.deuterium'),
+            t('chart.legend.crystal'),
+            t('chart.legend.metal'),
         ],
         datasets: [{
             label: 'Expeditions result',
             data : [
-                (resourcesMap.value.metal        || 0) / 1e3,
-                (resourcesMap.value.crystal      || 0) / 1e3,
                 (resourcesMap.value.deuterium    || 0) / 1e3,
-                resourcesMap.value.darkmatter    || 0,
+                (resourcesMap.value.crystal      || 0) / 1e3,
+                (resourcesMap.value.metal        || 0) / 1e3,
             ],
             backgroundColor: [
-                'rgb(253 119 5)',
-                'rgb(115 221 255)',
-                'rgb(5 253 188)',
-                'rgb(4 4 4)',
+                'rgb(27, 196, 117)',
+                'rgb(23, 154, 166)',
+                'rgb(176, 48, 12)',
             ],
+            borderColor:  'rgb(56, 52, 52)',
             hoverOffset: 12,
-            spacing    : 9,
+            spacing    : 10,
         }]
     }
 })
 
 const chartOptions = {
-    cutout   : "50%",
     animation: {
-          animateScale: true
-        }, layout     : {
+        animateScale: true
+    }, 
+    layout     : {
         padding: 20
     },
 }

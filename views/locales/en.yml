@@ -38,3 +38,10 @@ exp_conf:
   title: Expedition configuration
 mp_settings:
   title: Settings
+chart: 
+  total_exp: Expeditions Count
+  dark_matter: Dark matter
+  legend:
+    deuterium: Deuterium [K]
+    crystal: Crystal [K]
+    metal: Metal [K]

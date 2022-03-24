@@ -68,6 +68,7 @@ export const useDbStore = defineStore('db_store', () => {
     date?: string
   }>({})
 
+  const count = ref(0)
   const resourcesMap = ref<Record<string, number>>({})
 
   async function loadData() {
@@ -77,6 +78,8 @@ export const useDbStore = defineStore('db_store', () => {
 
   function calcResourcesFromMessages(messages: Message[]) {
     resourcesMap.value = {}
+    count.value = messages.length
+
     const mr = resourcesMap.value
     messages.forEach(s => {
       const {
@@ -98,6 +101,7 @@ export const useDbStore = defineStore('db_store', () => {
     if (import.meta.env.DEV) {
       console.debug("DEV MODE")
       const messages: Message[] = await (await fetch(`/dist/data/db_2022-03-23.json`)).json()
+      
       calcResourcesFromMessages(messages?.filter(m => m.type === "EXPEDITION"))
     } else {
       await connectToDB()
@@ -106,6 +110,7 @@ export const useDbStore = defineStore('db_store', () => {
   }
 
   return {
+    count,
     resourcesMap,
     filters,
     init,

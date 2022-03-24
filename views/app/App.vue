@@ -107,13 +107,27 @@ function goToOptions() {
   )
 }
 
+function escHandler(e: KeyboardEvent) {
+  if (e.code === "Escape") {
+    closeDialog();
+  }
+}
+function addEscHandler() {
+  document.addEventListener('keyup', escHandler)
+}
+function removeEscHandler() {
+  document.removeEventListener('keyup', escHandler)
+}
+
 const displayDialog = ref(false)
 function openDialog() {
   toggle()
   displayDialog.value = true
+  addEscHandler()
 }
 function closeDialog() {
   displayDialog.value = false
+  removeEscHandler()
 }
 function back() {
   closeDialog()
