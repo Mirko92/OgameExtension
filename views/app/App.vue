@@ -27,7 +27,9 @@
     <transition name="slide-fade" >
       <div id="mp_dialog" v-if="displayDialog">
         <header>
-          <h2 class="black">Statistics</h2>
+          <h2 class="black my0">
+            Statistiche
+          </h2>
           <i class="close_icon"
               @click="closeDialog">
             &times;
@@ -41,11 +43,11 @@
         <footer class="d-f-r j-c-b">
           <a href="javascript:void(0)"
               @click="back">
-            back
+            indietro
           </a>
           <a href="javascript:void(0)"
             @click="closeDialog">
-            close
+            chiudi
           </a>
         </footer>
       </div>

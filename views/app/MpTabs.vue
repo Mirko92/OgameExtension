@@ -29,35 +29,3 @@ const traderEnabled = JSON.parse(localStorage.getItem('mp_trader_enabled') || 'f
         </section>
     </div>
 </template>
-
-<style scoped>
-.tabs {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-}
-.tab {
-    display: grid;
-    place-items: center;
-
-    flex: 1;
-}
-.tab__icon {
-    color: white;
-}
-.tab:hover {
-    background-color: white !important;
-    cursor: pointer;
-}
-.tab:hover .tab__icon {
-    color: #c199f3;
-}
-.tab--active{
-    cursor: default;
-    background-color: white !important;
-}
-.tab--active .tab__icon {
-    color: #c199f3 !important;
-}
-
-</style>

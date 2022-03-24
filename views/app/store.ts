@@ -4,28 +4,63 @@ const DB_NAME    = "OGAME"
 const DB_VERSION = 1
 
 export const useDbStore = defineStore('db_store', () => {
-  const queryDate = (new Date()).toISOString().slice(0, 10)
   const database  = ref<IDBDatabase>()
 
-  function getMessages(type: string, date: string): Promise<any[]> {
-    const store = getStore("MESSAGES", 'readonly')
+  async function loadData(date?: Date, dateEnd?: Date) {
+    date ??= (new Date())
 
-    if (!store) return Promise.resolve([])
+    const  [start, end] = [date, dateEnd]
+      .filter( d => d)
+      .map(d => d!.toISOString().slice(0, 10))
 
-    let indexName = "by_type_date"
+    const messages = await loadByDate("EXPEDITION", start, end)
 
-    if (type && date || (!type && !date)) {
-      indexName = "by_type_date"
-    } else if (type) {
-      indexName = "by_type"
-    } else if (date) {
-      indexName = "by_date"
+    calcResourcesFromMessages(messages)
+  }
+
+  function loadByDate(type: MessageType, since: string, to?: string) {
+
+    if (!to || since === to) {
+      return getMessages(type, since)
     }
 
-    const key = (type && date) ? [type, date] : [type, date].filter(x => x).join("")
+    const request = getStore("MESSAGES", 'readonly')
+      .index("by_type_date")
+      .openCursor(
+        IDBKeyRange.bound(
+          [type, since],
+          [type, to],
+        )
+      )
 
-    const index   = store.index(indexName)
-    const request = index.getAll(key)
+      return new Promise<Message[]>((resolve, reject) => {
+        const result: Message[] = []
+
+        request.onsuccess = (e: Event) => {
+          const r = e.target!.result
+  
+          if (r) {
+            result.push(r.key)
+            r.continue();
+          } else {
+            resolve(result)
+          }
+        }
+  
+        request.onerror = (e) => {
+          reject(e)
+        }
+      })
+  }
+
+  function getMessages(type: MessageType, date: string): Promise<Message[]> {
+    const request = getStore("MESSAGES", 'readonly')
+      .index(chooseIndex(type, date))
+      .getAll(
+        (type && date)
+          ? [type, date]
+          :  type || date
+      );
 
     return new Promise((resolve, reject) => {
       request.onsuccess = (event: Event) => {
@@ -38,11 +73,9 @@ export const useDbStore = defineStore('db_store', () => {
     })
   }
 
-  function getStore(store_name: string, mode: IDBTransactionMode) {
-    if (database.value) {
-      const tx = database.value.transaction(store_name, mode)
-      return tx.objectStore(store_name)
-    }
+  function getStore(store_name: string, mode: IDBTransactionMode): IDBObjectStore {
+    const tx = database.value!.transaction(store_name, mode)
+    return tx.objectStore(store_name)
   }
 
   function connectToDB() {
@@ -64,21 +97,9 @@ export const useDbStore = defineStore('db_store', () => {
     })
   }
 
-  const filters = ref<{
-    date?: string
-  }>({})
-
-  const count = ref(0)
-  const resourcesMap = ref<Record<string, number>>({})
-
-  async function loadData() {
-    const messages = await getMessages("EXPEDITION", queryDate)
-    calcResourcesFromMessages(messages)
-  }
-
   function calcResourcesFromMessages(messages: Message[]) {
     resourcesMap.value = {}
-    count.value = messages.length
+    count.value        = messages.length
 
     const mr = resourcesMap.value
     messages.forEach(s => {
@@ -101,7 +122,7 @@ export const useDbStore = defineStore('db_store', () => {
     if (import.meta.env.DEV) {
       console.debug("DEV MODE")
       const messages: Message[] = await (await fetch(`/dist/data/db_2022-03-23.json`)).json()
-      
+
       calcResourcesFromMessages(messages?.filter(m => m.type === "EXPEDITION"))
     } else {
       await connectToDB()
@@ -109,13 +130,32 @@ export const useDbStore = defineStore('db_store', () => {
     }
   }
 
+  const count        = ref(0)
+  const resourcesMap = ref<Record<string, number>>({})
+
   return {
     count,
     resourcesMap,
-    filters,
     init,
+    loadData
   }
 })
+
+
+
+function chooseIndex(type: string, date: string) {
+  let indexName = "by_type_date";
+
+  if (type && date || (!type && !date)) {
+    indexName = "by_type_date";
+  } else if (type) {
+    indexName = "by_type";
+  } else if (date) {
+    indexName = "by_date";
+  }
+
+  return indexName;
+}
 
 function parseExpTextMessage(text: string) {
   var r = /(Cristallo|Metallo|Deuterio)\s(.*)\s(è stato razziato\.)/mg.exec(text)

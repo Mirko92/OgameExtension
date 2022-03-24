@@ -237,3 +237,5 @@ type Message = {
     type: string;
     coords: Coords;
 }
+
+type MessageType = "EXPEDITION" | "ESPIONAGE" | "COMBAT_REPORT" | "OTHER";

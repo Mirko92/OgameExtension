@@ -373,4 +373,43 @@ html.dark {
 .px1{
   padding: 0 1rem
 }
+
+.my0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 /* END UTILS */
+
+
+.tabs {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  overflow-x: auto;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+
+  flex: 1;
+  color: #c199f3;
+}
+.tab__icon {
+  color: white;
+}
+.tab:hover {
+  background-color: white !important;
+  cursor: pointer;
+}
+.tab:hover .tab__icon {
+  color: #c199f3;
+}
+.tab--active{
+  cursor: default;
+  background-color: white !important;
+}
+.tab--active .tab__icon {
+  color: #c199f3 !important;
+}
