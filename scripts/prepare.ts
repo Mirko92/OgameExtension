@@ -29,25 +29,38 @@ export async function writeManifest() {
   logger('PRE', 'write manifest.json')
 }
 
-function getFakeData() {
-  return fs.readJSON(r(`fake_data/data_v1.json`))
+function getFakeData(file: string) {
+  return fs.readJSON(r(`fake_data/${file}`))
 }
 
-export async function copyFakeData() {
-  logger('PRE', 'copying data_v1.json')
+export async function copyFile(file: string) {
+  logger('PRE', file)
 
   const path = 'extension/dist/data'
   try {
     await fs.ensureDir(r(path))
 
     await fs.writeJSON(
-      r(path + '/data_v1.json'),
-      await getFakeData(), 
+      r(path + '/' + file),
+      await getFakeData(file), 
       { spaces: 2 }
     )
   } catch (e: any) {
-    logger('ERROR', "Can't copy data_v1.json")
+    logger('ERROR', `Can't copy ${file}`)
   }
+}
+
+export async function copyFiles() {
+  const files = [
+    "data_v1.json",
+    "db_2022-03-22.json",
+    "db_2022-03-23.json",
+  ]
+
+  for (const file of files) {
+    await copyFile(file)
+  }
+
 }
 
 writeManifest()
@@ -56,7 +69,7 @@ writeManifest()
 if (isDev) {
   stubIndexHtml()
 
-  copyFakeData()
+  copyFiles()
 
   chokidar.watch(r('views/**/*.html'))
     .on('change', () => {

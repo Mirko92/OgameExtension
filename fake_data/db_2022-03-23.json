@@ -1,0 +1,2172 @@
+[
+    {
+        "id": "3274975",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta Porchetta [1:299:5]. Probabilità di controspionaggio: 0%\n    ",
+        "title": "Azione di Spionaggio su Porchetta [1:299:5]",
+        "date": "2022-03-23",
+        "time": "05:25:16",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3274976",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta SOPHIA [1:299:6]. Probabilità di controspionaggio: 0%\n    ",
+        "title": "Azione di Spionaggio su SOPHIA [1:299:6]",
+        "date": "2022-03-23",
+        "time": "05:25:17",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3274977",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta Lasagna [1:299:6]. Probabilità di controspionaggio: 75%\n    ",
+        "title": "Azione di Spionaggio su Lasagna [1:299:6]",
+        "date": "2022-03-23",
+        "time": "05:25:18",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3274979",
+        "text": "\n        \n    Attaccante: (El John): 20.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 10.000\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n    \n\n    ",
+        "title": "Rapporto di Combattimento Lasagna  [1:299:6]",
+        "date": "2022-03-23",
+        "time": "05:25:18",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3274980",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta Carbonara [1:299:5]. Probabilità di controspionaggio: 100%\n    ",
+        "title": "Azione di Spionaggio su Carbonara [1:299:5]",
+        "date": "2022-03-23",
+        "time": "05:25:21",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3274982",
+        "text": "\n        \n    Attaccante: (El John): 20.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 10.000\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n    \n\n    ",
+        "title": "Rapporto di Combattimento Carbonara  [1:299:5]",
+        "date": "2022-03-23",
+        "time": "05:25:21",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3275000",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[4:309:16]",
+        "date": "2022-03-23",
+        "time": "05:28:32",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "4",
+            "system": "309",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275002",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[2:401:16]",
+        "date": "2022-03-23",
+        "time": "05:28:53",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "2",
+            "system": "401",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275011",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[3:51:16]",
+        "date": "2022-03-23",
+        "time": "05:33:22",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "3",
+            "system": "51",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275012",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[4:450:16]",
+        "date": "2022-03-23",
+        "time": "05:33:51",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "4",
+            "system": "450",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275013",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[4:59:16]",
+        "date": "2022-03-23",
+        "time": "05:33:59",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "4",
+            "system": "59",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275018",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[1:99:16]",
+        "date": "2022-03-23",
+        "time": "05:34:43",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "99",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275019",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[3:215:16]",
+        "date": "2022-03-23",
+        "time": "05:34:48",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "3",
+            "system": "215",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275025",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[1:299:16]",
+        "date": "2022-03-23",
+        "time": "05:35:19",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275027",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[2:67:16]",
+        "date": "2022-03-23",
+        "time": "05:35:56",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "2",
+            "system": "67",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275028",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[2:200:16]",
+        "date": "2022-03-23",
+        "time": "05:36:37",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "2",
+            "system": "200",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275029",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[1:299:16]",
+        "date": "2022-03-23",
+        "time": "05:36:54",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275033",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[1:403:16]",
+        "date": "2022-03-23",
+        "time": "05:39:46",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "403",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3275077",
+        "text": "\n        \n\nGiocatore:  space Classe: Non è stata scelta nessuna classeClasse Alleanza: Non è stata scelta alcuna Classe Alleanza\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 0  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di  spazio profondo[2:470:16]",
+        "date": "2022-03-23",
+        "time": "05:49:22",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "2",
+            "system": "470",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3276673",
+        "text": "\n        Una delle tue flotte di Lasagna [1:299:6] ha raggiunto il pianeta SOPHIA [1:299:6]. La flotta trasporta 6.300.720 Metallo, 1.769.198 Cristallo e 1.261.737 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "09:20:22",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3276811",
+        "text": "\n        Durante l`asta, il giocatore Cp Jack Sparrow ha superato la tua offerta per il seguente item:\n\nAmplificatore Energy Oro\n\nEcco l`offerta attuale: 6.002\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "09:36:57",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279017",
+        "text": "\n        La tua spedizione ha fatto stupende fotografie di una supernova. In realtà non possono essere tratte nuove informazioni da quelle immagini, ma ci sono buone probabilità di vincere il concorso \"Miglior Immagine dell`Universo\".Rapporto dell`ufficiale alle comunicazioni: Sembra che questa parte di universo non sia ancora stata esplorata.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:25",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279018",
+        "text": "\n        Su un planetoide isolato abbiamo trovato alcuni campi di risorse facilmente accessibili e ne abbiamo raccolte alcune.Cristallo 5.850.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:28",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279019",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseCristallo 6.300.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:30",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279020",
+        "text": "\n        Un componente inserito nel generatore di energia durante l`assemblaggio ha inaspettatamente accelerato il ritorno della spedizione, così tornerà al pianeta di origine prima del previsto. I primi rapporti dicono che non hanno nulla di emozionante da raccontare.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:33",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279021",
+        "text": "\n        \n    Attaccante: (Alieni): 73.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 29.000\n\n    Difensore: (CiccioPasticcio): 72.000\n    Riparazioni completate: 0\n            Possibilità di formare una luna: 0 %\n    \n\n    ",
+        "title": "Rapporto di Combattimento SOPHIA  [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:36",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279022",
+        "text": "\n        La tua flotta in esplorazione non ha avuto un amichevole primo contatto con una specie sconosciuta.Rapporto dell`ufficiale alle comunicazioni: Sembra che questa parte di universo non sia ancora stata esplorata.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:36",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279024",
+        "text": "\n        La nostra spedizione ha trovato un pianeta che fu quasi completamente distrutto durante una serie di guerre. Ci sono numerose navi abbandonate in orbita. I tecnici stanno cercando di ripararne alcune. Forse riusciremo ad ottenere anche informazioni su che cosa è accaduto.Le seguenti navi sono ora parte della flotta:Sonda spia: 4594Cargo leggero: 537Caccia Leggero: 1Rapporto dell`ufficiale alle comunicazioni: Sembra che questa parte di universo non sia ancora stata esplorata.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:38",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279025",
+        "text": "\n        Ci siamo imbattuti nei resti di una precedente spedizione! I nostri tecnici stanno cercando di rimettere in funzione alcune navi.Le seguenti navi sono ora parte della flotta:Pathfinder: 164Corazzata: 42Bombardiere: 1Caccia Pesante: 101Cargo Pesante: 33Sonda spia: 26Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "12:28:41",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3279082",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:33:27",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279093",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:35:05",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279096",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 5.850.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:35:08",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279097",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 6.300.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:35:10",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279099",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:35:16",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279100",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:35:18",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279101",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "12:35:21",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3279157",
+        "text": "\n        \n\nGiocatore:   Bosca(po) Attività: >60 minuti.Classe: EsploratoreClasse Alleanza: Guerrieri\nMetallo: 7,979MCristallo: 21,96MDeuterio: 23,862MRisorse: 53,802MBottino: 100%Probabilità di controspionaggio: 100% Flotte: 8,716Bn  Difesa: 0\n\n    ",
+        "title": "Rapporto di spionaggio di luna [1:115:7]",
+        "date": "2022-03-23",
+        "time": "12:38:53",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "115",
+            "position": "7"
+        }
+    },
+    {
+        "id": "3280438",
+        "text": "\n        La tua spedizione ha trovato un antico convoglio, deserto ma carico di risorse. Alcune risorse sono state recuperate.Cristallo 20.700.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:20",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280440",
+        "text": "\n        Su un planetoide isolato abbiamo trovato alcuni campi di risorse facilmente accessibili e ne abbiamo raccolte alcune.Metallo 10.800.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:23",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280443",
+        "text": "\n        Una forma di vita di pura energia ha fatto sì che tutti i membri della spedizione rimanessero ipnotizzati dai loro schermi. Fortunatamente alcuni sono riusciti a riprendere il controllo della propria mente appena in tempo per interrompere la missione e far ritorno con il poco deuterio rimasto.Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:26",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280444",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseCristallo 2.250.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:28",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280447",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseCristallo 9.900.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:31",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280450",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseMetallo 22.500.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:34",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280452",
+        "text": "\n        Un problema al reattore della nave ammiraglia ha quasi distrutto l`intera spedizione. Fortunatamente i tecnici erano molto più che competenti e sono riusciti ad evitare il peggio. La riparazione ha richiesto così tanto tempo che la spedizione è ritornata senza aver fatto nulla.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "14:09:36",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3280507",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 20.700.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:00",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280509",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 10.800.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:03",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280511",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:06",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280512",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 2.250.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:08",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280514",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 9.900.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:11",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280516",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 22.500.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:14",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280517",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "14:16:16",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280677",
+        "text": "\n        Una delle tue flotte di PolloFritto [4:450:8] ha raggiunto il pianeta Cannolo [4:450:8]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:07",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280682",
+        "text": "\n        Una delle tue flotte di Burro [4:309:15] ha raggiunto il pianeta Pastiera [4:309:15]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:20",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280685",
+        "text": "\n        Una delle tue flotte di Gelato [4:59:8] ha raggiunto il pianeta Tiramisu [4:59:8]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:25",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280688",
+        "text": "\n        Una delle tue flotte di Nutella [3:215:7] ha raggiunto il pianeta Merendine [3:215:7]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:30",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280690",
+        "text": "\n        Una delle tue flotte di Ciambella [3:51:9] ha raggiunto il pianeta FrittoMisto [3:51:9]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:33",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280695",
+        "text": "\n        Una delle tue flotte di TOTS [2:401:15] ha raggiunto il pianeta Spaghetti [2:401:15]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:43",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280696",
+        "text": "\n        Una delle tue flotte di Maionese [2:200:5] ha raggiunto il pianeta LardoDiColonnata [2:200:5]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:47",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280700",
+        "text": "\n        Una delle tue flotte di Ketchup [2:67:6] ha raggiunto il pianeta PolloArrosto [2:67:6]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:51",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280704",
+        "text": "\n        Una delle tue flotte di Nduja [1:403:1] ha raggiunto il pianeta Pizza [1:403:1]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:35:56",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280706",
+        "text": "\n        Una delle tue flotte di SOPHIA [1:299:6] ha raggiunto il pianeta Lasagna [1:299:6]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:36:00",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280708",
+        "text": "\n        Una delle tue flotte di Porchetta [1:299:5] ha raggiunto il pianeta Carbonara [1:299:5]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:36:15",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280710",
+        "text": "\n        Una delle tue flotte di TortaAlTesto [1:99:8] ha raggiunto il pianeta Amatriciana [1:99:8]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:36:28",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280726",
+        "text": "\n        Una delle tue flotte di Cannolo [4:450:8] ha raggiunto il pianeta PolloFritto [4:450:8]. La flotta trasporta 12.336.473 Metallo, 3.168.847 Cristallo e 1.945.550 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:37:23",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280728",
+        "text": "\n        Una delle tue flotte di Pastiera [4:309:15] ha raggiunto il pianeta Burro [4:309:15]. La flotta trasporta 8.668.702 Metallo, 2.999.055 Cristallo e 2.954.180 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:37:33",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280730",
+        "text": "\n        Una delle tue flotte di Tiramisu [4:59:8] ha raggiunto il pianeta Gelato [4:59:8]. La flotta trasporta 12.337.522 Metallo, 3.169.116 Cristallo e 1.933.557 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:37:38",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280739",
+        "text": "\n        Una delle tue flotte di Merendine [3:215:7] ha raggiunto il pianeta Nutella [3:215:7]. La flotta trasporta 11.243.792 Metallo, 3.169.847 Cristallo e 1.915.713 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:37:56",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280741",
+        "text": "\n        Una delle tue flotte di FrittoMisto [3:51:9] ha raggiunto il pianeta Ciambella [3:51:9]. La flotta trasporta 11.243.247 Metallo, 3.169.694 Cristallo e 1.952.211 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:38:04",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280750",
+        "text": "\n        Una delle tue flotte di Spaghetti [2:401:15] ha raggiunto il pianeta TOTS [2:401:15]. La flotta trasporta 8.518.505 Metallo, 2.945.125 Cristallo e 2.908.062 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:38:34",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280762",
+        "text": "\n        Una delle tue flotte di LardoDiColonnata [2:200:5] ha raggiunto il pianeta Maionese [2:200:5]. La flotta trasporta 9.145.398 Metallo, 3.170.998 Cristallo e 1.831.799 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:39:11",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280765",
+        "text": "\n        Una delle tue flotte di PolloArrosto [2:67:6] ha raggiunto il pianeta Ketchup [2:67:6]. La flotta trasporta 10.703.041 Metallo, 3.172.077 Cristallo e 1.734.985 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:39:22",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280767",
+        "text": "\n        Una delle tue flotte di Pizza [1:403:1] ha raggiunto il pianeta Nduja [1:403:1]. La flotta trasporta 9.149.168 Metallo, 4.440.419 Cristallo e 730.528 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:39:27",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280768",
+        "text": "\n        Una delle tue flotte di Lasagna [1:299:6] ha raggiunto il pianeta SOPHIA [1:299:6]. La flotta trasporta 2.487.778 Metallo, 737.339 Cristallo e 436.884 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:39:34",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280770",
+        "text": "\n        Una delle tue flotte di Carbonara [1:299:5] ha raggiunto il pianeta Porchetta [1:299:5]. La flotta trasporta 9.115.129 Metallo, 3.176.128 Cristallo e 31.518.913 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:39:38",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3280771",
+        "text": "\n        Una delle tue flotte di Amatriciana [1:99:8] ha raggiunto il pianeta TortaAlTesto [1:99:8]. La flotta trasporta 12.358.920 Metallo, 3.174.615 Cristallo e 1.815.565 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "14:39:42",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281084",
+        "text": "\n        \n\nGiocatore:   Lord_Z(po) Attività: <15 minuti.Classe: CollezionistaClasse Alleanza: Mercanti\nMetallo: 944,225MCristallo: 265,432MDeuterio: 291,933MRisorse: 1,501BnBottino: 75%Probabilità di controspionaggio: 100% Flotte: 4,681Bn  Difesa: 9,452M\n\n    ",
+        "title": "Rapporto di spionaggio di luna [2:310:7]",
+        "date": "2022-03-23",
+        "time": "15:05:43",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "2",
+            "system": "310",
+            "position": "7"
+        }
+    },
+    {
+        "id": "3281411",
+        "text": "\n        Su un planetoide isolato abbiamo trovato alcuni campi di risorse facilmente accessibili e ne abbiamo raccolte alcune.Cristallo 3.600.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Sembra che questa parte di universo non sia ancora stata esplorata.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:38:11",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281415",
+        "text": "\n        Abbiamo trovato una stazione pirata deserta. Ci sono alcune vecchie navi che giacciono nell`hangar. I nostri tecnici stanno cercando di capire se sono ancora utilizzabili o meno.Le seguenti navi sono ora parte della flotta:Nave da battaglia: 28Corazzata: 3Cargo leggero: 378Incrociatore da Battaglia: 1Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:38:23",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281418",
+        "text": "\n        Eccetto alcuni quaint, piccoli animali provenienti da uno sconosciuto pianeta paludoso, la spedizione non ha portato nulla di interessante dal viaggio.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:38:41",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281422",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseMetallo 21.600.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:38:55",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281424",
+        "text": "\n        La nostra spedizione ha trovato un pianeta che fu quasi completamente distrutto durante una serie di guerre. Ci sono numerose navi abbandonate in orbita. I tecnici stanno cercando di ripararne alcune. Forse riusciremo ad ottenere anche informazioni su che cosa è accaduto.Le seguenti navi sono ora parte della flotta:Reaper: 17Sonda spia: 1385Pathfinder: 35Cargo leggero: 9Incrociatore: 15Bombardiere: 1Caccia Pesante: 13Corazzata: 1Cargo Pesante: 6Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:38:59",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281425",
+        "text": "\n        Abbiamo trovato una stazione pirata deserta. Ci sono alcune vecchie navi che giacciono nell`hangar. I nostri tecnici stanno cercando di capire se sono ancora utilizzabili o meno.Le seguenti navi sono ora parte della flotta:Sonda spia: 4390Nave da battaglia: 1Cargo leggero: 2Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:39:02",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281427",
+        "text": "\n        Il nuovo e audace comandante ha usato con successo un buco nero alquanto instabile per accorciare il viaggio di ritorno! Comunque la spedizione non ha trovato nulla di interessante durante la ricognizione.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "15:39:05",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3281457",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:43:59",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281463",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 3.600.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:44:51",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281465",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:45:03",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281470",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:45:21",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281473",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 21.600.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:45:35",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281477",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:45:39",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281478",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "15:45:42",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281853",
+        "text": "\n        La tua flotta dal pianeta Porchetta [1:299:5]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 9.115.129 Cristallo: 3.176.128 Deuterio: 31.514.520.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:15:54",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281906",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Porchetta [1:299:5].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:22:26",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281936",
+        "text": "\n        La tua flotta dal pianeta Nduja [1:403:1]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 9.149.168 Cristallo: 4.440.419 Deuterio: 375.562.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:25:31",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281990",
+        "text": "\n        La tua flotta dal pianeta PolloFritto [4:450:8]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 12.336.473 Cristallo: 3.168.847 Deuterio: 1.841.694.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:29:08",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281992",
+        "text": "\n        La tua flotta dal pianeta Gelato [4:59:8]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 12.337.522 Cristallo: 3.169.116 Deuterio: 1.795.155.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:29:16",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281994",
+        "text": "\n        La tua flotta dal pianeta Maionese [2:200:5]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 9.145.398 Cristallo: 3.170.998 Deuterio: 1.740.051.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:29:37",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3281996",
+        "text": "\n        La tua flotta dal pianeta Ketchup [2:67:6]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 10.703.041 Cristallo: 3.172.077 Deuterio: 1.580.892.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:29:41",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282117",
+        "text": "\n        La tua flotta dal pianeta Burro [4:309:15]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 8.668.702 Cristallo: 2.999.055 Deuterio: 2.911.821.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:37:42",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282118",
+        "text": "\n        La tua flotta dal pianeta Nutella [3:215:7]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 11.243.792 Cristallo: 3.169.847 Deuterio: 1.730.563.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:37:50",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282119",
+        "text": "\n        La tua flotta dal pianeta Ciambella [3:51:9]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 11.243.247 Cristallo: 3.169.694 Deuterio: 1.764.440.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:37:55",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282121",
+        "text": "\n        La tua flotta dal pianeta TOTS [2:401:15]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 8.518.505 Cristallo: 2.945.125 Deuterio: 2.865.944.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:38:03",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282128",
+        "text": "\n        La tua flotta dal pianeta TortaAlTesto [1:99:8]  raggiunge il pianeta SOPHIA [1:299:6]  e consegna le seguenti risorse:Metallo: 12.358.920 Cristallo: 3.174.615 Deuterio: 1.760.394.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "16:38:48",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282178",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Nduja [1:403:1].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:41:48",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282214",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta TortaAlTesto [1:99:8].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:43:42",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282223",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta luna [2:470:14].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:44:43",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282298",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta PolloFritto [4:450:8].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:49:39",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282302",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Gelato [4:59:8].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:49:47",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282308",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Maionese [2:200:5].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:50:08",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282310",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Ketchup [2:67:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "16:50:12",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282467",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Burro [4:309:15].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:06:43",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282470",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Nutella [3:215:7].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:06:51",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282473",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta Ciambella [3:51:9].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:06:56",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282475",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta TOTS [2:401:15].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:07:04",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282501",
+        "text": "\n        La tua flotta è ritornata dal pianeta SOPHIA [1:299:6] al pianeta TortaAlTesto [1:99:8].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:09:01",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282558",
+        "text": "\n        Qualcuno ha installato un antico gioco di strategia su tutti i computers della nave. La flotta in esplorazione è rimasta via a lungo, ma non è stata molto produttiva poiché quasi tutto l`equipaggio non ha assolto ai suoi compiti...Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:44",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282559",
+        "text": "\n        \n    Attaccante: (Pirati): 72.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 14.400\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n            Possibilità di formare una luna: 0 %\n    \n\n    ",
+        "title": "Rapporto di Combattimento SOPHIA  [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:46",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282560",
+        "text": "\n        Abbiamo intercettato messaggi di alcuni pirati ubriachi. Sembra che saremo presto sotto attacco.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:46",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282563",
+        "text": "\n        Su un planetoide isolato abbiamo trovato alcuni campi di risorse facilmente accessibili e ne abbiamo raccolte alcune.Metallo 4.500.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:49",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282564",
+        "text": "\n        La tua spedizione si è imbattuta in un avamposto abbandonato da molto tempo. Nell`hangar dell`avamposto ci sono ancora alcune navi che i nostri tecnici stanno cercando di far volare.Le seguenti navi sono ora parte della flotta:Incrociatore: 384Cargo Pesante: 31Pathfinder: 15Incrociatore da Battaglia: 2Caccia Pesante: 1Rapporto dell`ufficiale alle comunicazioni: Sembra che questa parte di universo non sia ancora stata esplorata.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:52",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282565",
+        "text": "\n        La spedizione ha seguito alcuni deboli segnali e ha trovato un asteroide. Nel cuore dell`asteroide era racchiusa una piccola quantità di Materia Oscura. L`asteroide è stato rimorchiato e successivamente la Materia Oscura è stata estratta.Materia Oscura 323 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:54",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282567",
+        "text": "\n        Su una piccola luna con la sua atmosfera, la tua spedizione ha trovato alcuni grandi giacimenti di risorse grezze. L`equipaggio sta cercando di estrarre e caricare quel tesoro naturale.Metallo 32.400.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:57",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282569",
+        "text": "\n        La tua spedizione si è imbattuta in un avamposto abbandonato da molto tempo. Nell`hangar dell`avamposto ci sono ancora alcune navi che i nostri tecnici stanno cercando di far volare.Le seguenti navi sono ora parte della flotta:Nave da battaglia: 51Corazzata: 13Cargo leggero: 1Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "17:14:59",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3282665",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:24",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282666",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:26",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282668",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 4.500.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:29",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282672",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:32",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282674",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:34",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282675",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 32.400.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:37",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3282676",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:21:39",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3283059",
+        "text": "\n        La tua flotta dal pianeta SOPHIA [1:299:6]  raggiunge il pianeta Lasagna [1:299:6]  e consegna le seguenti risorse:Metallo: 450.000.000 Cristallo: 150.000.000 Deuterio: 0.\n    ",
+        "title": "Pianeta raggiunto",
+        "date": "2022-03-23",
+        "time": "17:47:52",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3283066",
+        "text": "\n        La tua flotta è ritornata dal pianeta Lasagna [1:299:6] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:48:21",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3283148",
+        "text": "\n        Le tue Riciclatrici (1 navi) hanno una capacità di carico totale pari a 36.000. A destinazione ([1:299:6]), 0 unità di metallo e 31.250 unità di cristallo fluttuano nello spazio. Hai raccolto 0 unità di metallo e 31.250 unità di cristallo.\n    ",
+        "title": "Rapporto raccolta detriti su [1:299:6].",
+        "date": "2022-03-23",
+        "time": "17:57:25",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3283172",
+        "text": "\n        La tua flotta è ritornata dal pianeta campo detriti [1:299:6] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 31.250 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "17:59:51",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3283369",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta Porchetta [1:299:5]. Probabilità di controspionaggio: 100%\n    ",
+        "title": "Azione di Spionaggio su Porchetta [1:299:5]",
+        "date": "2022-03-23",
+        "time": "18:12:33",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3283371",
+        "text": "\n        \n    Attaccante: (El John): 20.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 10.000\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n    \n\n    ",
+        "title": "Rapporto di Combattimento Porchetta  [1:299:5]",
+        "date": "2022-03-23",
+        "time": "18:12:33",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3283372",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta SOPHIA [1:299:6]. Probabilità di controspionaggio: 90%\n    ",
+        "title": "Azione di Spionaggio su SOPHIA [1:299:6]",
+        "date": "2022-03-23",
+        "time": "18:12:34",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3283374",
+        "text": "\n        \n    Attaccante: (El John): 20.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 7.500\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n    \n\n    ",
+        "title": "Rapporto di Combattimento SOPHIA  [1:299:6]",
+        "date": "2022-03-23",
+        "time": "18:12:34",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3283375",
+        "text": "\n        Le tue Reaper (1397 navi) hanno una capacità di carico totale pari a 25.146.000. A destinazione ([1:299:6]), 0 unità di metallo e 10.000 unità di cristallo fluttuano nello spazio. Hai raccolto 0 unità di metallo e 2.500 unità di cristallo.\n    ",
+        "title": "Rapporto raccolta detriti su [1:299:6].",
+        "date": "2022-03-23",
+        "time": "18:12:35",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3283376",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta Lasagna [1:299:6]. Probabilità di controspionaggio: 42%\n    ",
+        "title": "Azione di Spionaggio su Lasagna [1:299:6]",
+        "date": "2022-03-23",
+        "time": "18:12:36",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3283378",
+        "text": "\n        \n    Attaccante: (El John): 20.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 10.000\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n    \n\n    ",
+        "title": "Rapporto di Combattimento Lasagna  [1:299:6]",
+        "date": "2022-03-23",
+        "time": "18:12:36",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3283379",
+        "text": "\n        Una flotta aliena del pianeta Adamah [1:297:8] (El John) è stata avvistata nelle vicinanze del tuo pianeta Carbonara [1:299:5]. Probabilità di controspionaggio: 100%\n    ",
+        "title": "Azione di Spionaggio su Carbonara [1:299:5]",
+        "date": "2022-03-23",
+        "time": "18:12:37",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3283381",
+        "text": "\n        \n    Attaccante: (El John): 20.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 10.000\n\n    Difensore: (CiccioPasticcio): 0\n    Riparazioni completate: 0\n    \n\n    ",
+        "title": "Rapporto di Combattimento Carbonara  [1:299:5]",
+        "date": "2022-03-23",
+        "time": "18:12:37",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3283475",
+        "text": "\n        Le tue Pathfinder (5 navi) hanno una capacità di carico totale pari a 90.000. A destinazione ([1:299:16]), 36.000 unità di metallo e 36.200 unità di cristallo fluttuano nello spazio. Hai raccolto 36.000 unità di metallo e 36.200 unità di cristallo.\n    ",
+        "title": "Rapporto raccolta detriti su [1:299:16].",
+        "date": "2022-03-23",
+        "time": "18:18:29",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3283598",
+        "text": "\n        Le tue Riciclatrici (1 navi) hanno una capacità di carico totale pari a 36.000. A destinazione ([1:299:5]), 0 unità di metallo e 40.000 unità di cristallo fluttuano nello spazio. Hai raccolto 0 unità di metallo e 36.000 unità di cristallo.\n    ",
+        "title": "Rapporto raccolta detriti su [1:299:5].",
+        "date": "2022-03-23",
+        "time": "18:27:27",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "5"
+        }
+    },
+    {
+        "id": "3283603",
+        "text": "\n        Le tue Riciclatrici (2 navi) hanno una capacità di carico totale pari a 72.000. A destinazione ([1:299:8]), 0 unità di metallo e 52.000 unità di cristallo fluttuano nello spazio. Hai raccolto 0 unità di metallo e 52.000 unità di cristallo.\n    ",
+        "title": "Rapporto raccolta detriti su [1:299:8].",
+        "date": "2022-03-23",
+        "time": "18:27:34",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "8"
+        }
+    },
+    {
+        "id": "3283902",
+        "text": "\n        La tua flotta è ritornata dal pianeta campo detriti [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 36.000 Metallo, 36.200 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "18:41:55",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284151",
+        "text": "\n        La tua spedizione ha trovato un antico convoglio, deserto ma carico di risorse. Alcune risorse sono state recuperate.Metallo 22.500.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:24",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284158",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseMetallo 6.300.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:26",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284160",
+        "text": "\n        La tua spedizione ha avuto contatto con un`amichevole razza aliena. Hanno annunciato che manderanno un rappresentante con merci da scambiare con il tuo mondo.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:28",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284162",
+        "text": "\n        La tua spedizione è andata in un settore colpito da una tempesta di particelle. A causa di ciò le riserve di energia della flotta si sono sovraccaricate e tutti i sistemi principali delle navi si sono bloccati. I tuoi tecnici sono riusciti ad evitare il peggio, ma la spedizione ritornerà con molto ritardo.Rapporto dell`ufficiale alle comunicazioni: E` emozionante essere i primi ad attraversare un settore inesplorato.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:31",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284163",
+        "text": "\n        La tua spedizione si è imbattuta nel campo gravitazionale di una stella di neutroni e ha impiegato un po` di tempo per liberarsi. Per questo molto deuterio è stato usato e la spedizione ritorna indietro senza alcun risultato.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:33",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284167",
+        "text": "\n        La nostra spedizione si è imbattuta in un vecchio Cantiere Spaziale automatizzato. Alcune navi sono ancora nella fase di produzione e i nostri tecnici stanno cercando di riattivare i generatori del cantiere.Le seguenti navi sono ora parte della flotta:Cargo leggero: 4009Caccia Pesante: 158Sonda spia: 185Reaper: 1Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:36",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284169",
+        "text": "\n        La tua spedizione si è imbattuta nel vuoto cosmico. Non vi era nemmeno una particella di sodio, o qualsiasi altra cosa potesse rendere interessante la spedizione...Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "18:53:39",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3284244",
+        "text": "\n        La tua flotta è ritornata dal pianeta campo detriti [1:299:5] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 36.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "18:59:48",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284248",
+        "text": "\n        La tua flotta è ritornata dal pianeta campo detriti [1:299:8] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 52.000 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:00",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284249",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 22.500.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:03",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284250",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 6.300.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:06",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284251",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:08",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284254",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:13",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284258",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:16",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284260",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:00:19",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284735",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "19:30:11",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284737",
+        "text": "\n        Durante l`asta, il giocatore re sheva ha superato la tua offerta per il seguente item:\n\nNEWTRON Argento\n\nEcco l`offerta attuale: 41.001\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "19:30:36",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284739",
+        "text": "\n        Durante l`asta, il giocatore re sheva ha superato la tua offerta per il seguente item:\n\nNEWTRON Argento\n\nEcco l`offerta attuale: 53.001\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "19:30:38",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284741",
+        "text": "\n        Durante l`asta, il giocatore re sheva ha superato la tua offerta per il seguente item:\n\nNEWTRON Argento\n\nEcco l`offerta attuale: 752.001\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "19:30:41",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284745",
+        "text": "\n        Durante l`asta, il giocatore re sheva ha superato la tua offerta per il seguente item:\n\nNEWTRON Argento\n\nEcco l`offerta attuale: 1.851.990\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "19:31:06",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284747",
+        "text": "\n        Durante l`asta, il giocatore re sheva ha superato la tua offerta per il seguente item:\n\nNEWTRON Argento\n\nEcco l`offerta attuale: 2.851.980\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "19:31:09",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284754",
+        "text": "\n        Durante l`asta, il giocatore re sheva ha superato la tua offerta per il seguente item:\n\nNEWTRON Argento\n\nEcco l`offerta attuale: 6.851.970\n\nTermine dell`asta: Asta conclusa\n\nVai dal battitore\n    ",
+        "title": "Qualcuno ha fatto un`offerta più alta della tua!",
+        "date": "2022-03-23",
+        "time": "19:31:21",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3284792",
+        "text": "\n        \n\nGiocatore:  re sheva(po) Attività: <15 minuti.Classe: CollezionistaClasse Alleanza: Mercanti\nMetallo: 0Cristallo: 0Deuterio: 9,693MRisorse: 9,693MBottino: 75%Probabilità di controspionaggio: 0% Flotte: 6,025M  Difesa: 665,749M\n\n    ",
+        "title": "Rapporto di spionaggio di Rin [1:308:12]",
+        "date": "2022-03-23",
+        "time": "19:33:12",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "308",
+            "position": "12"
+        }
+    },
+    {
+        "id": "3284794",
+        "text": "\n        \n\nGiocatore:  re sheva(po) Attività: <15 minuti.Classe: CollezionistaClasse Alleanza: Mercanti\nMetallo: 0Cristallo: 0Deuterio: 0Risorse: 0Bottino: 75%Probabilità di controspionaggio: 0% Flotte: 9,075M  Difesa: 389,882M\n\n    ",
+        "title": "Rapporto di spionaggio di Shikamaru [1:308:9]",
+        "date": "2022-03-23",
+        "time": "19:33:22",
+        "type": "OTHER",
+        "coords": {
+            "galaxy": "1",
+            "system": "308",
+            "position": "9"
+        }
+    },
+    {
+        "id": "3285402",
+        "text": "\n        \n    Attaccante: (Alieni): 73.000\n    Risorse: 0, Bottino: 0%\n    Campo detriti (creato di recente) 29.000\n\n    Difensore: (CiccioPasticcio): 72.000\n    Riparazioni completate: 0\n            Possibilità di formare una luna: 0 %\n    \n\n    ",
+        "title": "Rapporto di Combattimento SOPHIA  [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:33",
+        "type": "COMBAT_REPORT",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285403",
+        "text": "\n        La tua flotta in esplorazione non ha avuto un amichevole primo contatto con una specie sconosciuta.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:33",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285404",
+        "text": "\n        Su un planetoide isolato abbiamo trovato alcuni campi di risorse facilmente accessibili e ne abbiamo raccolte alcune.Deuterio 3.600.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:36",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285406",
+        "text": "\n        La tua flotta in esplorazione ha seguito alcuni deboli segnali per un po` di tempo. Alla fine hanno notato che quei segnali erano inviati da un`antica sonda che era stata inviata alcune generazioni fa per dare il benvenuto a specie aliene. La sonda è stata recuperata e alcuni musei del tuo pianeta madre hanno già mostrato interesse.Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:39",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285407",
+        "text": "\n        Ci siamo imbattuti nei resti di una precedente spedizione! I nostri tecnici stanno cercando di rimettere in funzione alcune navi.Le seguenti navi sono ora parte della flotta:Pathfinder: 171Bombardiere: 1Incrociatore: 1Sonda spia: 11Cargo leggero: 1Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:41",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285410",
+        "text": "\n        Una forma di vita di pura energia ha fatto sì che tutti i membri della spedizione rimanessero ipnotizzati dai loro schermi. Fortunatamente alcuni sono riusciti a riprendere il controllo della propria mente appena in tempo per interrompere la missione e far ritorno con il poco deuterio rimasto.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:46",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285411",
+        "text": "\n        Ci siamo imbattuti nei resti di una precedente spedizione! I nostri tecnici stanno cercando di rimettere in funzione alcune navi.Le seguenti navi sono ora parte della flotta:Cargo leggero: 990Incrociatore da Battaglia: 20Incrociatore: 1Caccia Leggero: 3Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "20:14:49",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3285436",
+        "text": "\n        Una delle tue flotte di Lasagna [1:299:6] ha raggiunto il pianeta SOPHIA [1:299:6]. La flotta trasporta 1.315.490 Metallo, 341.675 Cristallo e 461.550 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "20:16:13",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3285487",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "20:21:13",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3285488",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 0 Cristallo e 3.600.000 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "20:21:16",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3285489",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "20:21:19",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3285490",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "20:21:21",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3285491",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "20:21:26",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3285492",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "20:21:29",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286561",
+        "text": "\n        Una delle tue flotte di Lasagna [1:299:6] ha raggiunto il pianeta SOPHIA [1:299:6]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "21:41:58",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286792",
+        "text": "\n        La tua spedizione ha scoperto un piccolo asteroide dal quale si sono potute estrarre alcune risorseMetallo 6.300.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:54:45",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286794",
+        "text": "\n        Su un planetoide isolato abbiamo trovato alcuni campi di risorse facilmente accessibili e ne abbiamo raccolte alcune.Deuterio 7.200.000 è stato razziato.Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:54:48",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286796",
+        "text": "\n        Eccetto alcuni quaint, piccoli animali provenienti da uno sconosciuto pianeta paludoso, la spedizione non ha portato nulla di interessante dal viaggio.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:54:50",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286798",
+        "text": "\n        La tua spedizione si è imbattuta nel campo gravitazionale di una stella di neutroni e ha impiegato un po` di tempo per liberarsi. Per questo molto deuterio è stato usato e la spedizione ritorna indietro senza alcun risultato.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:54:53",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286799",
+        "text": "\n        La tua spedizione si è imbattuta nel campo gravitazionale di una stella di neutroni e ha impiegato un po` di tempo per liberarsi. Per questo molto deuterio è stato usato e la spedizione ritorna indietro senza alcun risultato.Rapporto dell`ufficiale alle comunicazioni: Abbiamo trovato i detriti di un`antica nave spaziale. Non siamo i primi ad essere stati qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:54:55",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286801",
+        "text": "\n        Per ragioni sconosciute il salto nell`iperspazio è stato completamente sbagliato. E` quasi finito nel cuore di un sole. Fortunatamente sono atterrati in un sistema conosciuto; nonostante ciò, il salto di ritorno richiederà più tempo di quanto si era previsto.Rapporto dell`ufficiale alle comunicazioni: Sembra che nessun umano sia stato in questa parte della galassia.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:54:58",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286803",
+        "text": "\n        La tua spedizione si è imbattuta nel vuoto cosmico. Non vi era nemmeno una particella di sodio, o qualsiasi altra cosa potesse rendere interessante la spedizione...Rapporto dell`ufficiale alle comunicazioni: abbiamo quasi avuto una collisione con un`altra flotta in spedizione. Non pensavo che ci sarebbe stato qualcun altro qui.\n    ",
+        "title": "Risultato della Spedizione [1:299:16]",
+        "date": "2022-03-23",
+        "time": "21:55:05",
+        "type": "EXPEDITION",
+        "coords": {
+            "galaxy": "1",
+            "system": "299",
+            "position": "16"
+        }
+    },
+    {
+        "id": "3286919",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 6.300.000 Metallo, 0 Cristallo e 0 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:01:25",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286923",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta trasporta 0 Metallo, 0 Cristallo e 7.200.000 Deuterio\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:01:28",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286924",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:01:30",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286925",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:01:33",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286926",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:01:35",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3286931",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:01:45",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3287241",
+        "text": "\n        La tua flotta è ritornata dal pianeta [1:299:16] al pianeta SOPHIA [1:299:6].\n\nLa flotta non ha consegnato risorse.\n    ",
+        "title": "Ritorno di una flotta",
+        "date": "2022-03-23",
+        "time": "22:21:38",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3287306",
+        "text": "\n        Una flotta aliena del pianeta Noci [1:25:8] (Marshal Volans 4) è stata avvistata nelle vicinanze del tuo pianeta Ketchup [2:67:6]. Probabilità di controspionaggio: 0%\n    ",
+        "title": "Azione di Spionaggio su Ketchup [2:67:6]",
+        "date": "2022-03-23",
+        "time": "22:27:50",
+        "type": "ESPIONAGE",
+        "coords": {
+            "galaxy": "2",
+            "system": "67",
+            "position": "6"
+        }
+    },
+    {
+        "id": "3288186",
+        "text": "\n        Una delle tue flotte di Lasagna [1:299:6] ha raggiunto il pianeta SOPHIA [1:299:6]. La flotta trasporta 0 Metallo, 0 Cristallo e 267.877 Deuterio\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "23:31:39",
+        "type": "OTHER",
+        "coords": {}
+    },
+    {
+        "id": "3288215",
+        "text": "\n        Una delle tue flotte di SOPHIA [1:299:6] ha raggiunto il pianeta Lasagna [1:299:6]. La flotta non ha consegnato risorse.\n    ",
+        "title": "Schieramento di una flotta",
+        "date": "2022-03-23",
+        "time": "23:33:44",
+        "type": "OTHER",
+        "coords": {}
+    }
+]

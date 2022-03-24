@@ -221,3 +221,19 @@ type MpRequest =
 type MpResponse<T> = T['response'];
 
 //TODO: PRovare T extends {response:unknown}? Omit<T, 'response'> :T
+
+type Coords = {
+    galaxy: string;
+    system: string;
+    position: string;
+}
+
+type Message = {
+    id: string;
+    text: string;
+    title: string;
+    date: string;
+    time: string;
+    type: string;
+    coords: Coords;
+}
