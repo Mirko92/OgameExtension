@@ -165,6 +165,11 @@ function parseExpTextMessage(text: string) {
     r = /(Materia Oscura)\s((\d{1,3}\.)?\d{1,3})\s(è stato razziato\.)/mgi.exec(text)
   }
 
+  if (text.includes('sono ora parte della flotta:')) {
+    const ships = /([a-zA-Z ]+:\s\d+)/mg.exec(text)
+    console.log(ships)
+  }
+
   if (!r) return {}
 
   const resourcesKeys: Record<string, string> = {
