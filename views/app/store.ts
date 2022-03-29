@@ -100,6 +100,7 @@ export const useDbStore = defineStore('db_store', () => {
 
   function calcResourcesFromMessages(messages: Message[]) {
     resourcesMap.value = {}
+    fleet.value        = {}
     count.value        = messages.length
 
     const mr = resourcesMap.value
