@@ -327,6 +327,10 @@ html.dark {
   flex-flow: column nowrap;
 }
 
+.f-w {
+  flex-wrap: wrap;
+}
+
 .j-c-c {
   justify-content: center;
 }
@@ -412,4 +416,27 @@ html.dark {
 }
 .tab--active .tab__icon {
   color: #c199f3 !important;
+}
+
+.ships {
+  list-style: none;
+  padding: 0; 
+  margin: 0 auto; 
+  width: 20rem; 
+}
+
+.ship {
+  padding: 0 1rem;
+  line-height: 1.2;
+}
+.ship:hover {
+  font-weight: bold;
+}
+
+.ship__name {
+  width: 13rem; 
+  display: inline-block;
+}
+.ship__qty {
+  font-style: italic;
 }

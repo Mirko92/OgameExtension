@@ -105,7 +105,7 @@ export const useDbStore = defineStore('db_store', () => {
     const mr = resourcesMap.value
     messages.forEach(s => {
       const {
-        resource, amount
+        resource, amount, ships
       } = parseExpTextMessage(s.text)
 
       if (resource) {
@@ -113,8 +113,17 @@ export const useDbStore = defineStore('db_store', () => {
           mr[resource]
             ? mr[resource] += amount
             :  amount
+      } else if (ships) {
+        fleet.value ??= {} 
+
+        Object.keys(ships).forEach(k => {
+          fleet.value[k] = (fleet.value[k] || 0) + ships[k]
+        })
+        
       }
     })
+
+    console.log("fleet.value", fleet.value)
   }
 
   async function init() {
@@ -133,10 +142,12 @@ export const useDbStore = defineStore('db_store', () => {
 
   const count        = ref(0)
   const resourcesMap = ref<Record<string, number>>({})
+  const fleet = ref()
 
   return {
     count,
     resourcesMap,
+    fleet,
     init,
     loadData
   }
@@ -166,8 +177,16 @@ function parseExpTextMessage(text: string) {
   }
 
   if (text.includes('sono ora parte della flotta:')) {
-    const ships = /([a-zA-Z ]+:\s\d+)/mg.exec(text)
-    console.log(ships)
+    const ships = [...text.matchAll(/[a-zA-Z ]+:\s\d+/gm)].flat()
+      .reduce(
+        (a: Record<string, number>, s: string) => {
+          const [key, value] = s.split(':')
+          a[key] = Number.parseInt(value)
+          return a;
+        }, {}
+      )
+
+    return { ships }
   }
 
   if (!r) return {}

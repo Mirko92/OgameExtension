@@ -54,7 +54,21 @@
 
         <DoughnutChart :chartData = "data" :options = "chartOptions" />
 
-        <div class="d-f-r j-c-b">
+        
+        <ul class="ships">
+            <li v-for="key of fleetKeys">
+                <div class="ship">
+                    <span   class="ship__name">
+                        {{key}}
+                    </span>
+                    <span class="ship__qty">
+                        {{formatNumber(fleet[key])}}
+                    </span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="d-f-r j-c-b f-w">
             <pre>{{ t('chart.dark_matter') }}: {{darkMatter}}</pre>
             <pre>{{ t('chart.total_exp') }}: {{expeditionsCount}}</pre>
         </div>
@@ -79,9 +93,11 @@ const { t } = useI18n()
 Chart.register(DoughnutController, ArcElement, Legend, Tooltip)
 
 const dbStore = useDbStore()
-const { resourcesMap, count: expeditionsCount }  = storeToRefs(dbStore)
+const { fleet, resourcesMap, count: expeditionsCount }  = storeToRefs(dbStore)
 
 const darkMatter = computed(() => resourcesMap.value?.darkmatter) 
+
+const fleetKeys = computed(() => fleet.value && Object.keys(fleet.value)) 
 
 const data = computed(() => {
     return {
@@ -168,6 +184,11 @@ function onYearClick() {
     currentFilter.value = 'year'
     const [start, end ] = getStartEndOfTheYear(new Date())
     dbStore.loadData(start, end)
+}
+
+function formatNumber(num: number) {
+    return num?.toString()
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
 }
 
 onMounted(async () => {
