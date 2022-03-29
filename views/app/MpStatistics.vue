@@ -55,13 +55,13 @@
         <DoughnutChart :chartData = "data" :options = "chartOptions" />
 
         
-        <ul class="ships">
+        <ul class="exp_ships">
             <li v-for="key of fleetKeys">
-                <div class="ship">
-                    <span   class="ship__name">
+                <div class="exp_ship">
+                    <span   class="exp_ship__name">
                         {{key}}
                     </span>
-                    <span class="ship__qty">
+                    <span class="exp_ship__qty">
                         {{formatNumber(fleet[key])}}
                     </span>
                 </div>

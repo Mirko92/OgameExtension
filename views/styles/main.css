@@ -418,25 +418,25 @@ html.dark {
   color: #c199f3 !important;
 }
 
-.ships {
+.exp_ships {
   list-style: none;
   padding: 0; 
   margin: 0 auto; 
   width: 20rem; 
 }
 
-.ship {
+.exp_ship {
   padding: 0 1rem;
   line-height: 1.2;
 }
-.ship:hover {
+.exp_ship:hover {
   font-weight: bold;
 }
 
-.ship__name {
+.exp_ship__name {
   width: 13rem; 
   display: inline-block;
 }
-.ship__qty {
+.exp_ship__qty {
   font-style: italic;
 }
