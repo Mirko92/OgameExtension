@@ -36,37 +36,41 @@
                 </section>
             </div>
         </div>
-        <!-- <div class="d-f-r j-c-a">
-            <div>
-                <label for="since_date">
-                    Dal:
-                </label>
-                <input id="since_date" type="date">
+        <div class="d-f-r j-c-c" v-if="firstDate && lastDate">
+            <div class="mr1">
+                <span>
+                    Dal: {{firstDate}}
+                </span>
             </div>
 
             <div>
-                <label for="till_date">
-                    Al:
-                </label>
-                <input id="till_date" type="date">
+                <span>
+                    Al: {{lastDate}}
+                </span>
             </div>
-        </div> -->
+        </div>
 
-        <DoughnutChart :chartData = "data" :options = "chartOptions" />
 
-        
-        <ul class="exp_ships">
-            <li v-for="key of fleetKeys">
-                <div class="exp_ship">
-                    <span   class="exp_ship__name">
-                        {{key}}
-                    </span>
-                    <span class="exp_ship__qty">
-                        {{formatNumber(fleet[key])}}
-                    </span>
-                </div>
-            </li>
-        </ul>
+        <div class="d-f-r f-w j-c-a a-i-c">
+            <div style="min-width: 400px;">
+                <DoughnutChart  :chartData="data" 
+                                :options="chartOptions" />
+            </div>
+    
+            
+            <ul class="exp_ships">
+                <li v-for="key of fleetKeys">
+                    <div class="exp_ship">
+                        <span   class="exp_ship__name">
+                            {{key}}
+                        </span>
+                        <span class="exp_ship__qty">
+                            {{formatNumber(fleet[key])}}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
         <div class="d-f-r j-c-b f-w">
             <pre>{{ t('chart.dark_matter') }}: {{darkMatter}}</pre>
@@ -93,11 +97,11 @@ const { t } = useI18n()
 Chart.register(DoughnutController, ArcElement, Legend, Tooltip)
 
 const dbStore = useDbStore()
-const { fleet, resourcesMap, count: expeditionsCount }  = storeToRefs(dbStore)
+const { fleet, resourcesMap, count: expeditionsCount, firstDate, lastDate }  = storeToRefs(dbStore)
 
 const darkMatter = computed(() => resourcesMap.value?.darkmatter) 
 
-const fleetKeys = computed(() => fleet.value && Object.keys(fleet.value)) 
+const fleetKeys = computed(() => fleet.value && Object.keys(fleet.value).sort()) 
 
 const data = computed(() => {
     return {
@@ -144,8 +148,8 @@ function getStartEndOfTheWeek(d: Date) {
     const endDiff = date.getDate() - day + 7;
 
   return [
-      new Date(date.setDate(startDiff)),
-      new Date(date.setDate(endDiff)),
+      new Date((new Date()).setDate(startDiff)),
+      new Date((new Date()).setDate(endDiff)),
   ];
 }
 

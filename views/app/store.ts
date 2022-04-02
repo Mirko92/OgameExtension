@@ -6,6 +6,9 @@ const DB_VERSION = 1
 export const useDbStore = defineStore('db_store', () => {
   const database  = ref<IDBDatabase>()
 
+  const firstDate = ref('')
+  const lastDate  = ref('')
+
   async function loadData(date?: Date, dateEnd?: Date) {
     date ??= (new Date())
 
@@ -14,6 +17,9 @@ export const useDbStore = defineStore('db_store', () => {
       .map(d => d!.toISOString().slice(0, 10))
 
     const messages = await loadByDate("EXPEDITION", start, end)
+
+    firstDate.value = messages[0]?.date
+    lastDate.value  = messages[messages.length - 1]?.date
 
     calcResourcesFromMessages(messages)
   }
@@ -123,8 +129,6 @@ export const useDbStore = defineStore('db_store', () => {
         
       }
     })
-
-    console.log("fleet.value", fleet.value)
   }
 
   async function init() {
@@ -146,6 +150,8 @@ export const useDbStore = defineStore('db_store', () => {
   const fleet = ref()
 
   return {
+    firstDate,
+    lastDate,
     count,
     resourcesMap,
     fleet,
