@@ -12,9 +12,13 @@ export const useDbStore = defineStore('db_store', () => {
   async function loadData(date?: Date, dateEnd?: Date) {
     date ??= (new Date())
 
+    function formatDate(date?: Date) {
+      return date ? `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` : ''
+    }
+
     const  [start, end] = [date, dateEnd]
       .filter( d => d)
-      .map(d => d!.toISOString().slice(0, 10))
+      .map(d => formatDate(d) )
 
     const messages = await loadByDate("EXPEDITION", start, end)
 
