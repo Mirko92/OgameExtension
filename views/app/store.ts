@@ -13,7 +13,14 @@ export const useDbStore = defineStore('db_store', () => {
     date ??= (new Date())
 
     function formatDate(date?: Date) {
-      return date ? `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` : ''
+      if (!date) return ''
+
+      const [month, day] = [
+        `${date.getMonth() + 1}`,
+        `${date.getDate()}`,
+      ].map((x) => x.padStart(2, "0") )
+
+      return `${date.getFullYear()}-${month}-${day}`
     }
 
     const  [start, end] = [date, dateEnd]
