@@ -50,7 +50,6 @@
             </div>
         </div>
 
-
         <div class="d-f-r f-w j-c-a a-i-c">
             <div style="min-width: 400px;">
                 <DoughnutChart  :chartData="data" 
@@ -88,6 +87,7 @@ import {
     ArcElement,
     Legend,
     Tooltip,
+    ChartOptions,
 } from "chart.js"
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
@@ -109,18 +109,27 @@ const data = computed(() => {
             t('chart.legend.deuterium'),
             t('chart.legend.crystal'),
             t('chart.legend.metal'),
+            t('chart.legend.ships'),
+            t('chart.legend.dark_matter'),
+            t('chart.legend.empty'),
         ],
         datasets: [{
             label: 'Expeditions result',
             data : [
-                (resourcesMap.value.deuterium    || 0) / 1e3,
-                (resourcesMap.value.crystal      || 0) / 1e3,
-                (resourcesMap.value.metal        || 0) / 1e3,
+                resourcesMap.value.deuterium_count,
+                resourcesMap.value.crystal_count,
+                resourcesMap.value.metal_count,
+                resourcesMap.value.ships_count,
+                resourcesMap.value.darkmatter_count,
+                resourcesMap.value.empty_count,
             ],
             backgroundColor: [
                 'rgb(27, 196, 117)',
                 'rgb(23, 154, 166)',
                 'rgb(176, 48, 12)',
+                'rgb(44, 27, 196)',
+                'rgb(10, 5, 54)',
+                'rgb(217, 216, 232)',
             ],
             borderColor:  'rgb(56, 52, 52)',
             hoverOffset: 12,
@@ -129,13 +138,21 @@ const data = computed(() => {
     }
 })
 
-const chartOptions = {
+const chartOptions: ChartOptions = {
     animation: {
+        // @ts-ignore
         animateScale: true
     }, 
     layout     : {
         padding: 20
     },
+    // plugins: {
+    //     tooltip: {
+    //         callbacks: {
+    //             label(i) { console.log("Ciaone", i); return "Ciaone"}
+    //         }
+    //     }
+    // }
 }
 
 const currentFilter = ref<'day' | 'week' | 'month' | 'year'>('day')

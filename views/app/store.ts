@@ -3,6 +3,70 @@ import { defineStore } from "pinia"
 const DB_NAME    = "OGAME"
 const DB_VERSION = 1
 
+function chooseIndex(type: string, date: string) {
+  let indexName = "by_type_date";
+
+  if (type && date || (!type && !date)) {
+    indexName = "by_type_date";
+  } else if (type) {
+    indexName = "by_type";
+  } else if (date) {
+    indexName = "by_date";
+  }
+
+  return indexName;
+}
+
+function parseExpTextMessage(text: string) {
+  var r = /(Cristallo|Metallo|Deuterio)\s(.*)\s(è stato razziato\.)/mg.exec(text)
+
+  if (!r) {
+    r = /(Materia Oscura)\s((\d{1,3}\.)?\d{1,3})\s(è stato razziato\.)/mgi.exec(text)
+  }
+
+  if (text.includes('sono ora parte della flotta:')) {
+    const ships = [...text.matchAll(/[a-zA-Z ]+:\s\d+/gm)].flat()
+      .reduce(
+        (a: Record<string, number>, s: string) => {
+          const [key, value] = s.split(':')
+          a[key] = Number.parseInt(value)
+          return a;
+        }, {}
+      )
+
+    return { ships }
+  }
+
+  if (!r) return {}
+
+  const resourcesKeys: Record<string, string> = {
+    'Metallo'       : 'metal',
+    'Cristallo'     : 'crystal',
+    'Deuterio'      : 'deuterium',
+    'Materia Oscura': 'darkmatter',
+  }
+
+  var resource = resourcesKeys[r[1]]
+  var amount   = +(r?.[2]?.replaceAll('.', '') || 0)
+
+  if (resource) {
+    return { resource, amount }
+  }
+
+  return {}
+}
+
+function formatDate(date?: Date) {
+  if (!date) return ''
+
+  const [month, day] = [
+    `${date.getMonth() + 1}`,
+    `${date.getDate()}`,
+  ].map((x) => x.padStart(2, "0") )
+
+  return `${date.getFullYear()}-${month}-${day}`
+}
+
 export const useDbStore = defineStore('db_store', () => {
   const database  = ref<IDBDatabase>()
 
@@ -11,17 +75,6 @@ export const useDbStore = defineStore('db_store', () => {
 
   async function loadData(date?: Date, dateEnd?: Date) {
     date ??= (new Date())
-
-    function formatDate(date?: Date) {
-      if (!date) return ''
-
-      const [month, day] = [
-        `${date.getMonth() + 1}`,
-        `${date.getDate()}`,
-      ].map((x) => x.padStart(2, "0") )
-
-      return `${date.getFullYear()}-${month}-${day}`
-    }
 
     const  [start, end] = [date, dateEnd]
       .filter( d => d)
@@ -127,17 +180,22 @@ export const useDbStore = defineStore('db_store', () => {
       } = parseExpTextMessage(s.text)
 
       if (resource) {
+        mr[`${resource}_count`] = (mr[`${resource}_count`] || 0) + 1
+
         mr[resource] = 
           mr[resource]
             ? mr[resource] += amount
             :  amount
       } else if (ships) {
+        mr[`ships_count`] = (mr[`ships_count`] || 0) + 1
         fleet.value ??= {} 
 
         Object.keys(ships).forEach(k => {
           fleet.value[k] = (fleet.value[k] || 0) + ships[k]
         })
         
+      } else {
+        mr[`empty_count`] = (mr[`empty_count`] || 0) + 1
       }
     })
   }
@@ -170,58 +228,3 @@ export const useDbStore = defineStore('db_store', () => {
     loadData
   }
 })
-
-
-
-function chooseIndex(type: string, date: string) {
-  let indexName = "by_type_date";
-
-  if (type && date || (!type && !date)) {
-    indexName = "by_type_date";
-  } else if (type) {
-    indexName = "by_type";
-  } else if (date) {
-    indexName = "by_date";
-  }
-
-  return indexName;
-}
-
-function parseExpTextMessage(text: string) {
-  var r = /(Cristallo|Metallo|Deuterio)\s(.*)\s(è stato razziato\.)/mg.exec(text)
-
-  if (!r) {
-    r = /(Materia Oscura)\s((\d{1,3}\.)?\d{1,3})\s(è stato razziato\.)/mgi.exec(text)
-  }
-
-  if (text.includes('sono ora parte della flotta:')) {
-    const ships = [...text.matchAll(/[a-zA-Z ]+:\s\d+/gm)].flat()
-      .reduce(
-        (a: Record<string, number>, s: string) => {
-          const [key, value] = s.split(':')
-          a[key] = Number.parseInt(value)
-          return a;
-        }, {}
-      )
-
-    return { ships }
-  }
-
-  if (!r) return {}
-
-  const resourcesKeys: Record<string, string> = {
-    'Metallo'       : 'metal',
-    'Cristallo'     : 'crystal',
-    'Deuterio'      : 'deuterium',
-    'Materia Oscura': 'darkmatter',
-  }
-
-  var resource = resourcesKeys[r[1]]
-  var amount   = +(r?.[2]?.replaceAll('.', '') || 0)
-
-  if (resource) {
-    return { resource, amount }
-  }
-
-  return {}
-}
