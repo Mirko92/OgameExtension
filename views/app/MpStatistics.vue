@@ -138,6 +138,16 @@ const data = computed(() => {
     }
 })
 
+
+const chartDataFields = [
+    'deuterium' ,
+    'crystal' ,
+    'metal' ,
+    'ships' ,
+    'darkmatter' ,
+    'empty' ,
+]
+
 const chartOptions: ChartOptions = {
     animation: {
         // @ts-ignore
@@ -146,13 +156,24 @@ const chartOptions: ChartOptions = {
     layout     : {
         padding: 20
     },
-    // plugins: {
-    //     tooltip: {
-    //         callbacks: {
-    //             label(i) { console.log("Ciaone", i); return "Ciaone"}
-    //         }
-    //     }
-    // }
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label(ctx) { 
+                    return `${ctx.label}: ${ctx.formattedValue}`
+                },
+                afterLabel(ctx) {
+                    const idx = ctx.dataIndex;
+                    const field = chartDataFields[idx]
+
+                    if ( ['empty', 'ships'].includes(field) ) return '';
+
+                    const value = resourcesMap.value[field]
+                    return `${formatNumber(value)}`
+                }
+            }
+        }
+    }
 }
 
 const currentFilter = ref<'day' | 'week' | 'month' | 'year'>('day')
