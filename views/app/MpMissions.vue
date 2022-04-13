@@ -32,13 +32,16 @@
         </button>
     </section>
 
-    <section class="collect_mission">
-        <form @submit.prevent="collectTo">
+    <section>
+        <form   class="collect_mission"
+                @submit.prevent="collectTo">
             <h4 class="text-white">Collect To: </h4>
     
             <input 
                 type="text" 
                 placeholder="g,s,p,t"
+                pattern="\d,\d{1,3},\d{1,2},\d"
+                required
                 title="galaxy, system, planet, type"
                 v-model="destination"
             >
