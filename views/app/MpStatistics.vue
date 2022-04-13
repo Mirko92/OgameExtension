@@ -4,11 +4,19 @@
             <div class="tabs">
                 <section 
                     class="tab"
+                    :class="{ 'tab--active' : currentFilter === 'yesterday' }" 
+                    title="IERI" 
+                    @click="onYesterdayClick">
+                    <svg class="tab__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                    IERI
+                </section>
+                <section 
+                    class="tab"
                     :class="{ 'tab--active' : currentFilter === 'day' }" 
-                    title="GIORNO" 
+                    title="OGGI" 
                     @click="onDayClick">
                     <svg class="tab__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-                    GIORNO
+                    OGGI
                 </section>
                 <section 
                     class="tab" 
@@ -36,6 +44,25 @@
                 </section>
             </div>
         </div>
+
+        <!-- <div class="d-f-r j-c-c gap05 mt05">
+            <input  type="date" 
+                    style="
+                        background: white; 
+                        padding: 1rem;
+                        border: none;
+                        border-radius: 10px;
+                    " 
+            />
+            <input  type="date" 
+                    style="
+                        background: white; 
+                        padding: 1rem;
+                        border: none;
+                        border-radius: 10px;
+                    " 
+            />
+        </div> -->
 
         <div class="d-f-r j-c-c" v-if="firstDate && lastDate">
             <div class="mr1">
@@ -180,7 +207,13 @@ const chartOptions: ChartOptions = {
     }
 }
 
-const currentFilter = ref<'day' | 'week' | 'month' | 'year'>('day')
+const currentFilter = ref<'yesterday' | 'day' | 'week' | 'month' | 'year'>('day')
+
+function getYesterday() {
+    const yd = new Date()
+    yd.setDate(yd.getDate() - 1)
+    return yd;
+}
 
 function getStartEndOfTheWeek(d: Date) {
     const date = new Date(d);
@@ -207,6 +240,11 @@ function getStartEndOfTheYear(date: Date) {
       new Date(date.getFullYear(), 0, 1),
       new Date(date.getFullYear(), 12, 0),
   ];
+}
+
+function onYesterdayClick() {
+    currentFilter.value = 'yesterday'
+    dbStore.loadData(getYesterday())
 }
 
 function onDayClick() {
