@@ -111,15 +111,18 @@ html.dark {
 }
 
 /* Ripple effect */
+.with-ripple,
 #mp_app button.mp_button {
   background-position: center;
   transition: background 0.8s;
 }
+.with-ripple:hover,
 #mp_app button.mp_button:hover {
   background: #9d5aeb99 radial-gradient(circle, transparent 1%, #9d5aeb99 1%) center/15000%;
 }
+.with-ripple:active,
 #mp_app button.mp_button:active {
-  background-color: #a45df699;
+  background-color: #00000099;
   background-size: 100%;
   transition: background 0s;
 }
@@ -414,6 +417,7 @@ html.dark {
 
   flex: 1;
   color: #c199f3;
+  user-select: none;
 }
 .tab__icon {
   color: white;

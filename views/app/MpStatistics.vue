@@ -52,7 +52,7 @@
         </div>
 
         <div class="d-f-r f-w j-c-a a-i-c">
-            <div style="min-width: 400px;">
+            <div style="min-width: 500px;">
                 <DoughnutChart  :chartData="data" 
                                 :options="chartOptions" />
             </div>
@@ -158,6 +158,9 @@ const chartOptions: ChartOptions = {
         padding: 20
     },
     plugins: {
+        legend: {
+            position: "left",
+        },
         tooltip: {
             callbacks: {
                 label(ctx) { 
