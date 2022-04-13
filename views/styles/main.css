@@ -308,20 +308,13 @@ html.dark {
   will-change: transform, opacity;
 }
 
-#mp_dialog > header { 
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-#mp_dialog > header h3 {
-  margin: 0;
-}
 
 #mp_dialog .close_icon {
   cursor: pointer;
+  position: absolute;
+  font-size: 1.2rem;
+  top: 0;
+  right: 10px;
 }
 
 #mp_dialog .close_icon:hover {

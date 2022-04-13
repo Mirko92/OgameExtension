@@ -26,30 +26,14 @@
 
     <transition name="slide-fade" >
       <div id="mp_dialog" v-if="displayDialog">
-        <header>
-          <h2 class="black my0">
-            Statistiche
-          </h2>
-          <i class="close_icon"
-              @click="closeDialog">
-            &times;
-          </i>
-        </header>
+        <i class="close_icon"
+            @click="closeDialog">
+          &times;
+        </i>
 
         <section>
           <MpStatistics />
         </section>
-
-        <footer class="d-f-r j-c-b">
-          <a href="javascript:void(0)"
-              @click="back">
-            indietro
-          </a>
-          <a href="javascript:void(0)"
-            @click="closeDialog">
-            chiudi
-          </a>
-        </footer>
       </div>
     </transition>
 
@@ -130,9 +114,5 @@ function openDialog() {
 function closeDialog() {
   displayDialog.value = false
   removeEscHandler()
-}
-function back() {
-  closeDialog()
-  toggle()
 }
 </script>
