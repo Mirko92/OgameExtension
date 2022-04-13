@@ -86,24 +86,6 @@
 
 <script lang="ts" setup>
 
-// async function sendMessage(message: string) {
-//     return new Promise((resolve) => {
-//         chrome.runtime.sendMessage(
-//             window.mp.extensionId,
-//             { method: "SEND_MESSAGE" },
-//             resolve
-//         )
-//     })
-// }
-
-// async function prova() {
-//     console.log("[MpOgame] - Pre-Invio messaggio", window.mp.extensionId)
-
-//     const response = await sendMessage("prova")
-
-//     console.log("[MpOgame] - prova response", response)
-// }
-
 async function fleetSave() {
     console.log("[MpOgame] - FleetSave")
     window.mp.automaticFleetSave()

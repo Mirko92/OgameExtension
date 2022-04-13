@@ -14,6 +14,7 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
     "types": [
       "vite/client",
       "chrome"
