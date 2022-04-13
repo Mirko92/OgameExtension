@@ -36,6 +36,7 @@
                 </section>
             </div>
         </div>
+
         <div class="d-f-r j-c-c" v-if="firstDate && lastDate">
             <div class="mr1">
                 <span>

@@ -42,9 +42,9 @@ chart:
   total_exp: Numero spedizioni
   dark_matter: Materia oscura
   legend:
-    deuterium: Detuerio [K]
-    crystal: Cristallo [K]
-    metal: Metallo [K]
+    deuterium: Detuerio
+    crystal: Cristallo
+    metal: Metallo
     ships: Flotta
     dark_matter: Materia Oscura
     empty: Vuota
