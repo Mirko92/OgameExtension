@@ -16,31 +16,39 @@
 
     <section class="preconfigured_mission">
         <h4 class="preconfigured_mission__name">Move all cargo to Planet</h4>
-        <button class="mp_button" title="Run" @click="moveCargoToPlanet">
+        <button class="mp_button" 
+                title="Run" 
+                @click="moveCargoToPlanet">
             <span>▶</span>
         </button>
     </section>
 
     <section class="preconfigured_mission">
         <h4 class="preconfigured_mission__name">Move all cargo to Moon</h4>
-        <button class="mp_button" title="Run" @click="moveCargoToMoon">
+        <button class="mp_button" 
+                title="Run" 
+                @click="moveCargoToMoon">
             <span>▶</span>
         </button>
     </section>
 
     <section class="collect_mission">
-        <h4 class="text-white">Collect To: </h4>
-
-        <input 
-            type="text" 
-            placeholder="g,s,p,t"
-            title="galaxy, system, planet, type"
-            v-model="destination"
-        >
-
-        <button class="mp_button" title="Run" @click="collectTo">
-            <span>▶</span>
-        </button>
+        <form @submit.prevent="collectTo">
+            <h4 class="text-white">Collect To: </h4>
+    
+            <input 
+                type="text" 
+                placeholder="g,s,p,t"
+                title="galaxy, system, planet, type"
+                v-model="destination"
+            >
+    
+            <button type="submit"
+                    class="mp_button" 
+                    title="Run" >
+                <span>▶</span>
+            </button>
+        </form>
     </section>
 </div>
 </template>

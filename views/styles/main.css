@@ -94,6 +94,7 @@ html.dark {
   cursor: pointer;
 }
 
+
 #mp_app button.mp_button {
   background: transparent;
   border: 1px solid white;
@@ -107,6 +108,20 @@ html.dark {
 #mp_app button.mp_button:active {
   box-shadow: 0 0 20px 0px #eae1e1;
   transform: scale(0.98);
+}
+
+/* Ripple effect */
+#mp_app button.mp_button {
+  background-position: center;
+  transition: background 0.8s;
+}
+#mp_app button.mp_button:hover {
+  background: #9d5aeb99 radial-gradient(circle, transparent 1%, #9d5aeb99 1%) center/15000%;
+}
+#mp_app button.mp_button:active {
+  background-color: #a45df699;
+  background-size: 100%;
+  transition: background 0s;
 }
 
 #mp_app .app_container > main {
