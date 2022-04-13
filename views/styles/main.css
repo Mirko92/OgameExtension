@@ -259,6 +259,7 @@ html.dark {
   padding: 0.25rem;
   border-radius: 10px;
   background: transparent;
+  visibility: visible !important;
   color: rgb(255, 255, 255);
 }
 
